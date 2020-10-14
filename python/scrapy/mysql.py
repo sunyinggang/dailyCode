@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, Column, Integer, String, MetaData, Table
+from sqlalchemy import create_engine, Column, Integer, String, MetaData, Table, Float, Text
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
@@ -24,15 +24,6 @@ class traditionalOffice(Base):
     area = Column(String(255))
     address = Column(String(255))
 
-kv = {'大楼名称':'name', '城市':'city', '区域':'area', '地址':'address'}
-
-infos = [['大楼名称','a'],['城市','b'],['地址','d']]
-
-l = {}
-
-for info in infos:
-    col = kv[info[0]]
-    l[col] = info[1]
 
 metadata = MetaData()
 
@@ -41,5 +32,23 @@ traditional_office = Table('traditional_office', metadata,
                 Column('name', String(255)),
                 Column('city', String(255)),
                 Column('area', String(255)),
-                Column('address', String(255))
+                Column('address', String(255)),
+                Column('completion_time', String(255)),
+                Column('floor_number', Integer()),
+                Column('floor_height', Float()),
+                Column('office_owner', String(255)),
+                Column('property_company', String(255)),
+                Column('peoelv_number', Integer()),
+                Column('freelv_number', Integer())
                 )
+
+sign_building = Table('sign_building', metadata,
+                Column('id', Integer(), primary_key=True),
+                Column('name', String(255)),
+                Column('address', String(255)),
+                Column('height', String(255)),
+                Column('wall_type', Text),
+                Column('wall_area', String(255)),
+                Column('href', String(255))
+                )
+
