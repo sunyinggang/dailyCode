@@ -44,6 +44,7 @@ def begin_detail():
                         col = kv.get(kvi[0])
                         if col != None:
                             s_info[col] = kvi[1]
+        s_info['href'] = url.url
         info_list.append(s_info)
         ins = sign_building.insert()
         result = connection.execute(ins, info_list)

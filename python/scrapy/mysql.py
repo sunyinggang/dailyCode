@@ -1,3 +1,4 @@
+from pymysql import Date
 from sqlalchemy import create_engine, Column, Integer, String, MetaData, Table, Float, Text
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
@@ -13,6 +14,11 @@ connection=engine.connect()
 
 class tmpUrls(Base):
     __tablename__ = 'tmp_urls'
+    id = Column(Integer, primary_key=True)
+    url = Column(String(255))
+
+class tmpUrlsJL(Base):
+    __tablename__ = 'tmp_urlsjl'
     id = Column(Integer, primary_key=True)
     url = Column(String(255))
 
@@ -52,3 +58,28 @@ sign_building = Table('sign_building', metadata,
                 Column('href', String(255))
                 )
 
+future_room = Table('future_room', metadata,
+                Column('id', Integer(), primary_key=True),
+                Column('name', String(255)),
+                Column('tags', Text),
+                Column('address', String(255)),
+                Column('opening_date', String(255)),
+                Column('city', String(255)),
+                Column('url', String(255))
+                )
+
+tmp_uniscid = Table('tmp_uniscid', metadata,
+                    Column('id', Integer(), primary_key=True),
+                    Column('uniscid', String(255)),
+                    Column('entname', String(255))
+                    )
+
+bidding_ggzy = Table('bidding_ggzy', metadata,
+                    Column('id', Integer(), primary_key=True),
+                    Column('bidding_people', String(255)),
+                    Column('name', String(255)),
+                    Column('field', String(255)),
+                    Column('begin_date', String(255)),
+                    Column('money', Float()),
+                    Column('company', String(255))
+                    )

@@ -14,13 +14,27 @@
 #     print(list)
 #     result = etree.tostring(list).decode("utf-8")
 #     title = tree.xpath('./div/a/text()')
-import time
+from datetime import datetime
+#
+# def is_valid_date(str):
+#   '''判断是否是一个有效的日期字符串'''
+#   try:
+#     datetime.strptime(str, "%Y.%m.%d")
+#     return True
+#   except:
+#     return False
 
-l = [35,50,66,100]
-time_start = time.time()
+# str = "2020年10月下旬"
+# print(str[4] != "年")
+# k = datetime.strptime(str, "%Y.%m.%d")
+# print(k)
+def city_name(url):
+    city_list = {"xa":"西安","cq":"重庆","hz":"杭州","nj":"南京","qd":"青岛","sy":"沈阳","tj":"天津","wh":"武汉"}
+    city = url[8:10]
+    return city_list[city]
+s = "https://qd.fang.ke.com/loupan/p_bcbijbd/"
+k = city_name(s)
+print(k)
 
 
-for i in l:
-    print(int(i/50))
-time_end = time.time()
-print('用时：', time_end - time_start)
+
