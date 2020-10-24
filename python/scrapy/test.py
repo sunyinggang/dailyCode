@@ -14,6 +14,7 @@
 #     print(list)
 #     result = etree.tostring(list).decode("utf-8")
 #     title = tree.xpath('./div/a/text()')
+import re
 from datetime import datetime
 #
 # def is_valid_date(str):
@@ -30,11 +31,13 @@ from datetime import datetime
 # print(k)
 def city_name(url):
     city_list = {"xa":"西安","cq":"重庆","hz":"杭州","nj":"南京","qd":"青岛","sy":"沈阳","tj":"天津","wh":"武汉"}
-    city = url[8:10]
+    l = re.split('[/ .]', url)
+    city = l[2]
     return city_list[city]
-s = "https://qd.fang.ke.com/loupan/p_bcbijbd/"
+s = "https://xa.fang.ke.com/loupan/p_bcbijbd/"
 k = city_name(s)
 print(k)
+
 
 
 

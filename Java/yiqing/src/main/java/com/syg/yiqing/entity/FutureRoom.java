@@ -1,12 +1,14 @@
 package com.syg.yiqing.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.awt.*;
-import java.sql.Date;
+import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -29,6 +31,7 @@ public class FutureRoom {
     private String address;
 
     @Column(name = "opening_date")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date opening_date;
 
     @Column(name = "city")

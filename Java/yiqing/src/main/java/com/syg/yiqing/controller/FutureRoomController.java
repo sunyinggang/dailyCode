@@ -7,9 +7,13 @@ import com.syg.yiqing.utils.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.time.LocalDateTime;
+import java.util.Date;
 
 @RestController
 public class FutureRoomController {
@@ -19,11 +23,16 @@ public class FutureRoomController {
 
     @GetMapping("/room/list")
     public Object getList(@RequestParam(defaultValue = "1") Integer page,
-                          @RequestParam(defaultValue = "上海") String city){
+                          @RequestParam(required = false) String city,
+                          @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") Date startTime,
+                          @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") Date endTime){
         PageRequest pageable = PageRequest.of(page-1,10);
-        Page<FutureRoom> pageObject = futureRoomService.findAllByCity(pageable,city);
-
-        return ResponseUtil.okList(pageObject);
+        //Page<FutureRoom> pageObject = futureRoomService.findAllByCity(pageable,city);
+//        if(city == null){
+//            city = "";
+//        }
+        Page<FutureRoom> pageObject2 = futureRoomService.findListLimitTime(pageable,city,startTime,endTime);
+        return ResponseUtil.okList(pageObject2);
     }
 
 }

@@ -49,4 +49,11 @@ public class TraditionalOffice {
     @Column(name = "freelv_number")
     private Integer freelv_number;
 
+    @Column(name = "open_time")
+    private Integer open_time;
+
+    @Column(name = "height")
+    private Float height;
+
+
 }

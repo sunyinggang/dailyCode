@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Property Opening</title>
+    <meta name="description" content="data tables" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">-->
+
+    <!--Basic Styles-->
+    <link href="assetsboot/css/bootstrap.min.css" rel="stylesheet" />
+    <link id="bootstrap-rtl-link" href="" rel="stylesheet" />
+    <link href="assetsboot/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="assetsboot/css/weather-icons.min.css" rel="stylesheet" />
+
+    <!--Fonts-->
+
+    <!--Beyond styles-->
+    <link id="beyond-link" href="assetsboot/css/beyond.min.css" rel="stylesheet" />
+    <link href="assetsboot/css/demo.min.css" rel="stylesheet" />
+    <link href="assetsboot/css/typicons.min.css" rel="stylesheet" />
+    <link href="assetsboot/css/animate.min.css" rel="stylesheet" />
+    <link id="skin-link" href="" rel="stylesheet" type="text/css" />
+
+    <!--Page Related styles-->
+    <link href="assetsboot/css/dataTables.bootstrap.css" rel="stylesheet" />
+    <link href="http://cdn.bootcss.com/twitter-bootstrap/2.2.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://www.bootcss.com/p/bootstrap-datetimepicker/bootstrap-datetimepicker/css/datetimepicker.css" rel="stylesheet">
+
+
+    <script src="jquery-3.3.1/jquery-3.3.1.min.js"></script>
+    <script src="bootstrap-3.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.min.js"></script>
+
+    <!--Skin Script: Place this script in head to load scripts for skins and rtl support-->
+    <script src="assetsboot/js/skins.min.js"></script>
+    <!--<script src="assetsboot/js/jquery-2.0.3.min.js"></script>-->
+    <script src="assetsboot/js/bootstrap.min.js"></script>
+
+    <!--Beyond Scripts-->
+    <script src="assetsboot/js/beyond.min.js"></script>
+
+    <!--Page Related Scripts-->
+    <script src="assetsboot/js/datatable/jquery.dataTables.min.js"></script>
+    <script src="assetsboot/js/datatable/ZeroClipboard.js"></script>
+    <script src="assetsboot/js/datatable/dataTables.tableTools.min.js"></script>
+    <script src="assetsboot/js/datatable/dataTables.bootstrap.min.js"></script>
+    <script src="assetsboot/js/datatable/datatables-init.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css" />
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/ionicons.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/jquery.mCustomScrollbar.css" rel="stylesheet">
+    <link href="assets/css/weather-icons.min.css" rel="stylesheet">
+    <!--Morris Chart -->
+    <link rel="stylesheet" href="assets/js/index/morris-chart/morris.css">
+
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/responsive.css" rel="stylesheet">
+
+    <style>
+        #header{
+            background: #2ed8b6;
+        }
+        #congtainer{
+            background-color: #7860f9;
+        }
+        li{
+            list-style:none;
+        }
+    </style>
+
+    <style>
+
+        #editabledatatable{
+
+            height: 30%;
+        }
+
+
+    </style>
+
+</head>
+<body>
+<div id="loader_wrpper">
+    <div class="loader_style"></div>
+</div>
+
+<div class="wrapper">
+
+
+    <header class="main-header">
+
+        <div class="container_header" id="header">
+            <div class="logo d-flex align-items-center" >
+                <a href="#"> <strong class="logo_icon"> </strong> <!--<span class="logo-default">
+							<img src="assets/images/logo2.png" alt=""> </span>--> </a>
+                <div class="icon_menu full_menu">
+                    <a href="#!" class="menu-toggler sidebar-toggler"></a>
+                </div>
+            </div>
+            <div class="right_detail">
+                <div class="row d-flex align-items-center min-h pos-md-r">
+                    <div class="col-3 search_col ">
+                        <div class="top_function">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+</div>
+
+<!--<script type="text/javascript" src="assets/js/jquery.min.js"></script>-->
+<script type="text/javascript" src="assets/js/popper.min.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+
+<script src="assets/js/jquery.dataTables.min.js"></script>
+<script src="assets/js/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
+<script src="assets/js/custom.js" type="text/javascript"></script>
+<script>
+    $(document).ready(function () {
+        $('#bs4-table').DataTable();
+    });
+</script>
+<!--Morris Chart-->
+<script src="assets/js/index/morris-chart/morris.js"></script>
+<script src="assets/js/index/morris-chart/raphael-min.js"></script>
+<!--morris chart initialization-->
+<script src="assets/js/index/morris-chart/morris-init.js"></script>
+<!--chartjs Total Profit,New Orders,Yearly Revineue,New Users-->
+<script src="assets/js/Chart.min.js"></script>
+<script src="assets/js/chartjs-init.js"></script>
+<script src="assets/item.js"></script>
+
+<main class="content_wrapper">
+    <!--page title start-->
+    <div class="page-heading">
+        <div class="container-fluid">
+            <div class="row d-flex align-items-center">
+                <div class="col-12">
+                    <div class="page-breadcrumb">
+                        <h1>标志性建筑物</h1>
+                    </div>
+                </div>
+                <div class="col-12 justify-content-md-end d-flex">
+                    <div class="breadcrumb_nav">
+                        <ol class="breadcrumb">
+                            <li>
+                                <i class="fa fa-home"></i>
+                                <a class="parent-item" href="index.html">Home</a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+                            <li class="active">
+                                Data Tables
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p>开始日期：</p>
+    <div class="input-append date form_datetime">
+        <input size="20" type="text" id="input1" readonly>
+        <span class="add-on"><i class="icon-remove"></i></span>
+        <span class="add-on"><i class="icon-calendar"></i></span>
+    </div>
+    <p>结束日期：</p>
+    <div class="input-append date form_datetime">
+        <input size="20" type="text" id="input2" readonly>
+        <span class="add-on"><i class="icon-remove"></i></span>
+        <span class="add-on"><i class="icon-calendar"></i></span>
+    </div>
+    <div class="container-fluid">
+            <!-- state start-->
+            <button id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                城市选择
+                <span class="caret"></span>
+            </button>
+            <div class="dropdown-menu" style="padding-left: 30px;" aria-labelledby="dropdownMenu1" id="menux">
+                <div class="container" id="d1">
+                    <div class="container-fluid">
+                        <div class="row" id="d2">
+                            <ul>
+                                <li><div class="col-lg-1">BCF</div></li></ul>
+                                <li><div class="col-lg-1" id="北京" onclick="my(this.id)"><a href="#">北京</a></div></li>
+                            <li><div class="col-lg-1" id="成都" onclick="my(this.id)"><a href="#">成都</a></div></li>
+                            <li><div class="col-lg-1" id="重庆" onclick="my(this.id)"><a href="#">重庆</a></div></li>
+                            <li><div class="col-lg-1" id="长春" onclick="my(this.id)"><a href="#">长春</a></div></li>
+                            <li><div class="col-lg-1" id="长沙" onclick="my(this.id)"><a href="#">长沙</a></div></li>
+                            <li><div class="col-lg-1" id="福州" onclick="my(this.id)"><a href="#">福州</a></div></li>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+                <div class="container">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <ul>
+                                <li><div class="col-lg-1">GH</div></li></ul>
+                                <li><div class="col-lg-1" align="left"  id="广州" onclick="my(this.id)"><a href="#">广州</a></div></li>
+                            <li><div class="col-lg-1" id="贵阳" onclick="my(this.id)"><a href="#">贵阳</a></div></li>
+                            <li><div class="col-lg-1" id="杭州" onclick="my(this.id)"><a href="#">杭州</a></div></li>
+                            <li><div class="col-lg-1" id="湖州" onclick="my(this.id)"><a href="#">湖州</a></div></li>
+                            <li><div class="col-lg-1" id="呼和浩特" onclick="my(this.id)"><a href="#">呼和浩特</a></div></li>
+                            <li><div class="col-lg-1" id="哈尔滨" onclick="my(this.id)"><a href="#">哈尔滨</a></div></li>
+                            <li><div class="col-lg-1" id="合肥" onclick="my(this.id)"><a href="#">合肥</a></div></li>
+                            <li><div class="col-lg-1" id="海口" onclick="my(this.id)"><a href="#">海口</a></div></li>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+                <div class="container">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <ul>
+                                <li><div class="col-lg-1">JKL</div></li></ul>
+                                <li><div class="col-lg-1" id="嘉兴" onclick="my(this.id)"><a href="#">嘉兴</a></div></li>
+                            <li><div class="col-lg-1" id="金华" onclick="my(this.id)"><a href="#">金华</a></div></li>
+                            <li><div class="col-lg-1" id="济南" onclick="my(this.id)"><a href="#">济南</a></div></li>
+                            <li><div class="col-lg-1" id="昆明" onclick="my(this.id)"><a href="#">昆明</a></div></li>
+                            <li><div class="col-lg-1" id="丽水" onclick="my(this.id)"><a href="#">丽水</a></div></li>
+                            <li><div class="col-lg-1" id="拉萨" onclick="my(this.id)"><a href="#">拉萨</a></div></li>
+                            <li><div class="col-lg-1" id="兰州" onclick="my(this.id)"><a href="#">兰州</a></div></li>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div class="container">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <ul>
+                                <li><div class="col-lg-1">NQ</div></li></ul>
+                                <li><div class="col-lg-1"  id="南京" onclick="my(this.id)"><a href="#">南京</a></div></li>
+                            <li><div class="col-lg-1" id="宁波" onclick="my(this.id)"><a href="#">宁波</a></div></li>
+                            <li><div class="col-lg-1" id="南昌" onclick="my(this.id)"><a href="#">南昌</a></div></li>
+                            <li><div class="col-lg-1" id="南宁" onclick="my(this.id)"><a href="#">南宁</a></div></li>
+                            <li><div class="col-lg-1" id="青岛" onclick="my(this.id)"><a href="#">青岛</a></div></li>
+                            <li><div class="col-lg-1" id="衢州" onclick="my(this.id)"><a href="#">衢州</a></div></li>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div class="container">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <ul>
+                                <li><div class="col-lg-1">STW</div></li></ul>
+                                <li><div class="col-lg-1" id="上海" onclick="my(this.id)"><a href="#">上海</a></div></li>
+                            <li><div class="col-lg-1" id="深圳" onclick="my(this.id)"><a href="#">深圳</a></div></li>
+                            <li><div class="col-lg-1" id="沈阳" onclick="my(this.id)"><a href="#">沈阳</a></div></li>
+                            <li><div class="col-lg-1" id="绍兴" onclick="my(this.id)"><a href="#">绍兴</a></div></li>
+                            <li><div class="col-lg-1" id="石家庄" onclick="my(this.id)"><a href="#">石家庄</a></div></li>
+                            <li><div class="col-lg-1" id="天津" onclick="my(this.id)"><a href="#">天津</a></div></li>
+                            <li><div class="col-lg-1" id="太原" onclick="my(this.id)"><a href="#">太原</a></div></li>
+                            <li><div class="col-lg-1" id="武汉" onclick="my(this.id)"><a href="#">武汉</a></div></li>
+                            <li><div class="col-lg-1" id="温州" onclick="my(this.id)"><a href="#">温州</a></div></li>
+                            <li><div class="col-lg-1" id="乌鲁木齐" onclick="my(this.id)"><a href="#">乌鲁木齐</a></div></li>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div class="container">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <ul>
+                                <li><div class="col-lg-1">XYZ</div></li></ul>
+                                <li ><div class="col-lg-1"  id="西安" onclick="my(this.id)"><a href="#">西安</a></div></li>
+                            <li><div class="col-lg-1" id="西宁" onclick="my(this.id)"><a href="#">西宁</a></div></li>
+                            <li><div class="col-lg-1" id="义乌" onclick="my(this.id)"><a href="#">义乌</a></div></li>
+                            <li><div class="col-lg-1" id="舟山" onclick="my(this.id)"><a href="#">舟山</a></div></li>
+                            <li><div class="col-lg-1" id="郑州" onclick="my(this.id)"><a href="#">郑州</a></div></li>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+
+
+            </div>
+            <!-- state start-->
+
+            <button onclick="btn()">查询</button>
+        <div class="row">
+            <div class=" col-12">
+                <div class="card card-shadow mb-4">
+                    <div class="card-body">
+                        <table id="roomdatatable" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="bs4-table_info">
+                            <thead>
+                            <tr role="row">
+                                <th tabindex="0" aria-controls="bs4-table" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 50px;">
+                                    id
+                                </th>
+                                <th tabindex="0" aria-controls="bs4-table" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 120px;">
+                                    名称
+                                </th>
+                                <th tabindex="0" aria-controls="bs4-table" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 100px;">
+                                    标签
+                                </th>
+                                <th tabindex="0" aria-controls="bs4-table" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 300px;">
+                                    详情地址
+                                </th>
+                                <th tabindex="0" aria-controls="bs4-table" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 169px;">
+                                    开盘日期
+                                </th>
+                                <th tabindex="0" aria-controls="bs4-table" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 140.4px;">
+                                    所属城市
+                                </th>
+                                <th tabindex="0" aria-controls="bs4-table" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 140.4px;">
+                                    原文链接
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                        <div id="pagination" align="center">
+                            <ul class="pagination">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- state end-->
+    </div>
+    </div>
+    </div>
+</main>
+<!--main contents end-->
+</div>
+<script>
+    $(".form_datetime").datetimepicker({
+        format:'yyyy-mm-dd',
+        startView:'year',
+        maxView:'year',
+        minView:'month',
+        autoclose:true,
+        pickerPosition: "bottom-left",
+        language:'zh-CN'
+    });
+</script>
+<script>
+    var curPage=1; //当前页码
+    var total, pageSize, totalPage;
+    var func1=document.getElementById("input1");
+    var func2=document.getElementById("input2");
+    getData(1);
+    //获取数据
+    function getData(page) {
+        $.ajax({
+            type: 'GET',
+            url: 'http://39.98.49.111:8888/room/list?startTime=2020-09-10&endTime=2020-10-10',
+            data: {'page': page},
+            dataType: 'json',
+            success: function (json) {
+                $("#roomdatatable tbody").empty();
+                console.log(json);
+                total = json.data.totalNum; //总记录数
+                pageSize = 10; //每页显示条数
+                curPage = json.data.page; //当前页
+                totalPage = json.data.totalPage; //总页数
+                var list = json.data.list;
+                $.each(list, function (i, result) {
+                    var item = "<tr><td>" + result['id'] + "</td><td>" + result['name'] + "</td><td>" + result['tags'] + "</td><td>" + result['address'] + "</td><td>" + result['opening_date'] + "</td><td>" + result['city'] + "</td><td><a target='_blank' class='badge badge-pill badge-success' href='" + result['url'] + "'>访问</a></tr>";
+                    $('#roomdatatable tbody').append(item);
+                });
+            },
+            complete: function () { //生成分页条
+                getPageBar();
+            },
+            error: function () {
+                alert("数据加载失败");
+            }
+        });
+    }
+    function getData2(page) {
+        $.ajax({
+            type: 'GET',
+            url: 'http://39.98.49.111:8888/room/list?city='+x+'&startTime='+y+'&endTime='+z,
+            data: {'page': page},
+            dataType: 'json',
+            success: function (json) {
+                $("#roomdatatable tbody").empty();
+                console.log(json);
+                total = json.data.totalNum; //总记录数
+                pageSize = 10; //每页显示条数
+                curPage = json.data.page; //当前页
+                totalPage = json.data.totalPage; //总页数
+                var list = json.data.list;
+                $.each(list, function (i, result) {
+                    var item = "<tr><td>" + result['id'] + "</td><td>" + result['name'] + "</td><td>" + result['tags'] + "</td><td>" + result['address'] + "</td><td>" + result['opening_date'] + "</td><td>" + result['city'] + "</td><td>" + result['url'] + "</tr>";
+                    $('#roomdatatable tbody').append(item);
+                });
+            },
+            complete: function () { //生成分页条
+                getPageBar2();
+            },
+            error: function () {
+                alert("数据加载失败");
+            }
+        });
+    }
+    function getData3(page) {
+        $.ajax({
+            type: 'GET',
+            url: 'http://39.98.49.111:8888/room/list?&startTime='+y+'&endTime='+z,
+            data: {'page': page},
+            dataType: 'json',
+            success: function (json) {
+                $("#roomdatatable tbody").empty();
+                console.log(json);
+                total = json.data.totalNum; //总记录数
+                pageSize = 10; //每页显示条数
+                curPage = json.data.page; //当前页
+                totalPage = json.data.totalPage; //总页数
+                var list = json.data.list;
+                $.each(list, function (i, result) {
+                    var item = "<tr><td>" + result['id'] + "</td><td>" + result['name'] + "</td><td>" + result['tags'] + "</td><td>" + result['address'] + "</td><td>" + result['opening_date'] + "</td><td>" + result['city'] + "</td><td>" + result['url'] + "</tr>";
+                    $('#roomdatatable tbody').append(item);
+                });
+            },
+            complete: function () { //生成分页条
+                getPageBar3();
+            },
+            error: function () {
+                alert("数据加载失败");
+            }
+        });
+    }
+    function getPageBar() {
+        //页码大于最大页数
+        if (curPage > totalPage) curPage = totalPage;
+        //页码小于1
+        if (curPage < 1) curPage = 1;
+        pageStr = "<li class='disabled' ><a>共" + total + "条" + curPage + "/" + totalPage + "</a></li>";
+
+        //如果是第一页
+        if (curPage == 1) {
+            pageStr += "<li class='disabled'><a>首页</a></li><li class='disabled'><a>上一页</a></li>";
+        } else {
+            pageStr += "<li><a href='javascript:void(0);' onclick='page_load(1)'>首页</a></li><li><a href='javascript:void(0);' onclick='page_load(curPage-1)'>上一页</a></li>";
+        }
+
+        //如果是最后页
+        if (curPage >= totalPage) {
+            pageStr += "<li class='disabled'><a>下一页</a></li><li class='disabled'><a>尾页</a></li>";
+        } else {
+            pageStr += "<li><a href='javascript:void(0);' onclick='page_load(curPage+1)'>下一页</a></li><li><a href='javascript:void(0);' onclick='page_load(totalPage)'>尾页</a></li>";
+        }
+
+        $("#pagination ul").html(pageStr);
+    }
+
+    function page_load(page) {
+        getData(page);
+    }
+
+    /* $(function () {
+     getData(1);
+     });*/
+    function getPageBar2() {
+        //页码大于最大页数
+        if (curPage > totalPage) curPage = totalPage;
+        //页码小于1
+        if (curPage < 1) curPage = 1;
+        pageStr = "<li class='disabled' ><a>共" + total + "条" + curPage + "/" + totalPage + "</a></li>";
+
+        //如果是第一页
+        if (curPage == 1) {
+            pageStr += "<li class='disabled'><a>首页</a></li><li class='disabled'><a>上一页</a></li>";
+        } else {
+            pageStr += "<li><a href='javascript:void(0);' onclick='page_load2(1)'>首页</a></li><li><a href='javascript:void(0);' onclick='page_load2(curPage-1)'>上一页</a></li>";
+        }
+
+        //如果是最后页
+        if (curPage >= totalPage) {
+            pageStr += "<li class='disabled'><a>下一页</a></li><li class='disabled'><a>尾页</a></li>";
+        } else {
+            pageStr += "<li><a href='javascript:void(0);' onclick='page_load2(curPage+1)'>下一页</a></li><li><a href='javascript:void(0);' onclick='page_load2(totalPage)'>尾页</a></li>";
+        }
+
+        $("#pagination ul").html(pageStr);
+    }
+
+    function page_load2(page) {
+        getData2(page);
+    }
+    function getPageBar3() {
+        //页码大于最大页数
+        if (curPage > totalPage) curPage = totalPage;
+        //页码小于1
+        if (curPage < 1) curPage = 1;
+        pageStr = "<li class='disabled' ><a>共" + total + "条" + curPage + "/" + totalPage + "</a></li>";
+
+        //如果是第一页
+        if (curPage == 1) {
+            pageStr += "<li class='disabled'><a>首页</a></li><li class='disabled'><a>上一页</a></li>";
+        } else {
+            pageStr += "<li><a href='javascript:void(0);' onclick='page_load2(1)'>首页</a></li><li><a href='javascript:void(0);' onclick='page_load2(curPage-1)'>上一页</a></li>";
+        }
+
+        //如果是最后页
+        if (curPage >= totalPage) {
+            pageStr += "<li class='disabled'><a>下一页</a></li><li class='disabled'><a>尾页</a></li>";
+        } else {
+            pageStr += "<li><a href='javascript:void(0);' onclick='page_load2(curPage+1)'>下一页</a></li><li><a href='javascript:void(0);' onclick='page_load2(totalPage)'>尾页</a></li>";
+        }
+
+        $("#pagination ul").html(pageStr);
+    }
+
+    function page_load3(page) {
+        getData3(page);
+    }
+    /* $(function () {
+     getData2(1);
+     });*/
+
+    function my(id) {
+            x = id;
+            y=func1.value;
+            z=func2.value;
+            getData2(1);
+
+    }
+    function btn(){
+        y=func1.value;
+        z=func2.value;
+        getData3(1);
+    }
+</script>
+</body>
+</html>

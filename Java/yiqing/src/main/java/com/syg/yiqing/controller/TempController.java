@@ -1,8 +1,10 @@
 package com.syg.yiqing.controller;
 
 import com.syg.yiqing.dao.BiddingGgzyDao;
+import com.syg.yiqing.dao.OfficeBuildingDao;
 import com.syg.yiqing.dao.PropertyDao;
 import com.syg.yiqing.entity.BiddingGgzy;
+import com.syg.yiqing.entity.OfficeBuilding;
 import com.syg.yiqing.entity.Property;
 import com.syg.yiqing.entity.SignBuilding;
 import com.syg.yiqing.service.SignBuildingService;
@@ -37,5 +39,14 @@ public class TempController {
         return ResponseUtil.okList(pageObject);
     }
 
+    @Autowired
+    private OfficeBuildingDao officeBuildingDao;
 
+    @GetMapping("/building/list")
+    public Object getOfficeBuildingList(@RequestParam(defaultValue = "1") Integer page,
+                                        @RequestParam(defaultValue = "上海") String city){
+        PageRequest pageable = PageRequest.of(page-1,15);
+        Page<OfficeBuilding> pageObject = officeBuildingDao.findAllByCity(pageable,city);
+        return ResponseUtil.okList(pageObject);
+    }
 }

@@ -1,4 +1,5 @@
 import math
+import re
 import time
 from datetime import datetime
 
@@ -15,12 +16,18 @@ from lxml import etree
 # 获取列表href
 from mysql import tmpUrlsJL, session, future_room, connection
 
+# url_list = ["https://cd.julive.com/project/s/n1_n4", "https://gz.julive.com/project/s/n1_n4"
+#     , "https://sz.julive.com/project/s/n1_n4", "https://xa.julive.com/project/s/n1_n4",
+#             "https://cq.julive.com/project/s/n1_n4"
+#     , "https://hz.julive.com/project/s/n1_n4", "https://nj.julive.com/project/s/n1_n4",
+#             "https://qd.julive.com/project/s/n1_n4"
+#     , "https://sy.julive.com/project/s/n1_n4", "https://tj.julive.com/project/s/n1_n4",
+#             "https://wh.julive.com/project/s/n1_n4","https://nb.julive.com/project/s/n1_n4","https://jx.julive.com/project/s/n1_n4"]
 
 def add_href():
-    url_list = ["https://cd.julive.com/project/s/n1_n4","https://gz.julive.com/project/s/n1_n4"
-                ,"https://sz.julive.com/project/s/n1_n4","https://xa.julive.com/project/s/n1_n4","https://cq.julive.com/project/s/n1_n4"
-                ,"https://hz.julive.com/project/s/n1_n4","https://nj.julive.com/project/s/n1_n4","https://qd.julive.com/project/s/n1_n4"
-                ,"https://sy.julive.com/project/s/n1_n4","https://tj.julive.com/project/s/n1_n4","https://wh.julive.com/project/s/n1_n4"]
+    url_list = ["https://hf.julive.com/project/s/n1_n4","https://jn.julive.com/project/s/n1_n4"
+                ,"https://zz.julive.com/project/s/n1_n4","https://cs.julive.com/project/s/n1_n4","https://gy.julive.com/project/s/n1_n4"
+                ,"https://km.julive.com/project/s/n1_n4"]
     for o_url in url_list:
         r = requests.get(o_url)
         htmlContent = r.text
@@ -37,7 +44,7 @@ def page_list(page,o_url):
     for i in range(1,page+1):
         p_url = o_url + "-z" + str(i)
         print("开始爬取第"+str(i)+"页")
-        time.sleep(1)
+        time.sleep(3)
         r = requests.get(p_url)
         htmlContent = r.text
         tree = etree.HTML(htmlContent)
@@ -59,7 +66,7 @@ def begin_detail():
     info_list = []
     i = 1
     for url in urls:
-        if i >230:
+        if i >116:
             r = requests.get(url.url)
             time.sleep(5)
             htmlContent = r.text
@@ -79,7 +86,10 @@ def begin_detail():
                     if len(opening_date) == 7:
                         opening_date = datetime.strptime(opening_date, '%Y-%m').date()
                     elif len(opening_date) == 10:
-                        opening_date = datetime.strptime(opening_date, '%Y-%m-%d').date()
+                        if is_valid_date(opening_date) == True:
+                            opening_date = datetime.strptime(opening_date, '%Y-%m-%d').date()
+                        else:
+                            opening_date = None
                 else:
                     opening_date = None
             else:
@@ -108,11 +118,23 @@ def begin_detail():
                 print("休息一下")
                 time.sleep(5)
         i = i + 1
-
+#city_list = {"ju":"北京","cd":"成都","gz":"广州","sz":"深圳","xa":"西安","cq":"重庆","hz":"杭州","nj":"南京",
+# "qd":"青岛","sy":"沈阳","tj":"天津","wh":"武汉""nb": "宁波", "sx": "绍兴", "jx": "嘉兴", "wz": "温州",
+# "huzhou": "湖州", "zhoushan": "舟山", "quzhou": "衢州",
+#                  "jh": "金华", "lishui": "丽水", "yw": "义乌"}
 def city_name(url):
-    city_list = {"ju":"北京","cd":"成都","gz":"广州","sz":"深圳","xa":"西安","cq":"重庆","hz":"杭州","nj":"南京","qd":"青岛","sy":"沈阳","tj":"天津","wh":"武汉"}
-    city = url[8:10]
+    city_list = {"sjz":"石家庄","hf":"合肥","jn":"济南","zz":"郑州","cs":"长沙","gy":"贵阳","km":"昆明"}
+    l = re.split('[/ .]', url)
+    city = l[2]
     return city_list[city]
 
+def is_valid_date(str):
+  '''判断是否是一个有效的日期字符串'''
+  try:
+    datetime.strptime(str, "%Y-%m-%d")
+    return True
+  except:
+    return False
 if __name__=='__main__':
     begin_detail()
+

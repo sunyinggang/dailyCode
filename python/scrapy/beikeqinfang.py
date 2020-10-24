@@ -1,4 +1,5 @@
 import math
+import re
 import time
 from datetime import datetime
 
@@ -16,7 +17,7 @@ def page_list(page,o_url):
     for i in range(1,page+1):
         p_url = o_url + "/loupan/nho0pg" + str(i)
         print("开始爬取第"+str(i)+"页")
-        time.sleep(1)
+        time.sleep(5)
         r = requests.get(p_url)
         htmlContent = r.text
         tree = etree.HTML(htmlContent)
@@ -32,10 +33,18 @@ def page_list(page,o_url):
         print("休息5秒")
         time.sleep(5)
 
+# url_list = ["https://hz.fang.ke.com","https://nj.fang.ke.com","https://qd.fang.ke.com","https://sy.fang.ke.com"
+#                 ,"https://tj.fang.ke.com","https://wh.fang.ke.com","https://nb.fang.ke.com","https://sx.fang.ke.com","https://jx.fang.ke.com","https://wz.fang.ke.com"
+#                 ,"https://huzhou.fang.ke.com","https://zhoushan.fang.ke.com","https://quzhou.fang.ke.com","https://jh.fang.ke.com"
+#                 ,"https://lishui.fang.ke.com","https://yw.fang.ke.com"]
+
 # 获取列表href
 def add_href():
-    url_list = ["https://hz.fang.ke.com","https://nj.fang.ke.com","https://qd.fang.ke.com","https://sy.fang.ke.com"
-                ,"https://tj.fang.ke.com","https://wh.fang.ke.com"]
+    url_list = ["https://sjz.fang.ke.com","https://ty.fang.ke.com","https://hhht.fang.ke.com","https://cc.fang.ke.com"
+                ,"https://hrb.fang.ke.com","https://hf.fang.ke.com","https://fz.fang.ke.com","https://nc.fang.ke.com"
+                ,"https://jn.fang.ke.com","https://zz.fang.ke.com","https://cs.fang.ke.com","https://nn.fang.ke.com"
+                ,"https://hk.fang.ke.com","https://gy.fang.ke.com","https://km.fang.ke.com","https://lasa.fang.ke.com"
+                ,"https://lz.fang.ke.com","https://xining.fang.ke.com","https://yinchuan.fang.ke.com","https://wlmq.fang.ke.com"]
     for o_url in url_list:
         print("开始城市"+o_url)
         p_url = o_url + "/loupan/nho0/"
@@ -55,7 +64,7 @@ def begin_detail():
     info_list = []
     i = 1
     for url in urls:
-        if i >250:
+        if i >77:
             r = requests.get(url.url)
             time.sleep(8)
             htmlContent = r.text
@@ -103,9 +112,20 @@ def begin_detail():
                 time.sleep(5)
         i = i + 1
 
+#city_list = {"sh":"上海","bj":"北京","cd":"成都","gz":"广州","sz":"深圳","xa":"西安","cq":"重庆","hz":"杭州",
+# "nj":"南京","qd":"青岛","sy":"沈阳","tj":"天津","wh":"武汉",
+# "nb":"宁波","sx":"绍兴","jx":"嘉兴","wz":"温州","huzhou":"湖州","zhoushan":"舟山",
+#"quzhou":"衢州","jh":"金华","lishui":"丽水","yw":"义乌","sjz":"石家庄","ty":"太原","hhht":"呼和浩特",
+# "cc":"长春","hrb":"哈尔滨","hf":"合肥",
+# "fz":"福州","nc":"南昌","jn":"济南","zz":"郑州","cs":"长沙","nn":"南宁","hk":"海口"
+#,"gy":"贵阳","km":"昆明","lasa":"拉萨","lz":"兰州","xining":"西宁","yinchuan":"银川","wlmq":"乌鲁木齐"}
+
 def city_name(url):
-    city_list = {"xa":"西安","cq":"重庆","hz":"杭州","nj":"南京","qd":"青岛","sy":"沈阳","tj":"天津","wh":"武汉"}
-    city = url[8:10]
+    city_list = {"sjz":"石家庄","ty":"太原","hhht":"呼和浩特","cc":"长春","hrb":"哈尔滨","hf":"合肥",
+                 "fz":"福州","nc":"南昌","jn":"济南","zz":"郑州","cs":"长沙","nn":"南宁","hk":"海口"
+                 ,"gy":"贵阳","km":"昆明","lasa":"拉萨","lz":"兰州","xining":"西宁","yinchuan":"银川","wlmq":"乌鲁木齐"}
+    l = re.split('[/ .]', url)
+    city = l[2]
     return city_list[city]
 
 
@@ -142,5 +162,5 @@ def test2():
 
 
 if __name__=='__main__':
-    begin_detail()
+    add_href()
 

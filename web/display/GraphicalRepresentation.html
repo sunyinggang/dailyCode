@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GraphicalShow</title>
+
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css" />
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/ionicons.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/jquery.mCustomScrollbar.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/responsive.css" rel="stylesheet">
+
+    <script src="echarts.min.js"></script>
+<style >
+    #h1{
+
+        background: #16c5b2;
+    }
+
+
+
+</style>
+
+</head>
+
+<body><div id="loader_wrpper">
+    <div class="loader_style"></div>
+</div>
+<div class="wrapper" >
+    <!-- header -->
+    <header class="main-header" id="h1">
+        <div class="container_header">
+            <div class="logo d-flex align-items-center">
+                <a href="#"> <strong class="logo_icon"> <img src="assets/images/small-logo.png" alt=""> </strong> <span class="logo-default">
+							<!--<img src="assets/images/logo2.png" alt=""> </span> </a>-->
+                <div class="icon_menu full_menu">
+                    <a href="#!" class="menu-toggler sidebar-toggler"></a>
+                </div>
+                    </span>
+                    </a>
+
+            </div>
+            <div class="right_detail">
+                <div class="row d-flex align-items-center min-h pos-md-r">
+                    <div class="col-3 search_col ">
+                        <div class="top_function">
+
+                            <!--<div class="search">-->
+                                <!--<a id="toggle_res_search" data-toggle="collapse" data-target="#search_form" class="res-only-view collapsed"-->
+                                   <!--href="javascript:void(0);" aria-expanded="false"> <i class=" icon-magnifier"></i> </a>-->
+                                <!--<form id="search_form" role="search" class="search-form collapse" action="#">-->
+                                    <!--<div class="input-group">-->
+                                        <!--<input type="text" class="form-control" placeholder="Search...">-->
+                                        <!--<button type="button" class="btn" data-target="#search_form" data-toggle="collapse" aria-label="Close">-->
+                                            <!--<i class="ion-android-search"></i>-->
+                                        <!--</button>-->
+                                    <!--</div>-->
+                                <!--</form>-->
+                            <!--</div>-->
+                        </div>
+                    </div>
+                    <div class=" col-9 d-flex justify-content-end">
+                        <div class="right_bar_top d-flex align-items-center">
+
+                            <!-- DropDown_Inbox -->
+                            <!--<div class="dropdown dropdown-inbox">-->
+                                <!--<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">-->
+                                    <!--&lt;!&ndash;<i class="fa fa-envelope-o"></i> <span class="badge_coun"> 2 </span> </a>&ndash;&gt;-->
+                                <!--<ul class="dropdown-menu scroll_auto height_fixed">-->
+                                    <!--<li class="bigger">-->
+                                        <!--<h3><span class="bold">Messages</span></h3>-->
+                                        <!--<span class="notification-label">New 2</span>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<ul class="dropdown-menu-list">-->
+                                            <!--<li>-->
+                                                <!--<a href="#"> <span class="photo"> <img src="assets/images/about-1.jpg" class="img-circle" alt=""> </span>-->
+                                                    <!--<span class="subject"> <span class="from"> Sarah Smith </span> <span class="time">Just Now </span> </span>-->
+                                                    <!--<span class="message"> Jatin I found you on LinkedIn... </span> </a>-->
+                                            <!--</li>-->
+                                            <!--<li>-->
+                                                <!--<a href="#"> <span class="photo"> <img src="assets/images/about-1.jpg" class="img-circle" alt=""> </span>-->
+                                                    <!--<span class="subject"> <span class="from"> Sarah Smith </span> <span class="time">Just Now </span> </span>-->
+                                                    <!--<span class="message"> Jatin I found you on LinkedIn... </span> </a>-->
+                                            <!--</li>-->
+                                            <!--<li>-->
+                                                <!--<a href="#"> <span class="photo"> <img src="assets/images/about-1.jpg" class="img-circle" alt=""> </span>-->
+                                                    <!--<span class="subject"> <span class="from"> Sarah Smith </span> <span class="time">Just Now </span> </span>-->
+                                                    <!--<span class="message"> Jatin I found you on LinkedIn... </span> </a>-->
+                                            <!--</li>-->
+                                            <!--<li>-->
+                                                <!--<a href="#"> <span class="photo"> <img src="assets/images/about-1.jpg" class="img-circle" alt=""> </span>-->
+                                                    <!--<span class="subject"> <span class="from"> Sarah Smith </span> <span class="time">Just Now </span> </span>-->
+                                                    <!--<span class="message"> Jatin I found you on LinkedIn... </span> </a>-->
+                                            <!--</li>-->
+                                            <!--<li>-->
+                                                <!--<a href="#"> <span class="photo"> <img src="assets/images/about-1.jpg" class="img-circle" alt=""> </span>-->
+                                                    <!--<span class="subject"> <span class="from"> Sarah Smith </span> <span class="time">Just Now </span> </span>-->
+                                                    <!--<span class="message"> Jatin I found you on LinkedIn... </span> </a>-->
+                                            <!--</li>-->
+                                            <!--<li>-->
+                                                <!--<a href="#"> <span class="photo"> <img src="assets/images/about-1.jpg" class="img-circle" alt=""> </span>-->
+                                                    <!--<span class="subject"> <span class="from"> Sarah Smith </span> <span class="time">Just Now </span> </span>-->
+                                                    <!--<span class="message"> Jatin I found you on LinkedIn... </span> </a>-->
+                                            <!--</li>-->
+                                        <!--</ul>-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
+                            <!--DropDown_Inbox_End -->
+                            <!-- Dropdown_User -->
+                            <!--<div class="dropdown dropdown-user">-->
+                                <!--<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"-->
+                                   <!--aria-expanded="true"> <img class="img-circle pro_pic" src="assets/images/about-1.jpg" alt=""> </a>-->
+                                <!--<ul class="dropdown-menu dropdown-menu-default">-->
+                                    <!--<li>-->
+                                        <!--<a href="#"> <i class="icon-user"></i> Profile </a>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<a href="#"> <i class="icon-settings"></i> Settings </a>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<a href="#"> <i class="icon-directions"></i> Help </a>-->
+                                    <!--</li>-->
+                                    <!--<li class="divider"></li>-->
+                                    <!--<li>-->
+                                        <!--<a href="lock_screen.html"> <i class="icon-lock"></i> Lock </a>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<a href="#"> <i class="icon-logout"></i> Log Out </a>-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
+                            <!-- Dropdown_User_End -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <!-- header_End -->
+    <!-- Content_right -->
+        <script src="assets/item.js"></script>
+        <!--<div class="side_bar dark_blue side_bg_img scroll_auto mCustomScrollbar _mCS_2">
+            <div id="mCSB_2" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" tabindex="0" style="max-height: none;">
+                <div id="mCSB_2_container" class="mCSB_container" style="position:relative; top:0; left:0;" dir="ltr">
+                    <ul id="dc_accordion" class="sidebar-menu tree">
+                        <li class="menu_title">主菜单</li>
+
+                        &lt;!&ndash;传统写字楼&ndash;&gt;
+                        <li class="menu_sub dcjq-parent-li">
+                            <a href="OfficeBuilding.html" class="dcjq-parent"> <i class="fa fa-th"></i> <span>传统写字楼</span> <span class="dcjq-icon"></span></a>
+                        </li>
+
+                        &lt;!&ndash; 楼房开盘日期&ndash;&gt;
+                        <li class="menu_sub dcjq-parent-li">
+                            <a href="PropertyOpening.html" class="dcjq-parent"> <i class="fa fa-home"></i> <span>楼房开盘日期 </span>  <span class="dcjq-icon"></span></a>
+
+                            &lt;!&ndash;  物业信息 &ndash;&gt;
+                        </li>
+                        <li class="menu_sub dcjq-parent-li">
+                            <a href="PropertyAssociation.html" class="dcjq-parent"> <i class="fa fa-list-alt"></i> <span>物业信息</span> </a>
+                        </li>
+
+                        &lt;!&ndash; 招标信息&ndash;&gt;
+                        <li class="menu_sub dcjq-parent-li">
+                            <a href="BiddingInformation.html" class="dcjq-parent"> <i class="fa fa-gavel"></i> <span>招标信息</span> </a>
+                        </li>
+
+                        &lt;!&ndash;标志性建筑&ndash;&gt;
+                        <li class="menu_sub dcjq-parent-li">
+                            <a href="Symbol.html" class="dcjq-parent"> <i class="fa fa-align-center"></i> <span>标志性建筑物</span> </a>
+                        </li>
+
+                        <li class="menu_sub dcjq-parent-li">
+                            <a href="GraphicalRepresentation.html" class="dcjq-parent"> <i class="fa fa-align-center"></i> <span>图标展示示例</span> </a>
+                        </li>
+                        <li><img src="assets/images/高楼.jpg" height="450"></li>
+
+
+                    </ul>
+
+                </div>
+            </div>-->
+
+
+        <!--main contents start-->
+        <main class="content_wrapper">
+            <!--page title start-->
+            <div class="page-heading">
+                <div class="container-fluid">
+                    <div class="row d-flex align-items-center">
+                        <div class="col-12">
+                            <div class="page-breadcrumb">
+                                <h1>传统写字楼</h1>
+                            </div>
+                        </div>
+                        <div class="col-12 justify-content-md-end d-flex">
+                            <div class="breadcrumb_nav">
+                                <ol class="breadcrumb">
+                                    <li>
+                                        <i class="fa fa-home"></i>
+                                        <a class="parent-item" href="index.html">Home</a>
+                                        <i class="fa fa-angle-right"></i>
+                                    </li>
+                                    <li class="active">
+                                        ECharts
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--page title end-->
+
+            <div class="container-fluid">
+                <!-- state start-->
+                <div class="row">
+                    <div class=" col-12">
+                        <div class="card card-shadow mb-4">
+                            <div class="card-header">
+                                <div class="card-title">
+                                    图标展示实例
+                                </div>
+                                <div class="tools">
+                                    <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
+                                    <a class="t-collapse btn-color fa fa-chevron-down" href="javascript:;"></a>
+                                    <a class="t-close btn-color fa fa-times" href="javascript:;"></a>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div id="b-area" style="height: 350px">
+                                    <!--饼状图-->
+                                    <div id="main" style="width: 600px;height:400px;" ></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--图示-->
+                    <div class=" col-12">
+
+                        <script type="text/javascript">
+                            // 基于准备好的dom，初始化echarts实例
+                            var myChart = echarts.init(document.getElementById('main'));
+
+                            // 指定图表的配置项和数据
+                            var option = {
+//                                title: {
+//                                    text: '某站点用户访问来源',
+//                                    subtext: '纯属虚构',
+//                                    left: 'center'
+//                                },
+                                tooltip: {
+                                    trigger: 'item',
+                                    formatter: '{a} <br/>{b} : {c} ({d}%)'
+                                },
+                                legend: {
+                                    orient: 'vertical',
+                                    left: 'left',
+                                    data: ['北京', '上海', '广州', '深圳', '苏州']
+                                },
+                                series: [
+                                    {
+                                        name: '访问来源',
+                                        type: 'pie',
+                                        radius: '55%',
+                                        center: ['50%', '60%'],
+                                        data: [
+                                            {value: 512.4, name: '北京'},
+                                            {value: 512.4, name: '上海'},
+                                            {value: 512.4, name: '广州'},
+                                            {value: 512.4, name: '深圳'},
+                                            {value: 512.4, name: '苏州'}
+                                        ],
+                                        emphasis: {
+                                            itemStyle: {
+                                                shadowBlur: 10,
+                                                shadowOffsetX: 0,
+                                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                                            }
+                                        }
+                                    }
+                                ]
+                            };
+
+                            // 使用刚指定的配置项和数据显示图表。
+                            myChart.setOption(option);
+                        </script>
+                </div>
+                <!-- state end-->
+            </div>
+</div>
+        </main>
+        <!--main contents end-->
+    </div>
+
+    <!-- Content_right_End -->
+    <!-- Footer -->
+
+    <!-- Footer_End -->
+</div>
+<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/popper.min.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<!--echarts-->
+<script type="text/javascript" src="assets/js/echarts/echarts-all-3.js"></script>
+<!--init echarts-->
+
+<script type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
+<script src="assets/js/custom.js" type="text/javascript"></script>
+</body>
+
+</html>
