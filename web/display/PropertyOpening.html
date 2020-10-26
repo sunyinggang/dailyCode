@@ -32,6 +32,7 @@
     <script src="jquery-3.3.1/jquery-3.3.1.min.js"></script>
     <script src="bootstrap-3.3.0/dist/js/bootstrap.min.js"></script>
     <script src="bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.min.js"></script>
+    <script  src="bootstrap-datetimepicker-master/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
 
     <!--Skin Script: Place this script in head to load scripts for skins and rtl support-->
     <script src="assetsboot/js/skins.min.js"></script>
@@ -48,7 +49,6 @@
     <script src="assetsboot/js/datatable/dataTables.bootstrap.min.js"></script>
     <script src="assetsboot/js/datatable/datatables-init.js"></script>
 
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css" />
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="assets/css/ionicons.css" rel="stylesheet" type="text/css">
@@ -78,6 +78,27 @@
         #editabledatatable{
 
             height: 30%;
+        }
+     /*   #divall{
+            width: 100%;
+
+        }
+
+    #div1{
+        width: 50%;
+        float: right;
+    }
+        #div2{
+            width: 50%;
+            float: left;
+
+        }*/
+
+        #dropdownMenu1{
+            border-radius: 3px;
+        }
+        #b1{
+            border-radius: 3px;
         }
 
 
@@ -154,11 +175,11 @@
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-home"></i>
-                                <a class="parent-item" href="index.html">Home</a>
+                                <a class="parent-item" href="index.html">首页</a>
                                 <i class="fa fa-angle-right"></i>
                             </li>
                             <li class="active">
-                                Data Tables
+                                开盘商品房
                             </li>
                         </ol>
                     </div>
@@ -166,21 +187,33 @@
             </div>
         </div>
     </div>
-    <p>开始日期：</p>
-    <div class="input-append date form_datetime">
-        <input size="20" type="text" id="input1" readonly>
-        <span class="add-on"><i class="icon-remove"></i></span>
-        <span class="add-on"><i class="icon-calendar"></i></span>
-    </div>
-    <p>结束日期：</p>
-    <div class="input-append date form_datetime">
-        <input size="20" type="text" id="input2" readonly>
-        <span class="add-on"><i class="icon-remove"></i></span>
-        <span class="add-on"><i class="icon-calendar"></i></span>
-    </div>
     <div class="container-fluid">
             <!-- state start-->
-            <button id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3" >
+            开始日期：
+        <div class="input-append date form_datetime" id="div1"  style="height:30px;margin-right:20px;" >
+            <input size="10" type="text" id="input1" readonly="" style="background-color:#fff;height:30px;">
+            <span class="add-on" style="display:inline-block; border:1px solid #ccc;width:50px;height:30px;background-color:#fff;"><i class="icon-remove"></i></span>
+            <span class="add-on" style="display:inline-block; border:1px solid #ccc;width:50px;height:30px;background-color:#fff;"><i class="icon-calendar"></i></span>
+        </div>
+                </div>
+            <div class="col-lg-3">
+            结束日期：
+        <div class="input-append date form_datetime" id="div2" style="height:30px;margin-right:20px;">
+            <input size="10" type="text" id="input2" readonly="" style="background-color:#fff;height:30px;">
+            <span class="add-on" style="display:inline-block; border:1px solid #ccc;width:50px;height:30px;background-color:#fff;"><i class="icon-remove"></i></span>
+            <span class="add-on" style="display:inline-block; border:1px solid #ccc;width:50px;height:30px;background-color:#fff;"><i class="icon-calendar"></i></span>
+        </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3" >
+        <span>
+        <button id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="select-wrapper form-control-pill" style="height:40px;margin-bottom:10px;background-color:#fff;">
                 城市选择
                 <span class="caret"></span>
             </button>
@@ -307,7 +340,11 @@
             </div>
             <!-- state start-->
 
-            <button onclick="btn()">查询</button>
+            <button onclick="btn()"id="b1" style="height:40px;margin-bottom:10px;background-color:#fff;">查询</button>
+            </span>
+                    </div>
+                </div>
+            </div>
         <div class="row">
             <div class=" col-12">
                 <div class="card card-shadow mb-4">
@@ -342,9 +379,12 @@
 
                             </tbody>
                         </table>
-                        <div id="pagination" align="center">
-                            <ul class="pagination">
-                            </ul>
+                        <div id="pagination" class="row">
+                            <div class="col-6">
+                                <ul class="pagination"><li class="disabled"><a>共608条1/61</a></li><li class="disabled"><a>首页</a></li><li class="disabled"><a>上一页</a></li><li><a href="javascript:void(0);" onclick="page_load(curPage+1)">下一页</a></li><li><a href="javascript:void(0);" onclick="page_load(totalPage)">尾页</a></li></ul>
+                            </div>
+                            <div class="col-6" style="margin-top:20px;padding-left:600px;">
+                                <a href="data/future_room.xlsx" class="btn-primary" type="button" style="line-height: 30px;width:80px;height:30px;text-align: center;border-radius: .25rem;">导出数据</a>                            </div>
                         </div>
                     </div>
                 </div>
@@ -374,6 +414,7 @@
     var func1=document.getElementById("input1");
     var func2=document.getElementById("input2");
     getData(1);
+    var func3=document.getElementById("dropdownMenu1");
     //获取数据
     function getData(page) {
         $.ajax({
@@ -417,7 +458,7 @@
                 totalPage = json.data.totalPage; //总页数
                 var list = json.data.list;
                 $.each(list, function (i, result) {
-                    var item = "<tr><td>" + result['id'] + "</td><td>" + result['name'] + "</td><td>" + result['tags'] + "</td><td>" + result['address'] + "</td><td>" + result['opening_date'] + "</td><td>" + result['city'] + "</td><td>" + result['url'] + "</tr>";
+                    var item = "<tr><td>" + result['id'] + "</td><td>" + result['name'] + "</td><td>" + result['tags'] + "</td><td>" + result['address'] + "</td><td>" + result['opening_date'] + "</td><td>" + result['city'] + "</td><td><a target='_blank' class='badge badge-pill badge-success' href='" + result['url'] + "'>访问</a></tr>";
                     $('#roomdatatable tbody').append(item);
                 });
             },
@@ -444,7 +485,7 @@
                 totalPage = json.data.totalPage; //总页数
                 var list = json.data.list;
                 $.each(list, function (i, result) {
-                    var item = "<tr><td>" + result['id'] + "</td><td>" + result['name'] + "</td><td>" + result['tags'] + "</td><td>" + result['address'] + "</td><td>" + result['opening_date'] + "</td><td>" + result['city'] + "</td><td>" + result['url'] + "</tr>";
+                    var item = "<tr><td>" + result['id'] + "</td><td>" + result['name'] + "</td><td>" + result['tags'] + "</td><td>" + result['address'] + "</td><td>" + result['opening_date'] + "</td><td>" + result['city'] + "</td><td><a target='_blank' class='badge badge-pill badge-success' href='" + result['url'] + "'>访问</a></tr>";
                     $('#roomdatatable tbody').append(item);
                 });
             },
@@ -525,14 +566,14 @@
         if (curPage == 1) {
             pageStr += "<li class='disabled'><a>首页</a></li><li class='disabled'><a>上一页</a></li>";
         } else {
-            pageStr += "<li><a href='javascript:void(0);' onclick='page_load2(1)'>首页</a></li><li><a href='javascript:void(0);' onclick='page_load2(curPage-1)'>上一页</a></li>";
+            pageStr += "<li><a href='javascript:void(0);' onclick='page_load3(1)'>首页</a></li><li><a href='javascript:void(0);' onclick='page_load3(curPage-1)'>上一页</a></li>";
         }
 
         //如果是最后页
         if (curPage >= totalPage) {
             pageStr += "<li class='disabled'><a>下一页</a></li><li class='disabled'><a>尾页</a></li>";
         } else {
-            pageStr += "<li><a href='javascript:void(0);' onclick='page_load2(curPage+1)'>下一页</a></li><li><a href='javascript:void(0);' onclick='page_load2(totalPage)'>尾页</a></li>";
+            pageStr += "<li><a href='javascript:void(0);' onclick='page_load3(curPage+1)'>下一页</a></li><li><a href='javascript:void(0);' onclick='page_load3(totalPage)'>尾页</a></li>";
         }
 
         $("#pagination ul").html(pageStr);
@@ -547,6 +588,7 @@
 
     function my(id) {
             x = id;
+            func3.innerText=id+"▼";
             y=func1.value;
             z=func2.value;
             getData2(1);

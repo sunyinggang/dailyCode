@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Bidding Information</title>
+    <title>NationalOfficeBuilding</title>
     <meta name="description" content="data tables" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -183,7 +183,7 @@
             <div class="row d-flex align-items-center">
                 <div class="col-12">
                     <div class="page-breadcrumb">
-                        <h1>标志性建筑物</h1>
+                        <h1>全国写字楼</h1>
                     </div>
                 </div>
                 <div class="col-12 justify-content-md-end d-flex">
@@ -195,7 +195,7 @@
                                 <i class="fa fa-angle-right"></i>
                             </li>
                             <li class="active">
-                                招标信息
+                                全国写字楼
                             </li>
                         </ol>
                     </div>
@@ -205,33 +205,161 @@
     </div>
     <div class="container-fluid">
         <!-- state start-->
+        <button id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="select-wrapper form-control-pill" style="height:40px;margin-bottom:10px;background-color:#fff;">
+            城市选择
+            <span class="caret"></span>
+        </button>
+        <div class="dropdown-menu" style="padding-left: 30px;" aria-labelledby="dropdownMenu1" id="menux">
+            <div class="container" id="d1">
+                <div class="container-fluid">
+                    <div class="row" id="d2">
+                        <ul>
+                            <li><div class="col-lg-1">BCF</div></li></ul>
+                        <li><div class="col-lg-1" id="北京" onclick="my(this.id)"><a href="#">北京</a></div></li>
+                        <li><div class="col-lg-1" id="成都" onclick="my(this.id)"><a href="#">成都</a></div></li>
+                        <li><div class="col-lg-1" id="重庆" onclick="my(this.id)"><a href="#">重庆</a></div></li>
+                        <li><div class="col-lg-1" id="长春" onclick="my(this.id)"><a href="#">长春</a></div></li>
+                        <li><div class="col-lg-1" id="长沙" onclick="my(this.id)"><a href="#">长沙</a></div></li>
+                        <li><div class="col-lg-1" id="福州" onclick="my(this.id)"><a href="#">福州</a></div></li>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="row">
+                        <ul>
+                            <li><div class="col-lg-1">GH</div></li></ul>
+                        <li><div class="col-lg-1" align="left"  id="广州" onclick="my(this.id)"><a href="#">广州</a></div></li>
+                        <li><div class="col-lg-1" id="贵阳" onclick="my(this.id)"><a href="#">贵阳</a></div></li>
+                        <li><div class="col-lg-1" id="杭州" onclick="my(this.id)"><a href="#">杭州</a></div></li>
+                        <li><div class="col-lg-1" id="湖州" onclick="my(this.id)"><a href="#">湖州</a></div></li>
+                        <li><div class="col-lg-1" id="呼和浩特" onclick="my(this.id)"><a href="#">呼和浩特</a></div></li>
+                        <li><div class="col-lg-1" id="哈尔滨" onclick="my(this.id)"><a href="#">哈尔滨</a></div></li>
+                        <li><div class="col-lg-1" id="合肥" onclick="my(this.id)"><a href="#">合肥</a></div></li>
+                        <li><div class="col-lg-1" id="海口" onclick="my(this.id)"><a href="#">海口</a></div></li>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="row">
+                        <ul>
+                            <li><div class="col-lg-1">JKL</div></li></ul>
+                        <li><div class="col-lg-1" id="嘉兴" onclick="my(this.id)"><a href="#">嘉兴</a></div></li>
+                        <li><div class="col-lg-1" id="金华" onclick="my(this.id)"><a href="#">金华</a></div></li>
+                        <li><div class="col-lg-1" id="济南" onclick="my(this.id)"><a href="#">济南</a></div></li>
+                        <li><div class="col-lg-1" id="昆明" onclick="my(this.id)"><a href="#">昆明</a></div></li>
+                        <li><div class="col-lg-1" id="丽水" onclick="my(this.id)"><a href="#">丽水</a></div></li>
+                        <li><div class="col-lg-1" id="拉萨" onclick="my(this.id)"><a href="#">拉萨</a></div></li>
+                        <li><div class="col-lg-1" id="兰州" onclick="my(this.id)"><a href="#">兰州</a></div></li>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="row">
+                        <ul>
+                            <li><div class="col-lg-1">NQ</div></li></ul>
+                        <li><div class="col-lg-1"  id="南京" onclick="my(this.id)"><a href="#">南京</a></div></li>
+                        <li><div class="col-lg-1" id="宁波" onclick="my(this.id)"><a href="#">宁波</a></div></li>
+                        <li><div class="col-lg-1" id="南昌" onclick="my(this.id)"><a href="#">南昌</a></div></li>
+                        <li><div class="col-lg-1" id="南宁" onclick="my(this.id)"><a href="#">南宁</a></div></li>
+                        <li><div class="col-lg-1" id="青岛" onclick="my(this.id)"><a href="#">青岛</a></div></li>
+                        <li><div class="col-lg-1" id="衢州" onclick="my(this.id)"><a href="#">衢州</a></div></li>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="row">
+                        <ul>
+                            <li><div class="col-lg-1">STW</div></li></ul>
+                        <li><div class="col-lg-1" id="上海" onclick="my(this.id)"><a href="#">上海</a></div></li>
+                        <li><div class="col-lg-1" id="深圳" onclick="my(this.id)"><a href="#">深圳</a></div></li>
+                        <li><div class="col-lg-1" id="沈阳" onclick="my(this.id)"><a href="#">沈阳</a></div></li>
+                        <li><div class="col-lg-1" id="绍兴" onclick="my(this.id)"><a href="#">绍兴</a></div></li>
+                        <li><div class="col-lg-1" id="石家庄" onclick="my(this.id)"><a href="#">石家庄</a></div></li>
+                        <li><div class="col-lg-1" id="天津" onclick="my(this.id)"><a href="#">天津</a></div></li>
+                        <li><div class="col-lg-1" id="太原" onclick="my(this.id)"><a href="#">太原</a></div></li>
+                        <li><div class="col-lg-1" id="武汉" onclick="my(this.id)"><a href="#">武汉</a></div></li>
+                        <li><div class="col-lg-1" id="温州" onclick="my(this.id)"><a href="#">温州</a></div></li>
+                        <li><div class="col-lg-1" id="乌鲁木齐" onclick="my(this.id)"><a href="#">乌鲁木齐</a></div></li>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="row">
+                        <ul>
+                            <li><div class="col-lg-1">XYZ</div></li></ul>
+                        <li ><div class="col-lg-1"  id="西安" onclick="my(this.id)"><a href="#">西安</a></div></li>
+                        <li><div class="col-lg-1" id="西宁" onclick="my(this.id)"><a href="#">西宁</a></div></li>
+                        <li><div class="col-lg-1" id="义乌" onclick="my(this.id)"><a href="#">义乌</a></div></li>
+                        <li><div class="col-lg-1" id="舟山" onclick="my(this.id)"><a href="#">舟山</a></div></li>
+                        <li><div class="col-lg-1" id="郑州" onclick="my(this.id)"><a href="#">郑州</a></div></li>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+
+
+        </div>
         <div class="row">
             <div class=" col-12">
                 <div class="card card-shadow mb-4">
                     <div class="card-body">
-                        <table id="biddingdatatable" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="bs4-table_info">
+                        <table id="nationdatatable" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="bs4-table_info">
                             <thead>
                             <tr role="row">
-                                <th tabindex="0" aria-controls="bs4-table" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 50px;">
+                                <th tabindex="0" aria-controls="bs4-table" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 40px;">
                                     id
                                 </th>
-                                <th tabindex="0" aria-controls="bs4-table" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 300px;">
-                                    招标单位
+                                <th tabindex="0" aria-controls="bs4-table" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 120px;">
+                                    名称
                                 </th>
-                                <th tabindex="0" aria-controls="bs4-table" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 300px;">
-                                    项目名称
+                                <th tabindex="0" aria-controls="bs4-table" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 174.6px;">
+                                    地址
                                 </th>
                                 <th tabindex="0" aria-controls="bs4-table" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 90.6px;">
-                                    交易领域
+                                    地产公司
                                 </th>
-                                <th tabindex="0" aria-controls="bs4-table" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 100px;">
-                                    中标日期
+                               <!-- <th tabindex="0" aria-controls="bs4-table" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 169px;">
+                                    第三地址
+                                </th>-->
+                                <th tabindex="0" aria-controls="bs4-table" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 140.4px;">
+                                    写字楼级别
                                 </th>
-                                <th tabindex="0" aria-controls="bs4-table" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 60px;">
-                                    成交金额
+                                <th tabindex="0" aria-controls="bs4-table" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 140.4px;">
+                                    高度
                                 </th>
-                                <th tabindex="0" aria-controls="bs4-table" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 200px;">
-                                    中标公司
+                                <th tabindex="0" aria-controls="bs4-table" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 140.4px;">
+                                    城市
                                 </th>
                             </tr>
                             </thead>
@@ -244,7 +372,7 @@
                                 <ul class="pagination"><li class="disabled"><a>共608条1/61</a></li><li class="disabled"><a>首页</a></li><li class="disabled"><a>上一页</a></li><li><a href="javascript:void(0);" onclick="page_load(curPage+1)">下一页</a></li><li><a href="javascript:void(0);" onclick="page_load(totalPage)">尾页</a></li></ul>
                             </div>
                             <div class="col-6" style="margin-top:20px;padding-left:600px;">
-                                <a href="data/bidding_ggzy.xlsx" class="btn-primary" type="button" style="line-height: 30px;width:80px;height:30px;text-align: center;border-radius: .25rem;">导出数据</a>                            </div>
+                                <a href="data/office_building.xlsx" class="btn-primary" type="button" style="line-height: 30px;width:80px;height:30px;text-align: center;border-radius: .25rem;">导出数据</a>                            </div>
                         </div>
                     </div>
                 </div>
@@ -262,15 +390,17 @@
     var curPage = 1; //当前页码
     var total,pageSize,totalPage;
     //获取数据
+    var x="上海";
     getData(1);
+    var func3=document.getElementById("dropdownMenu1");
     function getData(page){
         $.ajax({
             type: 'GET',
-            url: 'http://39.98.49.111:8888/bidding/list',
+            url: 'http://39.98.49.111:8888/building/list?city=上海',
             data: {'page':page},
             dataType:'json',
             success:function(json){
-                $("#biddingdatatable tbody").empty();
+                $("#nationdatatable tbody").empty();
                 console.log(json);
                 total = json.data.totalNum; //总记录数
                 pageSize = 10; //每页显示条数
@@ -278,12 +408,39 @@
                 totalPage = json.data.totalPage; //总页数
                 var list = json.data.list;
                 $.each(list, function(i, result) {
-                    var item = "<tr><td>" + result['id'] + "</td><td>" + result['bidding_people'] + "</td><td>" + result['name'] + "</td><td>" + result['field'] + "</td><td>" + result['begin_date'] + "</td><td>" + result['money'] + "</td><td>" + result['company'] + "</tr>";
-                    $('#biddingdatatable tbody').append(item);
+                    var item = "<tr><td>" + result['id'] + "</td><td>" + result['address3'] + "</td><td>" + result['address1']+ result['address2']+ "</td><td>" + result['name'] + "</td><td>" + result['level'] + "</td><td>" + result['height'] + "</td><td>" + result['city'] + "</tr>";
+                    $('#nationdatatable tbody').append(item);
                 });
             },
             complete:function(){ //生成分页条
                 getPageBar();
+            },
+            error:function(){
+                alert("数据加载失败");
+            }
+        });
+    }
+    function getData2(page){
+        $.ajax({
+            type: 'GET',
+            url: 'http://39.98.49.111:8888/building/list?city='+x,
+            data: {'page':page},
+            dataType:'json',
+            success:function(json){
+                $("#nationdatatable tbody").empty();
+                console.log(json);
+                total = json.data.totalNum; //总记录数
+                pageSize = 10; //每页显示条数
+                curPage = json.data.page; //当前页
+                totalPage = json.data.totalPage; //总页数
+                var list = json.data.list;
+                $.each(list, function(i, result) {
+                    var item = "<tr><td>" + result['id'] + "</td><td>" + result['address3'] + "</td><td>" + result['address1']+ result['address2']+ "</td><td>" + result['name'] + "</td><td>" + result['level'] + "</td><td>" + result['height'] + "</td><td>" + result['city'] + "</tr>";
+                    $('#nationdatatable tbody').append(item);
+                });
+            },
+            complete:function(){ //生成分页条
+                getPageBar2();
             },
             error:function(){
                 alert("数据加载失败");
@@ -320,9 +477,46 @@
         getData(page);
     }
 
+    function getPageBar2(){
+        //页码大于最大页数
+        if(curPage>totalPage) curPage=totalPage;
+        //页码小于1
+        if(curPage<1) curPage=1;
+        pageStr = "<li class='disabled' ><a>共" + total + "条" + curPage + "/" + totalPage + "</a></li>";
+
+        //如果是第一页
+        if(curPage==1){
+            pageStr += "<li class='disabled'><a>首页</a></li><li class='disabled'><a>上一页</a></li>";
+        }else{
+            pageStr += "<li><a href='javascript:void(0);' onclick='page_load2(1)'>首页</a></li><li><a href='javascript:void(0);' onclick='page_load2(curPage-1)'>上一页</a></li>";
+        }
+
+        //如果是最后页
+        if(curPage>=totalPage){
+            pageStr += "<li class='disabled'><a>下一页</a></li><li class='disabled'><a>尾页</a></li>";
+        }else{
+            pageStr += "<li><a href='javascript:void(0);' onclick='page_load2(curPage+1)'>下一页</a></li><li><a href='javascript:void(0);' onclick='page_load2(totalPage)'>尾页</a></li>";
+        }
+
+        $("#pagination ul").html(pageStr);
+    }
+
+    function page_load2(page){
+        getData2(page);
+    }
     /*$(function(){
      getData(1);
      });*/
+    function my(id) {
+        if(x!=id){
+            x=id;
+            func3.innerText=id+"▼";
+            getData2(1);
+        }else{
+            getData(1);
+        }
+
+    }
 </script>
 </body>
 </html>

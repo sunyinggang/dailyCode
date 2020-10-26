@@ -17,7 +17,7 @@
     <!--Fonts-->
 
     <!--Beyond styles-->
-    <link id="beyond-link" href="assetsboot/css/beyond.min.css" rel="stylesheet" />
+
     <link href="assetsboot/css/demo.min.css" rel="stylesheet" />
     <link href="assetsboot/css/typicons.min.css" rel="stylesheet" />
     <link href="assetsboot/css/animate.min.css" rel="stylesheet" />
@@ -25,10 +25,17 @@
 
     <!--Page Related styles-->
     <link href="assetsboot/css/dataTables.bootstrap.css" rel="stylesheet" />
+    <link href="http://cdn.bootcss.com/twitter-bootstrap/2.2.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://www.bootcss.com/p/bootstrap-datetimepicker/bootstrap-datetimepicker/css/datetimepicker.css" rel="stylesheet">
 
+    <script src="jquery-3.3.1/jquery-3.3.1.min.js"></script>
+    <script src="bootstrap-3.3.0/dist/js/bootstrap.min.js"></script>
+
+    <script src="bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.min.js"></script>
+    <script  src="bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
     <!--Skin Script: Place this script in head to load scripts for skins and rtl support-->
     <script src="assetsboot/js/skins.min.js"></script>
-    <script src="assetsboot/js/jquery-2.0.3.min.js"></script>
+    <!--<script src="assetsboot/js/jquery-2.0.3.min.js"></script>-->
     <script src="assetsboot/js/bootstrap.min.js"></script>
 
     <!--Beyond Scripts-->
@@ -41,7 +48,6 @@
     <script src="assetsboot/js/datatable/dataTables.bootstrap.min.js"></script>
     <script src="assetsboot/js/datatable/datatables-init.js"></script>
 
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css" />
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="assets/css/ionicons.css" rel="stylesheet" type="text/css">
@@ -73,7 +79,28 @@
         #editabledatatable{
 
             height: 30%;
+
         }
+        input{
+            border: 1px solid #ccc;
+            padding: 30px 0px;
+            border-radius: 3px;
+            padding-left:5px;
+            width: 100px;
+        }
+        #span1{
+            font-size: 1px;
+
+        }
+        #dropdownMenu1{
+
+            border-radius: 3px;
+
+        }
+        #b1{
+            border-radius: 3px;
+        }
+
 
 
     </style>
@@ -110,7 +137,7 @@
     </header>
 </div>
 
-<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+<!--<script type="text/javascript" src="assets/js/jquery.min.js"></script>-->
 <script type="text/javascript" src="assets/js/popper.min.js"></script>
 <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
@@ -192,11 +219,11 @@
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-home"></i>
-                                <a class="parent-item" href="index.html">Home</a>
+                                <a class="parent-item" href="index.html">首页</a>
                                 <i class="fa fa-angle-right"></i>
                             </li>
                             <li class="active">
-                                Typography
+                                传统写字楼
                             </li>
                         </ol>
                     </div>
@@ -204,134 +231,136 @@
             </div>
         </div>
 
-<div class="container-fluid">
-    <!-- state start-->
-    <button id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-        城市选择
-        <span class="caret"></span>
-    </button>
-    <div class="dropdown-menu" style="padding-left: 30px;" aria-labelledby="dropdownMenu1" id="menux">
-        <div>BCF</div>
-        <div class="container" id="d1">
-            <div class="container-fluid">
-                <div class="row" id="d2">
-                    <ul>
-                        <li><div class="col-lg-1" id="北京" onclick="my(this.id)"><a href="#">北京</a></div></li></ul>
-                    <li><div class="col-lg-1" id="成都" onclick="my(this.id)"><a href="#">成都</a></div></li>
-                    <li><div class="col-lg-1" id="重庆" onclick="my(this.id)"><a href="#">重庆</a></div></li>
-                    <li><div class="col-lg-1" id="长春" onclick="my(this.id)"><a href="#">长春</a></div></li>
-                    <li><div class="col-lg-1" id="长沙" onclick="my(this.id)"><a href="#">长沙</a></div></li>
-                    <li><div class="col-lg-1" id="福州" onclick="my(this.id)"><a href="#">福州</a></div></li>
+        <div class="container-fluid row" style="margin-left:20px;">
+            <!-- state start-->
+            建成时间：
+            <div class="input-append date form_datetime" style="height:30px;margin-right:20px;">
+                <!--<span class="add-on"style="display:inline-block; border:1px solid #ccc;width:100px;height:20px;text-align:right;"id="span1">截止建成时间</span>-->
+
+                <input size="10" type="text" id="input1" readonly="" style="background-color:#fff;height:30px;">
+                <span class="add-on" style="display:inline-block; border:1px solid #ccc;width:50px;height:30px;background-color:#fff;"><i class="icon-remove"></i></span>
+                <span class="add-on" style="display:inline-block; border:1px solid #ccc;width:50px;height:30px;background-color:#fff;"><i class="icon-calendar"></i></span>
+            </div>
+            <button id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="select-wrapper form-control-pill" style="height:30px;margin:0 10px 10px 0;background-color:#fff;">
+                城市选择
+                <span class="caret"></span>
+            </button>
+            <div class="dropdown-menu" style="padding-left: 30px; background-color: rgb(255, 255, 255); position: absolute; transform: translate3d(115px, 5px, 0px); top: 0px; left: 0px; will-change: transform;" aria-labelledby="dropdownMenu1" id="menux" x-placement="top-start">
+                <div>BCF</div>
+                <div class="container" id="d1">
+                    <div class="container-fluid">
+                        <div class="row" id="d2">
+                            <ul><li><div class="col-lg-1" id="北京" onclick="my(this.id)"><a href="#">北京</a></div></li></ul>
+                            <li><div class="col-lg-1" id="成都" onclick="my(this.id)"><a href="#">成都</a></div></li>
+                            <li><div class="col-lg-1" id="重庆" onclick="my(this.id)"><a href="#">重庆</a></div></li>
+                            <li><div class="col-lg-1" id="长春" onclick="my(this.id)"><a href="#">长春</a></div></li>
+                            <li><div class="col-lg-1" id="长沙" onclick="my(this.id)"><a href="#">长沙</a></div></li>
+                            <li><div class="col-lg-1" id="福州" onclick="my(this.id)"><a href="#">福州</a></div></li>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+                <div>GH</div>
+                <div class="container">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <ul>
+                                <li><div class="col-lg-1" align="left" id="广州" onclick="my(this.id)"><a href="#">广州</a></div></li></ul>
+                            <li><div class="col-lg-1" id="贵阳" onclick="my(this.id)"><a href="#">贵阳</a></div></li>
+                            <li><div class="col-lg-1" id="杭州" onclick="my(this.id)"><a href="#">杭州</a></div></li>
+                            <li><div class="col-lg-1" id="湖州" onclick="my(this.id)"><a href="#">湖州</a></div></li>
+                            <li><div class="col-lg-1" id="呼和浩特" onclick="my(this.id)"><a href="#">呼和浩特</a></div></li>
+                            <li><div class="col-lg-1" id="哈尔滨" onclick="my(this.id)"><a href="#">哈尔滨</a></div></li>
+                            <li><div class="col-lg-1" id="合肥" onclick="my(this.id)"><a href="#">合肥</a></div></li>
+                            <li><div class="col-lg-1" id="海口" onclick="my(this.id)"><a href="#">海口</a></div></li>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+                <div>JKL</div>
+                <div class="container">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <ul>
+                                <li><div class="col-lg-1" id="嘉兴" onclick="my(this.id)"><a href="#">嘉兴</a></div></li></ul>
+                            <li><div class="col-lg-1" id="金华" onclick="my(this.id)"><a href="#">金华</a></div></li>
+                            <li><div class="col-lg-1" id="济南" onclick="my(this.id)"><a href="#">济南</a></div></li>
+                            <li><div class="col-lg-1" id="昆明" onclick="my(this.id)"><a href="#">昆明</a></div></li>
+                            <li><div class="col-lg-1" id="丽水" onclick="my(this.id)"><a href="#">丽水</a></div></li>
+                            <li><div class="col-lg-1" id="拉萨" onclick="my(this.id)"><a href="#">拉萨</a></div></li>
+                            <li><div class="col-lg-1" id="兰州" onclick="my(this.id)"><a href="#">兰州</a></div></li>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div>NQ</div>
+                <div class="container">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <ul>
+                                <li><div class="col-lg-1" id="南京" onclick="my(this.id)"><a href="#">南京</a></div></li></ul>
+                            <li><div class="col-lg-1" id="宁波" onclick="my(this.id)"><a href="#">宁波</a></div></li>
+                            <li><div class="col-lg-1" id="南昌" onclick="my(this.id)"><a href="#">南昌</a></div></li>
+                            <li><div class="col-lg-1" id="南宁" onclick="my(this.id)"><a href="#">南宁</a></div></li>
+                            <li><div class="col-lg-1" id="青岛" onclick="my(this.id)"><a href="#">青岛</a></div></li>
+                            <li><div class="col-lg-1" id="衢州" onclick="my(this.id)"><a href="#">衢州</a></div></li>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div>STW</div>
+                <div class="container">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <ul>
+                                <li><div class="col-lg-1" id="上海" onclick="my(this.id)"><a href="#">上海</a></div></li></ul>
+                            <li><div class="col-lg-1" id="深圳" onclick="my(this.id)"><a href="#">深圳</a></div></li>
+                            <li><div class="col-lg-1" id="沈阳" onclick="my(this.id)"><a href="#">沈阳</a></div></li>
+                            <li><div class="col-lg-1" id="绍兴" onclick="my(this.id)"><a href="#">绍兴</a></div></li>
+                            <li><div class="col-lg-1" id="石家庄" onclick="my(this.id)"><a href="#">石家庄</a></div></li>
+                            <li><div class="col-lg-1" id="天津" onclick="my(this.id)"><a href="#">天津</a></div></li>
+                            <li><div class="col-lg-1" id="太原" onclick="my(this.id)"><a href="#">太原</a></div></li>
+                            <li><div class="col-lg-1" id="武汉" onclick="my(this.id)"><a href="#">武汉</a></div></li>
+                            <li><div class="col-lg-1" id="温州" onclick="my(this.id)"><a href="#">温州</a></div></li>
+                            <li><div class="col-lg-1" id="乌鲁木齐" onclick="my(this.id)"><a href="#">乌鲁木齐</a></div></li>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div>XYZ</div>
+                <div class="container">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <ul>
+                                <li><div class="col-lg-1" id="西安" onclick="my(this.id)"><a href="#">西安</a></div></li></ul>
+                            <li><div class="col-lg-1" id="西宁" onclick="my(this.id)"><a href="#">西宁</a></div></li>
+                            <li><div class="col-lg-1" id="义乌" onclick="my(this.id)"><a href="#">义乌</a></div></li>
+                            <li><div class="col-lg-1" id="舟山" onclick="my(this.id)"><a href="#">舟山</a></div></li>
+                            <li><div class="col-lg-1" id="郑州" onclick="my(this.id)"><a href="#">郑州</a></div></li>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-
+            <button onclick="btn()" id="b1" style="background-color:#fff;height:30px;">查询</button>
         </div>
-
-
-
-
-        <div>GH</div>
-        <div class="container">
-            <div class="container-fluid">
-                <div class="row">
-                    <ul>
-                        <li><div class="col-lg-1" align="left"  id="广州" onclick="my(this.id)"><a href="#">广州</a></div></li></ul>
-                    <li><div class="col-lg-1" id="贵阳" onclick="my(this.id)"><a href="#">贵阳</a></div></li>
-                    <li><div class="col-lg-1" id="杭州" onclick="my(this.id)"><a href="#">杭州</a></div></li>
-                    <li><div class="col-lg-1" id="湖州" onclick="my(this.id)"><a href="#">湖州</a></div></li>
-                    <li><div class="col-lg-1" id="呼和浩特" onclick="my(this.id)"><a href="#">呼和浩特</a></div></li>
-                    <li><div class="col-lg-1" id="哈尔滨" onclick="my(this.id)"><a href="#">哈尔滨</a></div></li>
-                    <li><div class="col-lg-1" id="合肥" onclick="my(this.id)"><a href="#">合肥</a></div></li>
-                    <li><div class="col-lg-1" id="海口" onclick="my(this.id)"><a href="#">海口</a></div></li>
-                </div>
-            </div>
-
-        </div>
-
-
-
-
-        <div>JKL</div>
-        <div class="container">
-            <div class="container-fluid">
-                <div class="row">
-                    <ul>
-                        <li><div class="col-lg-1" id="嘉兴" onclick="my(this.id)"><a href="#">嘉兴</a></div></li></ul>
-                    <li><div class="col-lg-1" id="金华" onclick="my(this.id)"><a href="#">金华</a></div></li>
-                    <li><div class="col-lg-1" id="济南" onclick="my(this.id)"><a href="#">济南</a></div></li>
-                    <li><div class="col-lg-1" id="昆明" onclick="my(this.id)"><a href="#">昆明</a></div></li>
-                    <li><div class="col-lg-1" id="丽水" onclick="my(this.id)"><a href="#">丽水</a></div></li>
-                    <li><div class="col-lg-1" id="拉萨" onclick="my(this.id)"><a href="#">拉萨</a></div></li>
-                    <li><div class="col-lg-1" id="兰州" onclick="my(this.id)"><a href="#">兰州</a></div></li>
-                </div>
-            </div>
-
-        </div>
-
-
-
-        <div>NQ</div>
-        <div class="container">
-            <div class="container-fluid">
-                <div class="row">
-                    <ul>
-                        <li><div class="col-lg-1"  id="南京" onclick="my(this.id)"><a href="#">南京</a></div></li></ul>
-                    <li><div class="col-lg-1" id="宁波" onclick="my(this.id)"><a href="#">宁波</a></div></li>
-                    <li><div class="col-lg-1" id="南昌" onclick="my(this.id)"><a href="#">南昌</a></div></li>
-                    <li><div class="col-lg-1" id="南宁" onclick="my(this.id)"><a href="#">南宁</a></div></li>
-                    <li><div class="col-lg-1" id="青岛" onclick="my(this.id)"><a href="#">青岛</a></div></li>
-                    <li><div class="col-lg-1" id="衢州" onclick="my(this.id)"><a href="#">衢州</a></div></li>
-                </div>
-            </div>
-
-        </div>
-
-
-
-        <div>STW</div>
-        <div class="container">
-            <div class="container-fluid">
-                <div class="row">
-                    <ul>
-                        <li><div class="col-lg-1" id="上海" onclick="my(this.id)"><a href="#">上海</a></div></li></ul>
-                    <li><div class="col-lg-1" id="深圳" onclick="my(this.id)"><a href="#">深圳</a></div></li>
-                    <li><div class="col-lg-1" id="沈阳" onclick="my(this.id)"><a href="#">沈阳</a></div></li>
-                    <li><div class="col-lg-1" id="绍兴" onclick="my(this.id)"><a href="#">绍兴</a></div></li>
-                    <li><div class="col-lg-1" id="石家庄" onclick="my(this.id)"><a href="#">石家庄</a></div></li>
-                    <li><div class="col-lg-1" id="天津" onclick="my(this.id)"><a href="#">天津</a></div></li>
-                    <li><div class="col-lg-1" id="太原" onclick="my(this.id)"><a href="#">太原</a></div></li>
-                    <li><div class="col-lg-1" id="武汉" onclick="my(this.id)"><a href="#">武汉</a></div></li>
-                    <li><div class="col-lg-1" id="温州" onclick="my(this.id)"><a href="#">温州</a></div></li>
-                    <li><div class="col-lg-1" id="乌鲁木齐" onclick="my(this.id)"><a href="#">乌鲁木齐</a></div></li>
-                </div>
-            </div>
-
-        </div>
-
-
-
-        <div>XYZ</div>
-        <div class="container">
-            <div class="container-fluid">
-                <div class="row">
-                    <ul>
-                        <li ><div class="col-lg-1"  id="西安" onclick="my(this.id)"><a href="#">西安</a></div></li></ul>
-                    <li><div class="col-lg-1" id="西宁" onclick="my(this.id)"><a href="#">西宁</a></div></li>
-                    <li><div class="col-lg-1" id="义乌" onclick="my(this.id)"><a href="#">义乌</a></div></li>
-                    <li><div class="col-lg-1" id="舟山" onclick="my(this.id)"><a href="#">舟山</a></div></li>
-                    <li><div class="col-lg-1" id="郑州" onclick="my(this.id)"><a href="#">郑州</a></div></li>
-                </div>
-            </div>
-
-        </div>
-
-
-
-
-
-
-    </div>
-</div>
     <div class="row">
         <div class=" col-12">
             <div class="card card-shadow mb-4">
@@ -352,7 +381,7 @@
                                     地区
                                 </th>
                                 <th tabindex="0" aria-controls="bs4-table" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 180px;">
-                                    相关地址
+                                    地址
                                 </th>
                                 <th tabindex="0" aria-controls="bs4-table" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 90px;">
                                     建成时间
@@ -364,10 +393,10 @@
                                     楼高
                                 </th>
                                 <th tabindex="0" aria-controls="bs4-table" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 500px;">
-                                    办公主要
+                                    业主
                                 </th>
                                 <th tabindex="0" aria-controls="bs4-table" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 500px;">
-                                    产权公司
+                                    物业管理公司
                                 </th>
                                 <th tabindex="0" aria-controls="bs4-table" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 100px;">
                                     客梯数
@@ -381,10 +410,13 @@
 
                             </tbody>
                         </table>
-                        <div id="pagination" align="right">
-                            <ul class="pagination">
-                            </ul>
+                    <div id="pagination" class="row">
+                        <div class="col-6">
+                            <ul class="pagination"><li class="disabled"><a>共608条1/61</a></li><li class="disabled"><a>首页</a></li><li class="disabled"><a>上一页</a></li><li><a href="javascript:void(0);" onclick="page_load(curPage+1)">下一页</a></li><li><a href="javascript:void(0);" onclick="page_load(totalPage)">尾页</a></li></ul>
                         </div>
+                        <div class="col-6" style="margin-top:20px;padding-left:600px;">
+                            <a href="data/traditional_office.xlsx" class="btn-primary" type="button" style="line-height: 30px;width:80px;height:30px;text-align: center;border-radius: .25rem;">导出数据</a>                            </div>
+                    </div>
 
                     </div>
                     </div>
@@ -399,9 +431,18 @@
 <!--main contents end-->
 </div>
 <script>
+    $(".form_datetime").datetimepicker({
+        format:'yyyy',
+        startView:4,
+        minView:4,
+        autoclose:true,
+        pickerPosition: "bottom-left",
+        language:'zh-CN'
+    });
     var curPage=1; //当前页码
     var total, pageSize, totalPage;
-    var x="上海";
+    var func1=document.getElementById("input1");
+    var func3=document.getElementById("dropdownMenu1");
     getData(1);
     //获取数据
     function getData(page) {
@@ -436,7 +477,7 @@
     function getData2(page) {
         $.ajax({
             type: 'GET',
-            url: 'http://39.98.49.111:8888/office/list?city=' + x,
+            url: 'http://39.98.49.111:8888/office/list?city=' + x + '&openTime='+ y,
             data: {'page': page},
             dataType: 'json',
             success: function (json) {
@@ -454,6 +495,33 @@
             },
             complete: function () { //生成分页条
                 getPageBar2();
+            },
+            error: function () {
+                alert("数据加载失败");
+            }
+        });
+    }
+    function getData3(page) {
+        $.ajax({
+            type: 'GET',
+            url: 'http://39.98.49.111:8888/office/list?openTime='+ y,
+            data: {'page': page},
+            dataType: 'json',
+            success: function (json) {
+                $("#editabledatatable tbody").empty();
+                console.log(json);
+                total = json.data.totalNum; //总记录数
+                pageSize = 10; //每页显示条数
+                curPage = json.data.page; //当前页
+                totalPage = json.data.totalPage; //总页数
+                var list = json.data.list;
+                $.each(list, function (i, result) {
+                    var item = "<tr><td>" + result['id'] + "</td><td>" + result['name'] + "</td><td>" + result['city'] + "</td><td>" + result['area'] + "</td><td>" + result['address'] + "</td><td>" + result['completion_time'] + "</td><td>" + result['floor_number'] + "</td><td>" + result['height'] + "</td><td>" + result['office_owner'] + "</td><td>" + result['property_company'] + "</td><td>" + result['peoelv_number'] + "</td><td>" + result['freelv_number'] + "</tr>";
+                    $('#editabledatatable tbody').append(item);
+                });
+            },
+            complete: function () { //生成分页条
+                getPageBar3();
             },
             error: function () {
                 alert("数据加载失败");
@@ -519,16 +587,46 @@
         getData2(page);
     }
 
+    function getPageBar3() {
+        //页码大于最大页数
+        if (curPage > totalPage) curPage = totalPage;
+        //页码小于1
+        if (curPage < 1) curPage = 1;
+        pageStr = "<li class='disabled' ><a>共" + total + "条" + curPage + "/" + totalPage + "</a></li>";
+
+        //如果是第一页
+        if (curPage == 1) {
+            pageStr += "<li class='disabled'><a>首页</a></li><li class='disabled'><a>上一页</a></li>";
+        } else {
+            pageStr += "<li><a href='javascript:void(0);' onclick='page_load3(1)'>首页</a></li><li><a href='javascript:void(0);' onclick='page_load3(curPage-1)'>上一页</a></li>";
+        }
+
+        //如果是最后页
+        if (curPage >= totalPage) {
+            pageStr += "<li class='disabled'><a>下一页</a></li><li class='disabled'><a>尾页</a></li>";
+        } else {
+            pageStr += "<li><a href='javascript:void(0);' onclick='page_load3(curPage+1)'>下一页</a></li><li><a href='javascript:void(0);' onclick='page_load3(totalPage)'>尾页</a></li>";
+        }
+
+        $("#pagination ul").html(pageStr);
+    }
+
+    function page_load3(page) {
+        getData3(page);
+    }
     /* $(function () {
      getData2(1);
      });*/
     function my(id) {
-        if (x != id) {
-            x = id;
-            getData2(1);
-        } else {
-            getData(1);
-        }
+        x = id;
+        func3.innerText=id+"▼";
+        y=func1.value;
+        getData2(1);
+
+    }
+    function btn(){
+        y=func1.value;
+        getData3(1);
     }
 </script>
 </body>

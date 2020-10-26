@@ -41,7 +41,6 @@
     <script src="assetsboot/js/datatable/dataTables.bootstrap.min.js"></script>
     <script src="assetsboot/js/datatable/datatables-init.js"></script>
 
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css" />
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="assets/css/ionicons.css" rel="stylesheet" type="text/css">
@@ -192,11 +191,11 @@
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-home"></i>
-                                <a class="parent-item" href="index.html">Home</a>
+                                <a class="parent-item" href="index.html">首页</a>
                                 <i class="fa fa-angle-right"></i>
                             </li>
                             <li class="active">
-                                Data Tables
+                                标志性建筑物
                             </li>
                         </ol>
                     </div>
@@ -240,9 +239,12 @@
 
                             </tbody>
                         </table>
-                        <div id="pagination" align="center">
-                            <ul class="pagination">
-                            </ul>
+                        <div id="pagination" class="row">
+                            <div class="col-6">
+                                <ul class="pagination"><li class="disabled"><a>共608条1/61</a></li><li class="disabled"><a>首页</a></li><li class="disabled"><a>上一页</a></li><li><a href="javascript:void(0);" onclick="page_load(curPage+1)">下一页</a></li><li><a href="javascript:void(0);" onclick="page_load(totalPage)">尾页</a></li></ul>
+                            </div>
+                            <div class="col-6" style="margin-top:20px;padding-left:600px;">
+                                <a href="data/sign_building.xlsx" class="btn-primary" type="button" style="line-height: 30px;width:80px;height:30px;text-align: center;border-radius: .25rem;">导出数据</a>                            </div>
                         </div>
                     </div>
                 </div>
@@ -276,7 +278,7 @@
                 totalPage = json.data.totalPage; //总页数
                 var list = json.data.list;
                 $.each(list, function(i, result) {
-                    var item = "<tr><td>" + result['id'] + "</td><td>" + result['name'] + "</td><td>" + result['address'] + "</td><td>" + result['height'] + "</td><td>" + result['wall_type'] + "</td><td>" + result['wall_area'] + "</td><td>" + result['href'] + "</tr>";
+                    var item = "<tr><td>" + result['id'] + "</td><td>" + result['name'] + "</td><td>" + result['address'] + "</td><td>" + result['height'] + "</td><td>" + result['wall_type'] + "</td><td>" + result['wall_area'] + "</td><td><a target='_blank' class='badge badge-pill badge-success' href='" + result['href'] + "'>访问</a></tr>";
                     $('#buildingdatatable tbody').append(item);
                 });
             },
