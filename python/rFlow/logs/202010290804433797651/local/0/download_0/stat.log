@@ -1,0 +1,4 @@
+[INFO] [2020-10-29 08:04:44,522] [1292:140036607067968] - download.py[line:43]: ===== begin to export data =====
+[INFO] [2020-10-29 08:04:44,556] [1292:140036607067968] - download.py[line:62]: ===== export 0 lines totally =====
+[INFO] [2020-10-29 08:04:44,556] [1292:140036607067968] - download.py[line:63]: ===== export data finish =====
+[INFO] [2020-10-29 08:04:44,556] [1292:140036607067968] - download.py[line:64]: ===== export data file path:/fate/fate_flow/fate_flow_unittest_breast_b.csv =====

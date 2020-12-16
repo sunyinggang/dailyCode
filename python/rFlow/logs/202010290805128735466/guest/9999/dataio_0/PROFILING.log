@@ -1,0 +1,11 @@
+[DEBUG] [2020-10-29 08:05:14,247] [1861:139779035903808] - profile_util.py[line:34]: task_executor.py:187 call table, takes 0.0007483959197998047s
+[DEBUG] [2020-10-29 08:05:14,249] [1861:139779035903808] - profile_util.py[line:34]: session.py:178 call collect, takes 0.0007598400115966797s
+[DEBUG] [2020-10-29 08:05:14,259] [1861:139779035903808] - profile_util.py[line:34]: task_executor.py:212 call save_as, takes 0.009809017181396484s
+[DEBUG] [2020-10-29 08:05:14,516] [1861:139779035903808] - profile_util.py[line:34]: component_properties.py:155 call count, takes 0.0004439353942871094s
+[DEBUG] [2020-10-29 08:05:14,517] [1861:139779035903808] - profile_util.py[line:34]: abnormal_detection.py:23 call count, takes 0.0003693103790283203s
+[DEBUG] [2020-10-29 08:05:14,547] [1861:139779035903808] - profile_util.py[line:34]: data_io.py:155 call mapValues, takes 0.029987812042236328s
+[DEBUG] [2020-10-29 08:05:14,558] [1861:139779035903808] - profile_util.py[line:34]: data_io.py:158 call mapValues, takes 0.01012420654296875s
+[DEBUG] [2020-10-29 08:05:14,591] [1861:139779035903808] - profile_util.py[line:34]: data_io.py:241 call join, takes 0.03309369087219238s
+[DEBUG] [2020-10-29 08:05:14,616] [1861:139779035903808] - profile_util.py[line:34]: tracking_manager.py:201 call save_as, takes 0.02423262596130371s
+[DEBUG] [2020-10-29 08:05:14,619] [1861:139779035903808] - profile_util.py[line:34]: session.py:178 call collect, takes 0.0011951923370361328s
+[DEBUG] [2020-10-29 08:05:14,649] [1861:139779035903808] - profile_util.py[line:34]: tracking_manager.py:221 call count, takes 0.0006003379821777344s

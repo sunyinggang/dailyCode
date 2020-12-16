@@ -1,0 +1,67 @@
+[INFO] [2020-10-29 08:12:03,491] [2470:140117390411584] - task_executor.py[line:121]: run 202010290812019279649 dataio_0 202010290812019279649_dataio_0 host 10000 task
+[INFO] [2020-10-29 08:12:03,492] [2470:140117390411584] - task_executor.py[line:122]: {'DataIOParam': {'input_format': 'dense', 'delimitor': ',', 'data_type': 'float64', 'exclusive_data_type': None, 'tag_with_value': False, 'tag_value_delimitor': ':', 'missing_fill': False, 'default_value': 0, 'missing_fill_method': None, 'missing_impute': None, 'outlier_replace': False, 'outlier_replace_method': None, 'outlier_impute': None, 'outlier_replace_value': 0, 'with_label': True, 'label_name': 'y', 'label_type': 'int', 'output_format': 'dense'}, 'initiator': {'role': 'guest', 'party_id': 10000}, 'job_parameters': {'work_mode': 0, 'model_id': 'arbiter-10000#guest-10000#host-10000#model', 'model_version': '202010290812019279649'}, 'role': {'guest': [10000], 'host': [10000], 'arbiter': [10000]}, 'config': '/fate/examples/federatedml-1.x-examples/homo_logistic_regression/test_homolr_evaluate_job_conf.json', 'dsl': 'examples/federatedml-1.x-examples/homo_logistic_regression/test_homolr_evaluate_job_dsl.json', 'function': 'submit_job', 'local': {'role': 'host', 'party_id': 10000}, 'CodePath': 'federatedml/util/data_io.py/DataIO', 'module': 'DataIO'}
+[INFO] [2020-10-29 08:12:03,492] [2470:140117390411584] - task_executor.py[line:123]: {'data': {'data': ['args.train_data']}}
+[DEBUG] [2020-10-29 08:12:03,493] [2470:140117390411584] - profile_util.py[line:34]: task_executor.py:187 call table, takes 0.0009226799011230469s
+[INFO] [2020-10-29 08:12:03,493] [2470:140117390411584] - task_executor.py[line:202]: start save as task 202010290812019279649_dataio_0 input data table experiment breast_homo_host
+[DEBUG] [2020-10-29 08:12:03,495] [2470:140117390411584] - profile_util.py[line:34]: session.py:178 call collect, takes 0.0008995532989501953s
+[DEBUG] [2020-10-29 08:12:03,519] [2470:140117390411584] - profile_util.py[line:34]: task_executor.py:212 call save_as, takes 0.02379631996154785s
+[INFO] [2020-10-29 08:12:03,522] [2470:140117390411584] - task_executor.py[line:218]: save as task 202010290812019279649_dataio_0 input data table to 202010290812019279649_dataio_0_host_10000 breast_homo_host done
+[DEBUG] [2020-10-29 08:12:03,800] [2470:140117390411584] - component_properties.py[line:67]: {'DataIOParam': {'input_format': 'dense', 'delimitor': ',', 'data_type': 'float64', 'exclusive_data_type': None, 'tag_with_value': False, 'tag_value_delimitor': ':', 'missing_fill': False, 'default_value': 0, 'missing_fill_method': None, 'missing_impute': None, 'outlier_replace': False, 'outlier_replace_method': None, 'outlier_impute': None, 'outlier_replace_value': 0, 'with_label': True, 'label_name': 'y', 'label_type': 'int', 'output_format': 'dense'}, 'initiator': {'role': 'guest', 'party_id': 10000}, 'job_parameters': {'work_mode': 0, 'model_id': 'arbiter-10000#guest-10000#host-10000#model', 'model_version': '202010290812019279649'}, 'role': {'guest': [10000], 'host': [10000], 'arbiter': [10000]}, 'config': '/fate/examples/federatedml-1.x-examples/homo_logistic_regression/test_homolr_evaluate_job_conf.json', 'dsl': 'examples/federatedml-1.x-examples/homo_logistic_regression/test_homolr_evaluate_job_dsl.json', 'function': 'submit_job', 'local': {'role': 'host', 'party_id': 10000}, 'CodePath': 'federatedml/util/data_io.py/DataIO', 'module': 'DataIO'}
+[DEBUG] [2020-10-29 08:12:03,801] [2470:140117390411584] - component_properties.py[line:74]: need_run: True, need_cv: False
+[DEBUG] [2020-10-29 08:12:03,801] [2470:140117390411584] - component_properties.py[line:118]: has_train_data: False, has_eval_data: False, has_normal_data: True
+[DEBUG] [2020-10-29 08:12:03,802] [2470:140117390411584] - profile_util.py[line:34]: component_properties.py:155 call count, takes 0.0013017654418945312s
+[DEBUG] [2020-10-29 08:12:03,802] [2470:140117390411584] - model_base.py[line:210]: In extract_data, data input: {'args.data': <arch.api.impl.based_1x.table.DTable object at 0x7f6a851f6fd0>}
+[DEBUG] [2020-10-29 08:12:03,802] [2470:140117390411584] - model_base.py[line:87]: func: <bound method DataIO.fit of <federatedml.util.data_io.DataIO object at 0x7f6a851f6668>>
+[INFO] [2020-10-29 08:12:03,802] [2470:140117390411584] - data_io.py[line:141]: start to read dense data and change data to instance
+[DEBUG] [2020-10-29 08:12:03,803] [2470:140117390411584] - profile_util.py[line:34]: abnormal_detection.py:23 call count, takes 0.00040459632873535156s
+[DEBUG] [2020-10-29 08:12:03,803] [2470:140117390411584] - data_io.py[line:95]: header is y,x0,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19,x20,x21,x22,x23,x24,x25,x26,x27,x28,x29
+[DEBUG] [2020-10-29 08:12:03,803] [2470:140117390411584] - data_io.py[line:96]: sid_name is id
+[DEBUG] [2020-10-29 08:12:03,845] [2470:140117390411584] - profile_util.py[line:34]: data_io.py:155 call mapValues, takes 0.04158592224121094s
+[DEBUG] [2020-10-29 08:12:03,862] [2470:140117390411584] - profile_util.py[line:34]: data_io.py:158 call mapValues, takes 0.016089677810668945s
+[DEBUG] [2020-10-29 08:12:03,885] [2470:140117390411584] - profile_util.py[line:34]: data_io.py:241 call join, takes 0.022542715072631836s
+[DEBUG] [2020-10-29 08:12:03,885] [2470:140117390411584] - model_base.py[line:99]: saved_result is : [<arch.api.impl.based_1x.table.DTable object at 0x7f067d7dc278>], data_output: <arch.api.impl.based_1x.table.DTable object at 0x7f067d7dc278>
+[DEBUG] [2020-10-29 08:12:03,922] [2470:140117390411584] - profile_util.py[line:34]: tracking_manager.py:201 call save_as, takes 0.03666090965270996s
+[DEBUG] [2020-10-29 08:12:03,925] [2470:140117390411584] - profile_util.py[line:34]: session.py:178 call collect, takes 0.0009868144989013672s
+[DEBUG] [2020-10-29 08:12:03,981] [2470:140117390411584] - profile_util.py[line:34]: tracking_manager.py:221 call count, takes 0.01641058921813965s
+[INFO] [2020-10-29 08:12:03,988] [2470:140117390411584] - pipelined_model.py[line:72]: Save dataio_0 dataio DataIOMeta buffer
+[INFO] [2020-10-29 08:12:03,989] [2470:140117390411584] - pipelined_model.py[line:72]: Save dataio_0 dataio DataIOParam buffer
+[INFO] [2020-10-29 08:12:03,993] [2470:140117390411584] - pipelined_model.py[line:77]: Save dataio_0 dataio successfully
+[INFO] [2020-10-29 08:12:04,014] [2470:140117390411584] - task_executor.py[line:160]: task 202010290812019279649_dataio_0 host 10000 start time: 2020-10-29 08:12:03
+[INFO] [2020-10-29 08:12:04,014] [2470:140117390411584] - task_executor.py[line:161]: task 202010290812019279649_dataio_0 host 10000 end time: 2020-10-29 08:12:03
+[INFO] [2020-10-29 08:12:04,015] [2470:140117390411584] - task_executor.py[line:162]: task 202010290812019279649_dataio_0 host 10000 takes 0.752s
+[INFO] [2020-10-29 08:12:04,015] [2470:140117390411584] - task_executor.py[line:164]: finish 202010290812019279649 dataio_0 202010290812019279649_dataio_0 host 10000 success task
+[INFO] [2020-10-29 08:12:05,904] [2528:140639642666816] - task_executor.py[line:121]: run 202010290812019279649 dataio_1 202010290812019279649_dataio_1 host 10000 task
+[INFO] [2020-10-29 08:12:05,905] [2528:140639642666816] - task_executor.py[line:122]: {'DataIOParam': {'input_format': 'dense', 'delimitor': ',', 'data_type': 'float64', 'exclusive_data_type': None, 'tag_with_value': False, 'tag_value_delimitor': ':', 'missing_fill': False, 'default_value': 0, 'missing_fill_method': None, 'missing_impute': None, 'outlier_replace': False, 'outlier_replace_method': None, 'outlier_impute': None, 'outlier_replace_value': 0, 'with_label': True, 'label_name': 'y', 'label_type': 'int', 'output_format': 'dense'}, 'initiator': {'role': 'guest', 'party_id': 10000}, 'job_parameters': {'work_mode': 0, 'model_id': 'arbiter-10000#guest-10000#host-10000#model', 'model_version': '202010290812019279649'}, 'role': {'guest': [10000], 'host': [10000], 'arbiter': [10000]}, 'config': '/fate/examples/federatedml-1.x-examples/homo_logistic_regression/test_homolr_evaluate_job_conf.json', 'dsl': 'examples/federatedml-1.x-examples/homo_logistic_regression/test_homolr_evaluate_job_dsl.json', 'function': 'submit_job', 'local': {'role': 'host', 'party_id': 10000}, 'CodePath': 'federatedml/util/data_io.py/DataIO', 'module': 'DataIO'}
+[INFO] [2020-10-29 08:12:05,905] [2528:140639642666816] - task_executor.py[line:123]: {'data': {'data': ['args.eval_data']}, 'model': ['dataio_0.dataio']}
+[DEBUG] [2020-10-29 08:12:05,906] [2528:140639642666816] - profile_util.py[line:34]: task_executor.py:187 call table, takes 0.0008013248443603516s
+[INFO] [2020-10-29 08:12:05,906] [2528:140639642666816] - task_executor.py[line:202]: start save as task 202010290812019279649_dataio_1 input data table experiment homo_breast_test
+[DEBUG] [2020-10-29 08:12:05,907] [2528:140639642666816] - profile_util.py[line:34]: session.py:178 call collect, takes 0.0008349418640136719s
+[DEBUG] [2020-10-29 08:12:05,911] [2528:140639642666816] - profile_util.py[line:34]: task_executor.py:212 call save_as, takes 0.002910137176513672s
+[INFO] [2020-10-29 08:12:05,912] [2528:140639642666816] - task_executor.py[line:218]: save as task 202010290812019279649_dataio_1 input data table to 202010290812019279649_dataio_1_host_10000 homo_breast_test done
+[INFO] [2020-10-29 08:12:05,928] [2528:140639642666816] - pipelined_model.py[line:177]: parse DataIOMeta proto object normal
+[INFO] [2020-10-29 08:12:05,930] [2528:140639642666816] - pipelined_model.py[line:177]: parse DataIOParam proto object normal
+[DEBUG] [2020-10-29 08:12:06,088] [2528:140639642666816] - component_properties.py[line:67]: {'DataIOParam': {'input_format': 'dense', 'delimitor': ',', 'data_type': 'float64', 'exclusive_data_type': None, 'tag_with_value': False, 'tag_value_delimitor': ':', 'missing_fill': False, 'default_value': 0, 'missing_fill_method': None, 'missing_impute': None, 'outlier_replace': False, 'outlier_replace_method': None, 'outlier_impute': None, 'outlier_replace_value': 0, 'with_label': True, 'label_name': 'y', 'label_type': 'int', 'output_format': 'dense'}, 'initiator': {'role': 'guest', 'party_id': 10000}, 'job_parameters': {'work_mode': 0, 'model_id': 'arbiter-10000#guest-10000#host-10000#model', 'model_version': '202010290812019279649'}, 'role': {'guest': [10000], 'host': [10000], 'arbiter': [10000]}, 'config': '/fate/examples/federatedml-1.x-examples/homo_logistic_regression/test_homolr_evaluate_job_conf.json', 'dsl': 'examples/federatedml-1.x-examples/homo_logistic_regression/test_homolr_evaluate_job_dsl.json', 'function': 'submit_job', 'local': {'role': 'host', 'party_id': 10000}, 'CodePath': 'federatedml/util/data_io.py/DataIO', 'module': 'DataIO'}
+[DEBUG] [2020-10-29 08:12:06,089] [2528:140639642666816] - component_properties.py[line:74]: need_run: True, need_cv: False
+[DEBUG] [2020-10-29 08:12:06,089] [2528:140639642666816] - component_properties.py[line:118]: has_train_data: False, has_eval_data: False, has_normal_data: True
+[DEBUG] [2020-10-29 08:12:06,089] [2528:140639642666816] - profile_util.py[line:34]: component_properties.py:155 call count, takes 0.0004930496215820312s
+[DEBUG] [2020-10-29 08:12:06,090] [2528:140639642666816] - model_base.py[line:210]: In extract_data, data input: {'args.data': <arch.api.impl.based_1x.table.DTable object at 0x7fe41dc87c88>}
+[DEBUG] [2020-10-29 08:12:06,090] [2528:140639642666816] - model_base.py[line:87]: func: <bound method DataIO.transform of <federatedml.util.data_io.DataIO object at 0x7fe41dca5160>>
+[INFO] [2020-10-29 08:12:06,090] [2528:140639642666816] - data_io.py[line:141]: start to read dense data and change data to instance
+[DEBUG] [2020-10-29 08:12:06,091] [2528:140639642666816] - profile_util.py[line:34]: abnormal_detection.py:23 call count, takes 0.0005218982696533203s
+[ERROR] [2020-10-29 08:12:06,091] [2528:140639642666816] - task_executor.py[line:144]: Count of data_instance is 0, table_name: homo_breast_test, namespace: 202010290812019279649_dataio_1_host_10000
+Traceback (most recent call last):
+  File "/fate/fate_flow/driver/task_executor.py", line 135, in run_task
+    run_object.run(component_parameters, task_run_args)
+  File "/fate/federatedml/model_base.py", line 88, in run
+    this_data_output = func(*real_param)
+  File "/fate/federatedml/util/data_io.py", line 874, in transform
+    return self.reader.read_data(data_inst, "transform")
+  File "/fate/federatedml/util/data_io.py", line 143, in read_data
+    abnormal_detection.empty_table_detection(input_data)
+  File "/fate/federatedml/util/abnormal_detection.py", line 28, in empty_table_detection
+    table_name, namespace
+ValueError: Count of data_instance is 0, table_name: homo_breast_test, namespace: 202010290812019279649_dataio_1_host_10000
+[INFO] [2020-10-29 08:12:06,105] [2528:140639642666816] - task_executor.py[line:160]: task 202010290812019279649_dataio_1 host 10000 start time: 2020-10-29 08:12:05
+[INFO] [2020-10-29 08:12:06,105] [2528:140639642666816] - task_executor.py[line:161]: task 202010290812019279649_dataio_1 host 10000 end time: 2020-10-29 08:12:06
+[INFO] [2020-10-29 08:12:06,105] [2528:140639642666816] - task_executor.py[line:162]: task 202010290812019279649_dataio_1 host 10000 takes 0.393s
+[INFO] [2020-10-29 08:12:06,105] [2528:140639642666816] - task_executor.py[line:164]: finish 202010290812019279649 dataio_1 202010290812019279649_dataio_1 host 10000 failed task

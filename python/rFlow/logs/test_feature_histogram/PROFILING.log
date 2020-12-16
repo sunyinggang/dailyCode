@@ -1,0 +1,9 @@
+[DEBUG] [2020-10-29 08:04:22,113] [1143:139713924290368] - profile_util.py[line:34]: feature_histogram_test.py:46 call parallelize, takes 0.03800201416015625s
+[DEBUG] [2020-10-29 08:04:22,144] [1143:139713924290368] - profile_util.py[line:34]: feature_histogram_test.py:49 call parallelize, takes 0.030116558074951172s
+[DEBUG] [2020-10-29 08:04:22,246] [1143:139713924290368] - profile_util.py[line:34]: feature_histogram_test.py:46 call parallelize, takes 0.04600048065185547s
+[DEBUG] [2020-10-29 08:04:22,280] [1143:139713924290368] - profile_util.py[line:34]: feature_histogram_test.py:49 call parallelize, takes 0.03293275833129883s
+[DEBUG] [2020-10-29 08:04:22,383] [1143:139713924290368] - profile_util.py[line:34]: feature_histogram_test.py:46 call parallelize, takes 0.04743504524230957s
+[DEBUG] [2020-10-29 08:04:22,421] [1143:139713924290368] - profile_util.py[line:34]: feature_histogram_test.py:49 call parallelize, takes 0.037690162658691406s
+[DEBUG] [2020-10-29 08:04:22,480] [1143:139713924290368] - profile_util.py[line:34]: feature_histogram.py:180 call join, takes 0.05794405937194824s
+[DEBUG] [2020-10-29 08:04:22,569] [1143:139713924290368] - profile_util.py[line:34]: feature_histogram.py:180 call mapPartitions2, takes 0.08835387229919434s
+[DEBUG] [2020-10-29 08:04:22,602] [1143:139713924290368] - profile_util.py[line:34]: feature_histogram.py:182 call reduce, takes 0.033165931701660156s

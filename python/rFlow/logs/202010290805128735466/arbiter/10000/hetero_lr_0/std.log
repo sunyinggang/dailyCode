@@ -1,0 +1,3 @@
+/fate/federatedml/optim/gradient/hetero_linear_model_gradient.py:318: FutureWarning: arrays to stack must be passed as a "sequence" type such as list or tuple. Support for non-sequence iterables such as generators is deprecated as of NumPy 1.16 and will raise an error in the future.
+  gradient = np.hstack((h for h in host_gradients))
+finish 202010290805128735466 hetero_lr_0 202010290805128735466_hetero_lr_0 arbiter 10000 success task

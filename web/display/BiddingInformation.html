@@ -233,6 +233,9 @@
                                 <th tabindex="0" aria-controls="bs4-table" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 200px;">
                                     中标公司
                                 </th>
+                                <th tabindex="0" aria-controls="bs4-table" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 50px;">
+                                    原文链接
+                                </th>
                             </tr>
                             </thead>
                             <tbody>
@@ -266,7 +269,7 @@
     function getData(page){
         $.ajax({
             type: 'GET',
-            url: 'http://39.98.49.111:8888/bidding/list',
+            url: 'http://127.0.0.1:8888/bidding/list',
             data: {'page':page},
             dataType:'json',
             success:function(json){
@@ -278,7 +281,7 @@
                 totalPage = json.data.totalPage; //总页数
                 var list = json.data.list;
                 $.each(list, function(i, result) {
-                    var item = "<tr><td>" + result['id'] + "</td><td>" + result['bidding_people'] + "</td><td>" + result['name'] + "</td><td>" + result['field'] + "</td><td>" + result['begin_date'] + "</td><td>" + result['money'] + "</td><td>" + result['company'] + "</tr>";
+                    var item = "<tr><td>" + result['id'] + "</td><td>" + result['bidding_people'] + "</td><td>" + result['name'] + "</td><td>" + result['field'] + "</td><td>" + result['begin_date'] + "</td><td>" + result['money'] + "</td><td>" + result['company']+ "</td><td><a target='_blank' class='badge badge-pill badge-success' href='" + result['href'] + "'>访问</a></tr>";
                     $('#biddingdatatable tbody').append(item);
                 });
             },

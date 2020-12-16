@@ -1,0 +1,56 @@
+[INFO] [2020-11-16 07:35:56,323] [6:140436123686720] - db_models.py[line:56]: init sqlite database on standalone mode successfully
+[INFO] [2020-11-16 07:35:57,248] [6:140436123686720] - session_utils.py[line:68]: init detect table fate_flow_detect_table_namespace fate_flow_detect_table_name for session session_used_by_fate_flow_server_5d990f5227de11eb91a40242ac120002
+[INFO] [2020-11-16 07:35:57,248] [6:140436123686720] - session_utils.py[line:69]: init session session_used_by_fate_flow_server_5d990f5227de11eb91a40242ac120002 for fate flow server successfully
+[INFO] [2020-11-16 07:35:57,250] [6:140436123686720] - queue_manager.py[line:247]: init in-process queue
+[INFO] [2020-11-16 08:19:21,262] [6:140357816665920] - db_models.py[line:56]: init sqlite database on standalone mode successfully
+[INFO] [2020-11-16 08:19:22,206] [6:140357816665920] - session_utils.py[line:68]: init detect table fate_flow_detect_table_namespace fate_flow_detect_table_name for session session_used_by_fate_flow_server_6e40955427e411eba78f0242ac120002
+[INFO] [2020-11-16 08:19:22,206] [6:140357816665920] - session_utils.py[line:69]: init session session_used_by_fate_flow_server_6e40955427e411eba78f0242ac120002 for fate flow server successfully
+[INFO] [2020-11-16 08:19:22,208] [6:140357816665920] - queue_manager.py[line:247]: init in-process queue
+[INFO] [2020-11-16 08:24:00,505] [6:140329274890048] - db_models.py[line:56]: init sqlite database on standalone mode successfully
+[INFO] [2020-11-16 08:24:00,884] [6:140329274890048] - session_utils.py[line:68]: init detect table fate_flow_detect_table_namespace fate_flow_detect_table_name for session session_used_by_fate_flow_server_1469cc3427e511ebb3460242ac120002
+[INFO] [2020-11-16 08:24:00,885] [6:140329274890048] - session_utils.py[line:69]: init session session_used_by_fate_flow_server_1469cc3427e511ebb3460242ac120002 for fate flow server successfully
+[INFO] [2020-11-16 08:24:00,885] [6:140329274890048] - queue_manager.py[line:247]: init in-process queue
+[INFO] [2020-11-16 08:36:40,587] [6:140635512678208] - db_models.py[line:56]: init sqlite database on standalone mode successfully
+[INFO] [2020-11-16 08:36:41,042] [6:140635512678208] - session_utils.py[line:68]: init detect table fate_flow_detect_table_namespace fate_flow_detect_table_name for session session_used_by_fate_flow_server_d97e5ea827e611ebb7e90242ac120002
+[INFO] [2020-11-16 08:36:41,043] [6:140635512678208] - session_utils.py[line:69]: init session session_used_by_fate_flow_server_d97e5ea827e611ebb7e90242ac120002 for fate flow server successfully
+[INFO] [2020-11-16 08:36:41,043] [6:140635512678208] - queue_manager.py[line:247]: init in-process queue
+[INFO] [2020-11-16 08:44:29,352] [6:140278770235200] - db_models.py[line:56]: init sqlite database on standalone mode successfully
+[INFO] [2020-11-16 08:44:29,810] [6:140278770235200] - session_utils.py[line:68]: init detect table fate_flow_detect_table_namespace fate_flow_detect_table_name for session session_used_by_fate_flow_server_f0e6adba27e711eba0190242ac120002
+[INFO] [2020-11-16 08:44:29,810] [6:140278770235200] - session_utils.py[line:69]: init session session_used_by_fate_flow_server_f0e6adba27e711eba0190242ac120002 for fate flow server successfully
+[INFO] [2020-11-16 08:44:29,811] [6:140278770235200] - queue_manager.py[line:247]: init in-process queue
+[INFO] [2020-11-16 10:05:44,221] [6:140524232361792] - db_models.py[line:56]: init sqlite database on standalone mode successfully
+[INFO] [2020-11-16 10:05:45,146] [6:140524232361792] - session_utils.py[line:68]: init detect table fate_flow_detect_table_namespace fate_flow_detect_table_name for session session_used_by_fate_flow_server_4ac7dc3627f311ebb0780242ac120002
+[INFO] [2020-11-16 10:05:45,146] [6:140524232361792] - session_utils.py[line:69]: init session session_used_by_fate_flow_server_4ac7dc3627f311ebb0780242ac120002 for fate flow server successfully
+[INFO] [2020-11-16 10:05:45,148] [6:140524232361792] - queue_manager.py[line:247]: init in-process queue
+[INFO] [2020-11-16 10:20:39,471] [6:140121617266496] - db_models.py[line:56]: init sqlite database on standalone mode successfully
+[INFO] [2020-11-16 10:20:39,907] [6:140121617266496] - session_utils.py[line:68]: init detect table fate_flow_detect_table_namespace fate_flow_detect_table_name for session session_used_by_fate_flow_server_6027a6cc27f511eb99020242ac120002
+[INFO] [2020-11-16 10:20:39,907] [6:140121617266496] - session_utils.py[line:69]: init session session_used_by_fate_flow_server_6027a6cc27f511eb99020242ac120002 for fate flow server successfully
+[INFO] [2020-11-16 10:20:39,908] [6:140121617266496] - queue_manager.py[line:247]: init in-process queue
+[INFO] [2020-11-16 10:26:19,559] [6:140635465180992] - db_models.py[line:56]: init sqlite database on standalone mode successfully
+[INFO] [2020-11-16 10:26:20,361] [6:140635465180992] - session_utils.py[line:68]: init detect table fate_flow_detect_table_namespace fate_flow_detect_table_name for session session_used_by_fate_flow_server_2b078e7027f611ebbee80242ac120002
+[INFO] [2020-11-16 10:26:20,362] [6:140635465180992] - session_utils.py[line:69]: init session session_used_by_fate_flow_server_2b078e7027f611ebbee80242ac120002 for fate flow server successfully
+[INFO] [2020-11-16 10:26:20,364] [6:140635465180992] - queue_manager.py[line:247]: init in-process queue
+[INFO] [2020-11-16 11:38:15,771] [6:140684322113344] - db_models.py[line:56]: init sqlite database on standalone mode successfully
+[INFO] [2020-11-16 11:38:16,476] [6:140684322113344] - session_utils.py[line:68]: init detect table fate_flow_detect_table_namespace fate_flow_detect_table_name for session session_used_by_fate_flow_server_37a2bb6e280011ebaa7f0242ac120002
+[INFO] [2020-11-16 11:38:16,477] [6:140684322113344] - session_utils.py[line:69]: init session session_used_by_fate_flow_server_37a2bb6e280011ebaa7f0242ac120002 for fate flow server successfully
+[INFO] [2020-11-16 11:38:16,478] [6:140684322113344] - queue_manager.py[line:247]: init in-process queue
+[INFO] [2020-11-16 11:45:26,642] [6:140232333195072] - db_models.py[line:56]: init sqlite database on standalone mode successfully
+[INFO] [2020-11-16 11:45:27,249] [6:140232333195072] - session_utils.py[line:68]: init detect table fate_flow_detect_table_namespace fate_flow_detect_table_name for session session_used_by_fate_flow_server_386b073a280111eb8a2c000c294e2eb2
+[INFO] [2020-11-16 11:45:27,250] [6:140232333195072] - session_utils.py[line:69]: init session session_used_by_fate_flow_server_386b073a280111eb8a2c000c294e2eb2 for fate flow server successfully
+[INFO] [2020-11-16 11:45:27,251] [6:140232333195072] - queue_manager.py[line:247]: init in-process queue
+[INFO] [2020-11-16 11:48:01,636] [6:139727353718592] - db_models.py[line:56]: init sqlite database on standalone mode successfully
+[INFO] [2020-11-16 11:48:02,160] [6:139727353718592] - session_utils.py[line:68]: init detect table fate_flow_detect_table_namespace fate_flow_detect_table_name for session session_used_by_fate_flow_server_94c0481a280111eba403000c294e2eb2
+[INFO] [2020-11-16 11:48:02,160] [6:139727353718592] - session_utils.py[line:69]: init session session_used_by_fate_flow_server_94c0481a280111eba403000c294e2eb2 for fate flow server successfully
+[INFO] [2020-11-16 11:48:02,161] [6:139727353718592] - queue_manager.py[line:247]: init in-process queue
+[INFO] [2020-11-16 11:49:17,516] [6:140332019005248] - db_models.py[line:56]: init sqlite database on standalone mode successfully
+[INFO] [2020-11-16 11:49:18,099] [6:140332019005248] - session_utils.py[line:68]: init detect table fate_flow_detect_table_namespace fate_flow_detect_table_name for session session_used_by_fate_flow_server_c202f98a280111eb8a0c000c294e2eb2
+[INFO] [2020-11-16 11:49:18,099] [6:140332019005248] - session_utils.py[line:69]: init session session_used_by_fate_flow_server_c202f98a280111eb8a0c000c294e2eb2 for fate flow server successfully
+[INFO] [2020-11-16 11:49:18,100] [6:140332019005248] - queue_manager.py[line:247]: init in-process queue
+[INFO] [2020-11-16 12:01:03,243] [6:140651253536576] - db_models.py[line:56]: init sqlite database on standalone mode successfully
+[INFO] [2020-11-16 12:01:03,845] [6:140651253536576] - session_utils.py[line:68]: init detect table fate_flow_detect_table_namespace fate_flow_detect_table_name for session session_used_by_fate_flow_server_66a7ccb2280311eb92b6000c294e2eb2
+[INFO] [2020-11-16 12:01:03,846] [6:140651253536576] - session_utils.py[line:69]: init session session_used_by_fate_flow_server_66a7ccb2280311eb92b6000c294e2eb2 for fate flow server successfully
+[INFO] [2020-11-16 12:01:03,847] [6:140651253536576] - queue_manager.py[line:247]: init in-process queue
+[INFO] [2020-11-16 12:02:54,551] [6:139623297460032] - db_models.py[line:56]: init sqlite database on standalone mode successfully
+[INFO] [2020-11-16 12:02:55,052] [6:139623297460032] - session_utils.py[line:68]: init detect table fate_flow_detect_table_namespace fate_flow_detect_table_name for session session_used_by_fate_flow_server_a8f6c168280311ebac700242c0a86402
+[INFO] [2020-11-16 12:02:55,053] [6:139623297460032] - session_utils.py[line:69]: init session session_used_by_fate_flow_server_a8f6c168280311ebac700242c0a86402 for fate flow server successfully
+[INFO] [2020-11-16 12:02:55,054] [6:139623297460032] - queue_manager.py[line:247]: init in-process queue

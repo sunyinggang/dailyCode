@@ -1,0 +1,12 @@
+[DEBUG] [2020-10-29 08:02:31,602] [227:139709236389696] - profile_util.py[line:34]: percentage_value_filter_test.py:86 call parallelize, takes 0.08508610725402832s
+[DEBUG] [2020-10-29 08:02:31,687] [227:139709236389696] - profile_util.py[line:34]: percentage_value_filter_test.py:87 call parallelize, takes 0.08431434631347656s
+[DEBUG] [2020-10-29 08:02:31,712] [227:139709236389696] - profile_util.py[line:34]: percentage_value_filter.py:50 call count, takes 0.024399518966674805s
+[DEBUG] [2020-10-29 08:02:31,807] [227:139709236389696] - profile_util.py[line:34]: percentage_value_filter.py:188 call mapPartitions, takes 0.09431099891662598s
+[DEBUG] [2020-10-29 08:02:31,846] [227:139709236389696] - profile_util.py[line:34]: percentage_value_filter.py:188 call reduce, takes 0.03813362121582031s
+[DEBUG] [2020-10-29 08:02:31,933] [227:139709236389696] - profile_util.py[line:34]: percentage_value_filter.py:192 call mapPartitions, takes 0.08693242073059082s
+[DEBUG] [2020-10-29 08:02:31,995] [227:139709236389696] - profile_util.py[line:34]: percentage_value_filter.py:192 call reduce, takes 0.061551570892333984s
+[DEBUG] [2020-10-29 08:02:32,138] [227:139709236389696] - profile_util.py[line:34]: percentage_value_filter.py:50 call count, takes 0.04392290115356445s
+[DEBUG] [2020-10-29 08:02:32,227] [227:139709236389696] - profile_util.py[line:34]: percentage_value_filter.py:188 call mapPartitions, takes 0.08731412887573242s
+[DEBUG] [2020-10-29 08:02:32,266] [227:139709236389696] - profile_util.py[line:34]: percentage_value_filter.py:188 call reduce, takes 0.038323402404785156s
+[DEBUG] [2020-10-29 08:02:32,363] [227:139709236389696] - profile_util.py[line:34]: percentage_value_filter.py:192 call mapPartitions, takes 0.0974125862121582s
+[DEBUG] [2020-10-29 08:02:32,436] [227:139709236389696] - profile_util.py[line:34]: percentage_value_filter.py:192 call reduce, takes 0.0725545883178711s

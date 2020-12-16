@@ -1,0 +1,2 @@
+[DEBUG] [2020-10-29 08:02:26,569] [189:140592404694848] - profile_util.py[line:34]: manually_filter_test.py:47 call parallelize, takes 0.0692434310913086s
+[DEBUG] [2020-10-29 08:02:26,701] [189:140592404694848] - profile_util.py[line:34]: manually_filter_test.py:47 call parallelize, takes 0.0823812484741211s

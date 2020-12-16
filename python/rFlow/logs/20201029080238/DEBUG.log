@@ -1,0 +1,83 @@
+[DEBUG] [2020-10-29 08:02:38,519] [305:140643056940864] - profile_util.py[line:34]: imputer_test.py:46 call parallelize, takes 0.01226353645324707s
+[DEBUG] [2020-10-29 08:02:38,549] [305:140643056940864] - profile_util.py[line:34]: statics.py:153 call mapPartitions, takes 0.0296630859375s
+[DEBUG] [2020-10-29 08:02:38,564] [305:140643056940864] - profile_util.py[line:34]: statics.py:154 call reduce, takes 0.01394343376159668s
+[DEBUG] [2020-10-29 08:02:38,575] [305:140643056940864] - profile_util.py[line:34]: imputer.py:140 call mapValues, takes 0.011179447174072266s
+[INFO] [2020-10-29 08:02:38,575] [305:140643056940864] - imputer.py[line:142]: finish replace missing value with cols transform value, replace method is max
+[DEBUG] [2020-10-29 08:02:38,589] [305:140643056940864] - profile_util.py[line:34]: imputer.py:205 call mapPartitions, takes 0.013286828994750977s
+[DEBUG] [2020-10-29 08:02:38,598] [305:140643056940864] - profile_util.py[line:34]: imputer.py:205 call reduce, takes 0.00887441635131836s
+[DEBUG] [2020-10-29 08:02:38,612] [305:140643056940864] - profile_util.py[line:34]: imputer.py:243 call mapValues, takes 0.013374805450439453s
+[DEBUG] [2020-10-29 08:02:38,615] [305:140643056940864] - profile_util.py[line:34]: imputer_test.py:51 call collect, takes 0.002319812774658203s
+[DEBUG] [2020-10-29 08:02:38,626] [305:140643056940864] - profile_util.py[line:34]: imputer_test.py:46 call parallelize, takes 0.010422229766845703s
+[DEBUG] [2020-10-29 08:02:38,638] [305:140643056940864] - profile_util.py[line:34]: statics.py:153 call mapPartitions, takes 0.01191568374633789s
+[DEBUG] [2020-10-29 08:02:38,647] [305:140643056940864] - profile_util.py[line:34]: statics.py:154 call reduce, takes 0.009278059005737305s
+[DEBUG] [2020-10-29 08:02:38,659] [305:140643056940864] - profile_util.py[line:34]: imputer.py:140 call mapValues, takes 0.011386394500732422s
+[INFO] [2020-10-29 08:02:38,659] [305:140643056940864] - imputer.py[line:142]: finish replace missing value with cols transform value, replace method is max
+[DEBUG] [2020-10-29 08:02:38,671] [305:140643056940864] - profile_util.py[line:34]: imputer.py:205 call mapPartitions, takes 0.011619329452514648s
+[DEBUG] [2020-10-29 08:02:38,682] [305:140643056940864] - profile_util.py[line:34]: imputer.py:205 call reduce, takes 0.010132551193237305s
+[DEBUG] [2020-10-29 08:02:38,692] [305:140643056940864] - profile_util.py[line:34]: imputer.py:243 call mapValues, takes 0.010368108749389648s
+[DEBUG] [2020-10-29 08:02:38,695] [305:140643056940864] - profile_util.py[line:34]: imputer_test.py:51 call collect, takes 0.002254962921142578s
+[DEBUG] [2020-10-29 08:02:38,712] [305:140643056940864] - profile_util.py[line:34]: imputer_test.py:46 call parallelize, takes 0.016532182693481445s
+[DEBUG] [2020-10-29 08:02:38,724] [305:140643056940864] - profile_util.py[line:34]: statics.py:153 call mapPartitions, takes 0.011414289474487305s
+[DEBUG] [2020-10-29 08:02:38,735] [305:140643056940864] - profile_util.py[line:34]: statics.py:154 call reduce, takes 0.011463642120361328s
+[DEBUG] [2020-10-29 08:02:38,748] [305:140643056940864] - profile_util.py[line:34]: imputer.py:140 call mapValues, takes 0.011878490447998047s
+[INFO] [2020-10-29 08:02:38,748] [305:140643056940864] - imputer.py[line:142]: finish replace missing value with cols transform value, replace method is mean
+[DEBUG] [2020-10-29 08:02:38,760] [305:140643056940864] - profile_util.py[line:34]: imputer.py:205 call mapPartitions, takes 0.012291669845581055s
+[DEBUG] [2020-10-29 08:02:38,769] [305:140643056940864] - profile_util.py[line:34]: imputer.py:205 call reduce, takes 0.008597612380981445s
+[DEBUG] [2020-10-29 08:02:38,782] [305:140643056940864] - profile_util.py[line:34]: imputer.py:243 call mapValues, takes 0.012488842010498047s
+[DEBUG] [2020-10-29 08:02:38,785] [305:140643056940864] - profile_util.py[line:34]: imputer_test.py:51 call collect, takes 0.002652883529663086s
+[DEBUG] [2020-10-29 08:02:38,797] [305:140643056940864] - profile_util.py[line:34]: imputer_test.py:46 call parallelize, takes 0.011591434478759766s
+[DEBUG] [2020-10-29 08:02:38,835] [305:140643056940864] - profile_util.py[line:34]: quantile_binning.py:132 call mapPartitions2, takes 0.03569674491882324s
+[DEBUG] [2020-10-29 08:02:38,848] [305:140643056940864] - profile_util.py[line:34]: quantile_binning.py:133 call reduce, takes 0.013052940368652344s
+[DEBUG] [2020-10-29 08:02:38,863] [305:140643056940864] - profile_util.py[line:34]: imputer.py:140 call mapValues, takes 0.013692140579223633s
+[INFO] [2020-10-29 08:02:38,863] [305:140643056940864] - imputer.py[line:142]: finish replace missing value with cols transform value, replace method is median
+[DEBUG] [2020-10-29 08:02:38,879] [305:140643056940864] - profile_util.py[line:34]: imputer.py:205 call mapPartitions, takes 0.015715837478637695s
+[DEBUG] [2020-10-29 08:02:38,887] [305:140643056940864] - profile_util.py[line:34]: imputer.py:205 call reduce, takes 0.007853507995605469s
+[DEBUG] [2020-10-29 08:02:38,900] [305:140643056940864] - profile_util.py[line:34]: imputer.py:243 call mapValues, takes 0.012964248657226562s
+[DEBUG] [2020-10-29 08:02:38,912] [305:140643056940864] - profile_util.py[line:34]: imputer_test.py:51 call collect, takes 0.01101827621459961s
+[DEBUG] [2020-10-29 08:02:38,933] [305:140643056940864] - profile_util.py[line:34]: imputer_test.py:46 call parallelize, takes 0.020704030990600586s
+[DEBUG] [2020-10-29 08:02:38,948] [305:140643056940864] - profile_util.py[line:34]: statics.py:153 call mapPartitions, takes 0.014106035232543945s
+[DEBUG] [2020-10-29 08:02:38,965] [305:140643056940864] - profile_util.py[line:34]: statics.py:154 call reduce, takes 0.016944408416748047s
+[DEBUG] [2020-10-29 08:02:38,978] [305:140643056940864] - profile_util.py[line:34]: imputer.py:140 call mapValues, takes 0.01316523551940918s
+[INFO] [2020-10-29 08:02:38,978] [305:140643056940864] - imputer.py[line:142]: finish replace missing value with cols transform value, replace method is min
+[DEBUG] [2020-10-29 08:02:38,992] [305:140643056940864] - profile_util.py[line:34]: imputer.py:205 call mapPartitions, takes 0.013587713241577148s
+[DEBUG] [2020-10-29 08:02:39,001] [305:140643056940864] - profile_util.py[line:34]: imputer.py:205 call reduce, takes 0.008880853652954102s
+[DEBUG] [2020-10-29 08:02:39,016] [305:140643056940864] - profile_util.py[line:34]: imputer.py:243 call mapValues, takes 0.014421224594116211s
+[DEBUG] [2020-10-29 08:02:39,025] [305:140643056940864] - profile_util.py[line:34]: imputer_test.py:51 call collect, takes 0.008888721466064453s
+[DEBUG] [2020-10-29 08:02:39,044] [305:140643056940864] - profile_util.py[line:34]: imputer_test.py:46 call parallelize, takes 0.017942190170288086s
+[DEBUG] [2020-10-29 08:02:39,057] [305:140643056940864] - profile_util.py[line:34]: imputer.py:154 call mapValues, takes 0.01277303695678711s
+[INFO] [2020-10-29 08:02:39,057] [305:140643056940864] - imputer.py[line:156]: finish replace missing value with replace value 0, replace method is:None
+[DEBUG] [2020-10-29 08:02:39,079] [305:140643056940864] - profile_util.py[line:34]: imputer.py:205 call mapPartitions, takes 0.014553070068359375s
+[DEBUG] [2020-10-29 08:02:39,089] [305:140643056940864] - profile_util.py[line:34]: imputer.py:205 call reduce, takes 0.009759902954101562s
+[DEBUG] [2020-10-29 08:02:39,101] [305:140643056940864] - profile_util.py[line:34]: imputer.py:243 call mapValues, takes 0.010995864868164062s
+[DEBUG] [2020-10-29 08:02:39,107] [305:140643056940864] - profile_util.py[line:34]: imputer_test.py:51 call collect, takes 0.006293773651123047s
+[DEBUG] [2020-10-29 08:02:39,125] [305:140643056940864] - profile_util.py[line:34]: imputer_test.py:46 call parallelize, takes 0.01719069480895996s
+[DEBUG] [2020-10-29 08:02:39,138] [305:140643056940864] - profile_util.py[line:34]: imputer.py:154 call mapValues, takes 0.012900590896606445s
+[INFO] [2020-10-29 08:02:39,139] [305:140643056940864] - imputer.py[line:156]: finish replace missing value with replace value 111111, replace method is:designated
+[DEBUG] [2020-10-29 08:02:39,179] [305:140643056940864] - profile_util.py[line:34]: imputer.py:205 call mapPartitions, takes 0.03576827049255371s
+[DEBUG] [2020-10-29 08:02:39,188] [305:140643056940864] - profile_util.py[line:34]: imputer.py:205 call reduce, takes 0.008759021759033203s
+[DEBUG] [2020-10-29 08:02:39,200] [305:140643056940864] - profile_util.py[line:34]: imputer.py:243 call mapValues, takes 0.012224197387695312s
+[DEBUG] [2020-10-29 08:02:39,206] [305:140643056940864] - profile_util.py[line:34]: imputer_test.py:51 call collect, takes 0.005360603332519531s
+[DEBUG] [2020-10-29 08:02:39,221] [305:140643056940864] - profile_util.py[line:34]: imputer_test.py:46 call parallelize, takes 0.014179229736328125s
+[DEBUG] [2020-10-29 08:02:39,268] [305:140643056940864] - profile_util.py[line:34]: quantile_binning.py:132 call mapPartitions2, takes 0.04134225845336914s
+[DEBUG] [2020-10-29 08:02:39,277] [305:140643056940864] - profile_util.py[line:34]: quantile_binning.py:133 call reduce, takes 0.009033203125s
+[DEBUG] [2020-10-29 08:02:39,290] [305:140643056940864] - profile_util.py[line:34]: imputer.py:140 call mapValues, takes 0.012125730514526367s
+[INFO] [2020-10-29 08:02:39,290] [305:140643056940864] - imputer.py[line:142]: finish replace missing value with cols transform value, replace method is median
+[DEBUG] [2020-10-29 08:02:39,304] [305:140643056940864] - profile_util.py[line:34]: imputer.py:205 call mapPartitions, takes 0.01407313346862793s
+[DEBUG] [2020-10-29 08:02:39,314] [305:140643056940864] - profile_util.py[line:34]: imputer.py:205 call reduce, takes 0.009656667709350586s
+[DEBUG] [2020-10-29 08:02:39,327] [305:140643056940864] - profile_util.py[line:34]: imputer.py:243 call mapValues, takes 0.012193679809570312s
+[DEBUG] [2020-10-29 08:02:39,342] [305:140643056940864] - profile_util.py[line:34]: imputer.py:182 call mapValues, takes 0.014564752578735352s
+[DEBUG] [2020-10-29 08:02:39,357] [305:140643056940864] - profile_util.py[line:34]: imputer.py:205 call mapPartitions, takes 0.014716386795043945s
+[DEBUG] [2020-10-29 08:02:39,368] [305:140643056940864] - profile_util.py[line:34]: imputer.py:205 call reduce, takes 0.01091313362121582s
+[DEBUG] [2020-10-29 08:02:39,380] [305:140643056940864] - profile_util.py[line:34]: imputer.py:271 call mapValues, takes 0.011555671691894531s
+[DEBUG] [2020-10-29 08:02:39,394] [305:140643056940864] - profile_util.py[line:34]: imputer_test.py:46 call parallelize, takes 0.014079809188842773s
+[DEBUG] [2020-10-29 08:02:39,409] [305:140643056940864] - profile_util.py[line:34]: imputer.py:182 call mapValues, takes 0.014956951141357422s
+[DEBUG] [2020-10-29 08:02:39,424] [305:140643056940864] - profile_util.py[line:34]: imputer.py:205 call mapPartitions, takes 0.013913869857788086s
+[DEBUG] [2020-10-29 08:02:39,432] [305:140643056940864] - profile_util.py[line:34]: imputer.py:205 call reduce, takes 0.008367300033569336s
+[DEBUG] [2020-10-29 08:02:39,446] [305:140643056940864] - profile_util.py[line:34]: imputer.py:271 call mapValues, takes 0.013114690780639648s
+[DEBUG] [2020-10-29 08:02:39,452] [305:140643056940864] - profile_util.py[line:34]: imputer_test.py:51 call collect, takes 0.005786418914794922s
+[DEBUG] [2020-10-29 08:02:39,469] [305:140643056940864] - profile_util.py[line:34]: imputer_test.py:46 call parallelize, takes 0.016452789306640625s
+[DEBUG] [2020-10-29 08:02:39,483] [305:140643056940864] - profile_util.py[line:34]: imputer.py:182 call mapValues, takes 0.013186931610107422s
+[DEBUG] [2020-10-29 08:02:39,495] [305:140643056940864] - profile_util.py[line:34]: imputer.py:205 call mapPartitions, takes 0.012594223022460938s
+[DEBUG] [2020-10-29 08:02:39,505] [305:140643056940864] - profile_util.py[line:34]: imputer.py:205 call reduce, takes 0.009158849716186523s
+[DEBUG] [2020-10-29 08:02:39,517] [305:140643056940864] - profile_util.py[line:34]: imputer.py:271 call mapValues, takes 0.012346029281616211s
+[DEBUG] [2020-10-29 08:02:39,524] [305:140643056940864] - profile_util.py[line:34]: imputer_test.py:51 call collect, takes 0.006112098693847656s

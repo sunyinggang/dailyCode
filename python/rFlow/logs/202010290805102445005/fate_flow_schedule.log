@@ -1,0 +1,50 @@
+[INFO] [2020-10-29 08:05:10,245] [6:140637848127232] - job_controller.py[line:47]: submit job, job_id 202010290805102445005, body {'job_dsl': {'components': {'upload_0': {'module': 'Upload'}}}, 'job_runtime_conf': {'initiator': {'role': 'local', 'party_id': 0}, 'job_parameters': {'work_mode': 0}, 'role': {'local': [0]}, 'role_parameters': {'local': {'upload_0': {'work_mode': [0], 'head': [1], 'partition': [10], 'file': ['/fate/examples/data/breast_hetero_guest.csv'], 'namespace': ['fate_flow_test_table_breast_hetero'], 'table_name': ['breast_hetero_guest'], 'in_version': [None]}}}}}
+[INFO] [2020-10-29 08:05:10,267] [6:140702836623104] - tracking_manager.py[line:329]: save local 0 job: {'f_name': '', 'f_description': '', 'f_tag': '', 'f_initiator_party_id': 0, 'f_is_initiator': 1, 'f_progress': 0, 'f_job_id': '202010290805102445005', 'f_roles': '{"local": [0]}', 'f_work_mode': 0, 'f_dsl': '{"components": {"upload_0": {"module": "Upload"}}}', 'f_runtime_conf': '{"initiator": {"role": "local", "party_id": 0}, "job_parameters": {"work_mode": 0, "model_id": "local-0#model", "model_version": "202010290805102445005"}, "role": {"local": [0]}, "role_parameters": {"local": {"upload_0": {"work_mode": [0], "head": [1], "partition": [10], "file": ["/fate/examples/data/breast_hetero_guest.csv"], "namespace": ["fate_flow_test_table_breast_hetero"], "table_name": ["breast_hetero_guest"], "in_version": [null]}}}}', 'f_train_runtime_conf': '{}', 'f_run_ip': '172.18.0.2:9380', 'f_status': 'waiting', 'f_create_time': 1603958710246, 'f_role': 'local', 'f_party_id': 0}
+[INFO] [2020-10-29 08:05:10,276] [6:140637848127232] - job_controller.py[line:106]: submit job successfully, job id is 202010290805102445005, model id is local-0#model
+[INFO] [2020-10-29 08:05:10,276] [6:140638262744832] - dag_scheduler.py[line:58]: start check all role status
+[INFO] [2020-10-29 08:05:10,276] [6:140638262744832] - dag_scheduler.py[line:60]: check all role status success, status is True
+[INFO] [2020-10-29 08:05:10,276] [6:140638262744832] - dag_scheduler.py[line:71]: schedule job {'job_id': '202010290805102445005', 'initiator_role': 'local', 'initiator_party_id': 0}
+[INFO] [2020-10-29 08:05:10,304] [6:140702836623104] - job_utils.py[line:569]: setting job 202010290805102445005 timeout None is incorrect, using the default timeout 604800
+[INFO] [2020-10-29 08:05:10,308] [6:140540940003072] - tracking_manager.py[line:329]: save local 0 job: {'f_name': '', 'f_description': '', 'f_tag': 'end_waiting', 'f_initiator_party_id': -1, 'f_is_initiator': -1, 'f_progress': 0, 'f_job_id': '202010290805102445005', 'f_start_time': 1603958710304, 'f_status': 'running', 'f_update_time': 1603958710304, 'f_role': 'local', 'f_party_id': 0, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:05:10,320] [6:140702836623104] - task_scheduler.py[line:167]: job 202010290805102445005 root components is ['upload_0']
+[INFO] [2020-10-29 08:05:10,320] [6:140702836623104] - task_scheduler.py[line:219]: job 202010290805102445005 run component upload_0
+[INFO] [2020-10-29 08:05:10,330] [6:140540940003072] - task_scheduler.py[line:420]: job 202010290805102445005 upload_0 local 0 task subprocess is ready
+[WARNING] [2020-10-29 08:05:10,330] [6:140540940003072] - task_scheduler.py[line:433]: failed to get backend, set as 0
+[INFO] [2020-10-29 08:05:10,331] [6:140540940003072] - task_scheduler.py[line:486]: job 202010290805102445005 upload_0 local 0 task subprocess start
+[INFO] [2020-10-29 08:05:10,337] [6:140540940003072] - task_scheduler.py[line:495]: job 202010290805102445005 component upload_0 on local 0 start task subprocess success
+[INFO] [2020-10-29 08:05:10,343] [6:140702836623104] - task_scheduler.py[line:394]: job 202010290805102445005 component upload_0 run on local 0 status is notRunning
+[INFO] [2020-10-29 08:05:10,846] [6:140702836623104] - task_scheduler.py[line:394]: job 202010290805102445005 component upload_0 run on local 0 status is notRunning
+[INFO] [2020-10-29 08:05:11,036] [1811:139753940395840] - task_executor.py[line:52]: enter task process
+[INFO] [2020-10-29 08:05:11,036] [1811:139753940395840] - task_executor.py[line:53]: Namespace(component_name='upload_0', config='/fate/jobs/202010290805102445005/local/0/upload_0/task_config.json', job_id='202010290805102445005', job_server='172.18.0.2:9380', party_id='0', processors_per_node=0, role='local', task_id='202010290805102445005_upload_0')
+[INFO] [2020-10-29 08:05:11,048] [6:140540940003072] - job_controller.py[line:158]: job 202010290805102445005 component upload_0 local 0 status running
+[INFO] [2020-10-29 08:05:11,258] [1811:139753940395840] - tracking_manager.py[line:329]: save local 0 job: {'f_progress': 100.0}
+[INFO] [2020-10-29 08:05:11,277] [1811:139753940395840] - tracking_manager.py[line:75]: request save job 202010290805102445005 component upload_0 on local 0 upload data_access metric data
+[INFO] [2020-10-29 08:05:11,284] [6:140540940003072] - tracking_manager.py[line:96]: save job 202010290805102445005 component upload_0 on local 0 upload data_access metric data
+[INFO] [2020-10-29 08:05:11,292] [1811:139753940395840] - tracking_manager.py[line:127]: request save job 202010290805102445005 component upload_0 on local 0 upload data_access metric meta
+[INFO] [2020-10-29 08:05:11,296] [6:140540940003072] - tracking_manager.py[line:149]: save job 202010290805102445005 component upload_0 on local 0 upload data_access metric meta
+[INFO] [2020-10-29 08:05:11,325] [6:140540940003072] - job_controller.py[line:158]: job 202010290805102445005 component upload_0 local 0 status success
+[INFO] [2020-10-29 08:05:11,350] [6:140702836623104] - task_scheduler.py[line:394]: job 202010290805102445005 component upload_0 run on local 0 status is success
+[INFO] [2020-10-29 08:05:11,353] [6:140702836623104] - task_scheduler.py[line:264]: job 202010290805102445005 component upload_0 run success
+[INFO] [2020-10-29 08:05:11,361] [6:140229272925952] - tracking_manager.py[line:329]: save local 0 job: {'f_name': '', 'f_description': '', 'f_tag': '', 'f_initiator_party_id': -1, 'f_is_initiator': -1, 'f_progress': 100.0, 'f_update_time': 1603958711357, 'f_current_tasks': '["202010290805102445005_upload_0"]', 'f_role': 'local', 'f_party_id': 0, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:05:11,369] [6:140702836623104] - task_scheduler.py[line:596]: get stop job 202010290805102445005 upload_0 command
+[INFO] [2020-10-29 08:05:11,374] [6:140229272925952] - job_controller.py[line:117]: local 0 get kill job 202010290805102445005 upload_0 command
+[INFO] [2020-10-29 08:05:11,379] [6:140229272925952] - job_utils.py[line:396]: try to stop job 202010290805102445005 task 202010290805102445005_upload_0 local 0 process pid:1811
+[INFO] [2020-10-29 08:05:11,381] [6:140229272925952] - job_utils.py[line:502]: start run subprocess to stop component upload_0 session
+[INFO] [2020-10-29 08:05:11,396] [6:140229272925952] - job_controller.py[line:139]: job 202010290805102445005 component upload_0 on local 0 process 1811 kill success
+[INFO] [2020-10-29 08:05:11,412] [6:140540940003072] - job_controller.py[line:158]: job 202010290805102445005 component upload_0 local 0 status success
+[INFO] [2020-10-29 08:05:11,426] [6:140540940003072] - job_controller.py[line:158]: job 202010290805102445005 component upload_0 local 0 status success
+[INFO] [2020-10-29 08:05:11,431] [6:140702836623104] - task_scheduler.py[line:639]: send local 0 kill job 202010290805102445005 upload_0 command successfully
+[INFO] [2020-10-29 08:05:11,431] [6:140702836623104] - task_scheduler.py[line:278]: job 202010290805102445005 component upload_0 next components is []
+[INFO] [2020-10-29 08:05:11,435] [6:140229272925952] - job_controller.py[line:238]: job 202010290805102445005 on local 0 start to save pipeline
+[INFO] [2020-10-29 08:05:11,448] [6:140229272925952] - job_controller.py[line:259]: job 202010290805102445005 on local 0 save pipeline successfully
+[INFO] [2020-10-29 08:05:11,455] [6:140229272925952] - job_controller.py[line:263]: job 202010290805102445005 on local 0 start to clean
+[INFO] [2020-10-29 08:05:11,501] [6:140229272925952] - tracking_manager.py[line:452]: clean task 202010290805102445005_upload_0 on local 0
+[INFO] [2020-10-29 08:05:11,501] [6:140229272925952] - tracking_manager.py[line:463]: clean table by namespace 202010290805102445005_upload_0_local_0 on local 0 done
+[INFO] [2020-10-29 08:05:11,501] [6:140229272925952] - tracking_manager.py[line:469]: clean table by namespace 202010290805102445005_upload_0 on local 0 done
+[INFO] [2020-10-29 08:05:11,501] [6:140229272925952] - tracking_manager.py[line:475]: clean task 202010290805102445005_upload_0 on local 0 done
+[INFO] [2020-10-29 08:05:11,502] [6:140229272925952] - job_controller.py[line:269]: job 202010290805102445005 component upload_0 on local 0 clean done
+[INFO] [2020-10-29 08:05:11,502] [6:140229272925952] - job_controller.py[line:274]: job 202010290805102445005 on local 0 clean done
+[INFO] [2020-10-29 08:05:11,508] [6:140229272925952] - tracking_manager.py[line:329]: save local 0 job: {'f_name': '', 'f_description': '', 'f_tag': 'end_waiting', 'f_initiator_party_id': -1, 'f_is_initiator': -1, 'f_progress': 100, 'f_job_id': '202010290805102445005', 'f_start_time': 1603958710304, 'f_status': 'success', 'f_update_time': 1603958711431, 'f_role': 'local', 'f_party_id': 0, 'f_end_time': 1603958711431, 'f_elapsed': 1127, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:05:11,517] [6:140702836623104] - task_scheduler.py[line:210]: job 202010290805102445005 finished, status is success
+[INFO] [2020-10-29 08:05:11,949] [1827:139939085793088] - session_utils.py[line:43]: start stop session 202010290805102445005_upload_0_local_0
+[INFO] [2020-10-29 08:05:11,949] [1827:139939085793088] - session_utils.py[line:50]: stop session 202010290805102445005_upload_0_local_0 success

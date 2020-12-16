@@ -58,6 +58,7 @@ def delite_list():
             s_info['begin_date'] = datetime.strptime(data['create_time'], '%Y-%m-%d').date()
             s_info['money'] = float(data['bid_price'])
             s_info['company'] = u.entname
+            s_info['href'] = "http://data.ggzy.gov.cn/portal_legal/companyPer.html#/project?id="+data['id']+"&uniscid="+u.uniscid
             info_list.append(s_info)
         ins = bidding_ggzy.insert()
         result = connection.execute(ins, info_list)

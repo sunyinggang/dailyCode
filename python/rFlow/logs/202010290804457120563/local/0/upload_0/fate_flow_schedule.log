@@ -1,0 +1,7 @@
+[INFO] [2020-10-29 08:04:46,691] [1374:140561444398912] - task_executor.py[line:121]: run 202010290804457120563 upload_0 202010290804457120563_upload_0 local 0 task
+[INFO] [2020-10-29 08:04:46,692] [1374:140561444398912] - task_executor.py[line:122]: {'UploadParam': {'file': '/fate/examples/data/breast_hetero_host.csv', 'head': 1, 'partition': 10, 'namespace': 'fate_flow_test_breast_hetero', 'table_name': 'breast_hetero_host', 'work_mode': 0, 'in_version': None}, 'initiator': {'role': 'local', 'party_id': 0}, 'job_parameters': {'work_mode': 0, 'model_id': 'local-0#model', 'model_version': '202010290804457120563'}, 'role': {'local': [0]}, 'local': {'role': 'local', 'party_id': 0}, 'CodePath': 'fate_flow/utils/upload.py/Upload', 'module': 'Upload'}
+[INFO] [2020-10-29 08:04:46,692] [1374:140561444398912] - task_executor.py[line:123]: {}
+[INFO] [2020-10-29 08:04:46,804] [1374:140561444398912] - task_executor.py[line:160]: task 202010290804457120563_upload_0 local 0 start time: 2020-10-29 08:04:46
+[INFO] [2020-10-29 08:04:46,804] [1374:140561444398912] - task_executor.py[line:161]: task 202010290804457120563_upload_0 local 0 end time: 2020-10-29 08:04:46
+[INFO] [2020-10-29 08:04:46,805] [1374:140561444398912] - task_executor.py[line:162]: task 202010290804457120563_upload_0 local 0 takes 0.291s
+[INFO] [2020-10-29 08:04:46,805] [1374:140561444398912] - task_executor.py[line:164]: finish 202010290804457120563 upload_0 202010290804457120563_upload_0 local 0 success task

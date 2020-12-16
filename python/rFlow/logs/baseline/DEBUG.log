@@ -1,0 +1,10 @@
+[DEBUG] [2020-10-29 08:02:47,303] [476:139646674077504] - profile_util.py[line:34]: local_baseline_test.py:51 call parallelize, takes 0.010405302047729492s
+[DEBUG] [2020-10-29 08:02:47,306] [476:139646674077504] - profile_util.py[line:34]: io_check.py:29 call count, takes 0.0011692047119140625s
+[DEBUG] [2020-10-29 08:02:47,342] [476:139646674077504] - profile_util.py[line:34]: local_baseline.py:171 call mapValues, takes 0.03578519821166992s
+[DEBUG] [2020-10-29 08:02:47,363] [476:139646674077504] - profile_util.py[line:34]: local_baseline.py:172 call mapValues, takes 0.020066499710083008s
+[DEBUG] [2020-10-29 08:02:47,372] [476:139646674077504] - profile_util.py[line:34]: local_baseline.py:174 call mapValues, takes 0.009445905685424805s
+[DEBUG] [2020-10-29 08:02:47,383] [476:139646674077504] - profile_util.py[line:34]: local_baseline.py:175 call join, takes 0.01031041145324707s
+[DEBUG] [2020-10-29 08:02:47,395] [476:139646674077504] - profile_util.py[line:34]: local_baseline.py:180 call join, takes 0.011897087097167969s
+[DEBUG] [2020-10-29 08:02:47,397] [476:139646674077504] - profile_util.py[line:34]: io_check.py:35 call count, takes 0.001676321029663086s
+[DEBUG] [2020-10-29 08:02:47,397] [476:139646674077504] - io_check.py[line:36]: num row of input: 100 -> num row of output: 100
+[DEBUG] [2020-10-29 08:02:47,399] [476:139646674077504] - profile_util.py[line:34]: local_baseline_test.py:59 call collect, takes 0.0012352466583251953s

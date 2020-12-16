@@ -1,0 +1,7 @@
+[DEBUG] [2020-10-29 08:04:32,555] [1206:140179427346240] - profile_util.py[line:34]: classify_label_checker_test.py:30 call parallelize, takes 0.019359827041625977s
+[DEBUG] [2020-10-29 08:04:32,574] [1206:140179427346240] - profile_util.py[line:34]: classify_label_checker_test.py:32 call parallelize, takes 0.018475055694580078s
+[DEBUG] [2020-10-29 08:04:32,611] [1206:140179427346240] - profile_util.py[line:34]: classify_label_checker.py:54 call mapPartitions, takes 0.03654646873474121s
+[DEBUG] [2020-10-29 08:04:32,625] [1206:140179427346240] - profile_util.py[line:34]: classify_label_checker.py:54 call reduce, takes 0.013574600219726562s
+[DEBUG] [2020-10-29 08:04:32,645] [1206:140179427346240] - profile_util.py[line:34]: classify_label_checker_test.py:30 call parallelize, takes 0.018555641174316406s
+[DEBUG] [2020-10-29 08:04:32,666] [1206:140179427346240] - profile_util.py[line:34]: classify_label_checker_test.py:32 call parallelize, takes 0.020676374435424805s
+[DEBUG] [2020-10-29 08:04:32,682] [1206:140179427346240] - profile_util.py[line:34]: classify_label_checker.py:87 call mapValues, takes 0.015732526779174805s

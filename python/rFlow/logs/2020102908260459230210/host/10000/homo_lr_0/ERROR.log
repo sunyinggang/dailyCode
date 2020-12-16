@@ -1,0 +1,9 @@
+[ERROR] [2020-10-29 08:26:24,693] [2813:140653361506112] - task_executor.py[line:144]: 'NoneType' object has no attribute 'fit_intercept'
+Traceback (most recent call last):
+  File "/fate/fate_flow/driver/task_executor.py", line 135, in run_task
+    run_object.run(component_parameters, task_run_args)
+  File "/fate/federatedml/model_base.py", line 91, in run
+    this_data_output = func(*params)
+  File "/fate/federatedml/linear_model/logistic_regression/base_logistic_regression.py", line 103, in load_model
+    self.init_param_obj.fit_intercept = meta_obj.fit_intercept
+AttributeError: 'NoneType' object has no attribute 'fit_intercept'

@@ -1,0 +1,6 @@
+[DEBUG] [2020-10-29 08:02:58,352] [574:140650605037376] - profile_util.py[line:34]: stepwise_test.py:54 call parallelize, takes 0.013404607772827148s
+[DEBUG] [2020-10-29 08:02:58,366] [574:140650605037376] - profile_util.py[line:34]: stepwise_test.py:54 call parallelize, takes 0.010306835174560547s
+[DEBUG] [2020-10-29 08:02:58,380] [574:140650605037376] - profile_util.py[line:34]: stepwise_test.py:54 call parallelize, takes 0.009711027145385742s
+[DEBUG] [2020-10-29 08:02:58,392] [574:140650605037376] - profile_util.py[line:34]: stepwise_test.py:54 call parallelize, takes 0.00996088981628418s
+[DEBUG] [2020-10-29 08:02:58,405] [574:140650605037376] - profile_util.py[line:34]: stepwise_test.py:54 call parallelize, takes 0.011434793472290039s
+[DEBUG] [2020-10-29 08:02:58,418] [574:140650605037376] - profile_util.py[line:34]: stepwise_test.py:54 call parallelize, takes 0.009953022003173828s

@@ -1,0 +1,16 @@
+[DEBUG] [2020-10-29 08:02:40,815] [335:140044481464128] - one_hot_encoder.py[line:190]: In _init_params, schema is : {'header': ['x0', 'x1', 'x2']}
+[DEBUG] [2020-10-29 08:02:40,863] [335:140044481464128] - one_hot_encoder.py[line:135]: Before set_schema in fit, schema is : {'header': ['x0', 'x1', 'x2']}, header: ['x0', 'x1', 'x2']
+[DEBUG] [2020-10-29 08:02:40,863] [335:140044481464128] - one_hot_encoder.py[line:168]: [Result][OneHotEncoder]Before one-hot, data_instances schema is : ['x0', 'x1', 'x2']
+[DEBUG] [2020-10-29 08:02:40,864] [335:140044481464128] - one_hot_encoder.py[line:180]: [Result][OneHotEncoder]After one-hot, data_instances schema is : ['x0', 'x1', 'x2']
+[DEBUG] [2020-10-29 08:02:40,866] [335:140044481464128] - one_hot_encoder.py[line:147]: In Onehot transform, ori_header: ['x0', 'x1', 'x2'], transfered_header: ['x0_1', 'x0_2', 'x0_3', 'x1_1', 'x1_2', 'x1_3', 'x2_1', 'x2_2', 'x2_3']
+[DEBUG] [2020-10-29 08:02:40,888] [335:140044481464128] - io_check.py[line:36]: num row of input: 100 -> num row of output: 100
+[DEBUG] [2020-10-29 08:02:40,888] [335:140044481464128] - one_hot_encoder.py[line:139]: After transform in fit, schema is : {'header': ['x0_1', 'x0_2', 'x0_3', 'x1_1', 'x1_2', 'x1_3', 'x2_1', 'x2_2', 'x2_3']}, header: ['x0', 'x1', 'x2']
+[DEBUG] [2020-10-29 08:03:05,753] [627:140683940726592] - mini_batch.py[line:53]: Currently, len of all_batch_data: 10
+[DEBUG] [2020-10-29 08:03:05,874] [627:140683940726592] - mini_batch.py[line:53]: Currently, len of all_batch_data: 5
+[DEBUG] [2020-10-29 08:03:05,939] [627:140683940726592] - mini_batch.py[line:53]: Currently, len of all_batch_data: 1
+[DEBUG] [2020-10-29 08:03:05,982] [627:140683940726592] - mini_batch.py[line:53]: Currently, len of all_batch_data: 1
+[DEBUG] [2020-10-29 08:03:07,454] [627:140683940726592] - mini_batch.py[line:53]: Currently, len of all_batch_data: 100
+[DEBUG] [2020-10-29 08:03:08,569] [627:140683940726592] - mini_batch.py[line:53]: Currently, len of all_batch_data: 50
+[DEBUG] [2020-10-29 08:03:08,959] [627:140683940726592] - mini_batch.py[line:53]: Currently, len of all_batch_data: 10
+[DEBUG] [2020-10-29 08:03:09,100] [627:140683940726592] - mini_batch.py[line:53]: Currently, len of all_batch_data: 4
+[DEBUG] [2020-10-29 08:03:09,175] [627:140683940726592] - mini_batch.py[line:53]: Currently, len of all_batch_data: 1

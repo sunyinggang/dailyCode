@@ -1,0 +1,28 @@
+[INFO] [2020-10-29 08:05:32,376] [2102:140586892126016] - task_executor.py[line:121]: run 202010290805128735466 hetero_lr_0 202010290805128735466_hetero_lr_0 arbiter 10000 task
+[INFO] [2020-10-29 08:05:32,377] [2102:140586892126016] - task_executor.py[line:122]: {'HeteroLogisticParam': {'penalty': 'L2', 'tol': 1e-05, 'alpha': 0.01, 'optimizer': 'rmsprop', 'batch_size': 320, 'learning_rate': 0.15, 'init_param': {'init_method': 'random_uniform', 'init_const': 1, 'fit_intercept': True, 'random_seed': None}, 'max_iter': 3, 'early_stop': 'diff', 'encrypt_param': {'method': 'Paillier', 'key_length': 1024}, 'predict_param': {'threshold': 0.5}, 'cv_param': {'n_splits': 5, 'mode': 'hetero', 'role': 'guest', 'shuffle': True, 'random_seed': 1, 'need_cv': False}, 'decay': 1, 'decay_sqrt': True, 'multi_class': 'ovr', 'validation_freqs': None, 'stepwise_param': {'score_name': 'AIC', 'mode': 'hetero', 'role': 'guest', 'direction': 'both', 'max_step': 10, 'nvmin': 2, 'nvmax': None, 'need_stepwise': False}, 'early_stopping_rounds': None, 'metrics': ['auc', 'ks'], 'use_first_metric_only': False, 'encrypted_mode_calculator_param': {'mode': 'strict', 're_encrypted_rate': 1}, 'sqn_param': {'update_interval_L': 3, 'memory_M': 5, 'sample_size': 5000, 'random_seed': None}}, 'initiator': {'role': 'guest', 'party_id': 9999}, 'job_parameters': {'work_mode': 0, 'processors_per_node': 1, 'align_task_input_data_partition': True, 'model_id': 'arbiter-10000#guest-9999#host-10000#model', 'model_version': '202010290805128735466'}, 'role': {'guest': [9999], 'host': [10000], 'arbiter': [10000]}, 'local': {'role': 'arbiter', 'party_id': 10000}, 'CodePath': 'federatedml/linear_model/logistic_regression/hetero_logistic_regression/hetero_lr_arbiter.py/HeteroLRArbiter', 'module': 'HeteroLR'}
+[INFO] [2020-10-29 08:05:32,377] [2102:140586892126016] - task_executor.py[line:123]: {'data': {'train_data': ['hetero_feature_selection_0.train']}}
+[INFO] [2020-10-29 08:05:32,380] [2102:140586892126016] - task_executor.py[line:220]: pass save as task 202010290805128735466_hetero_lr_0 input data table, because the table is none
+[INFO] [2020-10-29 08:05:47,648] [2102:140586892126016] - one_vs_rest.py[line:287]: Create one_vs_rest object, role: arbiter, mode: hetero
+[INFO] [2020-10-29 08:05:47,957] [2102:140586892126016] - base_linear_model_arbiter.py[line:70]: Enter hetero linear model arbiter fit
+[INFO] [2020-10-29 08:05:50,208] [2102:140586892126016] - hetero_linear_model_gradient.py[line:365]: Get host_gradient from Host
+[INFO] [2020-10-29 08:05:50,209] [2102:140586892126016] - hetero_linear_model_gradient.py[line:368]: Get guest_gradient from Guest
+[INFO] [2020-10-29 08:05:51,848] [2102:140586892126016] - hetero_linear_model_gradient.py[line:365]: Get host_gradient from Host
+[INFO] [2020-10-29 08:05:51,851] [2102:140586892126016] - hetero_linear_model_gradient.py[line:368]: Get guest_gradient from Guest
+[INFO] [2020-10-29 08:05:52,104] [2102:140586892126016] - base_linear_model_arbiter.py[line:124]: iter: 0,  loss:733.9502170962883, is_converged: False
+[INFO] [2020-10-29 08:05:54,038] [2102:140586892126016] - hetero_linear_model_gradient.py[line:365]: Get host_gradient from Host
+[INFO] [2020-10-29 08:05:54,041] [2102:140586892126016] - hetero_linear_model_gradient.py[line:368]: Get guest_gradient from Guest
+[INFO] [2020-10-29 08:05:55,687] [2102:140586892126016] - hetero_linear_model_gradient.py[line:365]: Get host_gradient from Host
+[INFO] [2020-10-29 08:05:55,689] [2102:140586892126016] - hetero_linear_model_gradient.py[line:368]: Get guest_gradient from Guest
+[INFO] [2020-10-29 08:05:56,044] [2102:140586892126016] - base_linear_model_arbiter.py[line:124]: iter: 1,  loss:67.25922766194087, is_converged: False
+[INFO] [2020-10-29 08:05:58,177] [2102:140586892126016] - hetero_linear_model_gradient.py[line:365]: Get host_gradient from Host
+[INFO] [2020-10-29 08:05:58,180] [2102:140586892126016] - hetero_linear_model_gradient.py[line:368]: Get guest_gradient from Guest
+[INFO] [2020-10-29 08:05:59,931] [2102:140586892126016] - hetero_linear_model_gradient.py[line:365]: Get host_gradient from Host
+[INFO] [2020-10-29 08:05:59,932] [2102:140586892126016] - hetero_linear_model_gradient.py[line:368]: Get guest_gradient from Guest
+[INFO] [2020-10-29 08:06:00,280] [2102:140586892126016] - base_linear_model_arbiter.py[line:124]: iter: 2,  loss:0.7454064765134994, is_converged: False
+[INFO] [2020-10-29 08:06:00,309] [2102:140586892126016] - pipelined_model.py[line:72]: Save hetero_lr_0 hetero_lr HeteroLogisticRegressionMeta buffer
+[INFO] [2020-10-29 08:06:00,310] [2102:140586892126016] - pipelined_model.py[line:72]: Save hetero_lr_0 hetero_lr HeteroLogisticRegressionParam buffer
+[INFO] [2020-10-29 08:06:00,314] [2102:140586892126016] - pipelined_model.py[line:77]: Save hetero_lr_0 hetero_lr successfully
+[INFO] [2020-10-29 08:06:00,344] [2102:140586892126016] - task_executor.py[line:160]: task 202010290805128735466_hetero_lr_0 arbiter 10000 start time: 2020-10-29 08:05:32
+[INFO] [2020-10-29 08:06:00,345] [2102:140586892126016] - task_executor.py[line:161]: task 202010290805128735466_hetero_lr_0 arbiter 10000 end time: 2020-10-29 08:06:00
+[INFO] [2020-10-29 08:06:00,345] [2102:140586892126016] - task_executor.py[line:162]: task 202010290805128735466_hetero_lr_0 arbiter 10000 takes 28.224s
+[INFO] [2020-10-29 08:06:00,345] [2102:140586892126016] - task_executor.py[line:164]: finish 202010290805128735466 hetero_lr_0 202010290805128735466_hetero_lr_0 arbiter 10000 success task

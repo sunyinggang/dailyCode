@@ -1,0 +1,17 @@
+[INFO] [2020-10-29 08:04:22,422] [1143:139713924290368] - feature_histogram.py[line:169]: bin_shape is (10, 5), node num is 4
+[INFO] [2020-10-29 08:04:22,496] [1166:139713924290368] - feature_histogram.py[line:225]: begin batch calculate histogram, data count is 53
+[INFO] [2020-10-29 08:04:22,496] [1163:139713924290368] - feature_histogram.py[line:225]: begin batch calculate histogram, data count is 77
+[INFO] [2020-10-29 08:04:22,499] [1162:139713924290368] - feature_histogram.py[line:225]: begin batch calculate histogram, data count is 65
+[INFO] [2020-10-29 08:04:22,499] [1169:139713924290368] - feature_histogram.py[line:225]: begin batch calculate histogram, data count is 57
+[INFO] [2020-10-29 08:04:22,499] [1165:139713924290368] - feature_histogram.py[line:225]: begin batch calculate histogram, data count is 76
+[INFO] [2020-10-29 08:04:22,502] [1164:139713924290368] - feature_histogram.py[line:225]: begin batch calculate histogram, data count is 67
+[INFO] [2020-10-29 08:04:22,502] [1167:139713924290368] - feature_histogram.py[line:225]: begin batch calculate histogram, data count is 55
+[INFO] [2020-10-29 08:04:22,502] [1168:139713924290368] - feature_histogram.py[line:225]: begin batch calculate histogram, data count is 60
+[INFO] [2020-10-29 08:04:22,507] [1166:139713924290368] - feature_histogram.py[line:225]: begin batch calculate histogram, data count is 62
+[INFO] [2020-10-29 08:04:22,507] [1165:139713924290368] - feature_histogram.py[line:225]: begin batch calculate histogram, data count is 68
+[INFO] [2020-10-29 08:04:22,507] [1169:139713924290368] - feature_histogram.py[line:225]: begin batch calculate histogram, data count is 56
+[INFO] [2020-10-29 08:04:22,510] [1162:139713924290368] - feature_histogram.py[line:225]: begin batch calculate histogram, data count is 52
+[INFO] [2020-10-29 08:04:22,510] [1163:139713924290368] - feature_histogram.py[line:225]: begin batch calculate histogram, data count is 69
+[INFO] [2020-10-29 08:04:22,510] [1168:139713924290368] - feature_histogram.py[line:225]: begin batch calculate histogram, data count is 56
+[INFO] [2020-10-29 08:04:22,511] [1167:139713924290368] - feature_histogram.py[line:225]: begin batch calculate histogram, data count is 62
+[INFO] [2020-10-29 08:04:22,514] [1164:139713924290368] - feature_histogram.py[line:225]: begin batch calculate histogram, data count is 65

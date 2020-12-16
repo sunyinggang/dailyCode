@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>考场分配</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <link rel="stylesheet" href="css/bulma.css">
+</head>
+
+<body style="background: white;">
+    <div class="columns">
+        <div class="column">
+            <div class="box">
+                <p class="title is-5">欢迎使用</p>
+            </div>
+        </div>
+    </div>
+    <div class="columns">
+        <div class="column is-half is-offset-one-quarter">
+            <span>I 类（ABCD区） </span>
+            <input id="one" class="input is-rounded mt-2" type="text" placeholder="输入考场数">
+            <input id="one_people" class="input is-rounded mt-2" type="text" placeholder="输入每个考场监考老师数">
+        </div>
+    </div>
+    <div class="columns">
+        <div class="column is-half is-offset-one-quarter">
+            <span>II 类（FGHJ区） </span>
+            <input id="two" class="input is-rounded mt-2" type="text" placeholder="输入考场数">
+            <input id="two_people" class="input is-rounded mt-2" type="text" placeholder="输入每个考场监考老师数">
+        </div>
+    </div>
+    <div class="columns">
+        <div class="column is-half is-offset-one-quarter">
+            <span>III 类（合并考场） </span>
+            <input id="three" class="input is-rounded mt-2" type="text" placeholder="输入考场数">
+            <input id="three_people" class="input is-rounded mt-2" type="text" placeholder="输入每个考场监考老师数">
+        </div>
+    </div>
+    <div class="columns">
+        <div class="column is-half is-offset-one-quarter">
+            <span>IV 类（备用老师） </span>
+            <input id="four_people" class="input is-rounded mt-2" type="text" placeholder="输入备用老师数量">
+        </div>
+    </div>
+    <div class="columns">
+        <div class="column is-half is-offset-one-quarter">
+            <div id="teacher" class="file is-info has-name">
+                <label class="file-label">
+                    <span class="mt-1 mx-1">监考教师名单</span>
+                    <input class="file-input" type="file" name="resume">
+                    <span class="file-cta">
+                        <span class="file-icon">
+                            <i class="fas fa-upload"></i>
+                        </span>
+                        <span class="file-label">
+                            选择文件
+                        </span>
+                    </span>
+                    <span class="file-name">
+                        未选择任何文件
+                    </span>
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="columns">
+        <div class="column is-half is-offset-one-quarter">
+            <div id="room" class="file is-info has-name">
+                <label class="file-label">
+                    <span class="mt-1 mx-1">考场对应教室</span>
+                    <input class="file-input" type="file" name="resume">
+                    <span class="file-cta">
+                        <span class="file-icon">
+                            <i class="fas fa-upload"></i>
+                        </span>
+                        <span class="file-label">
+                            选择文件
+                        </span>
+                    </span>
+                    <span class="file-name">
+                        未选择任何文件
+                    </span>
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="columns">
+        <div class="column is-half is-offset-one-quarter">
+            <button id="submit" class="button">开始分配考场</button>
+        </div>
+    </div>
+    <script>
+        const { ipcRenderer } = require('electron')
+        const xlxs = require('xlsx')
+        const { readFile } = require('fs').promises
+
+        const id_s_arr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
+        var id_s_index = 0
+        var id_num = 0
+
+        var one, one_people, two, two_people, three, three_people, four_people = 0
+
+        const fileInput_teacher = document.querySelector('#teacher input[type=file]')
+        fileInput_teacher.onchange = () => {
+            if (fileInput_teacher.files.length > 0) {
+                const fileName = document.querySelector('#teacher .file-name');
+                fileName.textContent = fileInput_teacher.files[0].name;
+            }
+        }
+
+        const fileInput_room = document.querySelector('#room input[type=file]')
+        fileInput_room.onchange = () => {
+            if (fileInput_room.files.length > 0) {
+                const fileName = document.querySelector('#room .file-name');
+                fileName.textContent = fileInput_room.files[0].name;
+            }
+        }
+        var teacher_json = []
+        var teacher_one_group = []
+        var teacher_two_group = []
+        var teacher_three_group = []
+        var teacher_four_group = []
+        var room_json = []
+        var aoa = [[]]
+
+        let teacher_file = document.querySelector('#teacher')
+        teacher_file.addEventListener('change', e => {
+            const path = e.target.files?.[0]?.path
+            const fr = readFile(path);
+            const result = xlxs.readFile(path)
+            const sheetNames = result.SheetNames;
+            const worksheet = result.Sheets[sheetNames[0]];
+            teacher_json = xlxs.utils.sheet_to_json(worksheet)
+            const l = teacher_json.length
+            let check = check_people(l)
+            teacher_sort()
+            ipcRenderer.invoke('ping', path).then(e => {
+                console.log('pong')
+            })
+        })
+
+        let room_file = document.querySelector('#room')
+        room_file.addEventListener('change', e => {
+            const path = e.target.files?.[0]?.path
+            const fr = readFile(path);
+            const result = xlxs.readFile(path)
+            const sheetNames = result.SheetNames;
+            const worksheet = result.Sheets[sheetNames[0]];
+            console.log(worksheet)
+            room_json = xlxs.utils.sheet_to_json(worksheet)
+            console.log(room_json)
+
+            ipcRenderer.invoke('ping', path).then(e => {
+                console.log('pong')
+            })
+        })
+
+        let submit = document.querySelector('#submit')
+        submit.addEventListener('click', e => {
+            // one = document.getElementById("one").value
+            // one_people = document.getElementById("one_people").value
+            // two = document.getElementById("two").value
+            // two_people = document.getElementById("two_people").value
+            // three = document.getElementById("three").value
+            // three_people = document.getElementById("three_people").value
+            // four_people = document.getElementById("four_people").value
+            one = 76
+            one_people = 2
+            two = 81
+            two_people = 2
+            three = 10
+            three_people = 3
+            four_people = 7
+            if (one == '' || one_people == '' || two == '' || two_people == '' || three == '' || three_people == '' || four_people == '') {
+                console.log("有空")
+            } else if (teacher_json.length == 0 || room_json.length == 0) {
+                console.log("未上传文件")
+            } else {
+                teacher_group()
+                console.log("非空")
+            }
+            //test()
+
+            //export_data_s()
+            //room_sort()
+        })
+
+        //对教师列表随机排序
+        function teacher_sort() {
+            // console.log('origin order',JSON.parse(JSON.stringify(room_json)))
+            teacher_json = shuffle(teacher_json)
+            console.log(teacher_json)
+            // teacher_json_x = shuffle(teacher_json)
+            // for (let i in teacher_json_s) {
+            //     if (teacher_json_s[i] == teacher_json_x[i]) {
+            //         console.log("有重复")
+            //         let temp = teacher_json_s[i]
+            //         teacher_json_s[i] = teacher_json_s[i+1]
+            //         teacher_json_s[i+1] = temp
+            //     }
+            // }
+        }
+        // 洗牌排序
+        function shuffle(input) {
+            const length = input.length;
+            let index;
+            let output = JSON.parse(JSON.stringify(input))
+            // 执行length-1次即可，i=0时替换的是自身，这么做没有意义
+            for (let i = length - 1; i; i--) {
+                // 选取0到i-1中的一个位置
+                index = Math.floor(Math.random() * i);
+                // 与i位置的值互换
+                output[i] = output.splice(index, 1, output[i])[0];
+            }
+            return output
+        }
+        // 按类型对教师分组
+        function teacher_group() {
+            let index = 0
+            let t = 0
+            while (t < teacher_json.length) {
+                let tmp = []
+                if (t < one * one_people) {
+                    for (let i = 0; i < one_people; i++) {
+                        tmp.push(teacher_json[t])
+                        t = t + 1
+                    }
+                    teacher_one_group.push(tmp)
+                } else if (152 <= t && t < (one * one_people) + (two * two_people)) {
+                    for (let i = 0; i < two_people; i++) {
+                        tmp.push(teacher_json[t])
+                        t = t + 1
+                    }
+                    teacher_two_group.push(tmp)
+                } else if ((one * one_people) + (two * two_people) <= t && t < (one * one_people) + (two * two_people) + (three * three_people)) {
+                    for (let i = 0; i < three_people; i++) {
+                        console.log(t)
+                        console.log("3")
+                        tmp.push(teacher_json[t])
+                        t = t + 1
+                    }
+                    teacher_three_group.push(tmp)
+                } else {
+                    for (let i = 0; i < four_people; i++) {
+                        console.log(t)
+                        console.log("4")
+                        teacher_four_group.push(teacher_json[t])
+                        t = t + 1
+                    }
+
+                }
+            }
+        }
+
+        function test() {
+            for (let i = 0; i < 10;) {
+                console.log(i)
+            }
+            var test_json = [
+            ]
+            sheet['!merges'] = [
+                // 设置A1-C1的单元格合并
+                { s: { r: 0, c: 0 }, e: { r: 0, c: 5 } },
+                { s: { r: 0, c: 6 }, e: { r: 0, c: 11 } },
+                { s: { r: 0, c: 12 }, e: { r: 13, c: 17 } },
+                { s: { r: 0, c: 18 }, e: { r: 0, c: 23 } },
+                { s: { r: 0, c: 24 }, e: { r: 0, c: 29 } },
+                { s: { r: 0, c: 30 }, e: { r: 0, c: 35 } },
+                { s: { r: 0, c: 36 }, e: { r: 0, c: 41 } },
+                { s: { r: 0, c: 42 }, e: { r: 0, c: 47 } },
+            ];
+        }
+        // 生成上午分配数据
+        function export_data_s() {
+            let index = 0
+            const sum = 1
+            export_json = []
+            let tmp = []
+            init_aoa()
+            for (var r in room_json) {
+                if (index < one * one_people + two * two_people) {
+                    id_s_index = 0
+                    id_num = id_num + 1
+                    for (let i = 0; i < one_people; i++) {
+                        s = id_s_arr[id_s_index + i] + (id_num)
+                        tmp.push(s, teacher_json[index]["姓名"], teacher_json[index]["身份证号"]
+                            , teacher_json[index]["工作单位"], room_json[r]["考场"], room_json[r]["考场对应教室"])
+
+                        export_json.push(Object.assign(teacher_json[index], room_json[r]))
+                        index = index + 1
+                    }
+                    aoa.push(tmp)
+                    tmp = []
+                } else if (one * one_people <= index < two * two_people) {
+                    for (let i = 0; i < two_people; i++) {
+                        export_json.push(Object.assign(teacher_json[index], room_json[r]))
+                        index = index + 1
+                    }
+                } else if (two * two_people <= index < three * three_people) {
+                    for (let i = 0; i < two_people; i++) {
+                        export_json.push(Object.assign(teacher_json[index], room_json[r]))
+                        index = index + 1
+                    }
+                } else {
+                    console.log("结束")
+                }
+            }
+            console.log(tmp)
+            console.log(export_json)
+            console.log(aoa)
+            var sheet = xlxs.utils.aoa_to_sheet(aoa)
+
+
+            console.log(sheet)
+
+            sheet['!merges'] = [
+                // 设置A1-C1的单元格合并
+                { s: { r: 0, c: 0 }, e: { r: 0, c: 5 } }
+            ];
+            openDownloadDialog(sheet2blob(sheet), '单元格合并示例.xlsx');
+        }
+        // 将一个sheet转成最终的excel文件的blob对象，然后利用URL.createObjectURL下载
+        function sheet2blob(sheet, sheetName) {
+            sheetName = sheetName || 'sheet1';
+            var workbook = {
+                SheetNames: [sheetName],
+                Sheets: {}
+            };
+            workbook.Sheets[sheetName] = sheet;
+            // 生成excel的配置项
+            var wopts = {
+                bookType: 'xlsx', // 要生成的文件类型
+                bookSST: false, // 是否生成Shared String Table，官方解释是，如果开启生成速度会下降，但在低版本IOS设备上有更好的兼容性
+                type: 'binary'
+            };
+            var wbout = xlxs.write(workbook, wopts);
+            var blob = new Blob([s2ab(wbout)], { type: "application/octet-stream" });
+            // 字符串转ArrayBuffer
+            function s2ab(s) {
+                var buf = new ArrayBuffer(s.length);
+                var view = new Uint8Array(buf);
+                for (var i = 0; i != s.length; ++i) view[i] = s.charCodeAt(i) & 0xFF;
+                return buf;
+            }
+            return blob;
+        }
+        // 通用的打开下载对话框方法
+        function openDownloadDialog(url, saveName) {
+            if (typeof url == 'object' && url instanceof Blob) {
+                url = URL.createObjectURL(url); // 创建blob地址
+            }
+            var aLink = document.createElement('a');
+            aLink.href = url;
+            aLink.download = saveName || ''; // HTML5新增的属性，指定保存文件名，可以不要后缀，注意，file:///模式下不会生效
+            var event;
+            if (window.MouseEvent) event = new MouseEvent('click');
+            else {
+                event = document.createEvent('MouseEvents');
+                event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+            }
+            aLink.dispatchEvent(event);
+        }
+
+        // 初始化数组
+        function init_aoa() {
+            aoa = [
+                ['监考教师A', null, null, null, null, null, '监考教师B', null, null, null, null, null],
+                ['序号', '姓名', '身份证号', '工作单位', '考场', '考场对应教室', '序号', '姓名', '身份证号', '工作单位', '考场', '考场对应教室']
+            ]
+        }
+
+        function json_to() {
+            //,null:'姓名',null:'身份证号',null:'工作单位',null:'考场',null:'考场对应教室'
+            var aoa = [
+                { '监考教师A': "序号", '监考教师A': '姓名', '监考教师A': '身份证号', '监考教师A': '工作单位', '监考教师A': '考场', '监考教师A': '考场对应教室' },
+                { 序号: "1", 姓名: "耿新", 身份证号: '1', 工作单位: '11', 考场: '111', 考场对应教室: '1111' }
+            ]
+            return aoa
+        }
+
+
+        const roomCount = [
+            { count: one, people: one_people, label: 'one' },
+            { count: two, people: two_people, label: 'two' },
+            { count: three, people: three_people, label: 'three' },
+            { count: 1, people: four_people, label: 'four' }
+        ]
+
+        //检查人数
+        function check_people(l) {
+            let sum = one * one_people + two * two_people + three * three_people + 1 * four_people
+            console.log("------")
+            console.log(sum)
+            console.log(l)
+            console.log("------")
+            return l === sum;
+        }
+
+    </script>
+
+</body>
+
+</html>

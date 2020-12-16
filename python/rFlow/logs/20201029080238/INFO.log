@@ -1,0 +1,8 @@
+[INFO] [2020-10-29 08:02:38,575] [305:140643056940864] - imputer.py[line:142]: finish replace missing value with cols transform value, replace method is max
+[INFO] [2020-10-29 08:02:38,659] [305:140643056940864] - imputer.py[line:142]: finish replace missing value with cols transform value, replace method is max
+[INFO] [2020-10-29 08:02:38,748] [305:140643056940864] - imputer.py[line:142]: finish replace missing value with cols transform value, replace method is mean
+[INFO] [2020-10-29 08:02:38,863] [305:140643056940864] - imputer.py[line:142]: finish replace missing value with cols transform value, replace method is median
+[INFO] [2020-10-29 08:02:38,978] [305:140643056940864] - imputer.py[line:142]: finish replace missing value with cols transform value, replace method is min
+[INFO] [2020-10-29 08:02:39,057] [305:140643056940864] - imputer.py[line:156]: finish replace missing value with replace value 0, replace method is:None
+[INFO] [2020-10-29 08:02:39,139] [305:140643056940864] - imputer.py[line:156]: finish replace missing value with replace value 111111, replace method is:designated
+[INFO] [2020-10-29 08:02:39,290] [305:140643056940864] - imputer.py[line:142]: finish replace missing value with cols transform value, replace method is median

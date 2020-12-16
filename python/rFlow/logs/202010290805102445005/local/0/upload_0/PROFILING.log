@@ -1,0 +1,3 @@
+[DEBUG] [2020-10-29 08:05:11,271] [1811:139753940395840] - profile_util.py[line:34]: upload.py:114 call count, takes 0.0007686614990234375s
+[DEBUG] [2020-10-29 08:05:11,277] [1811:139753940395840] - profile_util.py[line:34]: upload.py:119 call count, takes 0.00048041343688964844s
+[DEBUG] [2020-10-29 08:05:11,304] [1811:139753940395840] - profile_util.py[line:34]: upload.py:123 call count, takes 0.00047326087951660156s

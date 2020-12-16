@@ -1,0 +1,11 @@
+[INFO] [2020-10-29 08:04:44,476] [1292:140036607067968] - task_executor.py[line:121]: run 202010290804433797651 download_0 202010290804433797651_download_0 local 0 task
+[INFO] [2020-10-29 08:04:44,477] [1292:140036607067968] - task_executor.py[line:122]: {'DownloadParam': {'output_path': '/fate/fate_flow/fate_flow_unittest_breast_b.csv', 'delimitor': ',', 'namespace': 'fate_flow_test_breast_hetero', 'table_name': 'breast_hetero_guest', 'work_mode': 0}, 'initiator': {'role': 'local', 'party_id': 0}, 'job_parameters': {'work_mode': 0, 'model_id': 'local-0#model', 'model_version': '202010290804433797651'}, 'role': {'local': [0]}, 'local': {'role': 'local', 'party_id': 0}, 'CodePath': 'fate_flow/utils/download.py/Download', 'module': 'Download'}
+[INFO] [2020-10-29 08:04:44,477] [1292:140036607067968] - task_executor.py[line:123]: {}
+[INFO] [2020-10-29 08:04:44,522] [1292:140036607067968] - download.py[line:43]: ===== begin to export data =====
+[INFO] [2020-10-29 08:04:44,556] [1292:140036607067968] - download.py[line:62]: ===== export 0 lines totally =====
+[INFO] [2020-10-29 08:04:44,556] [1292:140036607067968] - download.py[line:63]: ===== export data finish =====
+[INFO] [2020-10-29 08:04:44,556] [1292:140036607067968] - download.py[line:64]: ===== export data file path:/fate/fate_flow/fate_flow_unittest_breast_b.csv =====
+[INFO] [2020-10-29 08:04:44,602] [1292:140036607067968] - task_executor.py[line:160]: task 202010290804433797651_download_0 local 0 start time: 2020-10-29 08:04:44
+[INFO] [2020-10-29 08:04:44,602] [1292:140036607067968] - task_executor.py[line:161]: task 202010290804433797651_download_0 local 0 end time: 2020-10-29 08:04:44
+[INFO] [2020-10-29 08:04:44,602] [1292:140036607067968] - task_executor.py[line:162]: task 202010290804433797651_download_0 local 0 takes 0.32s
+[INFO] [2020-10-29 08:04:44,603] [1292:140036607067968] - task_executor.py[line:164]: finish 202010290804433797651 download_0 202010290804433797651_download_0 local 0 success task

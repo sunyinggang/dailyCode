@@ -1,0 +1,389 @@
+[INFO] [2020-10-29 08:04:48,346] [6:140637848127232] - job_controller.py[line:47]: submit job, job_id 202010290804483462984, body {'job_dsl': {'components': {'dataio_0': {'module': 'DataIO', 'input': {'data': {'data': ['args.train_data']}}, 'output': {'data': ['train'], 'model': ['dataio']}, 'need_deploy': True}, 'hetero_feature_binning_0': {'module': 'HeteroFeatureBinning', 'input': {'data': {'data': ['dataio_0.train']}}, 'output': {'data': ['train'], 'model': ['hetero_feature_binning']}}, 'hetero_feature_selection_0': {'module': 'HeteroFeatureSelection', 'input': {'data': {'data': ['hetero_feature_binning_0.train']}, 'isometric_model': ['hetero_feature_binning_0.hetero_feature_binning']}, 'output': {'data': ['train'], 'model': ['selected']}}, 'hetero_lr_0': {'module': 'HeteroLR', 'input': {'data': {'train_data': ['hetero_feature_selection_0.train']}}, 'output': {'data': ['train'], 'model': ['hetero_lr']}}, 'evaluation_0': {'module': 'Evaluation', 'input': {'data': {'data': ['hetero_lr_0.train']}}, 'output': {'data': ['evaluate']}}}}, 'job_runtime_conf': {'initiator': {'role': 'guest', 'party_id': 9999}, 'job_parameters': {'work_mode': 0, 'processors_per_node': 1, 'align_task_input_data_partition': True}, 'role': {'guest': [9999], 'host': [10000], 'arbiter': [10000]}, 'role_parameters': {'guest': {'args': {'data': {'train_data': [{'name': 'breast_hetero_guest', 'namespace': 'fate_flow_test_breast_hetero'}]}}, 'dataio_0': {'with_label': [True], 'label_name': ['y'], 'label_type': ['int'], 'output_format': ['dense']}}, 'host': {'args': {'data': {'train_data': [{'name': 'breast_hetero_host', 'namespace': 'fate_flow_test_breast_hetero'}]}}, 'dataio_0': {'with_label': [False], 'output_format': ['dense']}}}, 'algorithm_parameters': {'hetero_lr_0': {'penalty': 'L2', 'optimizer': 'rmsprop', 'eps': 1e-05, 'alpha': 0.01, 'max_iter': 3, 'converge_func': 'diff', 'batch_size': 320, 'learning_rate': 0.15, 'init_param': {'init_method': 'random_uniform'}}}}}
+[INFO] [2020-10-29 08:04:48,668] [6:140702878570240] - tracking_manager.py[line:329]: save guest 9999 job: {'f_name': '', 'f_description': '', 'f_tag': '', 'f_initiator_party_id': 9999, 'f_is_initiator': 1, 'f_progress': 0, 'f_job_id': '202010290804483462984', 'f_roles': '{"guest": [9999], "host": [10000], "arbiter": [10000]}', 'f_work_mode': 0, 'f_dsl': '{"components": {"dataio_0": {"module": "DataIO", "input": {"data": {"data": ["args.train_data"]}}, "output": {"data": ["train"], "model": ["dataio"]}, "need_deploy": true}, "hetero_feature_binning_0": {"module": "HeteroFeatureBinning", "input": {"data": {"data": ["dataio_0.train"]}}, "output": {"data": ["train"], "model": ["hetero_feature_binning"]}}, "hetero_feature_selection_0": {"module": "HeteroFeatureSelection", "input": {"data": {"data": ["hetero_feature_binning_0.train"]}, "isometric_model": ["hetero_feature_binning_0.hetero_feature_binning"]}, "output": {"data": ["train"], "model": ["selected"]}}, "hetero_lr_0": {"module": "HeteroLR", "input": {"data": {"train_data": ["hetero_feature_selection_0.train"]}}, "output": {"data": ["train"], "model": ["hetero_lr"]}}, "evaluation_0": {"module": "Evaluation", "input": {"data": {"data": ["hetero_lr_0.train"]}}, "output": {"data": ["evaluate"]}}}}', 'f_runtime_conf': '{"initiator": {"role": "guest", "party_id": 9999}, "job_parameters": {"work_mode": 0, "processors_per_node": 1, "align_task_input_data_partition": true, "model_id": "arbiter-10000#guest-9999#host-10000#model", "model_version": "202010290804483462984"}, "role": {"guest": [9999], "host": [10000], "arbiter": [10000]}, "role_parameters": {"guest": {"args": {"data": {"train_data": [{"name": "breast_hetero_guest", "namespace": "fate_flow_test_breast_hetero"}]}}, "dataio_0": {"with_label": [true], "label_name": ["y"], "label_type": ["int"], "output_format": ["dense"]}}, "host": {"args": {"data": {"train_data": [{"name": "breast_hetero_host", "namespace": "fate_flow_test_breast_hetero"}]}}, "dataio_0": {"with_label": [false], "output_format": ["dense"]}}}, "algorithm_parameters": {"hetero_lr_0": {"penalty": "L2", "optimizer": "rmsprop", "eps": 1e-05, "alpha": 0.01, "max_iter": 3, "converge_func": "diff", "batch_size": 320, "learning_rate": 0.15, "init_param": {"init_method": "random_uniform"}}}}', 'f_train_runtime_conf': '{}', 'f_run_ip': '172.18.0.2:9380', 'f_status': 'waiting', 'f_create_time': 1603958688348, 'f_role': 'guest', 'f_party_id': 9999}
+[INFO] [2020-10-29 08:04:48,707] [6:140702878570240] - tracking_manager.py[line:329]: save host 10000 job: {'f_name': '', 'f_description': '', 'f_tag': '', 'f_initiator_party_id': 9999, 'f_is_initiator': 0, 'f_progress': 0, 'f_job_id': '202010290804483462984', 'f_roles': '{"guest": [9999], "host": [10000], "arbiter": [10000]}', 'f_work_mode': 0, 'f_dsl': '{"components": {"dataio_0": {"module": "DataIO", "input": {"data": {"data": ["args.train_data"]}}, "output": {"data": ["train"], "model": ["dataio"]}, "need_deploy": true}, "hetero_feature_binning_0": {"module": "HeteroFeatureBinning", "input": {"data": {"data": ["dataio_0.train"]}}, "output": {"data": ["train"], "model": ["hetero_feature_binning"]}}, "hetero_feature_selection_0": {"module": "HeteroFeatureSelection", "input": {"data": {"data": ["hetero_feature_binning_0.train"]}, "isometric_model": ["hetero_feature_binning_0.hetero_feature_binning"]}, "output": {"data": ["train"], "model": ["selected"]}}, "hetero_lr_0": {"module": "HeteroLR", "input": {"data": {"train_data": ["hetero_feature_selection_0.train"]}}, "output": {"data": ["train"], "model": ["hetero_lr"]}}, "evaluation_0": {"module": "Evaluation", "input": {"data": {"data": ["hetero_lr_0.train"]}}, "output": {"data": ["evaluate"]}}}}', 'f_runtime_conf': '{"initiator": {"role": "guest", "party_id": 9999}, "job_parameters": {"work_mode": 0, "processors_per_node": 1, "align_task_input_data_partition": true, "model_id": "arbiter-10000#guest-9999#host-10000#model", "model_version": "202010290804483462984"}, "role": {"guest": [9999], "host": [10000], "arbiter": [10000]}, "role_parameters": {"guest": {"args": {"data": {"train_data": [{"name": "breast_hetero_guest", "namespace": "fate_flow_test_breast_hetero"}]}}, "dataio_0": {"with_label": [true], "label_name": ["y"], "label_type": ["int"], "output_format": ["dense"]}}, "host": {"args": {"data": {"train_data": [{"name": "breast_hetero_host", "namespace": "fate_flow_test_breast_hetero"}]}}, "dataio_0": {"with_label": [false], "output_format": ["dense"]}}}, "algorithm_parameters": {"hetero_lr_0": {"penalty": "L2", "optimizer": "rmsprop", "eps": 1e-05, "alpha": 0.01, "max_iter": 3, "converge_func": "diff", "batch_size": 320, "learning_rate": 0.15, "init_param": {"init_method": "random_uniform"}}}}', 'f_train_runtime_conf': '{}', 'f_run_ip': '172.18.0.2:9380', 'f_status': 'waiting', 'f_create_time': 1603958688348, 'f_role': 'host', 'f_party_id': 10000}
+[INFO] [2020-10-29 08:04:48,744] [6:140702878570240] - tracking_manager.py[line:329]: save arbiter 10000 job: {'f_name': '', 'f_description': '', 'f_tag': '', 'f_initiator_party_id': 9999, 'f_is_initiator': 0, 'f_progress': 0, 'f_job_id': '202010290804483462984', 'f_roles': '{"guest": [9999], "host": [10000], "arbiter": [10000]}', 'f_work_mode': 0, 'f_dsl': '{"components": {"dataio_0": {"module": "DataIO", "input": {"data": {"data": ["args.train_data"]}}, "output": {"data": ["train"], "model": ["dataio"]}, "need_deploy": true}, "hetero_feature_binning_0": {"module": "HeteroFeatureBinning", "input": {"data": {"data": ["dataio_0.train"]}}, "output": {"data": ["train"], "model": ["hetero_feature_binning"]}}, "hetero_feature_selection_0": {"module": "HeteroFeatureSelection", "input": {"data": {"data": ["hetero_feature_binning_0.train"]}, "isometric_model": ["hetero_feature_binning_0.hetero_feature_binning"]}, "output": {"data": ["train"], "model": ["selected"]}}, "hetero_lr_0": {"module": "HeteroLR", "input": {"data": {"train_data": ["hetero_feature_selection_0.train"]}}, "output": {"data": ["train"], "model": ["hetero_lr"]}}, "evaluation_0": {"module": "Evaluation", "input": {"data": {"data": ["hetero_lr_0.train"]}}, "output": {"data": ["evaluate"]}}}}', 'f_runtime_conf': '{"initiator": {"role": "guest", "party_id": 9999}, "job_parameters": {"work_mode": 0, "processors_per_node": 1, "align_task_input_data_partition": true, "model_id": "arbiter-10000#guest-9999#host-10000#model", "model_version": "202010290804483462984"}, "role": {"guest": [9999], "host": [10000], "arbiter": [10000]}, "role_parameters": {"guest": {"args": {"data": {"train_data": [{"name": "breast_hetero_guest", "namespace": "fate_flow_test_breast_hetero"}]}}, "dataio_0": {"with_label": [true], "label_name": ["y"], "label_type": ["int"], "output_format": ["dense"]}}, "host": {"args": {"data": {"train_data": [{"name": "breast_hetero_host", "namespace": "fate_flow_test_breast_hetero"}]}}, "dataio_0": {"with_label": [false], "output_format": ["dense"]}}}, "algorithm_parameters": {"hetero_lr_0": {"penalty": "L2", "optimizer": "rmsprop", "eps": 1e-05, "alpha": 0.01, "max_iter": 3, "converge_func": "diff", "batch_size": 320, "learning_rate": 0.15, "init_param": {"init_method": "random_uniform"}}}}', 'f_train_runtime_conf': '{}', 'f_run_ip': '172.18.0.2:9380', 'f_status': 'waiting', 'f_create_time': 1603958688348, 'f_role': 'arbiter', 'f_party_id': 10000}
+[INFO] [2020-10-29 08:04:48,754] [6:140637848127232] - job_controller.py[line:106]: submit job successfully, job id is 202010290804483462984, model id is arbiter-10000#guest-9999#host-10000#model
+[INFO] [2020-10-29 08:04:48,765] [6:140638262744832] - dag_scheduler.py[line:58]: start check all role status
+[INFO] [2020-10-29 08:04:48,766] [6:140638262744832] - dag_scheduler.py[line:60]: check all role status success, status is True
+[INFO] [2020-10-29 08:04:48,766] [6:140638262744832] - dag_scheduler.py[line:71]: schedule job {'job_id': '202010290804483462984', 'initiator_role': 'guest', 'initiator_party_id': 9999}
+[INFO] [2020-10-29 08:04:48,799] [6:140702878570240] - job_utils.py[line:569]: setting job 202010290804483462984 timeout None is incorrect, using the default timeout 604800
+[INFO] [2020-10-29 08:04:48,808] [6:140540940003072] - tracking_manager.py[line:329]: save guest 9999 job: {'f_name': '', 'f_description': '', 'f_tag': 'end_waiting', 'f_initiator_party_id': -1, 'f_is_initiator': -1, 'f_progress': 0, 'f_job_id': '202010290804483462984', 'f_start_time': 1603958688800, 'f_status': 'running', 'f_update_time': 1603958688800, 'f_role': 'guest', 'f_party_id': 9999, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:04:48,816] [6:140229272925952] - tracking_manager.py[line:329]: save guest 9999 job: {'f_description': 'unittest', 'f_role': 'guest', 'f_party_id': '9999', 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:04:48,827] [6:140540940003072] - tracking_manager.py[line:329]: save host 10000 job: {'f_name': '', 'f_description': '', 'f_tag': 'end_waiting', 'f_initiator_party_id': -1, 'f_is_initiator': -1, 'f_progress': 0, 'f_job_id': '202010290804483462984', 'f_start_time': 1603958688800, 'f_status': 'running', 'f_update_time': 1603958688800, 'f_role': 'host', 'f_party_id': 10000, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:04:48,847] [6:140540940003072] - tracking_manager.py[line:329]: save arbiter 10000 job: {'f_name': '', 'f_description': '', 'f_tag': 'end_waiting', 'f_initiator_party_id': -1, 'f_is_initiator': -1, 'f_progress': 0, 'f_job_id': '202010290804483462984', 'f_start_time': 1603958688800, 'f_status': 'running', 'f_update_time': 1603958688800, 'f_role': 'arbiter', 'f_party_id': 10000, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:04:48,860] [6:140702878570240] - task_scheduler.py[line:167]: job 202010290804483462984 root components is ['dataio_0']
+[INFO] [2020-10-29 08:04:48,860] [6:140702878570240] - task_scheduler.py[line:219]: job 202010290804483462984 run component dataio_0
+[INFO] [2020-10-29 08:04:48,879] [6:140540940003072] - task_scheduler.py[line:420]: job 202010290804483462984 dataio_0 guest 9999 task subprocess is ready
+[WARNING] [2020-10-29 08:04:48,880] [6:140540940003072] - task_scheduler.py[line:433]: failed to get backend, set as 0
+[INFO] [2020-10-29 08:04:48,881] [6:140540940003072] - task_scheduler.py[line:486]: job 202010290804483462984 dataio_0 guest 9999 task subprocess start
+[INFO] [2020-10-29 08:04:48,886] [6:140540940003072] - task_scheduler.py[line:495]: job 202010290804483462984 component dataio_0 on guest 9999 start task subprocess success
+[INFO] [2020-10-29 08:04:48,894] [6:140540940003072] - task_scheduler.py[line:420]: job 202010290804483462984 dataio_0 host 10000 task subprocess is ready
+[WARNING] [2020-10-29 08:04:48,895] [6:140540940003072] - task_scheduler.py[line:433]: failed to get backend, set as 0
+[INFO] [2020-10-29 08:04:48,895] [6:140540940003072] - task_scheduler.py[line:486]: job 202010290804483462984 dataio_0 host 10000 task subprocess start
+[INFO] [2020-10-29 08:04:48,902] [6:140540940003072] - task_scheduler.py[line:495]: job 202010290804483462984 component dataio_0 on host 10000 start task subprocess success
+[INFO] [2020-10-29 08:04:48,908] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component dataio_0 run on guest 9999 status is notRunning
+[INFO] [2020-10-29 08:04:48,910] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component dataio_0 run on host 10000 status is notRunning
+[INFO] [2020-10-29 08:04:49,413] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component dataio_0 run on guest 9999 status is notRunning
+[INFO] [2020-10-29 08:04:49,415] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component dataio_0 run on host 10000 status is notRunning
+[INFO] [2020-10-29 08:04:49,612] [1430:140352438318912] - task_executor.py[line:52]: enter task process
+[INFO] [2020-10-29 08:04:49,612] [1430:140352438318912] - task_executor.py[line:53]: Namespace(component_name='dataio_0', config='/fate/jobs/202010290804483462984/host/10000/dataio_0/task_config.json', job_id='202010290804483462984', job_server='172.18.0.2:9380', party_id='10000', processors_per_node=1, role='host', task_id='202010290804483462984_dataio_0')
+[INFO] [2020-10-29 08:04:49,690] [1428:140340862109504] - task_executor.py[line:52]: enter task process
+[INFO] [2020-10-29 08:04:49,690] [1428:140340862109504] - task_executor.py[line:53]: Namespace(component_name='dataio_0', config='/fate/jobs/202010290804483462984/guest/9999/dataio_0/task_config.json', job_id='202010290804483462984', job_server='172.18.0.2:9380', party_id='9999', processors_per_node=1, role='guest', task_id='202010290804483462984_dataio_0')
+[INFO] [2020-10-29 08:04:49,872] [6:140540940003072] - job_controller.py[line:158]: job 202010290804483462984 component dataio_0 host 10000 status running
+[INFO] [2020-10-29 08:04:49,883] [6:140540940003072] - job_controller.py[line:158]: job 202010290804483462984 component dataio_0 host 10000 status running
+[INFO] [2020-10-29 08:04:49,918] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component dataio_0 run on guest 9999 status is notRunning
+[INFO] [2020-10-29 08:04:49,920] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component dataio_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:04:49,931] [6:140540940003072] - job_controller.py[line:158]: job 202010290804483462984 component dataio_0 guest 9999 status running
+[INFO] [2020-10-29 08:04:50,355] [1428:140340862109504] - tracking_manager.py[line:198]: persisting the component output temporary table: 202010290804483462984_dataio_0_guest_9999 6b36d54c-19bd-11eb-86e6-0242ac120002 to output_data_202010290804483462984_dataio_0 6b36d54c-19bd-11eb-86e6-0242ac120002
+[INFO] [2020-10-29 08:04:50,424] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component dataio_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:04:50,426] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component dataio_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:04:50,433] [1430:140352438318912] - tracking_manager.py[line:198]: persisting the component output temporary table: 202010290804483462984_dataio_0_host_10000 6b425566-19bd-11eb-a230-0242ac120002 to output_data_202010290804483462984_dataio_0 6b425566-19bd-11eb-a230-0242ac120002
+[INFO] [2020-10-29 08:04:50,456] [6:140540940003072] - job_controller.py[line:158]: job 202010290804483462984 component dataio_0 guest 9999 status success
+[INFO] [2020-10-29 08:04:50,508] [6:140540940003072] - job_controller.py[line:158]: job 202010290804483462984 component dataio_0 host 10000 status success
+[INFO] [2020-10-29 08:04:50,520] [6:140540940003072] - job_controller.py[line:158]: job 202010290804483462984 component dataio_0 host 10000 status success
+[INFO] [2020-10-29 08:04:50,930] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component dataio_0 run on guest 9999 status is success
+[INFO] [2020-10-29 08:04:50,932] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component dataio_0 run on host 10000 status is success
+[INFO] [2020-10-29 08:04:50,934] [6:140702878570240] - task_scheduler.py[line:264]: job 202010290804483462984 component dataio_0 run success
+[INFO] [2020-10-29 08:04:50,947] [6:140540940003072] - tracking_manager.py[line:329]: save guest 9999 job: {'f_name': '', 'f_description': '', 'f_tag': '', 'f_initiator_party_id': -1, 'f_is_initiator': -1, 'f_progress': 20.0, 'f_update_time': 1603958690941, 'f_current_tasks': '["202010290804483462984_dataio_0"]', 'f_role': 'guest', 'f_party_id': 9999, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:04:50,962] [6:140540940003072] - tracking_manager.py[line:329]: save host 10000 job: {'f_name': '', 'f_description': '', 'f_tag': '', 'f_initiator_party_id': -1, 'f_is_initiator': -1, 'f_progress': 20.0, 'f_update_time': 1603958690941, 'f_current_tasks': '["202010290804483462984_dataio_0"]', 'f_role': 'host', 'f_party_id': 10000, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:04:50,974] [6:140540940003072] - tracking_manager.py[line:329]: save arbiter 10000 job: {'f_name': '', 'f_description': '', 'f_tag': '', 'f_initiator_party_id': -1, 'f_is_initiator': -1, 'f_progress': 20.0, 'f_update_time': 1603958690941, 'f_current_tasks': '["202010290804483462984_dataio_0"]', 'f_role': 'arbiter', 'f_party_id': 10000, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:04:50,981] [6:140702878570240] - task_scheduler.py[line:596]: get stop job 202010290804483462984 dataio_0 command
+[INFO] [2020-10-29 08:04:50,987] [6:140540940003072] - job_controller.py[line:117]: guest 9999 get kill job 202010290804483462984 dataio_0 command
+[INFO] [2020-10-29 08:04:50,992] [6:140540940003072] - job_utils.py[line:396]: try to stop job 202010290804483462984 task 202010290804483462984_dataio_0 guest 9999 process pid:1428
+[INFO] [2020-10-29 08:04:50,993] [6:140540940003072] - job_utils.py[line:502]: start run subprocess to stop component dataio_0 session
+[INFO] [2020-10-29 08:04:50,998] [6:140540940003072] - job_controller.py[line:139]: job 202010290804483462984 component dataio_0 on guest 9999 process 1428 kill success
+[INFO] [2020-10-29 08:04:51,008] [6:140702836623104] - job_controller.py[line:158]: job 202010290804483462984 component dataio_0 guest 9999 status success
+[INFO] [2020-10-29 08:04:51,020] [6:140702836623104] - job_controller.py[line:158]: job 202010290804483462984 component dataio_0 guest 9999 status success
+[INFO] [2020-10-29 08:04:51,026] [6:140702878570240] - task_scheduler.py[line:639]: send guest 9999 kill job 202010290804483462984 dataio_0 command successfully
+[INFO] [2020-10-29 08:04:51,029] [6:140540940003072] - job_controller.py[line:117]: host 10000 get kill job 202010290804483462984 dataio_0 command
+[INFO] [2020-10-29 08:04:51,034] [6:140540940003072] - job_utils.py[line:396]: try to stop job 202010290804483462984 task 202010290804483462984_dataio_0 host 10000 process pid:1430
+[INFO] [2020-10-29 08:04:51,034] [6:140540940003072] - job_utils.py[line:502]: start run subprocess to stop component dataio_0 session
+[INFO] [2020-10-29 08:04:51,040] [6:140540940003072] - job_controller.py[line:139]: job 202010290804483462984 component dataio_0 on host 10000 process 1430 kill success
+[INFO] [2020-10-29 08:04:51,050] [6:140702836623104] - job_controller.py[line:158]: job 202010290804483462984 component dataio_0 host 10000 status success
+[INFO] [2020-10-29 08:04:51,062] [6:140702836623104] - job_controller.py[line:158]: job 202010290804483462984 component dataio_0 host 10000 status success
+[INFO] [2020-10-29 08:04:51,066] [6:140702878570240] - task_scheduler.py[line:639]: send host 10000 kill job 202010290804483462984 dataio_0 command successfully
+[INFO] [2020-10-29 08:04:51,070] [6:140540940003072] - job_controller.py[line:117]: arbiter 10000 get kill job 202010290804483462984 dataio_0 command
+[INFO] [2020-10-29 08:04:51,077] [6:140702878570240] - task_scheduler.py[line:639]: send arbiter 10000 kill job 202010290804483462984 dataio_0 command successfully
+[INFO] [2020-10-29 08:04:51,077] [6:140702878570240] - task_scheduler.py[line:278]: job 202010290804483462984 component dataio_0 next components is ['hetero_feature_binning_0']
+[INFO] [2020-10-29 08:04:51,077] [6:140702878570240] - task_scheduler.py[line:282]: job 202010290804483462984 check component hetero_feature_binning_0 dependencies status
+[INFO] [2020-10-29 08:04:51,080] [6:140702878570240] - task_scheduler.py[line:363]: job 202010290804483462984 component hetero_feature_binning_0 all dependent component: [{'component_name': 'dataio_0', 'type': 'data'}]
+[INFO] [2020-10-29 08:04:51,081] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component dataio_0 run on guest 9999 status is success
+[INFO] [2020-10-29 08:04:51,083] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component dataio_0 run on host 10000 status is success
+[INFO] [2020-10-29 08:04:51,083] [6:140702878570240] - task_scheduler.py[line:370]: job 202010290804483462984 component hetero_feature_binning_0 dependency dataio_0 status is True
+[INFO] [2020-10-29 08:04:51,085] [6:140702878570240] - task_scheduler.py[line:290]: job 202010290804483462984 component hetero_feature_binning_0 dependencies status is True, job status is True
+[INFO] [2020-10-29 08:04:51,085] [6:140702878570240] - task_scheduler.py[line:219]: job 202010290804483462984 run component hetero_feature_binning_0
+[INFO] [2020-10-29 08:04:51,204] [6:140540940003072] - task_scheduler.py[line:420]: job 202010290804483462984 hetero_feature_binning_0 guest 9999 task subprocess is ready
+[WARNING] [2020-10-29 08:04:51,205] [6:140540940003072] - task_scheduler.py[line:433]: failed to get backend, set as 0
+[INFO] [2020-10-29 08:04:51,206] [6:140540940003072] - task_scheduler.py[line:486]: job 202010290804483462984 hetero_feature_binning_0 guest 9999 task subprocess start
+[INFO] [2020-10-29 08:04:51,214] [6:140540940003072] - task_scheduler.py[line:495]: job 202010290804483462984 component hetero_feature_binning_0 on guest 9999 start task subprocess success
+[INFO] [2020-10-29 08:04:51,222] [6:140540940003072] - task_scheduler.py[line:420]: job 202010290804483462984 hetero_feature_binning_0 host 10000 task subprocess is ready
+[WARNING] [2020-10-29 08:04:51,222] [6:140540940003072] - task_scheduler.py[line:433]: failed to get backend, set as 0
+[INFO] [2020-10-29 08:04:51,223] [6:140540940003072] - task_scheduler.py[line:486]: job 202010290804483462984 hetero_feature_binning_0 host 10000 task subprocess start
+[INFO] [2020-10-29 08:04:51,229] [6:140540940003072] - task_scheduler.py[line:495]: job 202010290804483462984 component hetero_feature_binning_0 on host 10000 start task subprocess success
+[INFO] [2020-10-29 08:04:51,235] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component hetero_feature_binning_0 run on guest 9999 status is notRunning
+[INFO] [2020-10-29 08:04:51,238] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component hetero_feature_binning_0 run on host 10000 status is notRunning
+[INFO] [2020-10-29 08:04:51,616] [1481:139645298550592] - session_utils.py[line:43]: start stop session 202010290804483462984_dataio_0_host_10000
+[INFO] [2020-10-29 08:04:51,617] [1481:139645298550592] - session_utils.py[line:50]: stop session 202010290804483462984_dataio_0_host_10000 success
+[INFO] [2020-10-29 08:04:51,636] [1477:140715962120000] - session_utils.py[line:43]: start stop session 202010290804483462984_dataio_0_guest_9999
+[INFO] [2020-10-29 08:04:51,638] [1477:140715962120000] - session_utils.py[line:50]: stop session 202010290804483462984_dataio_0_guest_9999 success
+[INFO] [2020-10-29 08:04:51,742] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component hetero_feature_binning_0 run on guest 9999 status is notRunning
+[INFO] [2020-10-29 08:04:51,744] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component hetero_feature_binning_0 run on host 10000 status is notRunning
+[INFO] [2020-10-29 08:04:52,044] [1492:139643322771264] - task_executor.py[line:52]: enter task process
+[INFO] [2020-10-29 08:04:52,044] [1492:139643322771264] - task_executor.py[line:53]: Namespace(component_name='hetero_feature_binning_0', config='/fate/jobs/202010290804483462984/host/10000/hetero_feature_binning_0/task_config.json', job_id='202010290804483462984', job_server='172.18.0.2:9380', party_id='10000', processors_per_node=1, role='host', task_id='202010290804483462984_hetero_feature_binning_0')
+[INFO] [2020-10-29 08:04:52,045] [1490:139678130571072] - task_executor.py[line:52]: enter task process
+[INFO] [2020-10-29 08:04:52,045] [1490:139678130571072] - task_executor.py[line:53]: Namespace(component_name='hetero_feature_binning_0', config='/fate/jobs/202010290804483462984/guest/9999/hetero_feature_binning_0/task_config.json', job_id='202010290804483462984', job_server='172.18.0.2:9380', party_id='9999', processors_per_node=1, role='guest', task_id='202010290804483462984_hetero_feature_binning_0')
+[INFO] [2020-10-29 08:04:52,229] [6:140540940003072] - job_controller.py[line:158]: job 202010290804483462984 component hetero_feature_binning_0 guest 9999 status running
+[INFO] [2020-10-29 08:04:52,248] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component hetero_feature_binning_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:04:52,250] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component hetero_feature_binning_0 run on host 10000 status is notRunning
+[INFO] [2020-10-29 08:04:52,325] [6:140540940003072] - job_controller.py[line:158]: job 202010290804483462984 component hetero_feature_binning_0 host 10000 status running
+[INFO] [2020-10-29 08:04:52,335] [6:140540940003072] - job_controller.py[line:158]: job 202010290804483462984 component hetero_feature_binning_0 host 10000 status running
+[INFO] [2020-10-29 08:04:52,754] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component hetero_feature_binning_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:04:52,756] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component hetero_feature_binning_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:04:53,259] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component hetero_feature_binning_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:04:53,262] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component hetero_feature_binning_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:04:53,765] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component hetero_feature_binning_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:04:53,767] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component hetero_feature_binning_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:04:54,271] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component hetero_feature_binning_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:04:54,273] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component hetero_feature_binning_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:04:54,777] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component hetero_feature_binning_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:04:54,779] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component hetero_feature_binning_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:04:55,283] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component hetero_feature_binning_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:04:55,285] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component hetero_feature_binning_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:04:55,789] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component hetero_feature_binning_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:04:55,791] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component hetero_feature_binning_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:04:56,295] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component hetero_feature_binning_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:04:56,297] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component hetero_feature_binning_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:04:56,801] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component hetero_feature_binning_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:04:56,803] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component hetero_feature_binning_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:04:57,307] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component hetero_feature_binning_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:04:57,309] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component hetero_feature_binning_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:04:57,812] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component hetero_feature_binning_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:04:57,815] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component hetero_feature_binning_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:04:58,318] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component hetero_feature_binning_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:04:58,320] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component hetero_feature_binning_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:04:58,824] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component hetero_feature_binning_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:04:58,826] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component hetero_feature_binning_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:04:58,867] [6:140540940003072] - task_scheduler.py[line:570]: get stop job 202010290804483462984 command
+[INFO] [2020-10-29 08:04:58,876] [6:140702836623104] - task_scheduler.py[line:596]: get cancel job 202010290804483462984  command
+[INFO] [2020-10-29 08:04:58,884] [6:140229272925952] - tracking_manager.py[line:329]: save guest 9999 job: {'f_job_id': '202010290804483462984', 'f_status': 'canceled', 'f_role': 'guest', 'f_party_id': 9999, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:04:58,896] [6:140229272925952] - tracking_manager.py[line:329]: save host 10000 job: {'f_job_id': '202010290804483462984', 'f_status': 'canceled', 'f_role': 'host', 'f_party_id': 10000, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:04:58,909] [6:140229272925952] - tracking_manager.py[line:329]: save arbiter 10000 job: {'f_job_id': '202010290804483462984', 'f_status': 'canceled', 'f_role': 'arbiter', 'f_party_id': 10000, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:04:58,920] [6:140229272925952] - job_controller.py[line:282]: guest 9999 get cancel waiting job 202010290804483462984 command
+[INFO] [2020-10-29 08:04:58,928] [6:140702836623104] - task_scheduler.py[line:645]: send guest 9999 cancel job 202010290804483462984  command failed: cancel job failed
+[INFO] [2020-10-29 08:04:58,928] [6:140702836623104] - task_scheduler.py[line:596]: get stop job 202010290804483462984  command
+[INFO] [2020-10-29 08:04:58,935] [6:140229272925952] - tracking_manager.py[line:329]: save guest 9999 job: {'f_job_id': '202010290804483462984', 'f_status': 'failed', 'f_role': 'guest', 'f_party_id': 9999, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:04:58,946] [6:140229272925952] - tracking_manager.py[line:329]: save host 10000 job: {'f_job_id': '202010290804483462984', 'f_status': 'failed', 'f_role': 'host', 'f_party_id': 10000, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:04:58,958] [6:140229272925952] - tracking_manager.py[line:329]: save arbiter 10000 job: {'f_job_id': '202010290804483462984', 'f_status': 'failed', 'f_role': 'arbiter', 'f_party_id': 10000, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:04:58,970] [6:140229272925952] - job_controller.py[line:117]: guest 9999 get kill job 202010290804483462984  command
+[INFO] [2020-10-29 08:04:58,973] [6:140229272925952] - job_utils.py[line:396]: try to stop job 202010290804483462984 task 202010290804483462984_dataio_0 guest 9999 process pid:1428
+[INFO] [2020-10-29 08:04:58,973] [6:140229272925952] - job_utils.py[line:502]: start run subprocess to stop component dataio_0 session
+[INFO] [2020-10-29 08:04:58,980] [6:140229272925952] - job_controller.py[line:139]: job 202010290804483462984 component dataio_0 on guest 9999 process 1428 kill success
+[INFO] [2020-10-29 08:04:58,991] [6:140229230892800] - job_controller.py[line:158]: job 202010290804483462984 component dataio_0 guest 9999 status success
+[INFO] [2020-10-29 08:04:59,002] [6:140229230892800] - job_controller.py[line:158]: job 202010290804483462984 component dataio_0 guest 9999 status success
+[INFO] [2020-10-29 08:04:59,004] [6:140229272925952] - job_utils.py[line:396]: try to stop job 202010290804483462984 task 202010290804483462984_hetero_feature_binning_0 guest 9999 process pid:1490
+[INFO] [2020-10-29 08:04:59,008] [6:140229272925952] - job_utils.py[line:502]: start run subprocess to stop component hetero_feature_binning_0 session
+[INFO] [2020-10-29 08:04:59,019] [6:140229272925952] - job_controller.py[line:139]: job 202010290804483462984 component hetero_feature_binning_0 on guest 9999 process 1490 kill success
+[INFO] [2020-10-29 08:04:59,029] [6:140229230892800] - job_controller.py[line:158]: job 202010290804483462984 component hetero_feature_binning_0 guest 9999 status failed
+[INFO] [2020-10-29 08:04:59,041] [6:140229230892800] - job_controller.py[line:158]: job 202010290804483462984 component hetero_feature_binning_0 guest 9999 status failed
+[INFO] [2020-10-29 08:04:59,047] [6:140702836623104] - task_scheduler.py[line:639]: send guest 9999 kill job 202010290804483462984  command successfully
+[INFO] [2020-10-29 08:04:59,050] [6:140229272925952] - job_controller.py[line:117]: host 10000 get kill job 202010290804483462984  command
+[INFO] [2020-10-29 08:04:59,056] [6:140229272925952] - job_utils.py[line:396]: try to stop job 202010290804483462984 task 202010290804483462984_dataio_0 host 10000 process pid:1430
+[INFO] [2020-10-29 08:04:59,056] [6:140229272925952] - job_utils.py[line:502]: start run subprocess to stop component dataio_0 session
+[INFO] [2020-10-29 08:04:59,062] [6:140229272925952] - job_controller.py[line:139]: job 202010290804483462984 component dataio_0 on host 10000 process 1430 kill success
+[INFO] [2020-10-29 08:04:59,072] [6:140229230892800] - job_controller.py[line:158]: job 202010290804483462984 component dataio_0 host 10000 status success
+[INFO] [2020-10-29 08:04:59,085] [6:140229230892800] - job_controller.py[line:158]: job 202010290804483462984 component dataio_0 host 10000 status success
+[INFO] [2020-10-29 08:04:59,088] [6:140229272925952] - job_utils.py[line:396]: try to stop job 202010290804483462984 task 202010290804483462984_hetero_feature_binning_0 host 10000 process pid:1492
+[INFO] [2020-10-29 08:04:59,096] [6:140229272925952] - job_utils.py[line:502]: start run subprocess to stop component hetero_feature_binning_0 session
+[INFO] [2020-10-29 08:04:59,111] [6:140229272925952] - job_controller.py[line:139]: job 202010290804483462984 component hetero_feature_binning_0 on host 10000 process 1492 kill success
+[INFO] [2020-10-29 08:04:59,122] [6:140229230892800] - job_controller.py[line:158]: job 202010290804483462984 component hetero_feature_binning_0 host 10000 status failed
+[INFO] [2020-10-29 08:04:59,137] [6:140229230892800] - job_controller.py[line:158]: job 202010290804483462984 component hetero_feature_binning_0 host 10000 status failed
+[INFO] [2020-10-29 08:04:59,143] [6:140702836623104] - task_scheduler.py[line:639]: send host 10000 kill job 202010290804483462984  command successfully
+[INFO] [2020-10-29 08:04:59,147] [6:140229272925952] - job_controller.py[line:117]: arbiter 10000 get kill job 202010290804483462984  command
+[INFO] [2020-10-29 08:04:59,154] [6:140702836623104] - task_scheduler.py[line:639]: send arbiter 10000 kill job 202010290804483462984  command successfully
+[INFO] [2020-10-29 08:04:59,329] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component hetero_feature_binning_0 run on guest 9999 status is failed
+[INFO] [2020-10-29 08:04:59,332] [6:140702878570240] - task_scheduler.py[line:394]: job 202010290804483462984 component hetero_feature_binning_0 run on host 10000 status is failed
+[INFO] [2020-10-29 08:04:59,336] [6:140702878570240] - task_scheduler.py[line:264]: job 202010290804483462984 component hetero_feature_binning_0 run failed
+[INFO] [2020-10-29 08:04:59,347] [6:140540940003072] - tracking_manager.py[line:329]: save guest 9999 job: {'f_name': '', 'f_description': '', 'f_tag': '', 'f_initiator_party_id': -1, 'f_is_initiator': -1, 'f_progress': 20.0, 'f_update_time': 1603958699342, 'f_current_tasks': '["202010290804483462984_hetero_feature_binning_0"]', 'f_role': 'guest', 'f_party_id': 9999, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:04:59,359] [6:140540940003072] - tracking_manager.py[line:329]: save host 10000 job: {'f_name': '', 'f_description': '', 'f_tag': '', 'f_initiator_party_id': -1, 'f_is_initiator': -1, 'f_progress': 20.0, 'f_update_time': 1603958699342, 'f_current_tasks': '["202010290804483462984_hetero_feature_binning_0"]', 'f_role': 'host', 'f_party_id': 10000, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:04:59,371] [6:140540940003072] - tracking_manager.py[line:329]: save arbiter 10000 job: {'f_name': '', 'f_description': '', 'f_tag': '', 'f_initiator_party_id': -1, 'f_is_initiator': -1, 'f_progress': 20.0, 'f_update_time': 1603958699342, 'f_current_tasks': '["202010290804483462984_hetero_feature_binning_0"]', 'f_role': 'arbiter', 'f_party_id': 10000, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:04:59,378] [6:140702878570240] - task_scheduler.py[line:596]: get stop job 202010290804483462984 hetero_feature_binning_0 command
+[INFO] [2020-10-29 08:04:59,383] [6:140540940003072] - job_controller.py[line:117]: guest 9999 get kill job 202010290804483462984 hetero_feature_binning_0 command
+[INFO] [2020-10-29 08:04:59,388] [6:140540940003072] - job_utils.py[line:396]: try to stop job 202010290804483462984 task 202010290804483462984_hetero_feature_binning_0 guest 9999 process pid:1490
+[INFO] [2020-10-29 08:04:59,388] [6:140540940003072] - job_utils.py[line:502]: start run subprocess to stop component hetero_feature_binning_0 session
+[INFO] [2020-10-29 08:04:59,394] [6:140540940003072] - job_controller.py[line:139]: job 202010290804483462984 component hetero_feature_binning_0 on guest 9999 process 1490 kill success
+[INFO] [2020-10-29 08:04:59,405] [6:140702836623104] - job_controller.py[line:158]: job 202010290804483462984 component hetero_feature_binning_0 guest 9999 status failed
+[INFO] [2020-10-29 08:04:59,419] [6:140702836623104] - job_controller.py[line:158]: job 202010290804483462984 component hetero_feature_binning_0 guest 9999 status failed
+[INFO] [2020-10-29 08:04:59,425] [6:140702878570240] - task_scheduler.py[line:639]: send guest 9999 kill job 202010290804483462984 hetero_feature_binning_0 command successfully
+[INFO] [2020-10-29 08:04:59,429] [6:140540940003072] - job_controller.py[line:117]: host 10000 get kill job 202010290804483462984 hetero_feature_binning_0 command
+[INFO] [2020-10-29 08:04:59,434] [6:140540940003072] - job_utils.py[line:396]: try to stop job 202010290804483462984 task 202010290804483462984_hetero_feature_binning_0 host 10000 process pid:1492
+[INFO] [2020-10-29 08:04:59,435] [6:140540940003072] - job_utils.py[line:502]: start run subprocess to stop component hetero_feature_binning_0 session
+[INFO] [2020-10-29 08:04:59,442] [6:140540940003072] - job_controller.py[line:139]: job 202010290804483462984 component hetero_feature_binning_0 on host 10000 process 1492 kill success
+[INFO] [2020-10-29 08:04:59,453] [6:140702836623104] - job_controller.py[line:158]: job 202010290804483462984 component hetero_feature_binning_0 host 10000 status failed
+[INFO] [2020-10-29 08:04:59,467] [6:140702836623104] - job_controller.py[line:158]: job 202010290804483462984 component hetero_feature_binning_0 host 10000 status failed
+[INFO] [2020-10-29 08:04:59,473] [6:140702878570240] - task_scheduler.py[line:639]: send host 10000 kill job 202010290804483462984 hetero_feature_binning_0 command successfully
+[INFO] [2020-10-29 08:04:59,488] [6:140540940003072] - job_controller.py[line:117]: arbiter 10000 get kill job 202010290804483462984 hetero_feature_binning_0 command
+[INFO] [2020-10-29 08:04:59,508] [6:140702878570240] - task_scheduler.py[line:639]: send arbiter 10000 kill job 202010290804483462984 hetero_feature_binning_0 command successfully
+[INFO] [2020-10-29 08:04:59,508] [6:140702878570240] - task_scheduler.py[line:596]: get stop job 202010290804483462984  command
+[INFO] [2020-10-29 08:04:59,520] [6:140540940003072] - tracking_manager.py[line:329]: save guest 9999 job: {'f_job_id': '202010290804483462984', 'f_status': 'failed', 'f_role': 'guest', 'f_party_id': 9999, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:04:59,530] [6:140540940003072] - tracking_manager.py[line:329]: save host 10000 job: {'f_job_id': '202010290804483462984', 'f_status': 'failed', 'f_role': 'host', 'f_party_id': 10000, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:04:59,551] [6:140540940003072] - tracking_manager.py[line:329]: save arbiter 10000 job: {'f_job_id': '202010290804483462984', 'f_status': 'failed', 'f_role': 'arbiter', 'f_party_id': 10000, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:04:59,563] [6:140540940003072] - job_controller.py[line:117]: guest 9999 get kill job 202010290804483462984  command
+[INFO] [2020-10-29 08:04:59,567] [6:140540940003072] - job_utils.py[line:396]: try to stop job 202010290804483462984 task 202010290804483462984_dataio_0 guest 9999 process pid:1428
+[INFO] [2020-10-29 08:04:59,567] [6:140540940003072] - job_utils.py[line:502]: start run subprocess to stop component dataio_0 session
+[INFO] [2020-10-29 08:04:59,582] [6:140540940003072] - job_controller.py[line:139]: job 202010290804483462984 component dataio_0 on guest 9999 process 1428 kill success
+[INFO] [2020-10-29 08:04:59,619] [6:140702836623104] - job_controller.py[line:158]: job 202010290804483462984 component dataio_0 guest 9999 status success
+[INFO] [2020-10-29 08:04:59,683] [6:140702836623104] - job_controller.py[line:158]: job 202010290804483462984 component dataio_0 guest 9999 status success
+[INFO] [2020-10-29 08:04:59,686] [6:140540940003072] - job_utils.py[line:396]: try to stop job 202010290804483462984 task 202010290804483462984_hetero_feature_binning_0 guest 9999 process pid:1490
+[INFO] [2020-10-29 08:04:59,686] [6:140540940003072] - job_utils.py[line:502]: start run subprocess to stop component hetero_feature_binning_0 session
+[INFO] [2020-10-29 08:04:59,701] [1573:140365758109504] - session_utils.py[line:43]: start kill session 202010290804483462984_hetero_feature_binning_0_guest_9999
+[INFO] [2020-10-29 08:04:59,703] [1573:140365758109504] - session_utils.py[line:50]: kill session 202010290804483462984_hetero_feature_binning_0_guest_9999 success
+[INFO] [2020-10-29 08:04:59,718] [6:140540940003072] - job_controller.py[line:139]: job 202010290804483462984 component hetero_feature_binning_0 on guest 9999 process 1490 kill success
+[INFO] [2020-10-29 08:04:59,759] [6:140702836623104] - job_controller.py[line:158]: job 202010290804483462984 component hetero_feature_binning_0 guest 9999 status failed
+[INFO] [2020-10-29 08:04:59,784] [6:140702836623104] - job_controller.py[line:158]: job 202010290804483462984 component hetero_feature_binning_0 guest 9999 status failed
+[INFO] [2020-10-29 08:04:59,789] [6:140702878570240] - task_scheduler.py[line:639]: send guest 9999 kill job 202010290804483462984  command successfully
+[INFO] [2020-10-29 08:04:59,791] [1577:140249561720640] - session_utils.py[line:43]: start stop session 202010290804483462984_dataio_0_host_10000
+[INFO] [2020-10-29 08:04:59,793] [1577:140249561720640] - session_utils.py[line:50]: stop session 202010290804483462984_dataio_0_host_10000 success
+[INFO] [2020-10-29 08:04:59,799] [6:140540940003072] - job_controller.py[line:117]: host 10000 get kill job 202010290804483462984  command
+[INFO] [2020-10-29 08:04:59,805] [6:140540940003072] - job_utils.py[line:396]: try to stop job 202010290804483462984 task 202010290804483462984_dataio_0 host 10000 process pid:1430
+[INFO] [2020-10-29 08:04:59,806] [6:140540940003072] - job_utils.py[line:502]: start run subprocess to stop component dataio_0 session
+[INFO] [2020-10-29 08:04:59,822] [6:140540940003072] - job_controller.py[line:139]: job 202010290804483462984 component dataio_0 on host 10000 process 1430 kill success
+[INFO] [2020-10-29 08:04:59,840] [1570:140176038315840] - session_utils.py[line:43]: start stop session 202010290804483462984_dataio_0_guest_9999
+[INFO] [2020-10-29 08:04:59,842] [6:140702836623104] - job_controller.py[line:158]: job 202010290804483462984 component dataio_0 host 10000 status success
+[INFO] [2020-10-29 08:04:59,843] [1570:140176038315840] - session_utils.py[line:50]: stop session 202010290804483462984_dataio_0_guest_9999 success
+[INFO] [2020-10-29 08:04:59,901] [6:140702836623104] - job_controller.py[line:158]: job 202010290804483462984 component dataio_0 host 10000 status success
+[INFO] [2020-10-29 08:04:59,903] [6:140540940003072] - job_utils.py[line:396]: try to stop job 202010290804483462984 task 202010290804483462984_hetero_feature_binning_0 host 10000 process pid:1492
+[INFO] [2020-10-29 08:04:59,904] [6:140540940003072] - job_utils.py[line:502]: start run subprocess to stop component hetero_feature_binning_0 session
+[INFO] [2020-10-29 08:04:59,914] [1580:140111730689856] - session_utils.py[line:43]: start kill session 202010290804483462984_hetero_feature_binning_0_host_10000
+[INFO] [2020-10-29 08:04:59,915] [6:140540940003072] - job_controller.py[line:139]: job 202010290804483462984 component hetero_feature_binning_0 on host 10000 process 1492 kill success
+[INFO] [2020-10-29 08:04:59,917] [1580:140111730689856] - session_utils.py[line:50]: kill session 202010290804483462984_hetero_feature_binning_0_host_10000 success
+[INFO] [2020-10-29 08:04:59,951] [6:140702836623104] - job_controller.py[line:158]: job 202010290804483462984 component hetero_feature_binning_0 host 10000 status failed
+[INFO] [2020-10-29 08:04:59,971] [6:140702836623104] - job_controller.py[line:158]: job 202010290804483462984 component hetero_feature_binning_0 host 10000 status failed
+[INFO] [2020-10-29 08:04:59,982] [6:140702878570240] - task_scheduler.py[line:639]: send host 10000 kill job 202010290804483462984  command successfully
+[INFO] [2020-10-29 08:04:59,993] [6:140540940003072] - job_controller.py[line:117]: arbiter 10000 get kill job 202010290804483462984  command
+[INFO] [2020-10-29 08:05:00,003] [6:140702878570240] - task_scheduler.py[line:639]: send arbiter 10000 kill job 202010290804483462984  command successfully
+[INFO] [2020-10-29 08:05:00,016] [6:140540940003072] - job_controller.py[line:238]: job 202010290804483462984 on guest 9999 start to save pipeline
+[INFO] [2020-10-29 08:05:00,061] [6:140540940003072] - job_controller.py[line:259]: job 202010290804483462984 on guest 9999 save pipeline successfully
+[INFO] [2020-10-29 08:05:00,067] [6:140540940003072] - job_controller.py[line:263]: job 202010290804483462984 on guest 9999 start to clean
+[INFO] [2020-10-29 08:05:00,117] [6:140540940003072] - tracking_manager.py[line:452]: clean task 202010290804483462984_dataio_0 on guest 9999
+[INFO] [2020-10-29 08:05:00,118] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290804483462984_dataio_0_guest_9999 on guest 9999 done
+[INFO] [2020-10-29 08:05:00,118] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290804483462984_dataio_0 on guest 9999 done
+[INFO] [2020-10-29 08:05:00,118] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290804483462984_dataio_0_guest_10000 on guest 9999 done
+[INFO] [2020-10-29 08:05:00,118] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290804483462984_dataio_0 on guest 9999 done
+[INFO] [2020-10-29 08:05:00,118] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290804483462984_dataio_0_guest_10000 on guest 9999 done
+[INFO] [2020-10-29 08:05:00,118] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290804483462984_dataio_0 on guest 9999 done
+[INFO] [2020-10-29 08:05:00,118] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290804483462984_dataio_0_host_9999 on guest 9999 done
+[INFO] [2020-10-29 08:05:00,118] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290804483462984_dataio_0 on guest 9999 done
+[INFO] [2020-10-29 08:05:00,118] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290804483462984_dataio_0_host_10000 on guest 9999 done
+[INFO] [2020-10-29 08:05:00,118] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290804483462984_dataio_0 on guest 9999 done
+[INFO] [2020-10-29 08:05:00,119] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290804483462984_dataio_0_host_10000 on guest 9999 done
+[INFO] [2020-10-29 08:05:00,119] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290804483462984_dataio_0 on guest 9999 done
+[INFO] [2020-10-29 08:05:00,119] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290804483462984_dataio_0_arbiter_9999 on guest 9999 done
+[INFO] [2020-10-29 08:05:00,119] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290804483462984_dataio_0 on guest 9999 done
+[INFO] [2020-10-29 08:05:00,119] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290804483462984_dataio_0_arbiter_10000 on guest 9999 done
+[INFO] [2020-10-29 08:05:00,119] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290804483462984_dataio_0 on guest 9999 done
+[INFO] [2020-10-29 08:05:00,119] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290804483462984_dataio_0_arbiter_10000 on guest 9999 done
+[INFO] [2020-10-29 08:05:00,119] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290804483462984_dataio_0 on guest 9999 done
+[INFO] [2020-10-29 08:05:00,119] [6:140540940003072] - tracking_manager.py[line:475]: clean task 202010290804483462984_dataio_0 on guest 9999 done
+[INFO] [2020-10-29 08:05:00,119] [6:140540940003072] - job_controller.py[line:269]: job 202010290804483462984 component dataio_0 on guest 9999 clean done
+[INFO] [2020-10-29 08:05:00,179] [6:140540940003072] - tracking_manager.py[line:452]: clean task 202010290804483462984_hetero_feature_binning_0 on guest 9999
+[INFO] [2020-10-29 08:05:00,182] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290804483462984_hetero_feature_binning_0_guest_9999 on guest 9999 done
+[INFO] [2020-10-29 08:05:00,182] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290804483462984_hetero_feature_binning_0 on guest 9999 done
+[INFO] [2020-10-29 08:05:00,182] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290804483462984_hetero_feature_binning_0_guest_10000 on guest 9999 done
+[INFO] [2020-10-29 08:05:00,182] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290804483462984_hetero_feature_binning_0 on guest 9999 done
+[INFO] [2020-10-29 08:05:00,182] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290804483462984_hetero_feature_binning_0_guest_10000 on guest 9999 done
+[INFO] [2020-10-29 08:05:00,182] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290804483462984_hetero_feature_binning_0 on guest 9999 done
+[INFO] [2020-10-29 08:05:00,182] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290804483462984_hetero_feature_binning_0_host_9999 on guest 9999 done
+[INFO] [2020-10-29 08:05:00,182] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290804483462984_hetero_feature_binning_0 on guest 9999 done
+[INFO] [2020-10-29 08:05:00,184] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290804483462984_hetero_feature_binning_0_host_10000 on guest 9999 done
+[INFO] [2020-10-29 08:05:00,184] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290804483462984_hetero_feature_binning_0 on guest 9999 done
+[INFO] [2020-10-29 08:05:00,184] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290804483462984_hetero_feature_binning_0_host_10000 on guest 9999 done
+[INFO] [2020-10-29 08:05:00,184] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290804483462984_hetero_feature_binning_0 on guest 9999 done
+[INFO] [2020-10-29 08:05:00,184] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290804483462984_hetero_feature_binning_0_arbiter_9999 on guest 9999 done
+[INFO] [2020-10-29 08:05:00,184] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290804483462984_hetero_feature_binning_0 on guest 9999 done
+[INFO] [2020-10-29 08:05:00,184] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290804483462984_hetero_feature_binning_0_arbiter_10000 on guest 9999 done
+[INFO] [2020-10-29 08:05:00,184] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290804483462984_hetero_feature_binning_0 on guest 9999 done
+[INFO] [2020-10-29 08:05:00,184] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290804483462984_hetero_feature_binning_0_arbiter_10000 on guest 9999 done
+[INFO] [2020-10-29 08:05:00,184] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290804483462984_hetero_feature_binning_0 on guest 9999 done
+[INFO] [2020-10-29 08:05:00,184] [6:140540940003072] - tracking_manager.py[line:475]: clean task 202010290804483462984_hetero_feature_binning_0 on guest 9999 done
+[INFO] [2020-10-29 08:05:00,185] [6:140540940003072] - job_controller.py[line:269]: job 202010290804483462984 component hetero_feature_binning_0 on guest 9999 clean done
+[INFO] [2020-10-29 08:05:00,185] [6:140540940003072] - job_controller.py[line:274]: job 202010290804483462984 on guest 9999 clean done
+[INFO] [2020-10-29 08:05:00,200] [6:140702836623104] - job_controller.py[line:238]: job 202010290804483462984 on host 10000 start to save pipeline
+[INFO] [2020-10-29 08:05:00,262] [6:140702836623104] - job_controller.py[line:259]: job 202010290804483462984 on host 10000 save pipeline successfully
+[INFO] [2020-10-29 08:05:00,267] [6:140702836623104] - job_controller.py[line:263]: job 202010290804483462984 on host 10000 start to clean
+[INFO] [2020-10-29 08:05:00,337] [6:140702836623104] - tracking_manager.py[line:452]: clean task 202010290804483462984_dataio_0 on host 10000
+[INFO] [2020-10-29 08:05:00,337] [6:140702836623104] - tracking_manager.py[line:463]: clean table by namespace 202010290804483462984_dataio_0_guest_9999 on host 10000 done
+[INFO] [2020-10-29 08:05:00,337] [6:140702836623104] - tracking_manager.py[line:469]: clean table by namespace 202010290804483462984_dataio_0 on host 10000 done
+[INFO] [2020-10-29 08:05:00,337] [6:140702836623104] - tracking_manager.py[line:463]: clean table by namespace 202010290804483462984_dataio_0_guest_10000 on host 10000 done
+[INFO] [2020-10-29 08:05:00,337] [6:140702836623104] - tracking_manager.py[line:469]: clean table by namespace 202010290804483462984_dataio_0 on host 10000 done
+[INFO] [2020-10-29 08:05:00,337] [6:140702836623104] - tracking_manager.py[line:463]: clean table by namespace 202010290804483462984_dataio_0_guest_10000 on host 10000 done
+[INFO] [2020-10-29 08:05:00,337] [6:140702836623104] - tracking_manager.py[line:469]: clean table by namespace 202010290804483462984_dataio_0 on host 10000 done
+[INFO] [2020-10-29 08:05:00,337] [6:140702836623104] - tracking_manager.py[line:463]: clean table by namespace 202010290804483462984_dataio_0_host_9999 on host 10000 done
+[INFO] [2020-10-29 08:05:00,337] [6:140702836623104] - tracking_manager.py[line:469]: clean table by namespace 202010290804483462984_dataio_0 on host 10000 done
+[INFO] [2020-10-29 08:05:00,338] [6:140702836623104] - tracking_manager.py[line:463]: clean table by namespace 202010290804483462984_dataio_0_host_10000 on host 10000 done
+[INFO] [2020-10-29 08:05:00,338] [6:140702836623104] - tracking_manager.py[line:469]: clean table by namespace 202010290804483462984_dataio_0 on host 10000 done
+[INFO] [2020-10-29 08:05:00,338] [6:140702836623104] - tracking_manager.py[line:463]: clean table by namespace 202010290804483462984_dataio_0_host_10000 on host 10000 done
+[INFO] [2020-10-29 08:05:00,338] [6:140702836623104] - tracking_manager.py[line:469]: clean table by namespace 202010290804483462984_dataio_0 on host 10000 done
+[INFO] [2020-10-29 08:05:00,338] [6:140702836623104] - tracking_manager.py[line:463]: clean table by namespace 202010290804483462984_dataio_0_arbiter_9999 on host 10000 done
+[INFO] [2020-10-29 08:05:00,338] [6:140702836623104] - tracking_manager.py[line:469]: clean table by namespace 202010290804483462984_dataio_0 on host 10000 done
+[INFO] [2020-10-29 08:05:00,338] [6:140702836623104] - tracking_manager.py[line:463]: clean table by namespace 202010290804483462984_dataio_0_arbiter_10000 on host 10000 done
+[INFO] [2020-10-29 08:05:00,338] [6:140702836623104] - tracking_manager.py[line:469]: clean table by namespace 202010290804483462984_dataio_0 on host 10000 done
+[INFO] [2020-10-29 08:05:00,338] [6:140702836623104] - tracking_manager.py[line:463]: clean table by namespace 202010290804483462984_dataio_0_arbiter_10000 on host 10000 done
+[INFO] [2020-10-29 08:05:00,338] [6:140702836623104] - tracking_manager.py[line:469]: clean table by namespace 202010290804483462984_dataio_0 on host 10000 done
+[INFO] [2020-10-29 08:05:00,338] [6:140702836623104] - tracking_manager.py[line:475]: clean task 202010290804483462984_dataio_0 on host 10000 done
+[INFO] [2020-10-29 08:05:00,338] [6:140702836623104] - job_controller.py[line:269]: job 202010290804483462984 component dataio_0 on host 10000 clean done
+[INFO] [2020-10-29 08:05:00,368] [1595:140055242454848] - session_utils.py[line:43]: start kill session 202010290804483462984_hetero_feature_binning_0_guest_9999
+[INFO] [2020-10-29 08:05:00,369] [1595:140055242454848] - session_utils.py[line:50]: kill session 202010290804483462984_hetero_feature_binning_0_guest_9999 success
+[INFO] [2020-10-29 08:05:00,424] [1599:139933058484032] - session_utils.py[line:43]: start kill session 202010290804483462984_hetero_feature_binning_0_host_10000
+[INFO] [2020-10-29 08:05:00,426] [1599:139933058484032] - session_utils.py[line:50]: kill session 202010290804483462984_hetero_feature_binning_0_host_10000 success
+[INFO] [2020-10-29 08:05:00,428] [6:140702836623104] - tracking_manager.py[line:452]: clean task 202010290804483462984_hetero_feature_binning_0 on host 10000
+[INFO] [2020-10-29 08:05:00,428] [6:140702836623104] - tracking_manager.py[line:463]: clean table by namespace 202010290804483462984_hetero_feature_binning_0_guest_9999 on host 10000 done
+[INFO] [2020-10-29 08:05:00,428] [6:140702836623104] - tracking_manager.py[line:469]: clean table by namespace 202010290804483462984_hetero_feature_binning_0 on host 10000 done
+[INFO] [2020-10-29 08:05:00,428] [6:140702836623104] - tracking_manager.py[line:463]: clean table by namespace 202010290804483462984_hetero_feature_binning_0_guest_10000 on host 10000 done
+[INFO] [2020-10-29 08:05:00,428] [6:140702836623104] - tracking_manager.py[line:469]: clean table by namespace 202010290804483462984_hetero_feature_binning_0 on host 10000 done
+[INFO] [2020-10-29 08:05:00,428] [6:140702836623104] - tracking_manager.py[line:463]: clean table by namespace 202010290804483462984_hetero_feature_binning_0_guest_10000 on host 10000 done
+[INFO] [2020-10-29 08:05:00,428] [6:140702836623104] - tracking_manager.py[line:469]: clean table by namespace 202010290804483462984_hetero_feature_binning_0 on host 10000 done
+[INFO] [2020-10-29 08:05:00,428] [6:140702836623104] - tracking_manager.py[line:463]: clean table by namespace 202010290804483462984_hetero_feature_binning_0_host_9999 on host 10000 done
+[INFO] [2020-10-29 08:05:00,428] [6:140702836623104] - tracking_manager.py[line:469]: clean table by namespace 202010290804483462984_hetero_feature_binning_0 on host 10000 done
+[INFO] [2020-10-29 08:05:00,429] [6:140702836623104] - tracking_manager.py[line:463]: clean table by namespace 202010290804483462984_hetero_feature_binning_0_host_10000 on host 10000 done
+[INFO] [2020-10-29 08:05:00,429] [6:140702836623104] - tracking_manager.py[line:469]: clean table by namespace 202010290804483462984_hetero_feature_binning_0 on host 10000 done
+[INFO] [2020-10-29 08:05:00,429] [6:140702836623104] - tracking_manager.py[line:463]: clean table by namespace 202010290804483462984_hetero_feature_binning_0_host_10000 on host 10000 done
+[INFO] [2020-10-29 08:05:00,429] [6:140702836623104] - tracking_manager.py[line:469]: clean table by namespace 202010290804483462984_hetero_feature_binning_0 on host 10000 done
+[INFO] [2020-10-29 08:05:00,429] [6:140702836623104] - tracking_manager.py[line:463]: clean table by namespace 202010290804483462984_hetero_feature_binning_0_arbiter_9999 on host 10000 done
+[INFO] [2020-10-29 08:05:00,429] [6:140702836623104] - tracking_manager.py[line:469]: clean table by namespace 202010290804483462984_hetero_feature_binning_0 on host 10000 done
+[INFO] [2020-10-29 08:05:00,429] [6:140702836623104] - tracking_manager.py[line:463]: clean table by namespace 202010290804483462984_hetero_feature_binning_0_arbiter_10000 on host 10000 done
+[INFO] [2020-10-29 08:05:00,429] [6:140702836623104] - tracking_manager.py[line:469]: clean table by namespace 202010290804483462984_hetero_feature_binning_0 on host 10000 done
+[INFO] [2020-10-29 08:05:00,429] [6:140702836623104] - tracking_manager.py[line:463]: clean table by namespace 202010290804483462984_hetero_feature_binning_0_arbiter_10000 on host 10000 done
+[INFO] [2020-10-29 08:05:00,429] [6:140702836623104] - tracking_manager.py[line:469]: clean table by namespace 202010290804483462984_hetero_feature_binning_0 on host 10000 done
+[INFO] [2020-10-29 08:05:00,429] [6:140702836623104] - tracking_manager.py[line:475]: clean task 202010290804483462984_hetero_feature_binning_0 on host 10000 done
+[INFO] [2020-10-29 08:05:00,429] [6:140702836623104] - job_controller.py[line:269]: job 202010290804483462984 component hetero_feature_binning_0 on host 10000 clean done
+[INFO] [2020-10-29 08:05:00,429] [6:140702836623104] - job_controller.py[line:274]: job 202010290804483462984 on host 10000 clean done
+[INFO] [2020-10-29 08:05:00,439] [6:140540940003072] - job_controller.py[line:238]: job 202010290804483462984 on arbiter 10000 start to save pipeline
+[INFO] [2020-10-29 08:05:00,488] [6:140540940003072] - job_controller.py[line:259]: job 202010290804483462984 on arbiter 10000 save pipeline successfully
+[INFO] [2020-10-29 08:05:00,503] [6:140540940003072] - job_controller.py[line:263]: job 202010290804483462984 on arbiter 10000 start to clean
+[INFO] [2020-10-29 08:05:00,505] [6:140540940003072] - job_controller.py[line:274]: job 202010290804483462984 on arbiter 10000 clean done
+[INFO] [2020-10-29 08:05:00,508] [6:140702878570240] - task_scheduler.py[line:596]: get stop job 202010290804483462984  command
+[INFO] [2020-10-29 08:05:00,515] [6:140540940003072] - tracking_manager.py[line:329]: save guest 9999 job: {'f_job_id': '202010290804483462984', 'f_status': 'failed', 'f_role': 'guest', 'f_party_id': 9999, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:05:00,529] [1621:140513704093504] - session_utils.py[line:43]: start stop session 202010290804483462984_dataio_0_guest_9999
+[INFO] [2020-10-29 08:05:00,531] [1621:140513704093504] - session_utils.py[line:50]: stop session 202010290804483462984_dataio_0_guest_9999 success
+[INFO] [2020-10-29 08:05:00,535] [6:140702836623104] - tracking_manager.py[line:329]: save host 10000 job: {'f_job_id': '202010290804483462984', 'f_status': 'failed', 'f_role': 'host', 'f_party_id': 10000, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:05:00,547] [1638:140526261671744] - session_utils.py[line:43]: start kill session 202010290804483462984_hetero_feature_binning_0_guest_9999
+[INFO] [2020-10-29 08:05:00,548] [1638:140526261671744] - session_utils.py[line:50]: kill session 202010290804483462984_hetero_feature_binning_0_guest_9999 success
+[INFO] [2020-10-29 08:05:00,548] [6:140702836623104] - tracking_manager.py[line:329]: save arbiter 10000 job: {'f_job_id': '202010290804483462984', 'f_status': 'failed', 'f_role': 'arbiter', 'f_party_id': 10000, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:05:00,563] [6:140702836623104] - job_controller.py[line:117]: guest 9999 get kill job 202010290804483462984  command
+[INFO] [2020-10-29 08:05:00,571] [6:140702836623104] - job_utils.py[line:396]: try to stop job 202010290804483462984 task 202010290804483462984_dataio_0 guest 9999 process pid:1428
+[INFO] [2020-10-29 08:05:00,571] [6:140702836623104] - job_utils.py[line:502]: start run subprocess to stop component dataio_0 session
+[INFO] [2020-10-29 08:05:00,581] [6:140702836623104] - job_controller.py[line:139]: job 202010290804483462984 component dataio_0 on guest 9999 process 1428 kill success
+[INFO] [2020-10-29 08:05:00,598] [6:140540940003072] - job_controller.py[line:158]: job 202010290804483462984 component dataio_0 guest 9999 status success
+[INFO] [2020-10-29 08:05:00,601] [1644:140475789752128] - session_utils.py[line:43]: start stop session 202010290804483462984_dataio_0_host_10000
+[INFO] [2020-10-29 08:05:00,603] [1644:140475789752128] - session_utils.py[line:50]: stop session 202010290804483462984_dataio_0_host_10000 success
+[INFO] [2020-10-29 08:05:00,672] [6:140540940003072] - job_controller.py[line:158]: job 202010290804483462984 component dataio_0 guest 9999 status success
+[INFO] [2020-10-29 08:05:00,675] [6:140702836623104] - job_utils.py[line:396]: try to stop job 202010290804483462984 task 202010290804483462984_hetero_feature_binning_0 guest 9999 process pid:1490
+[INFO] [2020-10-29 08:05:00,675] [6:140702836623104] - job_utils.py[line:502]: start run subprocess to stop component hetero_feature_binning_0 session
+[INFO] [2020-10-29 08:05:00,698] [6:140702836623104] - job_controller.py[line:139]: job 202010290804483462984 component hetero_feature_binning_0 on guest 9999 process 1490 kill success
+[INFO] [2020-10-29 08:05:00,710] [6:140540940003072] - job_controller.py[line:158]: job 202010290804483462984 component hetero_feature_binning_0 guest 9999 status failed
+[INFO] [2020-10-29 08:05:00,722] [6:140540940003072] - job_controller.py[line:158]: job 202010290804483462984 component hetero_feature_binning_0 guest 9999 status failed
+[INFO] [2020-10-29 08:05:00,729] [6:140702878570240] - task_scheduler.py[line:639]: send guest 9999 kill job 202010290804483462984  command successfully
+[INFO] [2020-10-29 08:05:00,733] [6:140702836623104] - job_controller.py[line:117]: host 10000 get kill job 202010290804483462984  command
+[INFO] [2020-10-29 08:05:00,738] [6:140702836623104] - job_utils.py[line:396]: try to stop job 202010290804483462984 task 202010290804483462984_dataio_0 host 10000 process pid:1430
+[INFO] [2020-10-29 08:05:00,738] [6:140702836623104] - job_utils.py[line:502]: start run subprocess to stop component dataio_0 session
+[INFO] [2020-10-29 08:05:00,745] [6:140702836623104] - job_controller.py[line:139]: job 202010290804483462984 component dataio_0 on host 10000 process 1430 kill success
+[INFO] [2020-10-29 08:05:00,757] [6:140540940003072] - job_controller.py[line:158]: job 202010290804483462984 component dataio_0 host 10000 status success
+[INFO] [2020-10-29 08:05:00,770] [6:140540940003072] - job_controller.py[line:158]: job 202010290804483462984 component dataio_0 host 10000 status success
+[INFO] [2020-10-29 08:05:00,773] [6:140702836623104] - job_utils.py[line:396]: try to stop job 202010290804483462984 task 202010290804483462984_hetero_feature_binning_0 host 10000 process pid:1492
+[INFO] [2020-10-29 08:05:00,773] [6:140702836623104] - job_utils.py[line:502]: start run subprocess to stop component hetero_feature_binning_0 session
+[INFO] [2020-10-29 08:05:00,780] [6:140702836623104] - job_controller.py[line:139]: job 202010290804483462984 component hetero_feature_binning_0 on host 10000 process 1492 kill success
+[INFO] [2020-10-29 08:05:00,791] [6:140540940003072] - job_controller.py[line:158]: job 202010290804483462984 component hetero_feature_binning_0 host 10000 status failed
+[INFO] [2020-10-29 08:05:00,806] [6:140540940003072] - job_controller.py[line:158]: job 202010290804483462984 component hetero_feature_binning_0 host 10000 status failed
+[INFO] [2020-10-29 08:05:00,812] [6:140702878570240] - task_scheduler.py[line:639]: send host 10000 kill job 202010290804483462984  command successfully
+[INFO] [2020-10-29 08:05:00,816] [6:140702836623104] - job_controller.py[line:117]: arbiter 10000 get kill job 202010290804483462984  command
+[INFO] [2020-10-29 08:05:00,820] [1648:139929094199104] - session_utils.py[line:43]: start kill session 202010290804483462984_hetero_feature_binning_0_host_10000
+[INFO] [2020-10-29 08:05:00,822] [1648:139929094199104] - session_utils.py[line:50]: kill session 202010290804483462984_hetero_feature_binning_0_host_10000 success
+[INFO] [2020-10-29 08:05:00,823] [6:140702878570240] - task_scheduler.py[line:639]: send arbiter 10000 kill job 202010290804483462984  command successfully
+[INFO] [2020-10-29 08:05:00,828] [6:140702836623104] - tracking_manager.py[line:329]: save guest 9999 job: {'f_name': '', 'f_description': '', 'f_tag': 'end_waiting', 'f_initiator_party_id': -1, 'f_is_initiator': -1, 'f_progress': 0, 'f_job_id': '202010290804483462984', 'f_start_time': 1603958688800, 'f_status': 'failed', 'f_update_time': 1603958700003, 'f_role': 'guest', 'f_party_id': 9999, 'f_end_time': 1603958700003, 'f_elapsed': 11203, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:05:00,839] [6:140702836623104] - tracking_manager.py[line:329]: save host 10000 job: {'f_name': '', 'f_description': '', 'f_tag': 'end_waiting', 'f_initiator_party_id': -1, 'f_is_initiator': -1, 'f_progress': 0, 'f_job_id': '202010290804483462984', 'f_start_time': 1603958688800, 'f_status': 'failed', 'f_update_time': 1603958700003, 'f_role': 'host', 'f_party_id': 10000, 'f_end_time': 1603958700003, 'f_elapsed': 11203, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:05:00,851] [6:140702836623104] - tracking_manager.py[line:329]: save arbiter 10000 job: {'f_name': '', 'f_description': '', 'f_tag': 'end_waiting', 'f_initiator_party_id': -1, 'f_is_initiator': -1, 'f_progress': 0, 'f_job_id': '202010290804483462984', 'f_start_time': 1603958688800, 'f_status': 'failed', 'f_update_time': 1603958700003, 'f_role': 'arbiter', 'f_party_id': 10000, 'f_end_time': 1603958700003, 'f_elapsed': 11203, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:05:00,861] [6:140702878570240] - task_scheduler.py[line:210]: job 202010290804483462984 finished, status is failed
+[INFO] [2020-10-29 08:05:01,329] [1700:140278787516224] - session_utils.py[line:43]: start stop session 202010290804483462984_dataio_0_guest_9999
+[INFO] [2020-10-29 08:05:01,331] [1700:140278787516224] - session_utils.py[line:50]: stop session 202010290804483462984_dataio_0_guest_9999 success
+[INFO] [2020-10-29 08:05:01,376] [1711:140146333222720] - session_utils.py[line:43]: start kill session 202010290804483462984_hetero_feature_binning_0_guest_9999
+[INFO] [2020-10-29 08:05:01,377] [1711:140146333222720] - session_utils.py[line:50]: kill session 202010290804483462984_hetero_feature_binning_0_guest_9999 success
+[INFO] [2020-10-29 08:05:01,436] [1715:139920178075456] - session_utils.py[line:43]: start stop session 202010290804483462984_dataio_0_host_10000
+[INFO] [2020-10-29 08:05:01,437] [1715:139920178075456] - session_utils.py[line:50]: stop session 202010290804483462984_dataio_0_host_10000 success
+[INFO] [2020-10-29 08:05:01,463] [1718:140514961495872] - session_utils.py[line:43]: start kill session 202010290804483462984_hetero_feature_binning_0_host_10000
+[INFO] [2020-10-29 08:05:01,465] [1718:140514961495872] - session_utils.py[line:50]: kill session 202010290804483462984_hetero_feature_binning_0_host_10000 success
+[INFO] [2020-10-29 08:05:09,208] [6:140637848127232] - job_utils.py[line:502]: start run subprocess to stop component dataio_0 session
+[INFO] [2020-10-29 08:05:09,208] [6:140637848127232] - job_utils.py[line:502]: start run subprocess to stop component dataio_0 session
+[INFO] [2020-10-29 08:05:09,265] [6:140637848127232] - job_utils.py[line:502]: start run subprocess to stop component dataio_0 session
+[INFO] [2020-10-29 08:05:09,265] [6:140637848127232] - job_utils.py[line:502]: start run subprocess to stop component dataio_0 session
+[INFO] [2020-10-29 08:05:09,324] [6:140637848127232] - job_utils.py[line:502]: start run subprocess to stop component hetero_feature_binning_0 session
+[INFO] [2020-10-29 08:05:09,324] [6:140637848127232] - job_utils.py[line:502]: start run subprocess to stop component hetero_feature_binning_0 session
+[INFO] [2020-10-29 08:05:09,336] [6:140637848127232] - job_utils.py[line:502]: start run subprocess to stop component hetero_feature_binning_0 session
+[INFO] [2020-10-29 08:05:09,336] [6:140637848127232] - job_utils.py[line:502]: start run subprocess to stop component hetero_feature_binning_0 session
+[INFO] [2020-10-29 08:05:09,909] [1758:140203219285824] - session_utils.py[line:43]: start stop session 202010290804483462984_dataio_0_guest_9999
+[INFO] [2020-10-29 08:05:09,910] [1758:140203219285824] - session_utils.py[line:50]: stop session 202010290804483462984_dataio_0_guest_9999 success
+[INFO] [2020-10-29 08:05:10,007] [1759:140654273333056] - session_utils.py[line:43]: start stop session 202010290804483462984_dataio_0_host_10000
+[INFO] [2020-10-29 08:05:10,008] [1759:140654273333056] - session_utils.py[line:50]: stop session 202010290804483462984_dataio_0_host_10000 success
+[INFO] [2020-10-29 08:05:10,031] [1761:139982518560576] - session_utils.py[line:43]: start kill session 202010290804483462984_hetero_feature_binning_0_host_10000
+[INFO] [2020-10-29 08:05:10,033] [1761:139982518560576] - session_utils.py[line:50]: kill session 202010290804483462984_hetero_feature_binning_0_host_10000 success
+[INFO] [2020-10-29 08:05:10,046] [1760:140387183294272] - session_utils.py[line:43]: start kill session 202010290804483462984_hetero_feature_binning_0_guest_9999
+[INFO] [2020-10-29 08:05:10,047] [1760:140387183294272] - session_utils.py[line:50]: kill session 202010290804483462984_hetero_feature_binning_0_guest_9999 success

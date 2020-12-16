@@ -1,0 +1,7 @@
+[DEBUG] [2020-10-29 08:06:02,546] [2231:139783621506880] - profile_util.py[line:34]: tracking_manager.py:232 call table, takes 0.0008118152618408203s
+[DEBUG] [2020-10-29 08:06:02,547] [2231:139783621506880] - profile_util.py[line:34]: tracking_manager.py:236 call table, takes 0.0006902217864990234s
+[DEBUG] [2020-10-29 08:06:02,549] [2231:139783621506880] - profile_util.py[line:34]: session.py:178 call collect, takes 0.000942230224609375s
+[DEBUG] [2020-10-29 08:06:02,550] [2231:139783621506880] - profile_util.py[line:34]: session.py:178 call collect, takes 0.0004363059997558594s
+[DEBUG] [2020-10-29 08:06:02,576] [2231:139783621506880] - profile_util.py[line:34]: task_executor.py:212 call save_as, takes 0.026491403579711914s
+[DEBUG] [2020-10-29 08:06:03,459] [2231:139783621506880] - profile_util.py[line:34]: component_properties.py:155 call count, takes 0.0004277229309082031s
+[DEBUG] [2020-10-29 08:06:03,459] [2231:139783621506880] - profile_util.py[line:34]: evaluation.py:242 call collect, takes 0.0002117156982421875s

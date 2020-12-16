@@ -1,0 +1,13 @@
+[DEBUG] [2020-10-29 08:05:25,629] [2017:139673151907648] - profile_util.py[line:34]: tracking_manager.py:232 call table, takes 0.001569509506225586s
+[DEBUG] [2020-10-29 08:05:25,631] [2017:139673151907648] - profile_util.py[line:34]: tracking_manager.py:236 call table, takes 0.0015342235565185547s
+[DEBUG] [2020-10-29 08:05:25,632] [2017:139673151907648] - profile_util.py[line:34]: session.py:178 call collect, takes 0.0006148815155029297s
+[DEBUG] [2020-10-29 08:05:25,633] [2017:139673151907648] - profile_util.py[line:34]: session.py:178 call collect, takes 0.0002315044403076172s
+[DEBUG] [2020-10-29 08:05:25,663] [2017:139673151907648] - profile_util.py[line:34]: task_executor.py:212 call save_as, takes 0.02991461753845215s
+[DEBUG] [2020-10-29 08:05:29,930] [2017:139673151907648] - profile_util.py[line:34]: component_properties.py:155 call count, takes 0.0007331371307373047s
+[DEBUG] [2020-10-29 08:05:29,935] [2017:139673151907648] - profile_util.py[line:34]: abnormal_detection.py:23 call count, takes 0.0007135868072509766s
+[DEBUG] [2020-10-29 08:05:30,002] [2017:139673151907648] - profile_util.py[line:34]: statics.py:153 call mapPartitions, takes 0.06665492057800293s
+[DEBUG] [2020-10-29 08:05:30,007] [2017:139673151907648] - profile_util.py[line:34]: statics.py:154 call reduce, takes 0.004700422286987305s
+[DEBUG] [2020-10-29 08:05:30,040] [2017:139673151907648] - profile_util.py[line:34]: base_feature_selection.py:200 call mapValues, takes 0.029713869094848633s
+[DEBUG] [2020-10-29 08:05:30,071] [2017:139673151907648] - profile_util.py[line:34]: tracking_manager.py:201 call save_as, takes 0.029236555099487305s
+[DEBUG] [2020-10-29 08:05:30,074] [2017:139673151907648] - profile_util.py[line:34]: session.py:178 call collect, takes 0.0008931159973144531s
+[DEBUG] [2020-10-29 08:05:30,090] [2017:139673151907648] - profile_util.py[line:34]: tracking_manager.py:221 call count, takes 0.0005824565887451172s

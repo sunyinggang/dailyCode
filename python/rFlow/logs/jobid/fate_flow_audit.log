@@ -1,0 +1,64 @@
+[INFO] [2020-10-29 08:02:44,318] [383:139918825469760] - api_utils.py[line:86]: local api request: http://172.18.0.2:9380/v1/tracking/jobid/pipeline/jobid_pipeline/guest/9999/metric_data/save
+[INFO] [2020-10-29 08:02:44,357] [383:139918825469760] - api_utils.py[line:89]: {"retcode":0,"retmsg":"success"}
+
+[INFO] [2020-10-29 08:02:44,357] [383:139918825469760] - api_utils.py[line:91]: local api response: /v1/tracking/jobid/pipeline/jobid_pipeline/guest/9999/metric_data/save {'retcode': 0, 'retmsg': 'success'}
+[INFO] [2020-10-29 08:02:44,358] [383:139918825469760] - api_utils.py[line:86]: local api request: http://172.18.0.2:9380/v1/tracking/jobid/pipeline/jobid_pipeline/guest/9999/metric_meta/save
+[INFO] [2020-10-29 08:02:44,368] [383:139918825469760] - api_utils.py[line:89]: {"retcode":0,"retmsg":"success"}
+
+[INFO] [2020-10-29 08:02:44,368] [383:139918825469760] - api_utils.py[line:91]: local api response: /v1/tracking/jobid/pipeline/jobid_pipeline/guest/9999/metric_meta/save {'retcode': 0, 'retmsg': 'success'}
+[INFO] [2020-10-29 08:02:44,415] [383:139918825469760] - api_utils.py[line:86]: local api request: http://172.18.0.2:9380/v1/tracking/jobid/pipeline/jobid_pipeline/guest/9999/metric_data/save
+[INFO] [2020-10-29 08:02:44,424] [383:139918825469760] - api_utils.py[line:89]: {"retcode":0,"retmsg":"success"}
+
+[INFO] [2020-10-29 08:02:44,425] [383:139918825469760] - api_utils.py[line:91]: local api response: /v1/tracking/jobid/pipeline/jobid_pipeline/guest/9999/metric_data/save {'retcode': 0, 'retmsg': 'success'}
+[INFO] [2020-10-29 08:02:44,425] [383:139918825469760] - api_utils.py[line:86]: local api request: http://172.18.0.2:9380/v1/tracking/jobid/pipeline/jobid_pipeline/guest/9999/metric_meta/save
+[INFO] [2020-10-29 08:02:44,436] [383:139918825469760] - api_utils.py[line:89]: {"retcode":0,"retmsg":"success"}
+
+[INFO] [2020-10-29 08:02:44,436] [383:139918825469760] - api_utils.py[line:91]: local api response: /v1/tracking/jobid/pipeline/jobid_pipeline/guest/9999/metric_meta/save {'retcode': 0, 'retmsg': 'success'}
+[INFO] [2020-10-29 08:02:44,569] [383:139918825469760] - api_utils.py[line:86]: local api request: http://172.18.0.2:9380/v1/tracking/jobid/pipeline/jobid_pipeline/guest/9999/metric_data/save
+[INFO] [2020-10-29 08:02:44,580] [383:139918825469760] - api_utils.py[line:89]: {"retcode":0,"retmsg":"success"}
+
+[INFO] [2020-10-29 08:02:44,580] [383:139918825469760] - api_utils.py[line:91]: local api response: /v1/tracking/jobid/pipeline/jobid_pipeline/guest/9999/metric_data/save {'retcode': 0, 'retmsg': 'success'}
+[INFO] [2020-10-29 08:02:44,580] [383:139918825469760] - api_utils.py[line:86]: local api request: http://172.18.0.2:9380/v1/tracking/jobid/pipeline/jobid_pipeline/guest/9999/metric_meta/save
+[INFO] [2020-10-29 08:02:44,592] [383:139918825469760] - api_utils.py[line:89]: {"retcode":0,"retmsg":"success"}
+
+[INFO] [2020-10-29 08:02:44,592] [383:139918825469760] - api_utils.py[line:91]: local api response: /v1/tracking/jobid/pipeline/jobid_pipeline/guest/9999/metric_meta/save {'retcode': 0, 'retmsg': 'success'}
+[INFO] [2020-10-29 08:02:44,651] [383:139918825469760] - api_utils.py[line:86]: local api request: http://172.18.0.2:9380/v1/tracking/jobid/pipeline/jobid_pipeline/guest/9999/metric_data/save
+[INFO] [2020-10-29 08:02:44,661] [383:139918825469760] - api_utils.py[line:89]: {"retcode":0,"retmsg":"success"}
+
+[INFO] [2020-10-29 08:02:44,661] [383:139918825469760] - api_utils.py[line:91]: local api response: /v1/tracking/jobid/pipeline/jobid_pipeline/guest/9999/metric_data/save {'retcode': 0, 'retmsg': 'success'}
+[INFO] [2020-10-29 08:02:44,661] [383:139918825469760] - api_utils.py[line:86]: local api request: http://172.18.0.2:9380/v1/tracking/jobid/pipeline/jobid_pipeline/guest/9999/metric_meta/save
+[INFO] [2020-10-29 08:02:44,671] [383:139918825469760] - api_utils.py[line:89]: {"retcode":0,"retmsg":"success"}
+
+[INFO] [2020-10-29 08:02:44,672] [383:139918825469760] - api_utils.py[line:91]: local api response: /v1/tracking/jobid/pipeline/jobid_pipeline/guest/9999/metric_meta/save {'retcode': 0, 'retmsg': 'success'}
+[INFO] [2020-10-29 08:02:44,791] [383:139918825469760] - api_utils.py[line:86]: local api request: http://172.18.0.2:9380/v1/tracking/jobid/pipeline/jobid_pipeline/guest/9999/metric_data/save
+[INFO] [2020-10-29 08:02:44,802] [383:139918825469760] - api_utils.py[line:89]: {"retcode":0,"retmsg":"success"}
+
+[INFO] [2020-10-29 08:02:44,802] [383:139918825469760] - api_utils.py[line:91]: local api response: /v1/tracking/jobid/pipeline/jobid_pipeline/guest/9999/metric_data/save {'retcode': 0, 'retmsg': 'success'}
+[INFO] [2020-10-29 08:02:44,803] [383:139918825469760] - api_utils.py[line:86]: local api request: http://172.18.0.2:9380/v1/tracking/jobid/pipeline/jobid_pipeline/guest/9999/metric_meta/save
+[INFO] [2020-10-29 08:02:44,814] [383:139918825469760] - api_utils.py[line:89]: {"retcode":0,"retmsg":"success"}
+
+[INFO] [2020-10-29 08:02:44,814] [383:139918825469760] - api_utils.py[line:91]: local api response: /v1/tracking/jobid/pipeline/jobid_pipeline/guest/9999/metric_meta/save {'retcode': 0, 'retmsg': 'success'}
+[INFO] [2020-10-29 08:02:44,814] [383:139918825469760] - api_utils.py[line:86]: local api request: http://172.18.0.2:9380/v1/tracking/jobid/pipeline/jobid_pipeline/guest/9999/metric_data/save
+[INFO] [2020-10-29 08:02:44,824] [383:139918825469760] - api_utils.py[line:89]: {"retcode":0,"retmsg":"success"}
+
+[INFO] [2020-10-29 08:02:44,824] [383:139918825469760] - api_utils.py[line:91]: local api response: /v1/tracking/jobid/pipeline/jobid_pipeline/guest/9999/metric_data/save {'retcode': 0, 'retmsg': 'success'}
+[INFO] [2020-10-29 08:02:44,825] [383:139918825469760] - api_utils.py[line:86]: local api request: http://172.18.0.2:9380/v1/tracking/jobid/pipeline/jobid_pipeline/guest/9999/metric_meta/save
+[INFO] [2020-10-29 08:02:44,835] [383:139918825469760] - api_utils.py[line:89]: {"retcode":0,"retmsg":"success"}
+
+[INFO] [2020-10-29 08:02:44,836] [383:139918825469760] - api_utils.py[line:91]: local api response: /v1/tracking/jobid/pipeline/jobid_pipeline/guest/9999/metric_meta/save {'retcode': 0, 'retmsg': 'success'}
+[INFO] [2020-10-29 08:02:45,084] [383:139918825469760] - api_utils.py[line:86]: local api request: http://172.18.0.2:9380/v1/tracking/jobid/pipeline/jobid_pipeline/guest/9999/metric_data/save
+[INFO] [2020-10-29 08:02:45,096] [383:139918825469760] - api_utils.py[line:89]: {"retcode":0,"retmsg":"success"}
+
+[INFO] [2020-10-29 08:02:45,097] [383:139918825469760] - api_utils.py[line:91]: local api response: /v1/tracking/jobid/pipeline/jobid_pipeline/guest/9999/metric_data/save {'retcode': 0, 'retmsg': 'success'}
+[INFO] [2020-10-29 08:02:45,097] [383:139918825469760] - api_utils.py[line:86]: local api request: http://172.18.0.2:9380/v1/tracking/jobid/pipeline/jobid_pipeline/guest/9999/metric_meta/save
+[INFO] [2020-10-29 08:02:45,109] [383:139918825469760] - api_utils.py[line:89]: {"retcode":0,"retmsg":"success"}
+
+[INFO] [2020-10-29 08:02:45,109] [383:139918825469760] - api_utils.py[line:91]: local api response: /v1/tracking/jobid/pipeline/jobid_pipeline/guest/9999/metric_meta/save {'retcode': 0, 'retmsg': 'success'}
+[INFO] [2020-10-29 08:02:45,110] [383:139918825469760] - api_utils.py[line:86]: local api request: http://172.18.0.2:9380/v1/tracking/jobid/pipeline/jobid_pipeline/guest/9999/metric_data/save
+[INFO] [2020-10-29 08:02:45,122] [383:139918825469760] - api_utils.py[line:89]: {"retcode":0,"retmsg":"success"}
+
+[INFO] [2020-10-29 08:02:45,122] [383:139918825469760] - api_utils.py[line:91]: local api response: /v1/tracking/jobid/pipeline/jobid_pipeline/guest/9999/metric_data/save {'retcode': 0, 'retmsg': 'success'}
+[INFO] [2020-10-29 08:02:45,122] [383:139918825469760] - api_utils.py[line:86]: local api request: http://172.18.0.2:9380/v1/tracking/jobid/pipeline/jobid_pipeline/guest/9999/metric_meta/save
+[INFO] [2020-10-29 08:02:45,133] [383:139918825469760] - api_utils.py[line:89]: {"retcode":0,"retmsg":"success"}
+
+[INFO] [2020-10-29 08:02:45,133] [383:139918825469760] - api_utils.py[line:91]: local api response: /v1/tracking/jobid/pipeline/jobid_pipeline/guest/9999/metric_meta/save {'retcode': 0, 'retmsg': 'success'}

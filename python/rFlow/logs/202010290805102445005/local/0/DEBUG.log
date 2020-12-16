@@ -1,0 +1,14 @@
+[INFO] [2020-10-29 08:05:11,225] [1811:139753940395840] - task_executor.py[line:121]: run 202010290805102445005 upload_0 202010290805102445005_upload_0 local 0 task
+[INFO] [2020-10-29 08:05:11,226] [1811:139753940395840] - task_executor.py[line:122]: {'UploadParam': {'file': '/fate/examples/data/breast_hetero_guest.csv', 'head': 1, 'partition': 10, 'namespace': 'fate_flow_test_table_breast_hetero', 'table_name': 'breast_hetero_guest', 'work_mode': 0, 'in_version': None}, 'initiator': {'role': 'local', 'party_id': 0}, 'job_parameters': {'work_mode': 0, 'model_id': 'local-0#model', 'model_version': '202010290805102445005'}, 'role': {'local': [0]}, 'local': {'role': 'local', 'party_id': 0}, 'CodePath': 'fate_flow/utils/upload.py/Upload', 'module': 'Upload'}
+[INFO] [2020-10-29 08:05:11,226] [1811:139753940395840] - task_executor.py[line:123]: {}
+[DEBUG] [2020-10-29 08:05:11,271] [1811:139753940395840] - profile_util.py[line:34]: upload.py:114 call count, takes 0.0007686614990234375s
+[DEBUG] [2020-10-29 08:05:11,277] [1811:139753940395840] - profile_util.py[line:34]: upload.py:119 call count, takes 0.00048041343688964844s
+[DEBUG] [2020-10-29 08:05:11,304] [1811:139753940395840] - profile_util.py[line:34]: upload.py:123 call count, takes 0.00047326087951660156s
+[INFO] [2020-10-29 08:05:11,304] [1811:139753940395840] - upload.py[line:67]: ------------load data finish!-----------------
+[INFO] [2020-10-29 08:05:11,304] [1811:139753940395840] - upload.py[line:75]: file: /fate/examples/data/breast_hetero_guest.csv
+[INFO] [2020-10-29 08:05:11,304] [1811:139753940395840] - upload.py[line:76]: total data_count: 569
+[INFO] [2020-10-29 08:05:11,304] [1811:139753940395840] - upload.py[line:77]: table name: breast_hetero_guest, table namespace: fate_flow_test_table_breast_hetero
+[INFO] [2020-10-29 08:05:11,328] [1811:139753940395840] - task_executor.py[line:160]: task 202010290805102445005_upload_0 local 0 start time: 2020-10-29 08:05:11
+[INFO] [2020-10-29 08:05:11,329] [1811:139753940395840] - task_executor.py[line:161]: task 202010290805102445005_upload_0 local 0 end time: 2020-10-29 08:05:11
+[INFO] [2020-10-29 08:05:11,329] [1811:139753940395840] - task_executor.py[line:162]: task 202010290805102445005_upload_0 local 0 takes 0.277s
+[INFO] [2020-10-29 08:05:11,329] [1811:139753940395840] - task_executor.py[line:164]: finish 202010290805102445005 upload_0 202010290805102445005_upload_0 local 0 success task

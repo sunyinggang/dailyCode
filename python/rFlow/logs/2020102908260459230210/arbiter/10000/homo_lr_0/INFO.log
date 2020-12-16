@@ -1,0 +1,20 @@
+[INFO] [2020-10-29 08:26:08,819] [2815:140414991583040] - task_executor.py[line:121]: run 2020102908260459230210 homo_lr_0 2020102908260459230210_homo_lr_0 arbiter 10000 task
+[INFO] [2020-10-29 08:26:08,819] [2815:140414991583040] - task_executor.py[line:122]: {'HomoLogisticParam': {'penalty': 'L2', 'tol': 1e-05, 'alpha': 0.01, 'optimizer': 'sgd', 'batch_size': 320, 'learning_rate': 0.15, 'init_param': {'init_method': 'zeros', 'init_const': 1, 'fit_intercept': True, 'random_seed': None}, 'max_iter': 3, 'early_stop': 'diff', 'encrypt_param': {'method': 'Paillier', 'key_length': 1024}, 'predict_param': {'threshold': 0.5}, 'cv_param': {'n_splits': 4, 'mode': 'hetero', 'role': 'guest', 'shuffle': True, 'random_seed': 33, 'need_cv': False}, 'decay': 1, 'decay_sqrt': True, 'multi_class': 'ovr', 'validation_freqs': None, 'stepwise_param': {'score_name': 'AIC', 'mode': 'hetero', 'role': 'guest', 'direction': 'both', 'max_step': 10, 'nvmin': 2, 'nvmax': None, 'need_stepwise': False}, 'early_stopping_rounds': None, 'metrics': ['auc', 'ks'], 'use_first_metric_only': False, 're_encrypt_batches': 2, 'aggregate_iters': 1}, 'initiator': {'role': 'guest', 'party_id': 10000}, 'job_parameters': {'work_mode': 0, 'model_id': 'arbiter-10000#guest-10000#host-10000#model', 'model_version': '202010290812019279649'}, 'role': {'guest': [10000], 'host': [10000], 'arbiter': [10000]}, 'config': '/fate/examples/federatedml-1.x-examples/homo_logistic_regression/test_homolr_evaluate_job_conf.json', 'dsl': 'examples/federatedml-1.x-examples/homo_logistic_regression/test_homolr_evaluate_job_dsl.json', 'function': 'submit_job', 'local': {'role': 'arbiter', 'party_id': 10000}, 'CodePath': 'federatedml/linear_model/logistic_regression/homo_logsitic_regression/homo_lr_arbiter.py/HomoLRArbiter', 'module': 'HomoLR'}
+[INFO] [2020-10-29 08:26:08,820] [2815:140414991583040] - task_executor.py[line:123]: {'model': ['pipeline.homo_lr_0.homolr'], 'data': {'eval_data': ['dataio_0.train']}}
+[INFO] [2020-10-29 08:26:08,827] [2815:140414991583040] - task_executor.py[line:220]: pass save as task 2020102908260459230210_homo_lr_0 input data table, because the table is none
+[INFO] [2020-10-29 08:26:24,430] [2815:140414991583040] - one_vs_rest.py[line:287]: Create one_vs_rest object, role: arbiter, mode: homo
+[INFO] [2020-10-29 08:26:24,434] [2815:140414991583040] - random_padding_cipher.py[line:41]: synchronizing uuid
+[INFO] [2020-10-29 08:26:24,444] [2815:140414991583040] - random_padding_cipher.py[line:44]: Diffie-Hellman keys exchanging
+[ERROR] [2020-10-29 08:26:24,665] [2815:140414991583040] - task_executor.py[line:144]: 'NoneType' object has no attribute 'fit_intercept'
+Traceback (most recent call last):
+  File "/fate/fate_flow/driver/task_executor.py", line 135, in run_task
+    run_object.run(component_parameters, task_run_args)
+  File "/fate/federatedml/model_base.py", line 91, in run
+    this_data_output = func(*params)
+  File "/fate/federatedml/linear_model/logistic_regression/base_logistic_regression.py", line 103, in load_model
+    self.init_param_obj.fit_intercept = meta_obj.fit_intercept
+AttributeError: 'NoneType' object has no attribute 'fit_intercept'
+[INFO] [2020-10-29 08:26:24,679] [2815:140414991583040] - task_executor.py[line:160]: task 2020102908260459230210_homo_lr_0 arbiter 10000 start time: 2020-10-29 08:26:08
+[INFO] [2020-10-29 08:26:24,679] [2815:140414991583040] - task_executor.py[line:161]: task 2020102908260459230210_homo_lr_0 arbiter 10000 end time: 2020-10-29 08:26:24
+[INFO] [2020-10-29 08:26:24,679] [2815:140414991583040] - task_executor.py[line:162]: task 2020102908260459230210_homo_lr_0 arbiter 10000 takes 16.098s
+[INFO] [2020-10-29 08:26:24,680] [2815:140414991583040] - task_executor.py[line:164]: finish 2020102908260459230210 homo_lr_0 2020102908260459230210_homo_lr_0 arbiter 10000 failed task

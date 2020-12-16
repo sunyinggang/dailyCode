@@ -1,0 +1,7 @@
+[DEBUG] [2020-10-29 08:03:55,548] [1001:140276421035840] - base_transfer_variable.py[line:63]: create variable with name=RsaIntersectTransferVariable.cache_version_info, src=('guest',), dst=('host',)
+[DEBUG] [2020-10-29 08:03:55,549] [1001:140276421035840] - base_transfer_variable.py[line:63]: create variable with name=RsaIntersectTransferVariable.cache_version_match_info, src=('host',), dst=('guest',)
+[DEBUG] [2020-10-29 08:03:55,549] [1001:140276421035840] - base_transfer_variable.py[line:63]: create variable with name=RsaIntersectTransferVariable.intersect_guest_ids, src=('guest',), dst=('host',)
+[DEBUG] [2020-10-29 08:03:55,549] [1001:140276421035840] - base_transfer_variable.py[line:63]: create variable with name=RsaIntersectTransferVariable.intersect_guest_ids_process, src=('host',), dst=('guest',)
+[DEBUG] [2020-10-29 08:03:55,549] [1001:140276421035840] - base_transfer_variable.py[line:63]: create variable with name=RsaIntersectTransferVariable.intersect_host_ids_process, src=('host',), dst=('guest',)
+[DEBUG] [2020-10-29 08:03:55,549] [1001:140276421035840] - base_transfer_variable.py[line:63]: create variable with name=RsaIntersectTransferVariable.intersect_ids, src=('guest',), dst=('host',)
+[DEBUG] [2020-10-29 08:03:55,549] [1001:140276421035840] - base_transfer_variable.py[line:63]: create variable with name=RsaIntersectTransferVariable.rsa_pubkey, src=('host',), dst=('guest',)

@@ -1,0 +1,60 @@
+[INFO] [2020-10-29 08:04:45,717] [6:140637848127232] - api_utils.py[line:86]: local api request: http://172.18.0.2:9380/v1/schedule/202010290804457120563/local/0/create
+[INFO] [2020-10-29 08:04:45,742] [6:140637848127232] - api_utils.py[line:89]: {"retcode":0,"retmsg":"success"}
+
+[INFO] [2020-10-29 08:04:45,742] [6:140637848127232] - api_utils.py[line:91]: local api response: /v1/schedule/202010290804457120563/local/0/create {'retcode': 0, 'retmsg': 'success'}
+[INFO] [2020-10-29 08:04:45,771] [6:140638279530240] - api_utils.py[line:86]: local api request: http://172.18.0.2:9380/v1/schedule/202010290804457120563/local/0/status
+[INFO] [2020-10-29 08:04:45,787] [6:140638279530240] - api_utils.py[line:89]: {"retcode":0,"retmsg":"success"}
+
+[INFO] [2020-10-29 08:04:45,787] [6:140638279530240] - api_utils.py[line:91]: local api response: /v1/schedule/202010290804457120563/local/0/status {'retcode': 0, 'retmsg': 'success'}
+[INFO] [2020-10-29 08:04:45,787] [6:140638279530240] - api_utils.py[line:86]: local api request: http://172.18.0.2:9380/v1/schedule/202010290804457120563/upload_0/202010290804457120563_upload_0/local/0/input/args
+[INFO] [2020-10-29 08:04:45,792] [6:140638279530240] - api_utils.py[line:89]: {"retcode":0,"retmsg":"success"}
+
+[INFO] [2020-10-29 08:04:45,793] [6:140638279530240] - api_utils.py[line:91]: local api response: /v1/schedule/202010290804457120563/upload_0/202010290804457120563_upload_0/local/0/input/args {'retcode': 0, 'retmsg': 'success'}
+[INFO] [2020-10-29 08:04:45,793] [6:140638279530240] - api_utils.py[line:86]: local api request: http://172.18.0.2:9380/v1/schedule/202010290804457120563/upload_0/202010290804457120563_upload_0/local/0/run
+[INFO] [2020-10-29 08:04:45,806] [6:140638279530240] - api_utils.py[line:89]: {"retcode":0,"retmsg":"success"}
+
+[INFO] [2020-10-29 08:04:45,807] [6:140638279530240] - api_utils.py[line:91]: local api response: /v1/schedule/202010290804457120563/upload_0/202010290804457120563_upload_0/local/0/run {'retcode': 0, 'retmsg': 'success'}
+[INFO] [2020-10-29 08:04:46,502] [1374:140561444398912] - api_utils.py[line:86]: local api request: http://172.18.0.2:9380/v1/schedule/202010290804457120563/upload_0/202010290804457120563_upload_0/local/0/status
+[INFO] [2020-10-29 08:04:46,514] [1374:140561444398912] - api_utils.py[line:89]: {"retcode":0,"retmsg":"success"}
+
+[INFO] [2020-10-29 08:04:46,514] [1374:140561444398912] - api_utils.py[line:91]: local api response: /v1/schedule/202010290804457120563/upload_0/202010290804457120563_upload_0/local/0/status {'retcode': 0, 'retmsg': 'success'}
+[INFO] [2020-10-29 08:04:46,746] [1374:140561444398912] - api_utils.py[line:86]: local api request: http://172.18.0.2:9380/v1/tracking/202010290804457120563/upload_0/202010290804457120563_upload_0/local/0/metric_data/save
+[INFO] [2020-10-29 08:04:46,759] [1374:140561444398912] - api_utils.py[line:89]: {"retcode":0,"retmsg":"success"}
+
+[INFO] [2020-10-29 08:04:46,759] [1374:140561444398912] - api_utils.py[line:91]: local api response: /v1/tracking/202010290804457120563/upload_0/202010290804457120563_upload_0/local/0/metric_data/save {'retcode': 0, 'retmsg': 'success'}
+[INFO] [2020-10-29 08:04:46,760] [1374:140561444398912] - api_utils.py[line:86]: local api request: http://172.18.0.2:9380/v1/tracking/202010290804457120563/upload_0/202010290804457120563_upload_0/local/0/metric_meta/save
+[INFO] [2020-10-29 08:04:46,770] [1374:140561444398912] - api_utils.py[line:89]: {"retcode":0,"retmsg":"success"}
+
+[INFO] [2020-10-29 08:04:46,770] [1374:140561444398912] - api_utils.py[line:91]: local api response: /v1/tracking/202010290804457120563/upload_0/202010290804457120563_upload_0/local/0/metric_meta/save {'retcode': 0, 'retmsg': 'success'}
+[INFO] [2020-10-29 08:04:46,793] [1374:140561444398912] - api_utils.py[line:86]: local api request: http://172.18.0.2:9380/v1/schedule/202010290804457120563/upload_0/202010290804457120563_upload_0/local/0/status
+[INFO] [2020-10-29 08:04:46,804] [1374:140561444398912] - api_utils.py[line:89]: {"retcode":0,"retmsg":"success"}
+
+[INFO] [2020-10-29 08:04:46,804] [1374:140561444398912] - api_utils.py[line:91]: local api response: /v1/schedule/202010290804457120563/upload_0/202010290804457120563_upload_0/local/0/status {'retcode': 0, 'retmsg': 'success'}
+[INFO] [2020-10-29 08:04:46,824] [6:140638279530240] - api_utils.py[line:86]: local api request: http://172.18.0.2:9380/v1/schedule/202010290804457120563/local/0/status
+[INFO] [2020-10-29 08:04:46,835] [6:140638279530240] - api_utils.py[line:89]: {"retcode":0,"retmsg":"success"}
+
+[INFO] [2020-10-29 08:04:46,836] [6:140638279530240] - api_utils.py[line:91]: local api response: /v1/schedule/202010290804457120563/local/0/status {'retcode': 0, 'retmsg': 'success'}
+[INFO] [2020-10-29 08:04:46,838] [6:140638279530240] - api_utils.py[line:86]: local api request: http://172.18.0.2:9380/v1/schedule/202010290804457120563/local/0/kill
+[INFO] [2020-10-29 08:04:46,856] [6:140702836623104] - api_utils.py[line:86]: local api request: http://172.18.0.2:9380/v1/schedule/202010290804457120563/upload_0/202010290804457120563_upload_0/local/0/status
+[INFO] [2020-10-29 08:04:46,869] [6:140702836623104] - api_utils.py[line:89]: {"retcode":0,"retmsg":"success"}
+
+[INFO] [2020-10-29 08:04:46,869] [6:140702836623104] - api_utils.py[line:91]: local api response: /v1/schedule/202010290804457120563/upload_0/202010290804457120563_upload_0/local/0/status {'retcode': 0, 'retmsg': 'success'}
+[INFO] [2020-10-29 08:04:46,869] [6:140702836623104] - api_utils.py[line:86]: local api request: http://172.18.0.2:9380/v1/schedule/202010290804457120563/upload_0/202010290804457120563_upload_0/local/0/status
+[INFO] [2020-10-29 08:04:46,879] [6:140702836623104] - api_utils.py[line:89]: {"retcode":0,"retmsg":"success"}
+
+[INFO] [2020-10-29 08:04:46,879] [6:140702836623104] - api_utils.py[line:91]: local api response: /v1/schedule/202010290804457120563/upload_0/202010290804457120563_upload_0/local/0/status {'retcode': 0, 'retmsg': 'success'}
+[INFO] [2020-10-29 08:04:46,881] [6:140638279530240] - api_utils.py[line:89]: {"retcode":0,"retmsg":"success"}
+
+[INFO] [2020-10-29 08:04:46,882] [6:140638279530240] - api_utils.py[line:91]: local api response: /v1/schedule/202010290804457120563/local/0/kill {'retcode': 0, 'retmsg': 'success'}
+[INFO] [2020-10-29 08:04:46,882] [6:140638279530240] - api_utils.py[line:86]: local api request: http://172.18.0.2:9380/v1/schedule/202010290804457120563/local/0/bG9jYWwtMCNtb2RlbA==/MjAyMDEwMjkwODA0NDU3MTIwNTYz/save/pipeline
+[INFO] [2020-10-29 08:04:46,901] [6:140638279530240] - api_utils.py[line:89]: {"retcode":0,"retmsg":"success"}
+
+[INFO] [2020-10-29 08:04:46,901] [6:140638279530240] - api_utils.py[line:91]: local api response: /v1/schedule/202010290804457120563/local/0/bG9jYWwtMCNtb2RlbA==/MjAyMDEwMjkwODA0NDU3MTIwNTYz/save/pipeline {'retcode': 0, 'retmsg': 'success'}
+[INFO] [2020-10-29 08:04:46,901] [6:140638279530240] - api_utils.py[line:86]: local api request: http://172.18.0.2:9380/v1/schedule/202010290804457120563/local/0/local/0/clean
+[INFO] [2020-10-29 08:04:46,953] [6:140638279530240] - api_utils.py[line:89]: {"retcode":0,"retmsg":"success"}
+
+[INFO] [2020-10-29 08:04:46,953] [6:140638279530240] - api_utils.py[line:91]: local api response: /v1/schedule/202010290804457120563/local/0/local/0/clean {'retcode': 0, 'retmsg': 'success'}
+[INFO] [2020-10-29 08:04:46,953] [6:140638279530240] - api_utils.py[line:86]: local api request: http://172.18.0.2:9380/v1/schedule/202010290804457120563/local/0/status
+[INFO] [2020-10-29 08:04:46,964] [6:140638279530240] - api_utils.py[line:89]: {"retcode":0,"retmsg":"success"}
+
+[INFO] [2020-10-29 08:04:46,965] [6:140638279530240] - api_utils.py[line:91]: local api response: /v1/schedule/202010290804457120563/local/0/status {'retcode': 0, 'retmsg': 'success'}

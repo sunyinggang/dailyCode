@@ -1,0 +1,5 @@
+[INFO] [2020-10-29 08:26:06,116] [2750:140391119148864] - pipelined_model.py[line:177]: parse DataIOMeta proto object normal
+[INFO] [2020-10-29 08:26:06,118] [2750:140391119148864] - pipelined_model.py[line:177]: parse DataIOParam proto object normal
+[INFO] [2020-10-29 08:26:06,636] [2750:140391119148864] - pipelined_model.py[line:72]: Save dataio_0 default DataIOMeta buffer
+[INFO] [2020-10-29 08:26:06,636] [2750:140391119148864] - pipelined_model.py[line:72]: Save dataio_0 default DataIOParam buffer
+[INFO] [2020-10-29 08:26:06,648] [2750:140391119148864] - pipelined_model.py[line:77]: Save dataio_0 default successfully

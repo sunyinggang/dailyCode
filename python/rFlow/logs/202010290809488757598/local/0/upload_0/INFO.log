@@ -1,0 +1,13 @@
+[INFO] [2020-10-29 08:09:49,858] [2424:140131077490496] - task_executor.py[line:121]: run 202010290809488757598 upload_0 202010290809488757598_upload_0 local 0 task
+[INFO] [2020-10-29 08:09:49,859] [2424:140131077490496] - task_executor.py[line:122]: {'UploadParam': {'file': '/fate/jobs/202010290809488757598/fate_upload_tmp/breast_homo_host.csv', 'head': 1, 'partition': 16, 'namespace': 'experiment', 'table_name': 'breast_homo_host', 'work_mode': 0, 'in_version': None}, 'initiator': {'role': 'local', 'party_id': 0}, 'job_parameters': {'work_mode': 0, 'model_id': 'local-0#model', 'model_version': '202010290809488757598'}, 'role': {'local': [0]}, 'local': {'role': 'local', 'party_id': 0}, 'CodePath': 'fate_flow/utils/upload.py/Upload', 'module': 'Upload'}
+[INFO] [2020-10-29 08:09:49,859] [2424:140131077490496] - task_executor.py[line:123]: {}
+[INFO] [2020-10-29 08:09:49,955] [2424:140131077490496] - upload.py[line:67]: ------------load data finish!-----------------
+[INFO] [2020-10-29 08:09:49,955] [2424:140131077490496] - upload.py[line:71]: remove tmp upload file
+[INFO] [2020-10-29 08:09:49,956] [2424:140131077490496] - upload.py[line:74]: remove tmp file failed
+[INFO] [2020-10-29 08:09:49,956] [2424:140131077490496] - upload.py[line:75]: file: /fate/jobs/202010290809488757598/fate_upload_tmp/breast_homo_host.csv
+[INFO] [2020-10-29 08:09:49,956] [2424:140131077490496] - upload.py[line:76]: total data_count: 228
+[INFO] [2020-10-29 08:09:49,956] [2424:140131077490496] - upload.py[line:77]: table name: breast_homo_host, table namespace: experiment
+[INFO] [2020-10-29 08:09:49,982] [2424:140131077490496] - task_executor.py[line:160]: task 202010290809488757598_upload_0 local 0 start time: 2020-10-29 08:09:49
+[INFO] [2020-10-29 08:09:49,982] [2424:140131077490496] - task_executor.py[line:161]: task 202010290809488757598_upload_0 local 0 end time: 2020-10-29 08:09:49
+[INFO] [2020-10-29 08:09:49,982] [2424:140131077490496] - task_executor.py[line:162]: task 202010290809488757598_upload_0 local 0 takes 0.284s
+[INFO] [2020-10-29 08:09:49,982] [2424:140131077490496] - task_executor.py[line:164]: finish 202010290809488757598 upload_0 202010290809488757598_upload_0 local 0 success task

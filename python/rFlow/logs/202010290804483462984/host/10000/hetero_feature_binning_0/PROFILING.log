@@ -1,0 +1,13 @@
+[DEBUG] [2020-10-29 08:04:52,513] [1492:139643322771264] - profile_util.py[line:34]: tracking_manager.py:232 call table, takes 0.000743865966796875s
+[DEBUG] [2020-10-29 08:04:52,513] [1492:139643322771264] - profile_util.py[line:34]: tracking_manager.py:236 call table, takes 0.00029397010803222656s
+[DEBUG] [2020-10-29 08:04:52,514] [1492:139643322771264] - profile_util.py[line:34]: session.py:178 call collect, takes 0.0006053447723388672s
+[DEBUG] [2020-10-29 08:04:52,515] [1492:139643322771264] - profile_util.py[line:34]: session.py:178 call collect, takes 0.00023245811462402344s
+[DEBUG] [2020-10-29 08:04:52,547] [1492:139643322771264] - profile_util.py[line:34]: task_executor.py:212 call save_as, takes 0.03169369697570801s
+[DEBUG] [2020-10-29 08:04:53,467] [1492:139643322771264] - profile_util.py[line:34]: component_properties.py:155 call count, takes 0.0004482269287109375s
+[DEBUG] [2020-10-29 08:04:53,468] [1492:139643322771264] - profile_util.py[line:34]: abnormal_detection.py:23 call count, takes 0.00037479400634765625s
+[DEBUG] [2020-10-29 08:04:53,608] [1492:139643322771264] - profile_util.py[line:34]: quantile_binning.py:132 call mapPartitions2, takes 0.13932538032531738s
+[DEBUG] [2020-10-29 08:04:53,672] [1492:139643322771264] - profile_util.py[line:34]: quantile_binning.py:133 call reduce, takes 0.06350541114807129s
+[DEBUG] [2020-10-29 08:04:53,752] [1492:139643322771264] - profile_util.py[line:34]: base_binning.py:162 call mapValues, takes 0.04474282264709473s
+[DEBUG] [2020-10-29 08:04:53,752] [1492:139643322771264] - profile_util.py[line:34]: hetero_binning_host.py:57 call count, takes 0.0006000995635986328s
+[DEBUG] [2020-10-29 08:04:56,687] [1492:139643322771264] - profile_util.py[line:34]: hetero_binning_host.py:91 call join, takes 0.713597297668457s
+[DEBUG] [2020-10-29 08:04:57,795] [1492:139643322771264] - profile_util.py[line:34]: hetero_binning_host.py:95 call mapPartitions, takes 1.1079645156860352s

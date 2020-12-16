@@ -1,0 +1,6 @@
+[DEBUG] [2020-10-29 08:04:01,568] [1056:139963885016896] - profile_util.py[line:34]: hetero_pearson_test.py:31 call parallelize, takes 0.0194699764251709s
+[DEBUG] [2020-10-29 08:04:01,571] [1056:139963885016896] - profile_util.py[line:34]: hetero_pearson.py:99 call count, takes 0.0024042129516601562s
+[DEBUG] [2020-10-29 08:04:01,613] [1056:139963885016896] - profile_util.py[line:34]: hetero_pearson.py:100 call mapValues, takes 0.04168558120727539s
+[DEBUG] [2020-10-29 08:04:01,626] [1056:139963885016896] - profile_util.py[line:34]: hetero_pearson.py:101 call reduce, takes 0.012068510055541992s
+[DEBUG] [2020-10-29 08:04:01,640] [1056:139963885016896] - profile_util.py[line:34]: hetero_pearson.py:106 call mapValues, takes 0.014385461807250977s
+[DEBUG] [2020-10-29 08:04:01,643] [1056:139963885016896] - profile_util.py[line:34]: hetero_pearson_test.py:33 call collect, takes 0.0021810531616210938s

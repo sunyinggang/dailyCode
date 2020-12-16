@@ -1,0 +1,5 @@
+[DEBUG] [2020-10-29 08:12:05,669] [2526:140319692928832] - profile_util.py[line:34]: task_executor.py:187 call table, takes 0.0008149147033691406s
+[DEBUG] [2020-10-29 08:12:05,672] [2526:140319692928832] - profile_util.py[line:34]: session.py:178 call collect, takes 0.0017242431640625s
+[DEBUG] [2020-10-29 08:12:05,675] [2526:140319692928832] - profile_util.py[line:34]: task_executor.py:212 call save_as, takes 0.002225160598754883s
+[DEBUG] [2020-10-29 08:12:05,968] [2526:140319692928832] - profile_util.py[line:34]: component_properties.py:155 call count, takes 0.0008122920989990234s
+[DEBUG] [2020-10-29 08:12:05,970] [2526:140319692928832] - profile_util.py[line:34]: abnormal_detection.py:23 call count, takes 0.0008649826049804688s

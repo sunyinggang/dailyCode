@@ -1,0 +1,14 @@
+[INFO] [2020-11-16 07:36:02,267] [6:140371228350208] - dag_scheduler.py[line:50]: start get event from queue
+[INFO] [2020-11-16 08:19:27,226] [6:140292921329408] - dag_scheduler.py[line:50]: start get event from queue
+[INFO] [2020-11-16 08:24:05,902] [6:140264380749568] - dag_scheduler.py[line:50]: start get event from queue
+[INFO] [2020-11-16 08:36:46,061] [6:140570618537728] - dag_scheduler.py[line:50]: start get event from queue
+[INFO] [2020-11-16 08:44:34,828] [6:140213876094720] - dag_scheduler.py[line:50]: start get event from queue
+[INFO] [2020-11-16 10:05:50,164] [6:140459337025280] - dag_scheduler.py[line:50]: start get event from queue
+[INFO] [2020-11-16 10:20:44,926] [6:140056723126016] - dag_scheduler.py[line:50]: start get event from queue
+[INFO] [2020-11-16 10:26:25,382] [6:140570569844480] - dag_scheduler.py[line:50]: start get event from queue
+[INFO] [2020-11-16 11:38:21,499] [6:140619426776832] - dag_scheduler.py[line:50]: start get event from queue
+[INFO] [2020-11-16 11:45:32,268] [6:140167437858560] - dag_scheduler.py[line:50]: start get event from queue
+[INFO] [2020-11-16 11:48:07,179] [6:139662458382080] - dag_scheduler.py[line:50]: start get event from queue
+[INFO] [2020-11-16 11:49:23,119] [6:140267055216384] - dag_scheduler.py[line:50]: start get event from queue
+[INFO] [2020-11-16 12:01:08,866] [6:140586283689728] - dag_scheduler.py[line:50]: start get event from queue
+[INFO] [2020-11-16 12:03:00,071] [6:139558402123520] - dag_scheduler.py[line:50]: start get event from queue

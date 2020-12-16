@@ -1,0 +1,63 @@
+[DEBUG] [2020-10-29 08:03:10,290] [671:140717192738624] - profile_util.py[line:34]: paillier_tensor.py:34 call parallelize, takes 0.04559922218322754s
+[DEBUG] [2020-10-29 08:03:10,291] [671:140717192738624] - paillier_tensor.py[line:40]: tensor's partition is 10
+[DEBUG] [2020-10-29 08:03:10,335] [671:140717192738624] - profile_util.py[line:34]: paillier_tensor.py:34 call parallelize, takes 0.044123172760009766s
+[DEBUG] [2020-10-29 08:03:10,335] [671:140717192738624] - paillier_tensor.py[line:40]: tensor's partition is 10
+[DEBUG] [2020-10-29 08:03:10,378] [671:140717192738624] - profile_util.py[line:34]: paillier_tensor.py:62 call mapValues, takes 0.04251575469970703s
+[DEBUG] [2020-10-29 08:03:10,378] [671:140717192738624] - paillier_tensor.py[line:40]: tensor's partition is 10
+[DEBUG] [2020-10-29 08:03:10,381] [671:140717192738624] - profile_util.py[line:34]: paillier_tensor.py:102 call count, takes 0.0025157928466796875s
+[DEBUG] [2020-10-29 08:03:10,384] [671:140717192738624] - profile_util.py[line:34]: paillier_tensor.py:127 call count, takes 0.0009672641754150391s
+[DEBUG] [2020-10-29 08:03:10,385] [671:140717192738624] - profile_util.py[line:34]: paillier_tensor.py:129 call collect, takes 0.0009465217590332031s
+[DEBUG] [2020-10-29 08:03:10,441] [671:140717192738624] - profile_util.py[line:34]: paillier_tensor.py:34 call parallelize, takes 0.04750537872314453s
+[DEBUG] [2020-10-29 08:03:10,441] [671:140717192738624] - paillier_tensor.py[line:40]: tensor's partition is 10
+[DEBUG] [2020-10-29 08:03:10,487] [671:140717192738624] - profile_util.py[line:34]: paillier_tensor.py:34 call parallelize, takes 0.045766353607177734s
+[DEBUG] [2020-10-29 08:03:10,488] [671:140717192738624] - paillier_tensor.py[line:40]: tensor's partition is 10
+[DEBUG] [2020-10-29 08:03:13,582] [671:140717192738624] - profile_util.py[line:34]: encrypt_mode.py:100 call mapValues, takes 1.7886989116668701s
+[DEBUG] [2020-10-29 08:03:13,879] [671:140717192738624] - profile_util.py[line:34]: encrypt_mode.py:102 call join, takes 0.2966630458831787s
+[DEBUG] [2020-10-29 08:03:13,879] [671:140717192738624] - paillier_tensor.py[line:40]: tensor's partition is 10
+[DEBUG] [2020-10-29 08:03:14,833] [671:140717192738624] - profile_util.py[line:34]: paillier_tensor.py:140 call mapValues, takes 0.9538669586181641s
+[DEBUG] [2020-10-29 08:03:14,833] [671:140717192738624] - paillier_tensor.py[line:40]: tensor's partition is 10
+[DEBUG] [2020-10-29 08:03:14,837] [671:140717192738624] - profile_util.py[line:34]: paillier_tensor.py:127 call count, takes 0.003238201141357422s
+[DEBUG] [2020-10-29 08:03:14,838] [671:140717192738624] - profile_util.py[line:34]: paillier_tensor.py:129 call collect, takes 0.001359701156616211s
+[DEBUG] [2020-10-29 08:03:14,896] [671:140717192738624] - profile_util.py[line:34]: paillier_tensor.py:34 call parallelize, takes 0.0455782413482666s
+[DEBUG] [2020-10-29 08:03:14,896] [671:140717192738624] - paillier_tensor.py[line:40]: tensor's partition is 10
+[DEBUG] [2020-10-29 08:03:14,929] [671:140717192738624] - profile_util.py[line:34]: paillier_tensor.py:34 call parallelize, takes 0.03328108787536621s
+[DEBUG] [2020-10-29 08:03:14,929] [671:140717192738624] - paillier_tensor.py[line:40]: tensor's partition is 10
+[DEBUG] [2020-10-29 08:03:14,969] [671:140717192738624] - profile_util.py[line:34]: paillier_tensor.py:34 call parallelize, takes 0.03881216049194336s
+[DEBUG] [2020-10-29 08:03:14,969] [671:140717192738624] - paillier_tensor.py[line:40]: tensor's partition is 10
+[DEBUG] [2020-10-29 08:03:15,017] [671:140717192738624] - profile_util.py[line:34]: paillier_tensor.py:34 call parallelize, takes 0.047969818115234375s
+[DEBUG] [2020-10-29 08:03:15,017] [671:140717192738624] - paillier_tensor.py[line:40]: tensor's partition is 10
+[DEBUG] [2020-10-29 08:03:15,022] [671:140717192738624] - profile_util.py[line:34]: paillier_tensor.py:34 call parallelize, takes 0.004843711853027344s
+[DEBUG] [2020-10-29 08:03:15,022] [671:140717192738624] - paillier_tensor.py[line:40]: tensor's partition is 1
+[DEBUG] [2020-10-29 08:03:15,069] [671:140717192738624] - profile_util.py[line:34]: paillier_tensor.py:34 call parallelize, takes 0.04619908332824707s
+[DEBUG] [2020-10-29 08:03:15,069] [671:140717192738624] - paillier_tensor.py[line:40]: tensor's partition is 10
+[DEBUG] [2020-10-29 08:03:15,120] [671:140717192738624] - profile_util.py[line:34]: paillier_tensor.py:34 call parallelize, takes 0.050406694412231445s
+[DEBUG] [2020-10-29 08:03:15,120] [671:140717192738624] - paillier_tensor.py[line:40]: tensor's partition is 10
+[DEBUG] [2020-10-29 08:03:15,155] [671:140717192738624] - profile_util.py[line:34]: paillier_tensor.py:116 call mapValues, takes 0.034583091735839844s
+[DEBUG] [2020-10-29 08:03:15,169] [671:140717192738624] - profile_util.py[line:34]: paillier_tensor.py:116 call reduce, takes 0.014130592346191406s
+[DEBUG] [2020-10-29 08:03:15,221] [671:140717192738624] - profile_util.py[line:34]: paillier_tensor.py:34 call parallelize, takes 0.05163431167602539s
+[DEBUG] [2020-10-29 08:03:15,221] [671:140717192738624] - paillier_tensor.py[line:40]: tensor's partition is 10
+[DEBUG] [2020-10-29 08:03:15,279] [671:140717192738624] - profile_util.py[line:34]: paillier_tensor.py:34 call parallelize, takes 0.056923866271972656s
+[DEBUG] [2020-10-29 08:03:15,279] [671:140717192738624] - paillier_tensor.py[line:40]: tensor's partition is 10
+[DEBUG] [2020-10-29 08:03:15,301] [671:140717192738624] - profile_util.py[line:34]: paillier_tensor.py:46 call mapValues, takes 0.02199101448059082s
+[DEBUG] [2020-10-29 08:03:15,301] [671:140717192738624] - paillier_tensor.py[line:40]: tensor's partition is 10
+[DEBUG] [2020-10-29 08:03:15,315] [671:140717192738624] - profile_util.py[line:34]: paillier_tensor.py:102 call count, takes 0.013080120086669922s
+[DEBUG] [2020-10-29 08:03:15,316] [671:140717192738624] - profile_util.py[line:34]: paillier_tensor.py:127 call count, takes 0.0009126663208007812s
+[DEBUG] [2020-10-29 08:03:15,317] [671:140717192738624] - profile_util.py[line:34]: paillier_tensor.py:129 call collect, takes 0.0010533332824707031s
+[DEBUG] [2020-10-29 08:03:15,378] [671:140717192738624] - profile_util.py[line:34]: paillier_tensor.py:34 call parallelize, takes 0.0540156364440918s
+[DEBUG] [2020-10-29 08:03:15,378] [671:140717192738624] - paillier_tensor.py[line:40]: tensor's partition is 10
+[DEBUG] [2020-10-29 08:03:15,432] [671:140717192738624] - profile_util.py[line:34]: paillier_tensor.py:34 call parallelize, takes 0.053246259689331055s
+[DEBUG] [2020-10-29 08:03:15,432] [671:140717192738624] - paillier_tensor.py[line:40]: tensor's partition is 10
+[DEBUG] [2020-10-29 08:03:15,455] [671:140717192738624] - profile_util.py[line:34]: paillier_tensor.py:44 call join, takes 0.022545337677001953s
+[DEBUG] [2020-10-29 08:03:15,455] [671:140717192738624] - paillier_tensor.py[line:40]: tensor's partition is 10
+[DEBUG] [2020-10-29 08:03:15,463] [671:140717192738624] - profile_util.py[line:34]: paillier_tensor.py:102 call count, takes 0.00757598876953125s
+[DEBUG] [2020-10-29 08:03:15,464] [671:140717192738624] - profile_util.py[line:34]: paillier_tensor.py:127 call count, takes 0.000782012939453125s
+[DEBUG] [2020-10-29 08:03:15,465] [671:140717192738624] - profile_util.py[line:34]: paillier_tensor.py:129 call collect, takes 0.0007421970367431641s
+[DEBUG] [2020-10-29 08:03:15,523] [671:140717192738624] - profile_util.py[line:34]: paillier_tensor.py:34 call parallelize, takes 0.05094027519226074s
+[DEBUG] [2020-10-29 08:03:15,523] [671:140717192738624] - paillier_tensor.py[line:40]: tensor's partition is 10
+[DEBUG] [2020-10-29 08:03:15,573] [671:140717192738624] - profile_util.py[line:34]: paillier_tensor.py:34 call parallelize, takes 0.049434661865234375s
+[DEBUG] [2020-10-29 08:03:15,573] [671:140717192738624] - paillier_tensor.py[line:40]: tensor's partition is 10
+[DEBUG] [2020-10-29 08:03:15,608] [671:140717192738624] - profile_util.py[line:34]: paillier_tensor.py:55 call mapValues, takes 0.034241676330566406s
+[DEBUG] [2020-10-29 08:03:15,608] [671:140717192738624] - paillier_tensor.py[line:40]: tensor's partition is 10
+[DEBUG] [2020-10-29 08:03:15,617] [671:140717192738624] - profile_util.py[line:34]: paillier_tensor.py:102 call count, takes 0.008966684341430664s
+[DEBUG] [2020-10-29 08:03:15,619] [671:140717192738624] - profile_util.py[line:34]: paillier_tensor.py:127 call count, takes 0.0014469623565673828s
+[DEBUG] [2020-10-29 08:03:15,621] [671:140717192738624] - profile_util.py[line:34]: paillier_tensor.py:129 call collect, takes 0.0017361640930175781s

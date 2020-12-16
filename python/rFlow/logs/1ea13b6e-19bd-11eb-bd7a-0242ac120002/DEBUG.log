@@ -1,0 +1,6 @@
+[DEBUG] [2020-10-29 08:02:41,875] [359:139660780267328] - profile_util.py[line:34]: quantile_test.py:44 call parallelize, takes 0.009716272354125977s
+[DEBUG] [2020-10-29 08:02:41,931] [359:139660780267328] - profile_util.py[line:34]: quantile_test.py:64 call parallelize, takes 0.04494428634643555s
+[DEBUG] [2020-10-29 08:02:41,990] [359:139660780267328] - profile_util.py[line:34]: quantile_binning.py:132 call mapPartitions2, takes 0.05841493606567383s
+[DEBUG] [2020-10-29 08:02:42,020] [359:139660780267328] - profile_util.py[line:34]: quantile_binning.py:133 call reduce, takes 0.02898550033569336s
+[DEBUG] [2020-10-29 08:02:42,049] [359:139660780267328] - profile_util.py[line:34]: base_binning.py:211 call mapValues, takes 0.025900602340698242s
+[DEBUG] [2020-10-29 08:02:42,051] [359:139660780267328] - profile_util.py[line:34]: quantile_test.py:110 call collect, takes 0.0017004013061523438s

@@ -1,0 +1,14 @@
+[INFO] [2020-10-29 08:03:55,045] [1001:140276421035840] - db_models.py[line:55]: init sqlite database on standalone mode successfully
+[DEBUG] [2020-10-29 08:03:55,548] [1001:140276421035840] - base_transfer_variable.py[line:63]: create variable with name=RsaIntersectTransferVariable.cache_version_info, src=('guest',), dst=('host',)
+[DEBUG] [2020-10-29 08:03:55,549] [1001:140276421035840] - base_transfer_variable.py[line:63]: create variable with name=RsaIntersectTransferVariable.cache_version_match_info, src=('host',), dst=('guest',)
+[DEBUG] [2020-10-29 08:03:55,549] [1001:140276421035840] - base_transfer_variable.py[line:63]: create variable with name=RsaIntersectTransferVariable.intersect_guest_ids, src=('guest',), dst=('host',)
+[DEBUG] [2020-10-29 08:03:55,549] [1001:140276421035840] - base_transfer_variable.py[line:63]: create variable with name=RsaIntersectTransferVariable.intersect_guest_ids_process, src=('host',), dst=('guest',)
+[DEBUG] [2020-10-29 08:03:55,549] [1001:140276421035840] - base_transfer_variable.py[line:63]: create variable with name=RsaIntersectTransferVariable.intersect_host_ids_process, src=('host',), dst=('guest',)
+[DEBUG] [2020-10-29 08:03:55,549] [1001:140276421035840] - base_transfer_variable.py[line:63]: create variable with name=RsaIntersectTransferVariable.intersect_ids, src=('guest',), dst=('host',)
+[DEBUG] [2020-10-29 08:03:55,549] [1001:140276421035840] - base_transfer_variable.py[line:63]: create variable with name=RsaIntersectTransferVariable.rsa_pubkey, src=('host',), dst=('guest',)
+[DEBUG] [2020-10-29 08:03:55,555] [1001:140276421035840] - profile_util.py[line:34]: intersection_guest_test.py:22 call parallelize, takes 0.00620269775390625s
+[DEBUG] [2020-10-29 08:03:55,561] [1001:140276421035840] - profile_util.py[line:34]: intersection_guest_test.py:22 call parallelize, takes 0.005277156829833984s
+[DEBUG] [2020-10-29 08:03:55,596] [1001:140276421035840] - profile_util.py[line:34]: intersect_guest.py:47 call map, takes 0.03432345390319824s
+[DEBUG] [2020-10-29 08:03:55,606] [1001:140276421035840] - profile_util.py[line:34]: intersect_guest.py:48 call join, takes 0.010374307632446289s
+[DEBUG] [2020-10-29 08:03:55,617] [1001:140276421035840] - profile_util.py[line:34]: intersect_guest.py:49 call map, takes 0.010911941528320312s
+[DEBUG] [2020-10-29 08:03:55,619] [1001:140276421035840] - profile_util.py[line:34]: intersection_guest_test.py:33 call collect, takes 0.0013735294342041016s

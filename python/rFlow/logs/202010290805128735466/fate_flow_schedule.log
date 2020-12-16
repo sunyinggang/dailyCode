@@ -1,0 +1,862 @@
+[INFO] [2020-10-29 08:05:12,874] [6:140637848127232] - job_controller.py[line:47]: submit job, job_id 202010290805128735466, body {'job_dsl': {'components': {'dataio_0': {'module': 'DataIO', 'input': {'data': {'data': ['args.train_data']}}, 'output': {'data': ['train'], 'model': ['dataio']}, 'need_deploy': True}, 'hetero_feature_binning_0': {'module': 'HeteroFeatureBinning', 'input': {'data': {'data': ['dataio_0.train']}}, 'output': {'data': ['train'], 'model': ['hetero_feature_binning']}}, 'hetero_feature_selection_0': {'module': 'HeteroFeatureSelection', 'input': {'data': {'data': ['hetero_feature_binning_0.train']}, 'isometric_model': ['hetero_feature_binning_0.hetero_feature_binning']}, 'output': {'data': ['train'], 'model': ['selected']}}, 'hetero_lr_0': {'module': 'HeteroLR', 'input': {'data': {'train_data': ['hetero_feature_selection_0.train']}}, 'output': {'data': ['train'], 'model': ['hetero_lr']}}, 'evaluation_0': {'module': 'Evaluation', 'input': {'data': {'data': ['hetero_lr_0.train']}}, 'output': {'data': ['evaluate']}}}}, 'job_runtime_conf': {'initiator': {'role': 'guest', 'party_id': 9999}, 'job_parameters': {'work_mode': 0, 'processors_per_node': 1, 'align_task_input_data_partition': True}, 'role': {'guest': [9999], 'host': [10000], 'arbiter': [10000]}, 'role_parameters': {'guest': {'args': {'data': {'train_data': [{'name': 'breast_hetero_guest', 'namespace': 'fate_flow_test_breast_hetero'}]}}, 'dataio_0': {'with_label': [True], 'label_name': ['y'], 'label_type': ['int'], 'output_format': ['dense']}}, 'host': {'args': {'data': {'train_data': [{'name': 'breast_hetero_host', 'namespace': 'fate_flow_test_breast_hetero'}]}}, 'dataio_0': {'with_label': [False], 'output_format': ['dense']}}}, 'algorithm_parameters': {'hetero_lr_0': {'penalty': 'L2', 'optimizer': 'rmsprop', 'eps': 1e-05, 'alpha': 0.01, 'max_iter': 3, 'converge_func': 'diff', 'batch_size': 320, 'learning_rate': 0.15, 'init_param': {'init_method': 'random_uniform'}}}}}
+[INFO] [2020-10-29 08:05:12,916] [6:140229272925952] - tracking_manager.py[line:329]: save guest 9999 job: {'f_name': '', 'f_description': '', 'f_tag': '', 'f_initiator_party_id': 9999, 'f_is_initiator': 1, 'f_progress': 0, 'f_job_id': '202010290805128735466', 'f_roles': '{"guest": [9999], "host": [10000], "arbiter": [10000]}', 'f_work_mode': 0, 'f_dsl': '{"components": {"dataio_0": {"module": "DataIO", "input": {"data": {"data": ["args.train_data"]}}, "output": {"data": ["train"], "model": ["dataio"]}, "need_deploy": true}, "hetero_feature_binning_0": {"module": "HeteroFeatureBinning", "input": {"data": {"data": ["dataio_0.train"]}}, "output": {"data": ["train"], "model": ["hetero_feature_binning"]}}, "hetero_feature_selection_0": {"module": "HeteroFeatureSelection", "input": {"data": {"data": ["hetero_feature_binning_0.train"]}, "isometric_model": ["hetero_feature_binning_0.hetero_feature_binning"]}, "output": {"data": ["train"], "model": ["selected"]}}, "hetero_lr_0": {"module": "HeteroLR", "input": {"data": {"train_data": ["hetero_feature_selection_0.train"]}}, "output": {"data": ["train"], "model": ["hetero_lr"]}}, "evaluation_0": {"module": "Evaluation", "input": {"data": {"data": ["hetero_lr_0.train"]}}, "output": {"data": ["evaluate"]}}}}', 'f_runtime_conf': '{"initiator": {"role": "guest", "party_id": 9999}, "job_parameters": {"work_mode": 0, "processors_per_node": 1, "align_task_input_data_partition": true, "model_id": "arbiter-10000#guest-9999#host-10000#model", "model_version": "202010290805128735466"}, "role": {"guest": [9999], "host": [10000], "arbiter": [10000]}, "role_parameters": {"guest": {"args": {"data": {"train_data": [{"name": "breast_hetero_guest", "namespace": "fate_flow_test_breast_hetero"}]}}, "dataio_0": {"with_label": [true], "label_name": ["y"], "label_type": ["int"], "output_format": ["dense"]}}, "host": {"args": {"data": {"train_data": [{"name": "breast_hetero_host", "namespace": "fate_flow_test_breast_hetero"}]}}, "dataio_0": {"with_label": [false], "output_format": ["dense"]}}}, "algorithm_parameters": {"hetero_lr_0": {"penalty": "L2", "optimizer": "rmsprop", "eps": 1e-05, "alpha": 0.01, "max_iter": 3, "converge_func": "diff", "batch_size": 320, "learning_rate": 0.15, "init_param": {"init_method": "random_uniform"}}}}', 'f_train_runtime_conf': '{}', 'f_run_ip': '172.18.0.2:9380', 'f_status': 'waiting', 'f_create_time': 1603958712876, 'f_role': 'guest', 'f_party_id': 9999}
+[INFO] [2020-10-29 08:05:12,954] [6:140229272925952] - tracking_manager.py[line:329]: save host 10000 job: {'f_name': '', 'f_description': '', 'f_tag': '', 'f_initiator_party_id': 9999, 'f_is_initiator': 0, 'f_progress': 0, 'f_job_id': '202010290805128735466', 'f_roles': '{"guest": [9999], "host": [10000], "arbiter": [10000]}', 'f_work_mode': 0, 'f_dsl': '{"components": {"dataio_0": {"module": "DataIO", "input": {"data": {"data": ["args.train_data"]}}, "output": {"data": ["train"], "model": ["dataio"]}, "need_deploy": true}, "hetero_feature_binning_0": {"module": "HeteroFeatureBinning", "input": {"data": {"data": ["dataio_0.train"]}}, "output": {"data": ["train"], "model": ["hetero_feature_binning"]}}, "hetero_feature_selection_0": {"module": "HeteroFeatureSelection", "input": {"data": {"data": ["hetero_feature_binning_0.train"]}, "isometric_model": ["hetero_feature_binning_0.hetero_feature_binning"]}, "output": {"data": ["train"], "model": ["selected"]}}, "hetero_lr_0": {"module": "HeteroLR", "input": {"data": {"train_data": ["hetero_feature_selection_0.train"]}}, "output": {"data": ["train"], "model": ["hetero_lr"]}}, "evaluation_0": {"module": "Evaluation", "input": {"data": {"data": ["hetero_lr_0.train"]}}, "output": {"data": ["evaluate"]}}}}', 'f_runtime_conf': '{"initiator": {"role": "guest", "party_id": 9999}, "job_parameters": {"work_mode": 0, "processors_per_node": 1, "align_task_input_data_partition": true, "model_id": "arbiter-10000#guest-9999#host-10000#model", "model_version": "202010290805128735466"}, "role": {"guest": [9999], "host": [10000], "arbiter": [10000]}, "role_parameters": {"guest": {"args": {"data": {"train_data": [{"name": "breast_hetero_guest", "namespace": "fate_flow_test_breast_hetero"}]}}, "dataio_0": {"with_label": [true], "label_name": ["y"], "label_type": ["int"], "output_format": ["dense"]}}, "host": {"args": {"data": {"train_data": [{"name": "breast_hetero_host", "namespace": "fate_flow_test_breast_hetero"}]}}, "dataio_0": {"with_label": [false], "output_format": ["dense"]}}}, "algorithm_parameters": {"hetero_lr_0": {"penalty": "L2", "optimizer": "rmsprop", "eps": 1e-05, "alpha": 0.01, "max_iter": 3, "converge_func": "diff", "batch_size": 320, "learning_rate": 0.15, "init_param": {"init_method": "random_uniform"}}}}', 'f_train_runtime_conf': '{}', 'f_run_ip': '172.18.0.2:9380', 'f_status': 'waiting', 'f_create_time': 1603958712876, 'f_role': 'host', 'f_party_id': 10000}
+[INFO] [2020-10-29 08:05:12,984] [6:140229272925952] - tracking_manager.py[line:329]: save arbiter 10000 job: {'f_name': '', 'f_description': '', 'f_tag': '', 'f_initiator_party_id': 9999, 'f_is_initiator': 0, 'f_progress': 0, 'f_job_id': '202010290805128735466', 'f_roles': '{"guest": [9999], "host": [10000], "arbiter": [10000]}', 'f_work_mode': 0, 'f_dsl': '{"components": {"dataio_0": {"module": "DataIO", "input": {"data": {"data": ["args.train_data"]}}, "output": {"data": ["train"], "model": ["dataio"]}, "need_deploy": true}, "hetero_feature_binning_0": {"module": "HeteroFeatureBinning", "input": {"data": {"data": ["dataio_0.train"]}}, "output": {"data": ["train"], "model": ["hetero_feature_binning"]}}, "hetero_feature_selection_0": {"module": "HeteroFeatureSelection", "input": {"data": {"data": ["hetero_feature_binning_0.train"]}, "isometric_model": ["hetero_feature_binning_0.hetero_feature_binning"]}, "output": {"data": ["train"], "model": ["selected"]}}, "hetero_lr_0": {"module": "HeteroLR", "input": {"data": {"train_data": ["hetero_feature_selection_0.train"]}}, "output": {"data": ["train"], "model": ["hetero_lr"]}}, "evaluation_0": {"module": "Evaluation", "input": {"data": {"data": ["hetero_lr_0.train"]}}, "output": {"data": ["evaluate"]}}}}', 'f_runtime_conf': '{"initiator": {"role": "guest", "party_id": 9999}, "job_parameters": {"work_mode": 0, "processors_per_node": 1, "align_task_input_data_partition": true, "model_id": "arbiter-10000#guest-9999#host-10000#model", "model_version": "202010290805128735466"}, "role": {"guest": [9999], "host": [10000], "arbiter": [10000]}, "role_parameters": {"guest": {"args": {"data": {"train_data": [{"name": "breast_hetero_guest", "namespace": "fate_flow_test_breast_hetero"}]}}, "dataio_0": {"with_label": [true], "label_name": ["y"], "label_type": ["int"], "output_format": ["dense"]}}, "host": {"args": {"data": {"train_data": [{"name": "breast_hetero_host", "namespace": "fate_flow_test_breast_hetero"}]}}, "dataio_0": {"with_label": [false], "output_format": ["dense"]}}}, "algorithm_parameters": {"hetero_lr_0": {"penalty": "L2", "optimizer": "rmsprop", "eps": 1e-05, "alpha": 0.01, "max_iter": 3, "converge_func": "diff", "batch_size": 320, "learning_rate": 0.15, "init_param": {"init_method": "random_uniform"}}}}', 'f_train_runtime_conf': '{}', 'f_run_ip': '172.18.0.2:9380', 'f_status': 'waiting', 'f_create_time': 1603958712876, 'f_role': 'arbiter', 'f_party_id': 10000}
+[INFO] [2020-10-29 08:05:12,992] [6:140637848127232] - job_controller.py[line:106]: submit job successfully, job id is 202010290805128735466, model id is arbiter-10000#guest-9999#host-10000#model
+[INFO] [2020-10-29 08:05:12,993] [6:140638262744832] - dag_scheduler.py[line:58]: start check all role status
+[INFO] [2020-10-29 08:05:12,993] [6:140638262744832] - dag_scheduler.py[line:60]: check all role status success, status is True
+[INFO] [2020-10-29 08:05:12,994] [6:140638262744832] - dag_scheduler.py[line:71]: schedule job {'job_id': '202010290805128735466', 'initiator_role': 'guest', 'initiator_party_id': 9999}
+[INFO] [2020-10-29 08:05:13,039] [6:140638279530240] - job_utils.py[line:569]: setting job 202010290805128735466 timeout None is incorrect, using the default timeout 604800
+[INFO] [2020-10-29 08:05:13,043] [6:140229272925952] - tracking_manager.py[line:329]: save guest 9999 job: {'f_name': '', 'f_description': '', 'f_tag': 'end_waiting', 'f_initiator_party_id': -1, 'f_is_initiator': -1, 'f_progress': 0, 'f_job_id': '202010290805128735466', 'f_start_time': 1603958713039, 'f_status': 'running', 'f_update_time': 1603958713039, 'f_role': 'guest', 'f_party_id': 9999, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:05:13,055] [6:140229272925952] - tracking_manager.py[line:329]: save host 10000 job: {'f_name': '', 'f_description': '', 'f_tag': 'end_waiting', 'f_initiator_party_id': -1, 'f_is_initiator': -1, 'f_progress': 0, 'f_job_id': '202010290805128735466', 'f_start_time': 1603958713039, 'f_status': 'running', 'f_update_time': 1603958713039, 'f_role': 'host', 'f_party_id': 10000, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:05:13,067] [6:140229272925952] - tracking_manager.py[line:329]: save arbiter 10000 job: {'f_name': '', 'f_description': '', 'f_tag': 'end_waiting', 'f_initiator_party_id': -1, 'f_is_initiator': -1, 'f_progress': 0, 'f_job_id': '202010290805128735466', 'f_start_time': 1603958713039, 'f_status': 'running', 'f_update_time': 1603958713039, 'f_role': 'arbiter', 'f_party_id': 10000, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:05:13,075] [6:140638279530240] - task_scheduler.py[line:167]: job 202010290805128735466 root components is ['dataio_0']
+[INFO] [2020-10-29 08:05:13,075] [6:140638279530240] - task_scheduler.py[line:219]: job 202010290805128735466 run component dataio_0
+[INFO] [2020-10-29 08:05:13,096] [6:140229272925952] - task_scheduler.py[line:420]: job 202010290805128735466 dataio_0 guest 9999 task subprocess is ready
+[WARNING] [2020-10-29 08:05:13,097] [6:140229272925952] - task_scheduler.py[line:433]: failed to get backend, set as 0
+[INFO] [2020-10-29 08:05:13,097] [6:140229272925952] - task_scheduler.py[line:486]: job 202010290805128735466 dataio_0 guest 9999 task subprocess start
+[INFO] [2020-10-29 08:05:13,104] [6:140229272925952] - task_scheduler.py[line:495]: job 202010290805128735466 component dataio_0 on guest 9999 start task subprocess success
+[INFO] [2020-10-29 08:05:13,112] [6:140229272925952] - task_scheduler.py[line:420]: job 202010290805128735466 dataio_0 host 10000 task subprocess is ready
+[WARNING] [2020-10-29 08:05:13,113] [6:140229272925952] - task_scheduler.py[line:433]: failed to get backend, set as 0
+[INFO] [2020-10-29 08:05:13,113] [6:140229272925952] - task_scheduler.py[line:486]: job 202010290805128735466 dataio_0 host 10000 task subprocess start
+[INFO] [2020-10-29 08:05:13,118] [6:140229272925952] - task_scheduler.py[line:495]: job 202010290805128735466 component dataio_0 on host 10000 start task subprocess success
+[INFO] [2020-10-29 08:05:13,126] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component dataio_0 run on guest 9999 status is notRunning
+[INFO] [2020-10-29 08:05:13,128] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component dataio_0 run on host 10000 status is notRunning
+[INFO] [2020-10-29 08:05:13,631] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component dataio_0 run on guest 9999 status is notRunning
+[INFO] [2020-10-29 08:05:13,634] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component dataio_0 run on host 10000 status is notRunning
+[INFO] [2020-10-29 08:05:13,839] [1861:139779035903808] - task_executor.py[line:52]: enter task process
+[INFO] [2020-10-29 08:05:13,839] [1861:139779035903808] - task_executor.py[line:53]: Namespace(component_name='dataio_0', config='/fate/jobs/202010290805128735466/guest/9999/dataio_0/task_config.json', job_id='202010290805128735466', job_server='172.18.0.2:9380', party_id='9999', processors_per_node=1, role='guest', task_id='202010290805128735466_dataio_0')
+[INFO] [2020-10-29 08:05:13,870] [1863:140046620854080] - task_executor.py[line:52]: enter task process
+[INFO] [2020-10-29 08:05:13,870] [1863:140046620854080] - task_executor.py[line:53]: Namespace(component_name='dataio_0', config='/fate/jobs/202010290805128735466/host/10000/dataio_0/task_config.json', job_id='202010290805128735466', job_server='172.18.0.2:9380', party_id='10000', processors_per_node=1, role='host', task_id='202010290805128735466_dataio_0')
+[INFO] [2020-10-29 08:05:14,041] [6:140229272925952] - job_controller.py[line:158]: job 202010290805128735466 component dataio_0 guest 9999 status running
+[INFO] [2020-10-29 08:05:14,134] [6:140229272925952] - job_controller.py[line:158]: job 202010290805128735466 component dataio_0 host 10000 status running
+[INFO] [2020-10-29 08:05:14,137] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component dataio_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:14,139] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component dataio_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:14,149] [6:140229272925952] - job_controller.py[line:158]: job 202010290805128735466 component dataio_0 host 10000 status running
+[INFO] [2020-10-29 08:05:14,564] [1863:140046620854080] - tracking_manager.py[line:198]: persisting the component output temporary table: 202010290805128735466_dataio_0_host_10000 79a4e72c-19bd-11eb-ae8c-0242ac120002 to output_data_202010290805128735466_dataio_0 79a4e72c-19bd-11eb-ae8c-0242ac120002
+[INFO] [2020-10-29 08:05:14,592] [1861:139779035903808] - tracking_manager.py[line:198]: persisting the component output temporary table: 202010290805128735466_dataio_0_guest_9999 79a99010-19bd-11eb-9bab-0242ac120002 to output_data_202010290805128735466_dataio_0 79a99010-19bd-11eb-9bab-0242ac120002
+[INFO] [2020-10-29 08:05:14,644] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component dataio_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:14,646] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component dataio_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:14,655] [6:140229272925952] - job_controller.py[line:158]: job 202010290805128735466 component dataio_0 host 10000 status success
+[INFO] [2020-10-29 08:05:14,667] [6:140229272925952] - job_controller.py[line:158]: job 202010290805128735466 component dataio_0 host 10000 status success
+[INFO] [2020-10-29 08:05:14,686] [6:140229272925952] - job_controller.py[line:158]: job 202010290805128735466 component dataio_0 guest 9999 status success
+[INFO] [2020-10-29 08:05:15,152] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component dataio_0 run on guest 9999 status is success
+[INFO] [2020-10-29 08:05:15,155] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component dataio_0 run on host 10000 status is success
+[INFO] [2020-10-29 08:05:15,159] [6:140638279530240] - task_scheduler.py[line:264]: job 202010290805128735466 component dataio_0 run success
+[INFO] [2020-10-29 08:05:15,169] [6:140229272925952] - tracking_manager.py[line:329]: save guest 9999 job: {'f_name': '', 'f_description': '', 'f_tag': '', 'f_initiator_party_id': -1, 'f_is_initiator': -1, 'f_progress': 20.0, 'f_update_time': 1603958715164, 'f_current_tasks': '["202010290805128735466_dataio_0"]', 'f_role': 'guest', 'f_party_id': 9999, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:05:15,182] [6:140229272925952] - tracking_manager.py[line:329]: save host 10000 job: {'f_name': '', 'f_description': '', 'f_tag': '', 'f_initiator_party_id': -1, 'f_is_initiator': -1, 'f_progress': 20.0, 'f_update_time': 1603958715164, 'f_current_tasks': '["202010290805128735466_dataio_0"]', 'f_role': 'host', 'f_party_id': 10000, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:05:15,194] [6:140229272925952] - tracking_manager.py[line:329]: save arbiter 10000 job: {'f_name': '', 'f_description': '', 'f_tag': '', 'f_initiator_party_id': -1, 'f_is_initiator': -1, 'f_progress': 20.0, 'f_update_time': 1603958715164, 'f_current_tasks': '["202010290805128735466_dataio_0"]', 'f_role': 'arbiter', 'f_party_id': 10000, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:05:15,201] [6:140638279530240] - task_scheduler.py[line:596]: get stop job 202010290805128735466 dataio_0 command
+[INFO] [2020-10-29 08:05:15,205] [6:140229272925952] - job_controller.py[line:117]: guest 9999 get kill job 202010290805128735466 dataio_0 command
+[INFO] [2020-10-29 08:05:15,209] [6:140229272925952] - job_utils.py[line:396]: try to stop job 202010290805128735466 task 202010290805128735466_dataio_0 guest 9999 process pid:1861
+[INFO] [2020-10-29 08:05:15,210] [6:140229272925952] - job_utils.py[line:502]: start run subprocess to stop component dataio_0 session
+[INFO] [2020-10-29 08:05:15,216] [6:140229272925952] - job_controller.py[line:139]: job 202010290805128735466 component dataio_0 on guest 9999 process 1861 kill success
+[INFO] [2020-10-29 08:05:15,226] [6:140540940003072] - job_controller.py[line:158]: job 202010290805128735466 component dataio_0 guest 9999 status success
+[INFO] [2020-10-29 08:05:15,237] [6:140540940003072] - job_controller.py[line:158]: job 202010290805128735466 component dataio_0 guest 9999 status success
+[INFO] [2020-10-29 08:05:15,242] [6:140638279530240] - task_scheduler.py[line:639]: send guest 9999 kill job 202010290805128735466 dataio_0 command successfully
+[INFO] [2020-10-29 08:05:15,246] [6:140229272925952] - job_controller.py[line:117]: host 10000 get kill job 202010290805128735466 dataio_0 command
+[INFO] [2020-10-29 08:05:15,250] [6:140229272925952] - job_utils.py[line:396]: try to stop job 202010290805128735466 task 202010290805128735466_dataio_0 host 10000 process pid:1863
+[INFO] [2020-10-29 08:05:15,251] [6:140229272925952] - job_utils.py[line:502]: start run subprocess to stop component dataio_0 session
+[INFO] [2020-10-29 08:05:15,257] [6:140229272925952] - job_controller.py[line:139]: job 202010290805128735466 component dataio_0 on host 10000 process 1863 kill success
+[INFO] [2020-10-29 08:05:15,267] [6:140540940003072] - job_controller.py[line:158]: job 202010290805128735466 component dataio_0 host 10000 status success
+[INFO] [2020-10-29 08:05:15,279] [6:140540940003072] - job_controller.py[line:158]: job 202010290805128735466 component dataio_0 host 10000 status success
+[INFO] [2020-10-29 08:05:15,285] [6:140638279530240] - task_scheduler.py[line:639]: send host 10000 kill job 202010290805128735466 dataio_0 command successfully
+[INFO] [2020-10-29 08:05:15,288] [6:140229272925952] - job_controller.py[line:117]: arbiter 10000 get kill job 202010290805128735466 dataio_0 command
+[INFO] [2020-10-29 08:05:15,295] [6:140638279530240] - task_scheduler.py[line:639]: send arbiter 10000 kill job 202010290805128735466 dataio_0 command successfully
+[INFO] [2020-10-29 08:05:15,295] [6:140638279530240] - task_scheduler.py[line:278]: job 202010290805128735466 component dataio_0 next components is ['hetero_feature_binning_0']
+[INFO] [2020-10-29 08:05:15,295] [6:140638279530240] - task_scheduler.py[line:282]: job 202010290805128735466 check component hetero_feature_binning_0 dependencies status
+[INFO] [2020-10-29 08:05:15,298] [6:140638279530240] - task_scheduler.py[line:363]: job 202010290805128735466 component hetero_feature_binning_0 all dependent component: [{'component_name': 'dataio_0', 'type': 'data'}]
+[INFO] [2020-10-29 08:05:15,300] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component dataio_0 run on guest 9999 status is success
+[INFO] [2020-10-29 08:05:15,303] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component dataio_0 run on host 10000 status is success
+[INFO] [2020-10-29 08:05:15,304] [6:140638279530240] - task_scheduler.py[line:370]: job 202010290805128735466 component hetero_feature_binning_0 dependency dataio_0 status is True
+[INFO] [2020-10-29 08:05:15,305] [6:140638279530240] - task_scheduler.py[line:290]: job 202010290805128735466 component hetero_feature_binning_0 dependencies status is True, job status is True
+[INFO] [2020-10-29 08:05:15,305] [6:140638279530240] - task_scheduler.py[line:219]: job 202010290805128735466 run component hetero_feature_binning_0
+[INFO] [2020-10-29 08:05:15,422] [6:140229272925952] - task_scheduler.py[line:420]: job 202010290805128735466 hetero_feature_binning_0 guest 9999 task subprocess is ready
+[WARNING] [2020-10-29 08:05:15,422] [6:140229272925952] - task_scheduler.py[line:433]: failed to get backend, set as 0
+[INFO] [2020-10-29 08:05:15,423] [6:140229272925952] - task_scheduler.py[line:486]: job 202010290805128735466 hetero_feature_binning_0 guest 9999 task subprocess start
+[INFO] [2020-10-29 08:05:15,429] [6:140229272925952] - task_scheduler.py[line:495]: job 202010290805128735466 component hetero_feature_binning_0 on guest 9999 start task subprocess success
+[INFO] [2020-10-29 08:05:15,435] [6:140229272925952] - task_scheduler.py[line:420]: job 202010290805128735466 hetero_feature_binning_0 host 10000 task subprocess is ready
+[WARNING] [2020-10-29 08:05:15,436] [6:140229272925952] - task_scheduler.py[line:433]: failed to get backend, set as 0
+[INFO] [2020-10-29 08:05:15,436] [6:140229272925952] - task_scheduler.py[line:486]: job 202010290805128735466 hetero_feature_binning_0 host 10000 task subprocess start
+[INFO] [2020-10-29 08:05:15,442] [6:140229272925952] - task_scheduler.py[line:495]: job 202010290805128735466 component hetero_feature_binning_0 on host 10000 start task subprocess success
+[INFO] [2020-10-29 08:05:15,449] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_binning_0 run on guest 9999 status is notRunning
+[INFO] [2020-10-29 08:05:15,451] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_binning_0 run on host 10000 status is notRunning
+[INFO] [2020-10-29 08:05:15,826] [1910:139906087991104] - session_utils.py[line:43]: start stop session 202010290805128735466_dataio_0_guest_9999
+[INFO] [2020-10-29 08:05:15,827] [1910:139906087991104] - session_utils.py[line:50]: stop session 202010290805128735466_dataio_0_guest_9999 success
+[INFO] [2020-10-29 08:05:15,852] [1914:140510581774144] - session_utils.py[line:43]: start stop session 202010290805128735466_dataio_0_host_10000
+[INFO] [2020-10-29 08:05:15,853] [1914:140510581774144] - session_utils.py[line:50]: stop session 202010290805128735466_dataio_0_host_10000 success
+[INFO] [2020-10-29 08:05:15,953] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_binning_0 run on guest 9999 status is notRunning
+[INFO] [2020-10-29 08:05:15,956] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_binning_0 run on host 10000 status is notRunning
+[INFO] [2020-10-29 08:05:16,213] [1923:140665787344704] - task_executor.py[line:52]: enter task process
+[INFO] [2020-10-29 08:05:16,213] [1923:140665787344704] - task_executor.py[line:53]: Namespace(component_name='hetero_feature_binning_0', config='/fate/jobs/202010290805128735466/guest/9999/hetero_feature_binning_0/task_config.json', job_id='202010290805128735466', job_server='172.18.0.2:9380', party_id='9999', processors_per_node=1, role='guest', task_id='202010290805128735466_hetero_feature_binning_0')
+[INFO] [2020-10-29 08:05:16,276] [1925:139825858766656] - task_executor.py[line:52]: enter task process
+[INFO] [2020-10-29 08:05:16,277] [1925:139825858766656] - task_executor.py[line:53]: Namespace(component_name='hetero_feature_binning_0', config='/fate/jobs/202010290805128735466/host/10000/hetero_feature_binning_0/task_config.json', job_id='202010290805128735466', job_server='172.18.0.2:9380', party_id='10000', processors_per_node=1, role='host', task_id='202010290805128735466_hetero_feature_binning_0')
+[INFO] [2020-10-29 08:05:16,459] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_binning_0 run on guest 9999 status is notRunning
+[INFO] [2020-10-29 08:05:16,462] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_binning_0 run on host 10000 status is notRunning
+[INFO] [2020-10-29 08:05:16,479] [6:140229272925952] - job_controller.py[line:158]: job 202010290805128735466 component hetero_feature_binning_0 guest 9999 status running
+[INFO] [2020-10-29 08:05:16,492] [6:140229272925952] - job_controller.py[line:158]: job 202010290805128735466 component hetero_feature_binning_0 host 10000 status running
+[INFO] [2020-10-29 08:05:16,504] [6:140229272925952] - job_controller.py[line:158]: job 202010290805128735466 component hetero_feature_binning_0 host 10000 status running
+[INFO] [2020-10-29 08:05:16,966] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_binning_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:16,968] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_binning_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:17,472] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_binning_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:17,474] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_binning_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:17,978] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_binning_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:17,980] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_binning_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:18,484] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_binning_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:18,486] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_binning_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:18,990] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_binning_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:18,993] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_binning_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:19,497] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_binning_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:19,499] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_binning_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:20,002] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_binning_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:20,003] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_binning_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:20,507] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_binning_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:20,509] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_binning_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:21,013] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_binning_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:21,015] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_binning_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:21,519] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_binning_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:21,522] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_binning_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:22,027] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_binning_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:22,029] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_binning_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:22,533] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_binning_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:22,536] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_binning_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:23,040] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_binning_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:23,042] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_binning_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:23,546] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_binning_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:23,548] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_binning_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:23,770] [1925:139825858766656] - tracking_manager.py[line:198]: persisting the component output temporary table: 202010290805128735466_hetero_feature_binning_0_host_10000 7f161910-19bd-11eb-bbdd-0242ac120002 to output_data_202010290805128735466_hetero_feature_binning_0 7f161910-19bd-11eb-bbdd-0242ac120002
+[INFO] [2020-10-29 08:05:23,856] [6:140229272925952] - job_controller.py[line:158]: job 202010290805128735466 component hetero_feature_binning_0 host 10000 status success
+[INFO] [2020-10-29 08:05:23,867] [6:140229272925952] - job_controller.py[line:158]: job 202010290805128735466 component hetero_feature_binning_0 host 10000 status success
+[INFO] [2020-10-29 08:05:23,945] [1923:140665787344704] - tracking_manager.py[line:198]: persisting the component output temporary table: 202010290805128735466_hetero_feature_binning_0_guest_9999 7f3b6daa-19bd-11eb-bb6f-0242ac120002 to output_data_202010290805128735466_hetero_feature_binning_0 7f3b6daa-19bd-11eb-bb6f-0242ac120002
+[INFO] [2020-10-29 08:05:24,039] [6:140229272925952] - job_controller.py[line:158]: job 202010290805128735466 component hetero_feature_binning_0 guest 9999 status success
+[INFO] [2020-10-29 08:05:24,052] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_binning_0 run on guest 9999 status is success
+[INFO] [2020-10-29 08:05:24,055] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_binning_0 run on host 10000 status is success
+[INFO] [2020-10-29 08:05:24,058] [6:140638279530240] - task_scheduler.py[line:264]: job 202010290805128735466 component hetero_feature_binning_0 run success
+[INFO] [2020-10-29 08:05:24,069] [6:140229272925952] - tracking_manager.py[line:329]: save guest 9999 job: {'f_name': '', 'f_description': '', 'f_tag': '', 'f_initiator_party_id': -1, 'f_is_initiator': -1, 'f_progress': 40.0, 'f_update_time': 1603958724064, 'f_current_tasks': '["202010290805128735466_hetero_feature_binning_0"]', 'f_role': 'guest', 'f_party_id': 9999, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:05:24,121] [6:140229272925952] - tracking_manager.py[line:329]: save host 10000 job: {'f_name': '', 'f_description': '', 'f_tag': '', 'f_initiator_party_id': -1, 'f_is_initiator': -1, 'f_progress': 40.0, 'f_update_time': 1603958724064, 'f_current_tasks': '["202010290805128735466_hetero_feature_binning_0"]', 'f_role': 'host', 'f_party_id': 10000, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:05:24,136] [6:140229272925952] - tracking_manager.py[line:329]: save arbiter 10000 job: {'f_name': '', 'f_description': '', 'f_tag': '', 'f_initiator_party_id': -1, 'f_is_initiator': -1, 'f_progress': 40.0, 'f_update_time': 1603958724064, 'f_current_tasks': '["202010290805128735466_hetero_feature_binning_0"]', 'f_role': 'arbiter', 'f_party_id': 10000, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:05:24,145] [6:140638279530240] - task_scheduler.py[line:596]: get stop job 202010290805128735466 hetero_feature_binning_0 command
+[INFO] [2020-10-29 08:05:24,151] [6:140229272925952] - job_controller.py[line:117]: guest 9999 get kill job 202010290805128735466 hetero_feature_binning_0 command
+[INFO] [2020-10-29 08:05:24,157] [6:140229272925952] - job_utils.py[line:396]: try to stop job 202010290805128735466 task 202010290805128735466_hetero_feature_binning_0 guest 9999 process pid:1923
+[INFO] [2020-10-29 08:05:24,157] [6:140229272925952] - job_utils.py[line:502]: start run subprocess to stop component hetero_feature_binning_0 session
+[INFO] [2020-10-29 08:05:24,164] [6:140229272925952] - job_controller.py[line:139]: job 202010290805128735466 component hetero_feature_binning_0 on guest 9999 process 1923 kill success
+[INFO] [2020-10-29 08:05:24,175] [6:140540940003072] - job_controller.py[line:158]: job 202010290805128735466 component hetero_feature_binning_0 guest 9999 status success
+[INFO] [2020-10-29 08:05:24,187] [6:140540940003072] - job_controller.py[line:158]: job 202010290805128735466 component hetero_feature_binning_0 guest 9999 status success
+[INFO] [2020-10-29 08:05:24,192] [6:140638279530240] - task_scheduler.py[line:639]: send guest 9999 kill job 202010290805128735466 hetero_feature_binning_0 command successfully
+[INFO] [2020-10-29 08:05:24,197] [6:140540940003072] - job_controller.py[line:117]: host 10000 get kill job 202010290805128735466 hetero_feature_binning_0 command
+[INFO] [2020-10-29 08:05:24,202] [6:140540940003072] - job_utils.py[line:396]: try to stop job 202010290805128735466 task 202010290805128735466_hetero_feature_binning_0 host 10000 process pid:1925
+[INFO] [2020-10-29 08:05:24,202] [6:140540940003072] - job_utils.py[line:502]: start run subprocess to stop component hetero_feature_binning_0 session
+[INFO] [2020-10-29 08:05:24,209] [6:140540940003072] - job_controller.py[line:139]: job 202010290805128735466 component hetero_feature_binning_0 on host 10000 process 1925 kill success
+[INFO] [2020-10-29 08:05:24,220] [6:140229272925952] - job_controller.py[line:158]: job 202010290805128735466 component hetero_feature_binning_0 host 10000 status success
+[INFO] [2020-10-29 08:05:24,231] [6:140229272925952] - job_controller.py[line:158]: job 202010290805128735466 component hetero_feature_binning_0 host 10000 status success
+[INFO] [2020-10-29 08:05:24,236] [6:140638279530240] - task_scheduler.py[line:639]: send host 10000 kill job 202010290805128735466 hetero_feature_binning_0 command successfully
+[INFO] [2020-10-29 08:05:24,240] [6:140540940003072] - job_controller.py[line:117]: arbiter 10000 get kill job 202010290805128735466 hetero_feature_binning_0 command
+[INFO] [2020-10-29 08:05:24,246] [6:140638279530240] - task_scheduler.py[line:639]: send arbiter 10000 kill job 202010290805128735466 hetero_feature_binning_0 command successfully
+[INFO] [2020-10-29 08:05:24,246] [6:140638279530240] - task_scheduler.py[line:278]: job 202010290805128735466 component hetero_feature_binning_0 next components is ['hetero_feature_selection_0']
+[INFO] [2020-10-29 08:05:24,246] [6:140638279530240] - task_scheduler.py[line:282]: job 202010290805128735466 check component hetero_feature_selection_0 dependencies status
+[INFO] [2020-10-29 08:05:24,249] [6:140638279530240] - task_scheduler.py[line:363]: job 202010290805128735466 component hetero_feature_selection_0 all dependent component: [{'component_name': 'hetero_feature_binning_0', 'type': 'data'}, {'component_name': 'hetero_feature_binning_0', 'type': 'model'}]
+[INFO] [2020-10-29 08:05:24,252] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_binning_0 run on guest 9999 status is success
+[INFO] [2020-10-29 08:05:24,255] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_binning_0 run on host 10000 status is success
+[INFO] [2020-10-29 08:05:24,256] [6:140638279530240] - task_scheduler.py[line:370]: job 202010290805128735466 component hetero_feature_selection_0 dependency hetero_feature_binning_0 status is True
+[INFO] [2020-10-29 08:05:24,258] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_binning_0 run on guest 9999 status is success
+[INFO] [2020-10-29 08:05:24,260] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_binning_0 run on host 10000 status is success
+[INFO] [2020-10-29 08:05:24,261] [6:140638279530240] - task_scheduler.py[line:370]: job 202010290805128735466 component hetero_feature_selection_0 dependency hetero_feature_binning_0 status is True
+[INFO] [2020-10-29 08:05:24,263] [6:140638279530240] - task_scheduler.py[line:290]: job 202010290805128735466 component hetero_feature_selection_0 dependencies status is True, job status is True
+[INFO] [2020-10-29 08:05:24,264] [6:140638279530240] - task_scheduler.py[line:219]: job 202010290805128735466 run component hetero_feature_selection_0
+[INFO] [2020-10-29 08:05:24,379] [6:140540940003072] - task_scheduler.py[line:420]: job 202010290805128735466 hetero_feature_selection_0 guest 9999 task subprocess is ready
+[WARNING] [2020-10-29 08:05:24,380] [6:140540940003072] - task_scheduler.py[line:433]: failed to get backend, set as 0
+[INFO] [2020-10-29 08:05:24,380] [6:140540940003072] - task_scheduler.py[line:486]: job 202010290805128735466 hetero_feature_selection_0 guest 9999 task subprocess start
+[INFO] [2020-10-29 08:05:24,387] [6:140540940003072] - task_scheduler.py[line:495]: job 202010290805128735466 component hetero_feature_selection_0 on guest 9999 start task subprocess success
+[INFO] [2020-10-29 08:05:24,395] [6:140540940003072] - task_scheduler.py[line:420]: job 202010290805128735466 hetero_feature_selection_0 host 10000 task subprocess is ready
+[WARNING] [2020-10-29 08:05:24,396] [6:140540940003072] - task_scheduler.py[line:433]: failed to get backend, set as 0
+[INFO] [2020-10-29 08:05:24,396] [6:140540940003072] - task_scheduler.py[line:486]: job 202010290805128735466 hetero_feature_selection_0 host 10000 task subprocess start
+[INFO] [2020-10-29 08:05:24,404] [6:140540940003072] - task_scheduler.py[line:495]: job 202010290805128735466 component hetero_feature_selection_0 on host 10000 start task subprocess success
+[INFO] [2020-10-29 08:05:24,410] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_selection_0 run on guest 9999 status is notRunning
+[INFO] [2020-10-29 08:05:24,412] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_selection_0 run on host 10000 status is notRunning
+[INFO] [2020-10-29 08:05:24,772] [2002:140122329179968] - session_utils.py[line:43]: start stop session 202010290805128735466_hetero_feature_binning_0_guest_9999
+[INFO] [2020-10-29 08:05:24,778] [2002:140122329179968] - session_utils.py[line:50]: stop session 202010290805128735466_hetero_feature_binning_0_guest_9999 success
+[INFO] [2020-10-29 08:05:24,800] [2006:139620805732160] - session_utils.py[line:43]: start stop session 202010290805128735466_hetero_feature_binning_0_host_10000
+[INFO] [2020-10-29 08:05:24,806] [2006:139620805732160] - session_utils.py[line:50]: stop session 202010290805128735466_hetero_feature_binning_0_host_10000 success
+[INFO] [2020-10-29 08:05:24,914] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_selection_0 run on guest 9999 status is notRunning
+[INFO] [2020-10-29 08:05:24,916] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_selection_0 run on host 10000 status is notRunning
+[INFO] [2020-10-29 08:05:25,164] [2017:139673151907648] - task_executor.py[line:52]: enter task process
+[INFO] [2020-10-29 08:05:25,164] [2017:139673151907648] - task_executor.py[line:53]: Namespace(component_name='hetero_feature_selection_0', config='/fate/jobs/202010290805128735466/host/10000/hetero_feature_selection_0/task_config.json', job_id='202010290805128735466', job_server='172.18.0.2:9380', party_id='10000', processors_per_node=1, role='host', task_id='202010290805128735466_hetero_feature_selection_0')
+[INFO] [2020-10-29 08:05:25,208] [2015:140144857028416] - task_executor.py[line:52]: enter task process
+[INFO] [2020-10-29 08:05:25,208] [2015:140144857028416] - task_executor.py[line:53]: Namespace(component_name='hetero_feature_selection_0', config='/fate/jobs/202010290805128735466/guest/9999/hetero_feature_selection_0/task_config.json', job_id='202010290805128735466', job_server='172.18.0.2:9380', party_id='9999', processors_per_node=1, role='guest', task_id='202010290805128735466_hetero_feature_selection_0')
+[INFO] [2020-10-29 08:05:25,390] [6:140540940003072] - job_controller.py[line:158]: job 202010290805128735466 component hetero_feature_selection_0 host 10000 status running
+[INFO] [2020-10-29 08:05:25,401] [6:140540940003072] - job_controller.py[line:158]: job 202010290805128735466 component hetero_feature_selection_0 host 10000 status running
+[INFO] [2020-10-29 08:05:25,420] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_selection_0 run on guest 9999 status is notRunning
+[INFO] [2020-10-29 08:05:25,423] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_selection_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:25,513] [6:140540940003072] - job_controller.py[line:158]: job 202010290805128735466 component hetero_feature_selection_0 guest 9999 status running
+[INFO] [2020-10-29 08:05:25,926] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_selection_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:25,928] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_selection_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:26,431] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_selection_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:26,433] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_selection_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:26,937] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_selection_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:26,939] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_selection_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:27,443] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_selection_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:27,445] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_selection_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:27,950] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_selection_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:27,952] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_selection_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:28,457] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_selection_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:28,459] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_selection_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:28,962] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_selection_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:28,964] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_selection_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:29,469] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_selection_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:29,471] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_selection_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:29,533] [2015:140144857028416] - tracking_manager.py[line:198]: persisting the component output temporary table: 202010290805128735466_hetero_feature_selection_0_guest_9999 82916450-19bd-11eb-b252-0242ac120002 to output_data_202010290805128735466_hetero_feature_selection_0 82916450-19bd-11eb-b252-0242ac120002
+[INFO] [2020-10-29 08:05:29,619] [6:140540940003072] - job_controller.py[line:158]: job 202010290805128735466 component hetero_feature_selection_0 guest 9999 status success
+[INFO] [2020-10-29 08:05:29,975] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_selection_0 run on guest 9999 status is success
+[INFO] [2020-10-29 08:05:29,978] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_selection_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:30,042] [2017:139673151907648] - tracking_manager.py[line:198]: persisting the component output temporary table: 202010290805128735466_hetero_feature_selection_0_host_10000 82df3d06-19bd-11eb-90f0-0242ac120002 to output_data_202010290805128735466_hetero_feature_selection_0 82df3d06-19bd-11eb-90f0-0242ac120002
+[INFO] [2020-10-29 08:05:30,129] [6:140540940003072] - job_controller.py[line:158]: job 202010290805128735466 component hetero_feature_selection_0 host 10000 status success
+[INFO] [2020-10-29 08:05:30,140] [6:140540940003072] - job_controller.py[line:158]: job 202010290805128735466 component hetero_feature_selection_0 host 10000 status success
+[INFO] [2020-10-29 08:05:30,482] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_selection_0 run on guest 9999 status is success
+[INFO] [2020-10-29 08:05:30,483] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_selection_0 run on host 10000 status is success
+[INFO] [2020-10-29 08:05:30,485] [6:140638279530240] - task_scheduler.py[line:264]: job 202010290805128735466 component hetero_feature_selection_0 run success
+[INFO] [2020-10-29 08:05:30,490] [6:140540940003072] - tracking_manager.py[line:329]: save guest 9999 job: {'f_name': '', 'f_description': '', 'f_tag': '', 'f_initiator_party_id': -1, 'f_is_initiator': -1, 'f_progress': 60.0, 'f_update_time': 1603958730487, 'f_current_tasks': '["202010290805128735466_hetero_feature_selection_0"]', 'f_role': 'guest', 'f_party_id': 9999, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:05:30,506] [6:140540940003072] - tracking_manager.py[line:329]: save host 10000 job: {'f_name': '', 'f_description': '', 'f_tag': '', 'f_initiator_party_id': -1, 'f_is_initiator': -1, 'f_progress': 60.0, 'f_update_time': 1603958730487, 'f_current_tasks': '["202010290805128735466_hetero_feature_selection_0"]', 'f_role': 'host', 'f_party_id': 10000, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:05:30,519] [6:140540940003072] - tracking_manager.py[line:329]: save arbiter 10000 job: {'f_name': '', 'f_description': '', 'f_tag': '', 'f_initiator_party_id': -1, 'f_is_initiator': -1, 'f_progress': 60.0, 'f_update_time': 1603958730487, 'f_current_tasks': '["202010290805128735466_hetero_feature_selection_0"]', 'f_role': 'arbiter', 'f_party_id': 10000, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:05:30,527] [6:140638279530240] - task_scheduler.py[line:596]: get stop job 202010290805128735466 hetero_feature_selection_0 command
+[INFO] [2020-10-29 08:05:30,533] [6:140540940003072] - job_controller.py[line:117]: guest 9999 get kill job 202010290805128735466 hetero_feature_selection_0 command
+[INFO] [2020-10-29 08:05:30,541] [6:140540940003072] - job_utils.py[line:396]: try to stop job 202010290805128735466 task 202010290805128735466_hetero_feature_selection_0 guest 9999 process pid:2015
+[INFO] [2020-10-29 08:05:30,541] [6:140540940003072] - job_utils.py[line:502]: start run subprocess to stop component hetero_feature_selection_0 session
+[INFO] [2020-10-29 08:05:30,547] [6:140540940003072] - job_controller.py[line:139]: job 202010290805128735466 component hetero_feature_selection_0 on guest 9999 process 2015 kill success
+[INFO] [2020-10-29 08:05:30,558] [6:140229272925952] - job_controller.py[line:158]: job 202010290805128735466 component hetero_feature_selection_0 guest 9999 status success
+[INFO] [2020-10-29 08:05:30,571] [6:140229272925952] - job_controller.py[line:158]: job 202010290805128735466 component hetero_feature_selection_0 guest 9999 status success
+[INFO] [2020-10-29 08:05:30,576] [6:140638279530240] - task_scheduler.py[line:639]: send guest 9999 kill job 202010290805128735466 hetero_feature_selection_0 command successfully
+[INFO] [2020-10-29 08:05:30,580] [6:140540940003072] - job_controller.py[line:117]: host 10000 get kill job 202010290805128735466 hetero_feature_selection_0 command
+[INFO] [2020-10-29 08:05:30,585] [6:140540940003072] - job_utils.py[line:396]: try to stop job 202010290805128735466 task 202010290805128735466_hetero_feature_selection_0 host 10000 process pid:2017
+[INFO] [2020-10-29 08:05:30,585] [6:140540940003072] - job_utils.py[line:502]: start run subprocess to stop component hetero_feature_selection_0 session
+[INFO] [2020-10-29 08:05:30,592] [6:140540940003072] - job_controller.py[line:139]: job 202010290805128735466 component hetero_feature_selection_0 on host 10000 process 2017 kill success
+[INFO] [2020-10-29 08:05:30,602] [6:140229272925952] - job_controller.py[line:158]: job 202010290805128735466 component hetero_feature_selection_0 host 10000 status success
+[INFO] [2020-10-29 08:05:30,615] [6:140229272925952] - job_controller.py[line:158]: job 202010290805128735466 component hetero_feature_selection_0 host 10000 status success
+[INFO] [2020-10-29 08:05:30,620] [6:140638279530240] - task_scheduler.py[line:639]: send host 10000 kill job 202010290805128735466 hetero_feature_selection_0 command successfully
+[INFO] [2020-10-29 08:05:30,623] [6:140540940003072] - job_controller.py[line:117]: arbiter 10000 get kill job 202010290805128735466 hetero_feature_selection_0 command
+[INFO] [2020-10-29 08:05:30,633] [6:140638279530240] - task_scheduler.py[line:639]: send arbiter 10000 kill job 202010290805128735466 hetero_feature_selection_0 command successfully
+[INFO] [2020-10-29 08:05:30,633] [6:140638279530240] - task_scheduler.py[line:278]: job 202010290805128735466 component hetero_feature_selection_0 next components is ['hetero_lr_0']
+[INFO] [2020-10-29 08:05:30,633] [6:140638279530240] - task_scheduler.py[line:282]: job 202010290805128735466 check component hetero_lr_0 dependencies status
+[INFO] [2020-10-29 08:05:30,635] [6:140638279530240] - task_scheduler.py[line:363]: job 202010290805128735466 component hetero_lr_0 all dependent component: [{'component_name': 'hetero_feature_selection_0', 'type': 'data'}]
+[INFO] [2020-10-29 08:05:30,638] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_selection_0 run on guest 9999 status is success
+[INFO] [2020-10-29 08:05:30,640] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_feature_selection_0 run on host 10000 status is success
+[INFO] [2020-10-29 08:05:30,640] [6:140638279530240] - task_scheduler.py[line:370]: job 202010290805128735466 component hetero_lr_0 dependency hetero_feature_selection_0 status is True
+[INFO] [2020-10-29 08:05:30,642] [6:140638279530240] - task_scheduler.py[line:290]: job 202010290805128735466 component hetero_lr_0 dependencies status is True, job status is True
+[INFO] [2020-10-29 08:05:30,643] [6:140638279530240] - task_scheduler.py[line:219]: job 202010290805128735466 run component hetero_lr_0
+[INFO] [2020-10-29 08:05:30,810] [6:140540940003072] - task_scheduler.py[line:420]: job 202010290805128735466 hetero_lr_0 guest 9999 task subprocess is ready
+[WARNING] [2020-10-29 08:05:30,810] [6:140540940003072] - task_scheduler.py[line:433]: failed to get backend, set as 0
+[INFO] [2020-10-29 08:05:30,811] [6:140540940003072] - task_scheduler.py[line:486]: job 202010290805128735466 hetero_lr_0 guest 9999 task subprocess start
+[INFO] [2020-10-29 08:05:30,817] [6:140540940003072] - task_scheduler.py[line:495]: job 202010290805128735466 component hetero_lr_0 on guest 9999 start task subprocess success
+[INFO] [2020-10-29 08:05:30,824] [6:140540940003072] - task_scheduler.py[line:420]: job 202010290805128735466 hetero_lr_0 host 10000 task subprocess is ready
+[WARNING] [2020-10-29 08:05:30,825] [6:140540940003072] - task_scheduler.py[line:433]: failed to get backend, set as 0
+[INFO] [2020-10-29 08:05:30,825] [6:140540940003072] - task_scheduler.py[line:486]: job 202010290805128735466 hetero_lr_0 host 10000 task subprocess start
+[INFO] [2020-10-29 08:05:30,832] [6:140540940003072] - task_scheduler.py[line:495]: job 202010290805128735466 component hetero_lr_0 on host 10000 start task subprocess success
+[INFO] [2020-10-29 08:05:30,840] [6:140540940003072] - task_scheduler.py[line:420]: job 202010290805128735466 hetero_lr_0 arbiter 10000 task subprocess is ready
+[WARNING] [2020-10-29 08:05:30,841] [6:140540940003072] - task_scheduler.py[line:433]: failed to get backend, set as 0
+[INFO] [2020-10-29 08:05:30,842] [6:140540940003072] - task_scheduler.py[line:486]: job 202010290805128735466 hetero_lr_0 arbiter 10000 task subprocess start
+[INFO] [2020-10-29 08:05:30,848] [6:140540940003072] - task_scheduler.py[line:495]: job 202010290805128735466 component hetero_lr_0 on arbiter 10000 start task subprocess success
+[INFO] [2020-10-29 08:05:30,855] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is notRunning
+[INFO] [2020-10-29 08:05:30,857] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is notRunning
+[INFO] [2020-10-29 08:05:30,859] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is notRunning
+[INFO] [2020-10-29 08:05:31,205] [2084:140124873275200] - session_utils.py[line:43]: start stop session 202010290805128735466_hetero_feature_selection_0_guest_9999
+[INFO] [2020-10-29 08:05:31,207] [2084:140124873275200] - session_utils.py[line:50]: stop session 202010290805128735466_hetero_feature_selection_0_guest_9999 success
+[INFO] [2020-10-29 08:05:31,218] [2088:140009237702464] - session_utils.py[line:43]: start stop session 202010290805128735466_hetero_feature_selection_0_host_10000
+[INFO] [2020-10-29 08:05:31,220] [2088:140009237702464] - session_utils.py[line:50]: stop session 202010290805128735466_hetero_feature_selection_0_host_10000 success
+[INFO] [2020-10-29 08:05:31,363] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is notRunning
+[INFO] [2020-10-29 08:05:31,365] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is notRunning
+[INFO] [2020-10-29 08:05:31,367] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is notRunning
+[INFO] [2020-10-29 08:05:31,769] [2098:140131801413440] - task_executor.py[line:52]: enter task process
+[INFO] [2020-10-29 08:05:31,770] [2098:140131801413440] - task_executor.py[line:53]: Namespace(component_name='hetero_lr_0', config='/fate/jobs/202010290805128735466/guest/9999/hetero_lr_0/task_config.json', job_id='202010290805128735466', job_server='172.18.0.2:9380', party_id='9999', processors_per_node=1, role='guest', task_id='202010290805128735466_hetero_lr_0')
+[INFO] [2020-10-29 08:05:31,814] [2100:140262250624832] - task_executor.py[line:52]: enter task process
+[INFO] [2020-10-29 08:05:31,814] [2100:140262250624832] - task_executor.py[line:53]: Namespace(component_name='hetero_lr_0', config='/fate/jobs/202010290805128735466/host/10000/hetero_lr_0/task_config.json', job_id='202010290805128735466', job_server='172.18.0.2:9380', party_id='10000', processors_per_node=1, role='host', task_id='202010290805128735466_hetero_lr_0')
+[INFO] [2020-10-29 08:05:31,841] [2102:140586892126016] - task_executor.py[line:52]: enter task process
+[INFO] [2020-10-29 08:05:31,841] [2102:140586892126016] - task_executor.py[line:53]: Namespace(component_name='hetero_lr_0', config='/fate/jobs/202010290805128735466/arbiter/10000/hetero_lr_0/task_config.json', job_id='202010290805128735466', job_server='172.18.0.2:9380', party_id='10000', processors_per_node=1, role='arbiter', task_id='202010290805128735466_hetero_lr_0')
+[INFO] [2020-10-29 08:05:31,871] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is notRunning
+[INFO] [2020-10-29 08:05:31,873] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is notRunning
+[INFO] [2020-10-29 08:05:31,875] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is notRunning
+[INFO] [2020-10-29 08:05:31,997] [6:140540940003072] - job_controller.py[line:158]: job 202010290805128735466 component hetero_lr_0 guest 9999 status running
+[INFO] [2020-10-29 08:05:32,015] [6:140540940003072] - job_controller.py[line:158]: job 202010290805128735466 component hetero_lr_0 host 10000 status running
+[INFO] [2020-10-29 08:05:32,026] [6:140540940003072] - job_controller.py[line:158]: job 202010290805128735466 component hetero_lr_0 host 10000 status running
+[INFO] [2020-10-29 08:05:32,115] [6:140540940003072] - job_controller.py[line:158]: job 202010290805128735466 component hetero_lr_0 arbiter 10000 status running
+[INFO] [2020-10-29 08:05:32,126] [6:140540940003072] - job_controller.py[line:158]: job 202010290805128735466 component hetero_lr_0 arbiter 10000 status running
+[INFO] [2020-10-29 08:05:32,379] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:32,382] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:32,385] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:32,890] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:32,893] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:32,895] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:33,398] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:33,401] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:33,405] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:33,908] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:33,911] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:33,913] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:34,417] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:34,420] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:34,422] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:34,927] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:34,929] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:34,931] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:35,435] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:35,437] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:35,439] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:35,943] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:35,945] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:35,948] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:36,451] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:36,452] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:36,454] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:36,958] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:36,961] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:36,963] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:37,467] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:37,470] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:37,472] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:37,976] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:37,978] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:37,981] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:38,485] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:38,487] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:38,490] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:38,994] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:38,996] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:38,997] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:39,503] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:39,506] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:39,509] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:40,014] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:40,016] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:40,018] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:40,522] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:40,524] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:40,526] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:41,031] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:41,033] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:41,035] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:41,539] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:41,542] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:41,544] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:42,048] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:42,050] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:42,052] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:42,557] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:42,559] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:42,561] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:43,065] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:43,067] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:43,070] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:43,573] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:43,575] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:43,577] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:44,081] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:44,085] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:44,088] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:44,591] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:44,593] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:44,594] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:45,098] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:45,101] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:45,103] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:45,607] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:45,609] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:45,613] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:46,116] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:46,118] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:46,121] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:46,624] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:46,626] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:46,629] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:47,132] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:47,134] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:47,136] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:47,640] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:47,643] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:47,645] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:48,148] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:48,151] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:48,153] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:48,657] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:48,659] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:48,662] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:49,165] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:49,167] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:49,169] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:49,673] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:49,676] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:49,678] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:50,182] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:50,184] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:50,186] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:50,690] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:50,692] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:50,694] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:51,197] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:51,199] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:51,201] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:51,705] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:51,707] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:51,709] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:52,078] [2102:140586892126016] - tracking_manager.py[line:127]: request save job 202010290805128735466 component hetero_lr_0 on arbiter 10000 train loss metric meta
+[INFO] [2020-10-29 08:05:52,083] [6:140540940003072] - tracking_manager.py[line:149]: save job 202010290805128735466 component hetero_lr_0 on arbiter 10000 train loss metric meta
+[INFO] [2020-10-29 08:05:52,092] [2102:140586892126016] - tracking_manager.py[line:75]: request save job 202010290805128735466 component hetero_lr_0 on arbiter 10000 train loss metric data
+[INFO] [2020-10-29 08:05:52,095] [6:140540940003072] - tracking_manager.py[line:96]: save job 202010290805128735466 component hetero_lr_0 on arbiter 10000 train loss metric data
+[INFO] [2020-10-29 08:05:52,213] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:52,215] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:52,217] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:52,723] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:52,725] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:52,727] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:53,231] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:53,233] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:53,235] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:53,739] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:53,741] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:53,743] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:54,247] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:54,249] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:54,251] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:54,755] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:54,757] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:54,759] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:55,262] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:55,264] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:55,266] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:55,771] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:55,773] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:55,775] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:56,015] [2102:140586892126016] - tracking_manager.py[line:127]: request save job 202010290805128735466 component hetero_lr_0 on arbiter 10000 train loss metric meta
+[INFO] [2020-10-29 08:05:56,022] [6:140540940003072] - tracking_manager.py[line:149]: save job 202010290805128735466 component hetero_lr_0 on arbiter 10000 train loss metric meta
+[INFO] [2020-10-29 08:05:56,031] [2102:140586892126016] - tracking_manager.py[line:75]: request save job 202010290805128735466 component hetero_lr_0 on arbiter 10000 train loss metric data
+[INFO] [2020-10-29 08:05:56,036] [6:140540940003072] - tracking_manager.py[line:96]: save job 202010290805128735466 component hetero_lr_0 on arbiter 10000 train loss metric data
+[INFO] [2020-10-29 08:05:56,279] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:56,282] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:56,284] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:56,788] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:56,790] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:56,792] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:57,295] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:57,297] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:57,299] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:57,803] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:57,805] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:57,807] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:58,311] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:58,313] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:58,317] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:58,822] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:58,824] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:58,828] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:59,332] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:59,334] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:59,336] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:05:59,840] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:05:59,842] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:05:59,844] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is running
+[INFO] [2020-10-29 08:06:00,256] [2102:140586892126016] - tracking_manager.py[line:127]: request save job 202010290805128735466 component hetero_lr_0 on arbiter 10000 train loss metric meta
+[INFO] [2020-10-29 08:06:00,260] [6:140540940003072] - tracking_manager.py[line:149]: save job 202010290805128735466 component hetero_lr_0 on arbiter 10000 train loss metric meta
+[INFO] [2020-10-29 08:06:00,269] [2102:140586892126016] - tracking_manager.py[line:75]: request save job 202010290805128735466 component hetero_lr_0 on arbiter 10000 train loss metric data
+[INFO] [2020-10-29 08:06:00,273] [6:140540940003072] - tracking_manager.py[line:96]: save job 202010290805128735466 component hetero_lr_0 on arbiter 10000 train loss metric data
+[INFO] [2020-10-29 08:06:00,329] [6:140540940003072] - job_controller.py[line:158]: job 202010290805128735466 component hetero_lr_0 arbiter 10000 status success
+[INFO] [2020-10-29 08:06:00,341] [6:140540940003072] - job_controller.py[line:158]: job 202010290805128735466 component hetero_lr_0 arbiter 10000 status success
+[INFO] [2020-10-29 08:06:00,347] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:06:00,350] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:06:00,354] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is success
+[INFO] [2020-10-29 08:06:00,482] [6:140540940003072] - job_controller.py[line:158]: job 202010290805128735466 component hetero_lr_0 host 10000 status success
+[INFO] [2020-10-29 08:06:00,494] [6:140540940003072] - job_controller.py[line:158]: job 202010290805128735466 component hetero_lr_0 host 10000 status success
+[INFO] [2020-10-29 08:06:00,568] [2098:140131801413440] - tracking_manager.py[line:198]: persisting the component output temporary table: 202010290805128735466_hetero_lr_0_guest_9999 95121110-19bd-11eb-9af3-0242ac120002 to output_data_202010290805128735466_hetero_lr_0 95121110-19bd-11eb-9af3-0242ac120002
+[INFO] [2020-10-29 08:06:00,697] [6:140540940003072] - job_controller.py[line:158]: job 202010290805128735466 component hetero_lr_0 guest 9999 status success
+[INFO] [2020-10-29 08:06:00,858] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is success
+[INFO] [2020-10-29 08:06:00,861] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is success
+[INFO] [2020-10-29 08:06:00,862] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is success
+[INFO] [2020-10-29 08:06:00,864] [6:140638279530240] - task_scheduler.py[line:264]: job 202010290805128735466 component hetero_lr_0 run success
+[INFO] [2020-10-29 08:06:00,872] [6:140540940003072] - tracking_manager.py[line:329]: save guest 9999 job: {'f_name': '', 'f_description': '', 'f_tag': '', 'f_initiator_party_id': -1, 'f_is_initiator': -1, 'f_progress': 80.0, 'f_update_time': 1603958760868, 'f_current_tasks': '["202010290805128735466_hetero_lr_0"]', 'f_role': 'guest', 'f_party_id': 9999, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:06:00,885] [6:140540940003072] - tracking_manager.py[line:329]: save host 10000 job: {'f_name': '', 'f_description': '', 'f_tag': '', 'f_initiator_party_id': -1, 'f_is_initiator': -1, 'f_progress': 80.0, 'f_update_time': 1603958760868, 'f_current_tasks': '["202010290805128735466_hetero_lr_0"]', 'f_role': 'host', 'f_party_id': 10000, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:06:00,899] [6:140540940003072] - tracking_manager.py[line:329]: save arbiter 10000 job: {'f_name': '', 'f_description': '', 'f_tag': '', 'f_initiator_party_id': -1, 'f_is_initiator': -1, 'f_progress': 80.0, 'f_update_time': 1603958760868, 'f_current_tasks': '["202010290805128735466_hetero_lr_0"]', 'f_role': 'arbiter', 'f_party_id': 10000, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:06:00,908] [6:140638279530240] - task_scheduler.py[line:596]: get stop job 202010290805128735466 hetero_lr_0 command
+[INFO] [2020-10-29 08:06:00,915] [6:140540940003072] - job_controller.py[line:117]: guest 9999 get kill job 202010290805128735466 hetero_lr_0 command
+[INFO] [2020-10-29 08:06:00,921] [6:140540940003072] - job_utils.py[line:396]: try to stop job 202010290805128735466 task 202010290805128735466_hetero_lr_0 guest 9999 process pid:2098
+[INFO] [2020-10-29 08:06:00,923] [6:140540940003072] - job_utils.py[line:502]: start run subprocess to stop component hetero_lr_0 session
+[INFO] [2020-10-29 08:06:00,931] [6:140540940003072] - job_controller.py[line:139]: job 202010290805128735466 component hetero_lr_0 on guest 9999 process 2098 kill success
+[INFO] [2020-10-29 08:06:00,943] [6:140229272925952] - job_controller.py[line:158]: job 202010290805128735466 component hetero_lr_0 guest 9999 status success
+[INFO] [2020-10-29 08:06:00,955] [6:140229272925952] - job_controller.py[line:158]: job 202010290805128735466 component hetero_lr_0 guest 9999 status success
+[INFO] [2020-10-29 08:06:00,961] [6:140638279530240] - task_scheduler.py[line:639]: send guest 9999 kill job 202010290805128735466 hetero_lr_0 command successfully
+[INFO] [2020-10-29 08:06:00,964] [6:140540940003072] - job_controller.py[line:117]: host 10000 get kill job 202010290805128735466 hetero_lr_0 command
+[INFO] [2020-10-29 08:06:00,969] [6:140540940003072] - job_utils.py[line:396]: try to stop job 202010290805128735466 task 202010290805128735466_hetero_lr_0 host 10000 process pid:2100
+[INFO] [2020-10-29 08:06:00,970] [6:140540940003072] - job_utils.py[line:502]: start run subprocess to stop component hetero_lr_0 session
+[INFO] [2020-10-29 08:06:00,976] [6:140540940003072] - job_controller.py[line:139]: job 202010290805128735466 component hetero_lr_0 on host 10000 process 2100 kill success
+[INFO] [2020-10-29 08:06:00,989] [6:140229272925952] - job_controller.py[line:158]: job 202010290805128735466 component hetero_lr_0 host 10000 status success
+[INFO] [2020-10-29 08:06:01,002] [6:140229272925952] - job_controller.py[line:158]: job 202010290805128735466 component hetero_lr_0 host 10000 status success
+[INFO] [2020-10-29 08:06:01,007] [6:140638279530240] - task_scheduler.py[line:639]: send host 10000 kill job 202010290805128735466 hetero_lr_0 command successfully
+[INFO] [2020-10-29 08:06:01,010] [6:140540940003072] - job_controller.py[line:117]: arbiter 10000 get kill job 202010290805128735466 hetero_lr_0 command
+[INFO] [2020-10-29 08:06:01,015] [6:140540940003072] - job_utils.py[line:396]: try to stop job 202010290805128735466 task 202010290805128735466_hetero_lr_0 arbiter 10000 process pid:2102
+[INFO] [2020-10-29 08:06:01,016] [6:140540940003072] - job_utils.py[line:502]: start run subprocess to stop component hetero_lr_0 session
+[INFO] [2020-10-29 08:06:01,022] [6:140540940003072] - job_controller.py[line:139]: job 202010290805128735466 component hetero_lr_0 on arbiter 10000 process 2102 kill success
+[INFO] [2020-10-29 08:06:01,033] [6:140229272925952] - job_controller.py[line:158]: job 202010290805128735466 component hetero_lr_0 arbiter 10000 status success
+[INFO] [2020-10-29 08:06:01,047] [6:140229272925952] - job_controller.py[line:158]: job 202010290805128735466 component hetero_lr_0 arbiter 10000 status success
+[INFO] [2020-10-29 08:06:01,053] [6:140638279530240] - task_scheduler.py[line:639]: send arbiter 10000 kill job 202010290805128735466 hetero_lr_0 command successfully
+[INFO] [2020-10-29 08:06:01,053] [6:140638279530240] - task_scheduler.py[line:278]: job 202010290805128735466 component hetero_lr_0 next components is ['evaluation_0']
+[INFO] [2020-10-29 08:06:01,053] [6:140638279530240] - task_scheduler.py[line:282]: job 202010290805128735466 check component evaluation_0 dependencies status
+[INFO] [2020-10-29 08:06:01,056] [6:140638279530240] - task_scheduler.py[line:363]: job 202010290805128735466 component evaluation_0 all dependent component: [{'component_name': 'hetero_lr_0', 'type': 'data'}]
+[INFO] [2020-10-29 08:06:01,058] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on guest 9999 status is success
+[INFO] [2020-10-29 08:06:01,061] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on host 10000 status is success
+[INFO] [2020-10-29 08:06:01,063] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component hetero_lr_0 run on arbiter 10000 status is success
+[INFO] [2020-10-29 08:06:01,063] [6:140638279530240] - task_scheduler.py[line:370]: job 202010290805128735466 component evaluation_0 dependency hetero_lr_0 status is True
+[INFO] [2020-10-29 08:06:01,066] [6:140638279530240] - task_scheduler.py[line:290]: job 202010290805128735466 component evaluation_0 dependencies status is True, job status is True
+[INFO] [2020-10-29 08:06:01,066] [6:140638279530240] - task_scheduler.py[line:219]: job 202010290805128735466 run component evaluation_0
+[INFO] [2020-10-29 08:06:01,172] [6:140540940003072] - task_scheduler.py[line:420]: job 202010290805128735466 evaluation_0 guest 9999 task subprocess is ready
+[WARNING] [2020-10-29 08:06:01,173] [6:140540940003072] - task_scheduler.py[line:433]: failed to get backend, set as 0
+[INFO] [2020-10-29 08:06:01,173] [6:140540940003072] - task_scheduler.py[line:486]: job 202010290805128735466 evaluation_0 guest 9999 task subprocess start
+[INFO] [2020-10-29 08:06:01,180] [6:140540940003072] - task_scheduler.py[line:495]: job 202010290805128735466 component evaluation_0 on guest 9999 start task subprocess success
+[INFO] [2020-10-29 08:06:01,190] [6:140540940003072] - task_scheduler.py[line:420]: job 202010290805128735466 evaluation_0 host 10000 task subprocess is ready
+[WARNING] [2020-10-29 08:06:01,191] [6:140540940003072] - task_scheduler.py[line:433]: failed to get backend, set as 0
+[INFO] [2020-10-29 08:06:01,191] [6:140540940003072] - task_scheduler.py[line:486]: job 202010290805128735466 evaluation_0 host 10000 task subprocess start
+[INFO] [2020-10-29 08:06:01,198] [6:140540940003072] - task_scheduler.py[line:495]: job 202010290805128735466 component evaluation_0 on host 10000 start task subprocess success
+[INFO] [2020-10-29 08:06:01,205] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component evaluation_0 run on guest 9999 status is notRunning
+[INFO] [2020-10-29 08:06:01,207] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component evaluation_0 run on host 10000 status is notRunning
+[INFO] [2020-10-29 08:06:01,544] [2218:140360297912128] - session_utils.py[line:43]: start stop session 202010290805128735466_hetero_lr_0_host_10000
+[INFO] [2020-10-29 08:06:01,559] [2214:140705291536192] - session_utils.py[line:43]: start stop session 202010290805128735466_hetero_lr_0_guest_9999
+[INFO] [2020-10-29 08:06:01,572] [2218:140360297912128] - session_utils.py[line:50]: stop session 202010290805128735466_hetero_lr_0_host_10000 success
+[INFO] [2020-10-29 08:06:01,608] [2214:140705291536192] - session_utils.py[line:50]: stop session 202010290805128735466_hetero_lr_0_guest_9999 success
+[INFO] [2020-10-29 08:06:01,710] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component evaluation_0 run on guest 9999 status is notRunning
+[INFO] [2020-10-29 08:06:01,712] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component evaluation_0 run on host 10000 status is notRunning
+[INFO] [2020-10-29 08:06:01,712] [2222:140581894477632] - session_utils.py[line:43]: start stop session 202010290805128735466_hetero_lr_0_arbiter_10000
+[INFO] [2020-10-29 08:06:01,712] [2222:140581894477632] - session_utils.py[line:50]: stop session 202010290805128735466_hetero_lr_0_arbiter_10000 success
+[INFO] [2020-10-29 08:06:02,117] [2231:139783621506880] - task_executor.py[line:52]: enter task process
+[INFO] [2020-10-29 08:06:02,117] [2231:139783621506880] - task_executor.py[line:53]: Namespace(component_name='evaluation_0', config='/fate/jobs/202010290805128735466/guest/9999/evaluation_0/task_config.json', job_id='202010290805128735466', job_server='172.18.0.2:9380', party_id='9999', processors_per_node=1, role='guest', task_id='202010290805128735466_evaluation_0')
+[INFO] [2020-10-29 08:06:02,131] [2233:140187704457024] - task_executor.py[line:52]: enter task process
+[INFO] [2020-10-29 08:06:02,131] [2233:140187704457024] - task_executor.py[line:53]: Namespace(component_name='evaluation_0', config='/fate/jobs/202010290805128735466/host/10000/evaluation_0/task_config.json', job_id='202010290805128735466', job_server='172.18.0.2:9380', party_id='10000', processors_per_node=1, role='host', task_id='202010290805128735466_evaluation_0')
+[INFO] [2020-10-29 08:06:02,215] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component evaluation_0 run on guest 9999 status is notRunning
+[INFO] [2020-10-29 08:06:02,218] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component evaluation_0 run on host 10000 status is notRunning
+[INFO] [2020-10-29 08:06:02,308] [6:140540940003072] - job_controller.py[line:158]: job 202010290805128735466 component evaluation_0 host 10000 status running
+[INFO] [2020-10-29 08:06:02,311] [6:140229272925952] - job_controller.py[line:158]: job 202010290805128735466 component evaluation_0 guest 9999 status running
+[INFO] [2020-10-29 08:06:02,319] [6:140540940003072] - job_controller.py[line:158]: job 202010290805128735466 component evaluation_0 host 10000 status running
+[INFO] [2020-10-29 08:06:02,721] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component evaluation_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:06:02,723] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component evaluation_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:06:03,227] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component evaluation_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:06:03,229] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component evaluation_0 run on host 10000 status is running
+[INFO] [2020-10-29 08:06:03,478] [2231:139783621506880] - tracking_manager.py[line:75]: request save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0 metric data
+[INFO] [2020-10-29 08:06:03,481] [6:140540940003072] - tracking_manager.py[line:96]: save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0 metric data
+[INFO] [2020-10-29 08:06:03,490] [2231:139783621506880] - tracking_manager.py[line:127]: request save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0 metric meta
+[INFO] [2020-10-29 08:06:03,493] [6:140540940003072] - tracking_manager.py[line:149]: save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0 metric meta
+[INFO] [2020-10-29 08:06:03,502] [2231:139783621506880] - tracking_manager.py[line:75]: request save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0 metric data
+[INFO] [2020-10-29 08:06:03,506] [6:140540940003072] - tracking_manager.py[line:96]: save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0 metric data
+[INFO] [2020-10-29 08:06:03,517] [6:140229272925952] - job_controller.py[line:158]: job 202010290805128735466 component evaluation_0 host 10000 status success
+[INFO] [2020-10-29 08:06:03,517] [2231:139783621506880] - tracking_manager.py[line:127]: request save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0 metric meta
+[INFO] [2020-10-29 08:06:03,520] [6:140229272925952] - tracking_manager.py[line:149]: save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0 metric meta
+[INFO] [2020-10-29 08:06:03,531] [6:140540940003072] - job_controller.py[line:158]: job 202010290805128735466 component evaluation_0 host 10000 status success
+[INFO] [2020-10-29 08:06:03,533] [2231:139783621506880] - tracking_manager.py[line:75]: request save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0_ks_fpr metric data
+[INFO] [2020-10-29 08:06:03,541] [6:140540940003072] - tracking_manager.py[line:96]: save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0_ks_fpr metric data
+[INFO] [2020-10-29 08:06:03,578] [2231:139783621506880] - tracking_manager.py[line:127]: request save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0_ks_fpr metric meta
+[INFO] [2020-10-29 08:06:03,582] [6:140540940003072] - tracking_manager.py[line:149]: save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0_ks_fpr metric meta
+[INFO] [2020-10-29 08:06:03,594] [2231:139783621506880] - tracking_manager.py[line:75]: request save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0_ks_tpr metric data
+[INFO] [2020-10-29 08:06:03,602] [6:140540940003072] - tracking_manager.py[line:96]: save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0_ks_tpr metric data
+[INFO] [2020-10-29 08:06:03,633] [2231:139783621506880] - tracking_manager.py[line:127]: request save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0_ks_tpr metric meta
+[INFO] [2020-10-29 08:06:03,636] [6:140540940003072] - tracking_manager.py[line:149]: save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0_ks_tpr metric meta
+[INFO] [2020-10-29 08:06:03,648] [2231:139783621506880] - tracking_manager.py[line:75]: request save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0_lift metric data
+[INFO] [2020-10-29 08:06:03,656] [6:140540940003072] - tracking_manager.py[line:96]: save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0_lift metric data
+[INFO] [2020-10-29 08:06:03,691] [2231:139783621506880] - tracking_manager.py[line:127]: request save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0_lift metric meta
+[INFO] [2020-10-29 08:06:03,694] [6:140540940003072] - tracking_manager.py[line:149]: save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0_lift metric meta
+[INFO] [2020-10-29 08:06:03,706] [2231:139783621506880] - tracking_manager.py[line:75]: request save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0_gain metric data
+[INFO] [2020-10-29 08:06:03,713] [6:140540940003072] - tracking_manager.py[line:96]: save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0_gain metric data
+[INFO] [2020-10-29 08:06:03,740] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component evaluation_0 run on guest 9999 status is running
+[INFO] [2020-10-29 08:06:03,748] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component evaluation_0 run on host 10000 status is success
+[INFO] [2020-10-29 08:06:03,755] [2231:139783621506880] - tracking_manager.py[line:127]: request save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0_gain metric meta
+[INFO] [2020-10-29 08:06:03,760] [6:140540940003072] - tracking_manager.py[line:149]: save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0_gain metric meta
+[INFO] [2020-10-29 08:06:03,776] [2231:139783621506880] - tracking_manager.py[line:75]: request save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0_accuracy metric data
+[INFO] [2020-10-29 08:06:03,794] [6:140540940003072] - tracking_manager.py[line:96]: save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0_accuracy metric data
+[INFO] [2020-10-29 08:06:03,822] [2231:139783621506880] - tracking_manager.py[line:127]: request save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0_accuracy metric meta
+[INFO] [2020-10-29 08:06:03,824] [6:140540940003072] - tracking_manager.py[line:149]: save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0_accuracy metric meta
+[INFO] [2020-10-29 08:06:03,835] [2231:139783621506880] - tracking_manager.py[line:75]: request save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0_precision metric data
+[INFO] [2020-10-29 08:06:03,842] [6:140540940003072] - tracking_manager.py[line:96]: save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0_precision metric data
+[INFO] [2020-10-29 08:06:03,869] [2231:139783621506880] - tracking_manager.py[line:127]: request save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0_precision metric meta
+[INFO] [2020-10-29 08:06:03,873] [6:140540940003072] - tracking_manager.py[line:149]: save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0_precision metric meta
+[INFO] [2020-10-29 08:06:03,883] [2231:139783621506880] - tracking_manager.py[line:75]: request save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0_recall metric data
+[INFO] [2020-10-29 08:06:03,888] [6:140540940003072] - tracking_manager.py[line:96]: save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0_recall metric data
+[INFO] [2020-10-29 08:06:03,915] [2231:139783621506880] - tracking_manager.py[line:127]: request save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0_recall metric meta
+[INFO] [2020-10-29 08:06:03,919] [6:140540940003072] - tracking_manager.py[line:149]: save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0_recall metric meta
+[INFO] [2020-10-29 08:06:03,931] [2231:139783621506880] - tracking_manager.py[line:75]: request save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0_roc metric data
+[INFO] [2020-10-29 08:06:03,937] [6:140540940003072] - tracking_manager.py[line:96]: save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0_roc metric data
+[INFO] [2020-10-29 08:06:03,965] [2231:139783621506880] - tracking_manager.py[line:127]: request save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0_roc metric meta
+[INFO] [2020-10-29 08:06:03,969] [6:140540940003072] - tracking_manager.py[line:149]: save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0_roc metric meta
+[INFO] [2020-10-29 08:06:03,978] [2231:139783621506880] - tracking_manager.py[line:127]: request save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0_confusion_mat metric meta
+[INFO] [2020-10-29 08:06:03,982] [6:140540940003072] - tracking_manager.py[line:149]: save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0_confusion_mat metric meta
+[INFO] [2020-10-29 08:06:03,991] [2231:139783621506880] - tracking_manager.py[line:127]: request save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0_f1_score metric meta
+[INFO] [2020-10-29 08:06:03,995] [6:140540940003072] - tracking_manager.py[line:149]: save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0_f1_score metric meta
+[INFO] [2020-10-29 08:06:04,005] [2231:139783621506880] - tracking_manager.py[line:127]: request save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0_quantile_pr metric meta
+[INFO] [2020-10-29 08:06:04,010] [6:140540940003072] - tracking_manager.py[line:149]: save job 202010290805128735466 component evaluation_0 on guest 9999 train hetero_lr_0_quantile_pr metric meta
+[INFO] [2020-10-29 08:06:04,043] [6:140540940003072] - job_controller.py[line:158]: job 202010290805128735466 component evaluation_0 guest 9999 status success
+[INFO] [2020-10-29 08:06:04,253] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component evaluation_0 run on guest 9999 status is success
+[INFO] [2020-10-29 08:06:04,256] [6:140638279530240] - task_scheduler.py[line:394]: job 202010290805128735466 component evaluation_0 run on host 10000 status is success
+[INFO] [2020-10-29 08:06:04,259] [6:140638279530240] - task_scheduler.py[line:264]: job 202010290805128735466 component evaluation_0 run success
+[INFO] [2020-10-29 08:06:04,271] [6:140540940003072] - tracking_manager.py[line:329]: save guest 9999 job: {'f_name': '', 'f_description': '', 'f_tag': '', 'f_initiator_party_id': -1, 'f_is_initiator': -1, 'f_progress': 100.0, 'f_update_time': 1603958764266, 'f_current_tasks': '["202010290805128735466_evaluation_0"]', 'f_role': 'guest', 'f_party_id': 9999, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:06:04,283] [6:140540940003072] - tracking_manager.py[line:329]: save host 10000 job: {'f_name': '', 'f_description': '', 'f_tag': '', 'f_initiator_party_id': -1, 'f_is_initiator': -1, 'f_progress': 100.0, 'f_update_time': 1603958764266, 'f_current_tasks': '["202010290805128735466_evaluation_0"]', 'f_role': 'host', 'f_party_id': 10000, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:06:04,294] [6:140540940003072] - tracking_manager.py[line:329]: save arbiter 10000 job: {'f_name': '', 'f_description': '', 'f_tag': '', 'f_initiator_party_id': -1, 'f_is_initiator': -1, 'f_progress': 100.0, 'f_update_time': 1603958764266, 'f_current_tasks': '["202010290805128735466_evaluation_0"]', 'f_role': 'arbiter', 'f_party_id': 10000, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:06:04,304] [6:140638279530240] - task_scheduler.py[line:596]: get stop job 202010290805128735466 evaluation_0 command
+[INFO] [2020-10-29 08:06:04,310] [6:140540940003072] - job_controller.py[line:117]: guest 9999 get kill job 202010290805128735466 evaluation_0 command
+[INFO] [2020-10-29 08:06:04,315] [6:140540940003072] - job_utils.py[line:396]: try to stop job 202010290805128735466 task 202010290805128735466_evaluation_0 guest 9999 process pid:2231
+[WARNING] [2020-10-29 08:06:04,316] [6:140540940003072] - job_utils.py[line:401]: this pid 2231 is not task executor
+[INFO] [2020-10-29 08:06:04,316] [6:140540940003072] - job_utils.py[line:502]: start run subprocess to stop component evaluation_0 session
+[INFO] [2020-10-29 08:06:04,323] [6:140540940003072] - job_controller.py[line:139]: job 202010290805128735466 component evaluation_0 on guest 9999 process 2231 kill failed
+[INFO] [2020-10-29 08:06:04,336] [6:140229272925952] - job_controller.py[line:158]: job 202010290805128735466 component evaluation_0 guest 9999 status success
+[INFO] [2020-10-29 08:06:04,349] [6:140229272925952] - job_controller.py[line:158]: job 202010290805128735466 component evaluation_0 guest 9999 status success
+[INFO] [2020-10-29 08:06:04,355] [6:140638279530240] - task_scheduler.py[line:639]: send guest 9999 kill job 202010290805128735466 evaluation_0 command successfully
+[INFO] [2020-10-29 08:06:04,358] [6:140540940003072] - job_controller.py[line:117]: host 10000 get kill job 202010290805128735466 evaluation_0 command
+[INFO] [2020-10-29 08:06:04,363] [6:140540940003072] - job_utils.py[line:396]: try to stop job 202010290805128735466 task 202010290805128735466_evaluation_0 host 10000 process pid:2233
+[INFO] [2020-10-29 08:06:04,363] [6:140540940003072] - job_utils.py[line:502]: start run subprocess to stop component evaluation_0 session
+[INFO] [2020-10-29 08:06:04,370] [6:140540940003072] - job_controller.py[line:139]: job 202010290805128735466 component evaluation_0 on host 10000 process 2233 kill success
+[INFO] [2020-10-29 08:06:04,382] [6:140229272925952] - job_controller.py[line:158]: job 202010290805128735466 component evaluation_0 host 10000 status success
+[INFO] [2020-10-29 08:06:04,394] [6:140229272925952] - job_controller.py[line:158]: job 202010290805128735466 component evaluation_0 host 10000 status success
+[INFO] [2020-10-29 08:06:04,401] [6:140638279530240] - task_scheduler.py[line:639]: send host 10000 kill job 202010290805128735466 evaluation_0 command successfully
+[INFO] [2020-10-29 08:06:04,405] [6:140540940003072] - job_controller.py[line:117]: arbiter 10000 get kill job 202010290805128735466 evaluation_0 command
+[INFO] [2020-10-29 08:06:04,412] [6:140638279530240] - task_scheduler.py[line:639]: send arbiter 10000 kill job 202010290805128735466 evaluation_0 command successfully
+[INFO] [2020-10-29 08:06:04,412] [6:140638279530240] - task_scheduler.py[line:278]: job 202010290805128735466 component evaluation_0 next components is []
+[INFO] [2020-10-29 08:06:04,416] [6:140540940003072] - job_controller.py[line:238]: job 202010290805128735466 on guest 9999 start to save pipeline
+[INFO] [2020-10-29 08:06:04,447] [6:140540940003072] - job_controller.py[line:259]: job 202010290805128735466 on guest 9999 save pipeline successfully
+[INFO] [2020-10-29 08:06:04,453] [6:140540940003072] - job_controller.py[line:263]: job 202010290805128735466 on guest 9999 start to clean
+[INFO] [2020-10-29 08:06:04,501] [6:140540940003072] - tracking_manager.py[line:452]: clean task 202010290805128735466_dataio_0 on guest 9999
+[INFO] [2020-10-29 08:06:04,501] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_dataio_0_guest_9999 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,501] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_dataio_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,501] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_dataio_0_guest_10000 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,501] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_dataio_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,502] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_dataio_0_guest_10000 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,502] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_dataio_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,502] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_dataio_0_host_9999 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,502] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_dataio_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,502] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_dataio_0_host_10000 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,502] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_dataio_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,502] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_dataio_0_host_10000 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,502] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_dataio_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,502] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_dataio_0_arbiter_9999 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,502] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_dataio_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,502] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_dataio_0_arbiter_10000 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,502] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_dataio_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,502] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_dataio_0_arbiter_10000 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,503] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_dataio_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,503] [6:140540940003072] - tracking_manager.py[line:475]: clean task 202010290805128735466_dataio_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,503] [6:140540940003072] - job_controller.py[line:269]: job 202010290805128735466 component dataio_0 on guest 9999 clean done
+[INFO] [2020-10-29 08:06:04,546] [6:140540940003072] - tracking_manager.py[line:452]: clean task 202010290805128735466_hetero_feature_binning_0 on guest 9999
+[INFO] [2020-10-29 08:06:04,547] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_feature_binning_0_guest_9999 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,547] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_feature_binning_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,547] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_feature_binning_0_guest_10000 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,547] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_feature_binning_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,547] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_feature_binning_0_guest_10000 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,547] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_feature_binning_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,547] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_feature_binning_0_host_9999 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,547] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_feature_binning_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,547] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_feature_binning_0_host_10000 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,548] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_feature_binning_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,548] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_feature_binning_0_host_10000 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,548] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_feature_binning_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,548] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_feature_binning_0_arbiter_9999 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,548] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_feature_binning_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,548] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_feature_binning_0_arbiter_10000 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,548] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_feature_binning_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,548] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_feature_binning_0_arbiter_10000 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,548] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_feature_binning_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,548] [6:140540940003072] - tracking_manager.py[line:475]: clean task 202010290805128735466_hetero_feature_binning_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,548] [6:140540940003072] - job_controller.py[line:269]: job 202010290805128735466 component hetero_feature_binning_0 on guest 9999 clean done
+[INFO] [2020-10-29 08:06:04,592] [6:140540940003072] - tracking_manager.py[line:452]: clean task 202010290805128735466_hetero_feature_selection_0 on guest 9999
+[INFO] [2020-10-29 08:06:04,593] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_feature_selection_0_guest_9999 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,593] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_feature_selection_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,593] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_feature_selection_0_guest_10000 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,593] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_feature_selection_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,593] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_feature_selection_0_guest_10000 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,593] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_feature_selection_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,593] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_feature_selection_0_host_9999 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,593] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_feature_selection_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,593] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_feature_selection_0_host_10000 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,593] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_feature_selection_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,593] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_feature_selection_0_host_10000 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,593] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_feature_selection_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,594] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_feature_selection_0_arbiter_9999 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,594] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_feature_selection_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,594] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_feature_selection_0_arbiter_10000 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,594] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_feature_selection_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,594] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_feature_selection_0_arbiter_10000 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,594] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_feature_selection_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,594] [6:140540940003072] - tracking_manager.py[line:475]: clean task 202010290805128735466_hetero_feature_selection_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,594] [6:140540940003072] - job_controller.py[line:269]: job 202010290805128735466 component hetero_feature_selection_0 on guest 9999 clean done
+[INFO] [2020-10-29 08:06:04,640] [6:140540940003072] - tracking_manager.py[line:452]: clean task 202010290805128735466_hetero_lr_0 on guest 9999
+[INFO] [2020-10-29 08:06:04,641] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_lr_0_guest_9999 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,641] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_lr_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,641] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_lr_0_guest_10000 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,641] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_lr_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,641] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_lr_0_guest_10000 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,641] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_lr_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,641] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_lr_0_host_9999 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,641] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_lr_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,642] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_lr_0_host_10000 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,642] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_lr_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,643] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_lr_0_host_10000 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,643] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_lr_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,643] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_lr_0_arbiter_9999 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,643] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_lr_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,643] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_lr_0_arbiter_10000 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,643] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_lr_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,643] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_lr_0_arbiter_10000 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,643] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_lr_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,643] [6:140540940003072] - tracking_manager.py[line:475]: clean task 202010290805128735466_hetero_lr_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,643] [6:140540940003072] - job_controller.py[line:269]: job 202010290805128735466 component hetero_lr_0 on guest 9999 clean done
+[INFO] [2020-10-29 08:06:04,685] [6:140540940003072] - tracking_manager.py[line:452]: clean task 202010290805128735466_evaluation_0 on guest 9999
+[INFO] [2020-10-29 08:06:04,685] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_evaluation_0_guest_9999 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,685] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_evaluation_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,685] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_evaluation_0_guest_10000 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,686] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_evaluation_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,686] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_evaluation_0_guest_10000 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,686] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_evaluation_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,686] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_evaluation_0_host_9999 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,686] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_evaluation_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,686] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_evaluation_0_host_10000 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,686] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_evaluation_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,686] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_evaluation_0_host_10000 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,686] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_evaluation_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,686] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_evaluation_0_arbiter_9999 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,686] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_evaluation_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,686] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_evaluation_0_arbiter_10000 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,686] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_evaluation_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,686] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_evaluation_0_arbiter_10000 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,686] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_evaluation_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,687] [6:140540940003072] - tracking_manager.py[line:475]: clean task 202010290805128735466_evaluation_0 on guest 9999 done
+[INFO] [2020-10-29 08:06:04,687] [6:140540940003072] - job_controller.py[line:269]: job 202010290805128735466 component evaluation_0 on guest 9999 clean done
+[INFO] [2020-10-29 08:06:04,687] [6:140540940003072] - job_controller.py[line:274]: job 202010290805128735466 on guest 9999 clean done
+[INFO] [2020-10-29 08:06:04,693] [6:140540940003072] - job_controller.py[line:238]: job 202010290805128735466 on host 10000 start to save pipeline
+[INFO] [2020-10-29 08:06:04,730] [6:140540940003072] - job_controller.py[line:259]: job 202010290805128735466 on host 10000 save pipeline successfully
+[INFO] [2020-10-29 08:06:04,737] [6:140540940003072] - job_controller.py[line:263]: job 202010290805128735466 on host 10000 start to clean
+[INFO] [2020-10-29 08:06:04,815] [6:140540940003072] - tracking_manager.py[line:452]: clean task 202010290805128735466_dataio_0 on host 10000
+[INFO] [2020-10-29 08:06:04,815] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_dataio_0_guest_9999 on host 10000 done
+[INFO] [2020-10-29 08:06:04,816] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_dataio_0 on host 10000 done
+[INFO] [2020-10-29 08:06:04,816] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_dataio_0_guest_10000 on host 10000 done
+[INFO] [2020-10-29 08:06:04,816] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_dataio_0 on host 10000 done
+[INFO] [2020-10-29 08:06:04,816] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_dataio_0_guest_10000 on host 10000 done
+[INFO] [2020-10-29 08:06:04,816] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_dataio_0 on host 10000 done
+[INFO] [2020-10-29 08:06:04,816] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_dataio_0_host_9999 on host 10000 done
+[INFO] [2020-10-29 08:06:04,816] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_dataio_0 on host 10000 done
+[INFO] [2020-10-29 08:06:04,816] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_dataio_0_host_10000 on host 10000 done
+[INFO] [2020-10-29 08:06:04,816] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_dataio_0 on host 10000 done
+[INFO] [2020-10-29 08:06:04,816] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_dataio_0_host_10000 on host 10000 done
+[INFO] [2020-10-29 08:06:04,816] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_dataio_0 on host 10000 done
+[INFO] [2020-10-29 08:06:04,817] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_dataio_0_arbiter_9999 on host 10000 done
+[INFO] [2020-10-29 08:06:04,817] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_dataio_0 on host 10000 done
+[INFO] [2020-10-29 08:06:04,817] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_dataio_0_arbiter_10000 on host 10000 done
+[INFO] [2020-10-29 08:06:04,817] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_dataio_0 on host 10000 done
+[INFO] [2020-10-29 08:06:04,817] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_dataio_0_arbiter_10000 on host 10000 done
+[INFO] [2020-10-29 08:06:04,817] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_dataio_0 on host 10000 done
+[INFO] [2020-10-29 08:06:04,817] [6:140540940003072] - tracking_manager.py[line:475]: clean task 202010290805128735466_dataio_0 on host 10000 done
+[INFO] [2020-10-29 08:06:04,817] [6:140540940003072] - job_controller.py[line:269]: job 202010290805128735466 component dataio_0 on host 10000 clean done
+[INFO] [2020-10-29 08:06:04,879] [6:140540940003072] - tracking_manager.py[line:452]: clean task 202010290805128735466_hetero_feature_binning_0 on host 10000
+[INFO] [2020-10-29 08:06:04,879] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_feature_binning_0_guest_9999 on host 10000 done
+[INFO] [2020-10-29 08:06:04,879] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_feature_binning_0 on host 10000 done
+[INFO] [2020-10-29 08:06:04,879] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_feature_binning_0_guest_10000 on host 10000 done
+[INFO] [2020-10-29 08:06:04,879] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_feature_binning_0 on host 10000 done
+[INFO] [2020-10-29 08:06:04,880] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_feature_binning_0_guest_10000 on host 10000 done
+[INFO] [2020-10-29 08:06:04,880] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_feature_binning_0 on host 10000 done
+[INFO] [2020-10-29 08:06:04,880] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_feature_binning_0_host_9999 on host 10000 done
+[INFO] [2020-10-29 08:06:04,880] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_feature_binning_0 on host 10000 done
+[INFO] [2020-10-29 08:06:04,880] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_feature_binning_0_host_10000 on host 10000 done
+[INFO] [2020-10-29 08:06:04,880] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_feature_binning_0 on host 10000 done
+[INFO] [2020-10-29 08:06:04,880] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_feature_binning_0_host_10000 on host 10000 done
+[INFO] [2020-10-29 08:06:04,880] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_feature_binning_0 on host 10000 done
+[INFO] [2020-10-29 08:06:04,880] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_feature_binning_0_arbiter_9999 on host 10000 done
+[INFO] [2020-10-29 08:06:04,880] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_feature_binning_0 on host 10000 done
+[INFO] [2020-10-29 08:06:04,880] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_feature_binning_0_arbiter_10000 on host 10000 done
+[INFO] [2020-10-29 08:06:04,881] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_feature_binning_0 on host 10000 done
+[INFO] [2020-10-29 08:06:04,881] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_feature_binning_0_arbiter_10000 on host 10000 done
+[INFO] [2020-10-29 08:06:04,881] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_feature_binning_0 on host 10000 done
+[INFO] [2020-10-29 08:06:04,881] [6:140540940003072] - tracking_manager.py[line:475]: clean task 202010290805128735466_hetero_feature_binning_0 on host 10000 done
+[INFO] [2020-10-29 08:06:04,881] [6:140540940003072] - job_controller.py[line:269]: job 202010290805128735466 component hetero_feature_binning_0 on host 10000 clean done
+[INFO] [2020-10-29 08:06:04,904] [2319:139716731074368] - session_utils.py[line:43]: start stop session 202010290805128735466_evaluation_0_guest_9999
+[INFO] [2020-10-29 08:06:04,905] [2319:139716731074368] - session_utils.py[line:50]: stop session 202010290805128735466_evaluation_0_guest_9999 success
+[INFO] [2020-10-29 08:06:04,923] [6:140540940003072] - tracking_manager.py[line:452]: clean task 202010290805128735466_hetero_feature_selection_0 on host 10000
+[INFO] [2020-10-29 08:06:04,923] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_feature_selection_0_guest_9999 on host 10000 done
+[INFO] [2020-10-29 08:06:04,923] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_feature_selection_0 on host 10000 done
+[INFO] [2020-10-29 08:06:04,923] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_feature_selection_0_guest_10000 on host 10000 done
+[INFO] [2020-10-29 08:06:04,923] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_feature_selection_0 on host 10000 done
+[INFO] [2020-10-29 08:06:04,924] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_feature_selection_0_guest_10000 on host 10000 done
+[INFO] [2020-10-29 08:06:04,924] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_feature_selection_0 on host 10000 done
+[INFO] [2020-10-29 08:06:04,924] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_feature_selection_0_host_9999 on host 10000 done
+[INFO] [2020-10-29 08:06:04,924] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_feature_selection_0 on host 10000 done
+[INFO] [2020-10-29 08:06:04,924] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_feature_selection_0_host_10000 on host 10000 done
+[INFO] [2020-10-29 08:06:04,924] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_feature_selection_0 on host 10000 done
+[INFO] [2020-10-29 08:06:04,924] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_feature_selection_0_host_10000 on host 10000 done
+[INFO] [2020-10-29 08:06:04,924] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_feature_selection_0 on host 10000 done
+[INFO] [2020-10-29 08:06:04,924] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_feature_selection_0_arbiter_9999 on host 10000 done
+[INFO] [2020-10-29 08:06:04,924] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_feature_selection_0 on host 10000 done
+[INFO] [2020-10-29 08:06:04,924] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_feature_selection_0_arbiter_10000 on host 10000 done
+[INFO] [2020-10-29 08:06:04,924] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_feature_selection_0 on host 10000 done
+[INFO] [2020-10-29 08:06:04,924] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_feature_selection_0_arbiter_10000 on host 10000 done
+[INFO] [2020-10-29 08:06:04,925] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_feature_selection_0 on host 10000 done
+[INFO] [2020-10-29 08:06:04,925] [6:140540940003072] - tracking_manager.py[line:475]: clean task 202010290805128735466_hetero_feature_selection_0 on host 10000 done
+[INFO] [2020-10-29 08:06:04,925] [6:140540940003072] - job_controller.py[line:269]: job 202010290805128735466 component hetero_feature_selection_0 on host 10000 clean done
+[INFO] [2020-10-29 08:06:04,928] [2323:140018512635712] - session_utils.py[line:43]: start stop session 202010290805128735466_evaluation_0_host_10000
+[INFO] [2020-10-29 08:06:04,928] [2323:140018512635712] - session_utils.py[line:50]: stop session 202010290805128735466_evaluation_0_host_10000 success
+[INFO] [2020-10-29 08:06:04,973] [6:140540940003072] - tracking_manager.py[line:452]: clean task 202010290805128735466_hetero_lr_0 on host 10000
+[INFO] [2020-10-29 08:06:04,973] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_lr_0_guest_9999 on host 10000 done
+[INFO] [2020-10-29 08:06:04,973] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_lr_0 on host 10000 done
+[INFO] [2020-10-29 08:06:04,973] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_lr_0_guest_10000 on host 10000 done
+[INFO] [2020-10-29 08:06:04,973] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_lr_0 on host 10000 done
+[INFO] [2020-10-29 08:06:04,973] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_lr_0_guest_10000 on host 10000 done
+[INFO] [2020-10-29 08:06:04,973] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_lr_0 on host 10000 done
+[INFO] [2020-10-29 08:06:04,973] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_lr_0_host_9999 on host 10000 done
+[INFO] [2020-10-29 08:06:04,973] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_lr_0 on host 10000 done
+[INFO] [2020-10-29 08:06:04,973] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_lr_0_host_10000 on host 10000 done
+[INFO] [2020-10-29 08:06:04,973] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_lr_0 on host 10000 done
+[INFO] [2020-10-29 08:06:04,973] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_lr_0_host_10000 on host 10000 done
+[INFO] [2020-10-29 08:06:04,974] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_lr_0 on host 10000 done
+[INFO] [2020-10-29 08:06:04,974] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_lr_0_arbiter_9999 on host 10000 done
+[INFO] [2020-10-29 08:06:04,974] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_lr_0 on host 10000 done
+[INFO] [2020-10-29 08:06:04,974] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_lr_0_arbiter_10000 on host 10000 done
+[INFO] [2020-10-29 08:06:04,974] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_lr_0 on host 10000 done
+[INFO] [2020-10-29 08:06:04,974] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_lr_0_arbiter_10000 on host 10000 done
+[INFO] [2020-10-29 08:06:04,974] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_lr_0 on host 10000 done
+[INFO] [2020-10-29 08:06:04,974] [6:140540940003072] - tracking_manager.py[line:475]: clean task 202010290805128735466_hetero_lr_0 on host 10000 done
+[INFO] [2020-10-29 08:06:04,974] [6:140540940003072] - job_controller.py[line:269]: job 202010290805128735466 component hetero_lr_0 on host 10000 clean done
+[INFO] [2020-10-29 08:06:05,023] [6:140540940003072] - tracking_manager.py[line:452]: clean task 202010290805128735466_evaluation_0 on host 10000
+[INFO] [2020-10-29 08:06:05,023] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_evaluation_0_guest_9999 on host 10000 done
+[INFO] [2020-10-29 08:06:05,023] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_evaluation_0 on host 10000 done
+[INFO] [2020-10-29 08:06:05,023] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_evaluation_0_guest_10000 on host 10000 done
+[INFO] [2020-10-29 08:06:05,023] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_evaluation_0 on host 10000 done
+[INFO] [2020-10-29 08:06:05,023] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_evaluation_0_guest_10000 on host 10000 done
+[INFO] [2020-10-29 08:06:05,023] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_evaluation_0 on host 10000 done
+[INFO] [2020-10-29 08:06:05,023] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_evaluation_0_host_9999 on host 10000 done
+[INFO] [2020-10-29 08:06:05,023] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_evaluation_0 on host 10000 done
+[INFO] [2020-10-29 08:06:05,023] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_evaluation_0_host_10000 on host 10000 done
+[INFO] [2020-10-29 08:06:05,023] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_evaluation_0 on host 10000 done
+[INFO] [2020-10-29 08:06:05,023] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_evaluation_0_host_10000 on host 10000 done
+[INFO] [2020-10-29 08:06:05,024] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_evaluation_0 on host 10000 done
+[INFO] [2020-10-29 08:06:05,024] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_evaluation_0_arbiter_9999 on host 10000 done
+[INFO] [2020-10-29 08:06:05,024] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_evaluation_0 on host 10000 done
+[INFO] [2020-10-29 08:06:05,024] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_evaluation_0_arbiter_10000 on host 10000 done
+[INFO] [2020-10-29 08:06:05,024] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_evaluation_0 on host 10000 done
+[INFO] [2020-10-29 08:06:05,024] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_evaluation_0_arbiter_10000 on host 10000 done
+[INFO] [2020-10-29 08:06:05,024] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_evaluation_0 on host 10000 done
+[INFO] [2020-10-29 08:06:05,024] [6:140540940003072] - tracking_manager.py[line:475]: clean task 202010290805128735466_evaluation_0 on host 10000 done
+[INFO] [2020-10-29 08:06:05,024] [6:140540940003072] - job_controller.py[line:269]: job 202010290805128735466 component evaluation_0 on host 10000 clean done
+[INFO] [2020-10-29 08:06:05,024] [6:140540940003072] - job_controller.py[line:274]: job 202010290805128735466 on host 10000 clean done
+[INFO] [2020-10-29 08:06:05,030] [6:140540940003072] - job_controller.py[line:238]: job 202010290805128735466 on arbiter 10000 start to save pipeline
+[INFO] [2020-10-29 08:06:05,059] [6:140540940003072] - job_controller.py[line:259]: job 202010290805128735466 on arbiter 10000 save pipeline successfully
+[INFO] [2020-10-29 08:06:05,065] [6:140540940003072] - job_controller.py[line:263]: job 202010290805128735466 on arbiter 10000 start to clean
+[INFO] [2020-10-29 08:06:05,110] [6:140540940003072] - tracking_manager.py[line:452]: clean task 202010290805128735466_hetero_lr_0 on arbiter 10000
+[INFO] [2020-10-29 08:06:05,111] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_lr_0_guest_9999 on arbiter 10000 done
+[INFO] [2020-10-29 08:06:05,111] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_lr_0 on arbiter 10000 done
+[INFO] [2020-10-29 08:06:05,111] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_lr_0_guest_10000 on arbiter 10000 done
+[INFO] [2020-10-29 08:06:05,111] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_lr_0 on arbiter 10000 done
+[INFO] [2020-10-29 08:06:05,111] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_lr_0_guest_10000 on arbiter 10000 done
+[INFO] [2020-10-29 08:06:05,111] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_lr_0 on arbiter 10000 done
+[INFO] [2020-10-29 08:06:05,111] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_lr_0_host_9999 on arbiter 10000 done
+[INFO] [2020-10-29 08:06:05,111] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_lr_0 on arbiter 10000 done
+[INFO] [2020-10-29 08:06:05,111] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_lr_0_host_10000 on arbiter 10000 done
+[INFO] [2020-10-29 08:06:05,111] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_lr_0 on arbiter 10000 done
+[INFO] [2020-10-29 08:06:05,111] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_lr_0_host_10000 on arbiter 10000 done
+[INFO] [2020-10-29 08:06:05,111] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_lr_0 on arbiter 10000 done
+[INFO] [2020-10-29 08:06:05,111] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_lr_0_arbiter_9999 on arbiter 10000 done
+[INFO] [2020-10-29 08:06:05,112] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_lr_0 on arbiter 10000 done
+[INFO] [2020-10-29 08:06:05,112] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_lr_0_arbiter_10000 on arbiter 10000 done
+[INFO] [2020-10-29 08:06:05,112] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_lr_0 on arbiter 10000 done
+[INFO] [2020-10-29 08:06:05,112] [6:140540940003072] - tracking_manager.py[line:463]: clean table by namespace 202010290805128735466_hetero_lr_0_arbiter_10000 on arbiter 10000 done
+[INFO] [2020-10-29 08:06:05,112] [6:140540940003072] - tracking_manager.py[line:469]: clean table by namespace 202010290805128735466_hetero_lr_0 on arbiter 10000 done
+[INFO] [2020-10-29 08:06:05,112] [6:140540940003072] - tracking_manager.py[line:475]: clean task 202010290805128735466_hetero_lr_0 on arbiter 10000 done
+[INFO] [2020-10-29 08:06:05,112] [6:140540940003072] - job_controller.py[line:269]: job 202010290805128735466 component hetero_lr_0 on arbiter 10000 clean done
+[INFO] [2020-10-29 08:06:05,112] [6:140540940003072] - job_controller.py[line:274]: job 202010290805128735466 on arbiter 10000 clean done
+[INFO] [2020-10-29 08:06:05,120] [6:140540940003072] - tracking_manager.py[line:329]: save guest 9999 job: {'f_name': '', 'f_description': '', 'f_tag': 'end_waiting', 'f_initiator_party_id': -1, 'f_is_initiator': -1, 'f_progress': 100, 'f_job_id': '202010290805128735466', 'f_start_time': 1603958713039, 'f_status': 'success', 'f_update_time': 1603958764412, 'f_role': 'guest', 'f_party_id': 9999, 'f_end_time': 1603958764412, 'f_elapsed': 51373, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:06:05,132] [6:140229272925952] - tracking_manager.py[line:329]: save host 10000 job: {'f_name': '', 'f_description': '', 'f_tag': 'end_waiting', 'f_initiator_party_id': -1, 'f_is_initiator': -1, 'f_progress': 100, 'f_job_id': '202010290805128735466', 'f_start_time': 1603958713039, 'f_status': 'success', 'f_update_time': 1603958764412, 'f_role': 'host', 'f_party_id': 10000, 'f_end_time': 1603958764412, 'f_elapsed': 51373, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:06:05,144] [6:140229272925952] - tracking_manager.py[line:329]: save arbiter 10000 job: {'f_name': '', 'f_description': '', 'f_tag': 'end_waiting', 'f_initiator_party_id': -1, 'f_is_initiator': -1, 'f_progress': 100, 'f_job_id': '202010290805128735466', 'f_start_time': 1603958713039, 'f_status': 'success', 'f_update_time': 1603958764412, 'f_role': 'arbiter', 'f_party_id': 10000, 'f_end_time': 1603958764412, 'f_elapsed': 51373, 'f_run_ip': '172.18.0.2:9380'}
+[INFO] [2020-10-29 08:06:05,152] [6:140638279530240] - task_scheduler.py[line:210]: job 202010290805128735466 finished, status is success

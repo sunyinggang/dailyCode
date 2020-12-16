@@ -1,0 +1,25 @@
+[INFO] [2020-10-29 08:01:52,296] [6:140638262744832] - dag_scheduler.py[line:50]: start get event from queue
+[INFO] [2020-10-29 08:04:48,865] [6:140540940003072] - task_executor.py[line:222]: pass save as task 202010290804483462984_dataio_0 input data table, because the switch is off
+[INFO] [2020-10-29 08:04:48,873] [6:140540940003072] - task_executor.py[line:222]: pass save as task 202010290804483462984_dataio_0 input data table, because the switch is off
+[INFO] [2020-10-29 08:04:51,137] [6:140540940003072] - task_executor.py[line:222]: pass save as task 202010290804483462984_hetero_feature_binning_0 input data table, because the switch is off
+[INFO] [2020-10-29 08:04:51,196] [6:140540940003072] - task_executor.py[line:222]: pass save as task 202010290804483462984_hetero_feature_binning_0 input data table, because the switch is off
+[INFO] [2020-10-29 08:05:13,081] [6:140229272925952] - task_executor.py[line:222]: pass save as task 202010290805128735466_dataio_0 input data table, because the switch is off
+[INFO] [2020-10-29 08:05:13,090] [6:140229272925952] - task_executor.py[line:222]: pass save as task 202010290805128735466_dataio_0 input data table, because the switch is off
+[INFO] [2020-10-29 08:05:15,358] [6:140229272925952] - task_executor.py[line:222]: pass save as task 202010290805128735466_hetero_feature_binning_0 input data table, because the switch is off
+[INFO] [2020-10-29 08:05:15,415] [6:140229272925952] - task_executor.py[line:222]: pass save as task 202010290805128735466_hetero_feature_binning_0 input data table, because the switch is off
+[INFO] [2020-10-29 08:05:24,319] [6:140540940003072] - task_executor.py[line:222]: pass save as task 202010290805128735466_hetero_feature_selection_0 input data table, because the switch is off
+[INFO] [2020-10-29 08:05:24,372] [6:140540940003072] - task_executor.py[line:222]: pass save as task 202010290805128735466_hetero_feature_selection_0 input data table, because the switch is off
+[INFO] [2020-10-29 08:05:30,697] [6:140540940003072] - task_executor.py[line:222]: pass save as task 202010290805128735466_hetero_lr_0 input data table, because the switch is off
+[INFO] [2020-10-29 08:05:30,753] [6:140540940003072] - task_executor.py[line:222]: pass save as task 202010290805128735466_hetero_lr_0 input data table, because the switch is off
+[INFO] [2020-10-29 08:05:30,803] [6:140540940003072] - task_executor.py[line:222]: pass save as task 202010290805128735466_hetero_lr_0 input data table, because the switch is off
+[INFO] [2020-10-29 08:06:01,117] [6:140540940003072] - task_executor.py[line:222]: pass save as task 202010290805128735466_evaluation_0 input data table, because the switch is off
+[INFO] [2020-10-29 08:06:01,165] [6:140540940003072] - task_executor.py[line:222]: pass save as task 202010290805128735466_evaluation_0 input data table, because the switch is off
+[INFO] [2020-10-29 08:12:02,132] [6:140229272925952] - task_executor.py[line:222]: pass save as task 202010290812019279649_dataio_0 input data table, because the switch is off
+[INFO] [2020-10-29 08:12:02,141] [6:140229272925952] - task_executor.py[line:222]: pass save as task 202010290812019279649_dataio_0 input data table, because the switch is off
+[INFO] [2020-10-29 08:12:04,379] [6:140229272925952] - task_executor.py[line:222]: pass save as task 202010290812019279649_dataio_1 input data table, because the switch is off
+[INFO] [2020-10-29 08:12:04,387] [6:140229272925952] - task_executor.py[line:222]: pass save as task 202010290812019279649_dataio_1 input data table, because the switch is off
+[INFO] [2020-10-29 08:26:04,793] [6:140540940003072] - task_executor.py[line:222]: pass save as task 2020102908260459230210_dataio_0 input data table, because the switch is off
+[INFO] [2020-10-29 08:26:04,802] [6:140540940003072] - task_executor.py[line:222]: pass save as task 2020102908260459230210_dataio_0 input data table, because the switch is off
+[INFO] [2020-10-29 08:26:07,116] [6:140540940003072] - task_executor.py[line:222]: pass save as task 2020102908260459230210_homo_lr_0 input data table, because the switch is off
+[INFO] [2020-10-29 08:26:07,172] [6:140540940003072] - task_executor.py[line:222]: pass save as task 2020102908260459230210_homo_lr_0 input data table, because the switch is off
+[INFO] [2020-10-29 08:26:07,228] [6:140540940003072] - task_executor.py[line:222]: pass save as task 2020102908260459230210_homo_lr_0 input data table, because the switch is off

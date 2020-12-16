@@ -81,5 +81,6 @@ bidding_ggzy = Table('bidding_ggzy', metadata,
                     Column('field', String(255)),
                     Column('begin_date', String(255)),
                     Column('money', Float()),
-                    Column('company', String(255))
+                    Column('company', String(255)),
+                    Column('href', String(255))
                     )

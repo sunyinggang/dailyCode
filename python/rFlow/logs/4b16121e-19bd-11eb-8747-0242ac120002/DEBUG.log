@@ -1,0 +1,19 @@
+[INFO] [2020-10-29 08:03:58,376] [1028:140623145285440] - db_models.py[line:55]: init sqlite database on standalone mode successfully
+[DEBUG] [2020-10-29 08:03:58,826] [1028:140623145285440] - base_transfer_variable.py[line:63]: create variable with name=RsaIntersectTransferVariable.cache_version_info, src=('guest',), dst=('host',)
+[DEBUG] [2020-10-29 08:03:58,826] [1028:140623145285440] - base_transfer_variable.py[line:63]: create variable with name=RsaIntersectTransferVariable.cache_version_match_info, src=('host',), dst=('guest',)
+[DEBUG] [2020-10-29 08:03:58,826] [1028:140623145285440] - base_transfer_variable.py[line:63]: create variable with name=RsaIntersectTransferVariable.intersect_guest_ids, src=('guest',), dst=('host',)
+[DEBUG] [2020-10-29 08:03:58,826] [1028:140623145285440] - base_transfer_variable.py[line:63]: create variable with name=RsaIntersectTransferVariable.intersect_guest_ids_process, src=('host',), dst=('guest',)
+[DEBUG] [2020-10-29 08:03:58,826] [1028:140623145285440] - base_transfer_variable.py[line:63]: create variable with name=RsaIntersectTransferVariable.intersect_host_ids_process, src=('host',), dst=('guest',)
+[DEBUG] [2020-10-29 08:03:58,826] [1028:140623145285440] - base_transfer_variable.py[line:63]: create variable with name=RsaIntersectTransferVariable.intersect_ids, src=('guest',), dst=('host',)
+[DEBUG] [2020-10-29 08:03:58,827] [1028:140623145285440] - base_transfer_variable.py[line:63]: create variable with name=RsaIntersectTransferVariable.rsa_pubkey, src=('host',), dst=('guest',)
+[DEBUG] [2020-10-29 08:03:58,827] [1028:140623145285440] - base_transfer_variable.py[line:63]: create variable with name=RawIntersectTransferVariable.intersect_ids_guest, src=('guest',), dst=('host',)
+[DEBUG] [2020-10-29 08:03:58,827] [1028:140623145285440] - base_transfer_variable.py[line:63]: create variable with name=RawIntersectTransferVariable.intersect_ids_host, src=('host',), dst=('guest',)
+[DEBUG] [2020-10-29 08:03:58,827] [1028:140623145285440] - base_transfer_variable.py[line:63]: create variable with name=RawIntersectTransferVariable.send_ids_guest, src=('guest',), dst=('host',)
+[DEBUG] [2020-10-29 08:03:58,827] [1028:140623145285440] - base_transfer_variable.py[line:63]: create variable with name=RawIntersectTransferVariable.send_ids_host, src=('host',), dst=('guest',)
+[DEBUG] [2020-10-29 08:03:58,827] [1028:140623145285440] - base_transfer_variable.py[line:63]: create variable with name=RawIntersectTransferVariable.sync_intersect_ids_multi_hosts, src=('guest',), dst=('host',)
+[DEBUG] [2020-10-29 08:03:58,912] [1028:140623145285440] - profile_util.py[line:34]: intersection_host_test.py:22 call parallelize, takes 0.005725383758544922s
+[DEBUG] [2020-10-29 08:03:58,917] [1028:140623145285440] - profile_util.py[line:34]: intersection_host_test.py:22 call parallelize, takes 0.004762887954711914s
+[DEBUG] [2020-10-29 08:03:58,923] [1028:140623145285440] - profile_util.py[line:34]: intersection_host_test.py:22 call parallelize, takes 0.005693912506103516s
+[DEBUG] [2020-10-29 08:03:58,964] [1028:140623145285440] - profile_util.py[line:34]: intersect.py:97 call join, takes 0.04095578193664551s
+[DEBUG] [2020-10-29 08:03:58,974] [1028:140623145285440] - profile_util.py[line:34]: intersect.py:97 call join, takes 0.009555578231811523s
+[DEBUG] [2020-10-29 08:03:58,976] [1028:140623145285440] - profile_util.py[line:34]: intersection_host_test.py:38 call collect, takes 0.0019042491912841797s

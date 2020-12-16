@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="82f11297-198c-4b67-bb18-db5ae450ffd1" name="qwe" url="http://192.168.1.135">
+        <fileTransfer rootFolder="/fate" accessType="SFTP" host="192.168.1.135" port="10022" sshConfigId="f7a3c1d1-6862-436f-8892-b9687ea2a65e" sshConfig="root@192.168.1.135:10022 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

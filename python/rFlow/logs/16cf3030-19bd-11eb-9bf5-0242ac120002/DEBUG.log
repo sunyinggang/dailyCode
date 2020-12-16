@@ -1,0 +1,3 @@
+[DEBUG] [2020-10-29 08:02:28,820] [203:140468820694848] - profile_util.py[line:34]: outlier_filter_test.py:50 call parallelize, takes 0.06380820274353027s
+[DEBUG] [2020-10-29 08:02:28,912] [203:140468820694848] - profile_util.py[line:34]: statics.py:168 call mapPartitions, takes 0.09128332138061523s
+[DEBUG] [2020-10-29 08:02:29,640] [203:140468820694848] - profile_util.py[line:34]: statics.py:169 call reduce, takes 0.7274150848388672s

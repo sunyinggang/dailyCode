@@ -1,0 +1,4 @@
+[INFO] [2020-10-29 08:05:11,304] [1811:139753940395840] - upload.py[line:67]: ------------load data finish!-----------------
+[INFO] [2020-10-29 08:05:11,304] [1811:139753940395840] - upload.py[line:75]: file: /fate/examples/data/breast_hetero_guest.csv
+[INFO] [2020-10-29 08:05:11,304] [1811:139753940395840] - upload.py[line:76]: total data_count: 569
+[INFO] [2020-10-29 08:05:11,304] [1811:139753940395840] - upload.py[line:77]: table name: breast_hetero_guest, table namespace: fate_flow_test_table_breast_hetero

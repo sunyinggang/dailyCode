@@ -37,4 +37,7 @@ public class BiddingGgzy {
     @Column(name = "company")
     private String company;
 
+    @Column(name = "href")
+    private String href;
+
 }
