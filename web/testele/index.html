@@ -6,6 +6,11 @@
     <title>考场分配</title>
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
     <link rel="stylesheet" href="css/bulma.css">
+    <style>
+        * {
+            user-select: none;
+        }
+    </style>
 </head>
 
 <body style="background: white;">
@@ -87,7 +92,8 @@
     </div>
     <div class="columns">
         <div class="column is-half is-offset-one-quarter">
-            <button id="submit" class="button">开始分配考场</button>
+            <button id="submit" class="button mr-5">开始分配上午考场</button>
+            <button id="submit_x" class="button">开始分配下午考场</button>
         </div>
     </div>
     <script>
@@ -121,8 +127,21 @@
         var teacher_two_group = []
         var teacher_three_group = []
         var teacher_four_group = []
+        var teacher_one_group_x = []
+        var teacher_two_group_x = []
+        var teacher_three_group_x = []
+        var teacher_four_group_x = []
         var room_json = []
-        var aoa = [[]]
+        var aoa = []
+        var aoa_head = [
+            ['监考教师A', null, null, null, null, null, '监考教师B', null, null, null, null, null],
+            ['序号', '姓名', '身份证号', '工作单位', '考场', '考场对应教室', '序号', '姓名', '身份证号', '工作单位', '考场', '考场对应教室'],
+            ['监考教师C', null, null, null, null, null, '监考教师D', null, null, null, null, null],
+            ['监考教师E', null, null, null, null, null, '监考教师F', null, null, null, null, null, '监考教师G', null, null, null, null, null],
+            ['序号', '姓名', '身份证号', '工作单位', '考场', '考场对应教室', '序号', '姓名', '身份证号', '工作单位', '考场', '考场对应教室', '序号', '姓名', '身份证号', '工作单位', '考场', '考场对应教室'],
+            ['备用监考教师', null, null, null],
+            ['序号', '姓名', '身份证号', '工作单位']
+        ]
 
         let teacher_file = document.querySelector('#teacher')
         teacher_file.addEventListener('change', e => {
@@ -134,7 +153,7 @@
             teacher_json = xlxs.utils.sheet_to_json(worksheet)
             const l = teacher_json.length
             let check = check_people(l)
-            teacher_sort()
+            teacher_json = shuffle(teacher_json)
             ipcRenderer.invoke('ping', path).then(e => {
                 console.log('pong')
             })
@@ -149,29 +168,27 @@
             const worksheet = result.Sheets[sheetNames[0]];
             console.log(worksheet)
             room_json = xlxs.utils.sheet_to_json(worksheet)
-            console.log(room_json)
-
             ipcRenderer.invoke('ping', path).then(e => {
                 console.log('pong')
             })
         })
-
+        // 执行上午分组
         let submit = document.querySelector('#submit')
         submit.addEventListener('click', e => {
-            // one = document.getElementById("one").value
-            // one_people = document.getElementById("one_people").value
-            // two = document.getElementById("two").value
-            // two_people = document.getElementById("two_people").value
-            // three = document.getElementById("three").value
-            // three_people = document.getElementById("three_people").value
-            // four_people = document.getElementById("four_people").value
-            one = 76
-            one_people = 2
-            two = 81
-            two_people = 2
-            three = 10
-            three_people = 3
-            four_people = 7
+            one = document.getElementById("one").value
+            one_people = document.getElementById("one_people").value
+            two = document.getElementById("two").value
+            two_people = document.getElementById("two_people").value
+            three = document.getElementById("three").value
+            three_people = document.getElementById("three_people").value
+            four_people = document.getElementById("four_people").value
+            // one = 76
+            // one_people = 2
+            // two = 81
+            // two_people = 2
+            // three = 10
+            // three_people = 3
+            // four_people = 7
             if (one == '' || one_people == '' || two == '' || two_people == '' || three == '' || three_people == '' || four_people == '') {
                 console.log("有空")
             } else if (teacher_json.length == 0 || room_json.length == 0) {
@@ -180,26 +197,59 @@
                 teacher_group()
                 console.log("非空")
             }
-            //test()
-
-            //export_data_s()
-            //room_sort()
+            export_data(teacher_one_group,teacher_two_group,teacher_three_group,teacher_four_group,"上午考场分配.xlsx")
+            
         })
-
-        //对教师列表随机排序
+        // 执行下午分组
+        let submit_X = document.querySelector('#submit_x')
+        submit_x.addEventListener('click', e => {
+            one = document.getElementById("one").value
+            one_people = document.getElementById("one_people").value
+            two = document.getElementById("two").value
+            two_people = document.getElementById("two_people").value
+            three = document.getElementById("three").value
+            three_people = document.getElementById("three_people").value
+            four_people = document.getElementById("four_people").value
+            // one = 76
+            // one_people = 2
+            // two = 81
+            // two_people = 2
+            // three = 10
+            // three_people = 3
+            // four_people = 7
+            if (one == '' || one_people == '' || two == '' || two_people == '' || three == '' || three_people == '' || four_people == '') {
+                console.log("有空")
+            } else if (teacher_json.length == 0 || room_json.length == 0) {
+                console.log("未上传文件")
+            } else {
+                console.log("非空")
+            }
+            teacher_sort()
+            export_data(teacher_one_group_x,teacher_two_group_x,teacher_three_group_x,teacher_four_group_x,"下午考场分配.xlsx")
+        })
+        //对下午教师列表随机排序（保证与上午不重复）
         function teacher_sort() {
             // console.log('origin order',JSON.parse(JSON.stringify(room_json)))
-            teacher_json = shuffle(teacher_json)
-            console.log(teacher_json)
-            // teacher_json_x = shuffle(teacher_json)
-            // for (let i in teacher_json_s) {
-            //     if (teacher_json_s[i] == teacher_json_x[i]) {
-            //         console.log("有重复")
-            //         let temp = teacher_json_s[i]
-            //         teacher_json_s[i] = teacher_json_s[i+1]
-            //         teacher_json_s[i+1] = temp
-            //     }
-            // }
+            teacher_one_group_x = shuffle(teacher_one_group)
+            teacher_two_group_x = shuffle(teacher_two_group)
+            teacher_three_group_x = shuffle(teacher_three_group)
+            teacher_four_group_x = teacher_four_group
+            //处理重复
+            teacher_sort_edit(teacher_one_group,teacher_one_group_x)
+            teacher_sort_edit(teacher_two_group,teacher_two_group_x)
+            teacher_sort_edit(teacher_three_group,teacher_three_group_x)
+        }
+        // 处理重复
+        function teacher_sort_edit(group,group_x){
+            for (let i in group_x){
+                if(group_x[i][0]["序号"]==group[i][0]["序号"]){
+                    console.log("有重复")
+                    console.log(i)
+                    let temp = group_x[i]
+                    group_x[i] = group_x[i+1]
+                    group_x[i+1] = temp
+                }
+            }
         }
         // 洗牌排序
         function shuffle(input) {
@@ -235,22 +285,19 @@
                     teacher_two_group.push(tmp)
                 } else if ((one * one_people) + (two * two_people) <= t && t < (one * one_people) + (two * two_people) + (three * three_people)) {
                     for (let i = 0; i < three_people; i++) {
-                        console.log(t)
-                        console.log("3")
                         tmp.push(teacher_json[t])
                         t = t + 1
                     }
                     teacher_three_group.push(tmp)
                 } else {
                     for (let i = 0; i < four_people; i++) {
-                        console.log(t)
-                        console.log("4")
                         teacher_four_group.push(teacher_json[t])
                         t = t + 1
                     }
 
                 }
             }
+            console.log(teacher_three_group)
         }
 
         function test() {
@@ -272,53 +319,87 @@
             ];
         }
         // 生成上午分配数据
-        function export_data_s() {
+        function export_data(t_teacher_one_group,t_teacher_two_group,t_teacher_three_group,t_teacher_four_group,file_name) {
             let index = 0
+            let i = 0
+            let k = 0
             const sum = 1
-            export_json = []
             let tmp = []
-            init_aoa()
-            for (var r in room_json) {
-                if (index < one * one_people + two * two_people) {
-                    id_s_index = 0
-                    id_num = id_num + 1
-                    for (let i = 0; i < one_people; i++) {
-                        s = id_s_arr[id_s_index + i] + (id_num)
-                        tmp.push(s, teacher_json[index]["姓名"], teacher_json[index]["身份证号"]
-                            , teacher_json[index]["工作单位"], room_json[r]["考场"], room_json[r]["考场对应教室"])
-
-                        export_json.push(Object.assign(teacher_json[index], room_json[r]))
-                        index = index + 1
-                    }
-                    aoa.push(tmp)
-                    tmp = []
-                } else if (one * one_people <= index < two * two_people) {
-                    for (let i = 0; i < two_people; i++) {
-                        export_json.push(Object.assign(teacher_json[index], room_json[r]))
-                        index = index + 1
-                    }
-                } else if (two * two_people <= index < three * three_people) {
-                    for (let i = 0; i < two_people; i++) {
-                        export_json.push(Object.assign(teacher_json[index], room_json[r]))
-                        index = index + 1
-                    }
-                } else {
-                    console.log("结束")
-                }
+            aoa = []
+            aoa.push(aoa_head[0])
+            aoa.push(aoa_head[1])
+            for (i = 0; i < t_teacher_one_group.length; i++) {
+                tmp = []
+                s = id_s_arr[0] + (i + 1)
+                tmp.push(s, t_teacher_one_group[i][0]["姓名"], t_teacher_one_group[i][0]["身份证号"]
+                    , t_teacher_one_group[i][0]["工作单位"], room_json[i]["考场"], room_json[i]["考场对应教室"])
+                s = id_s_arr[1] + (i + 1)
+                tmp.push(s, t_teacher_one_group[i][1]["姓名"], t_teacher_one_group[i][1]["身份证号"]
+                    , t_teacher_one_group[i][1]["工作单位"], room_json[i]["考场"], room_json[i]["考场对应教室"])
+                aoa.push(tmp)
             }
-            console.log(tmp)
-            console.log(export_json)
-            console.log(aoa)
+            index = index + i
+            for (i = 0; i < t_teacher_two_group.length - 5; i++) {
+                tmp = []
+                s = id_s_arr[0] + (index + i + 1)
+                tmp.push(s, t_teacher_two_group[i][0]["姓名"], t_teacher_two_group[i][0]["身份证号"]
+                    , t_teacher_two_group[i][0]["工作单位"], room_json[index + i]["考场"], room_json[index + i]["考场对应教室"])
+                s = id_s_arr[1] + (index + i + 1)
+                tmp.push(s, t_teacher_two_group[i][1]["姓名"], t_teacher_two_group[i][1]["身份证号"]
+                    , t_teacher_two_group[i][1]["工作单位"], room_json[index + i]["考场"], room_json[index + i]["考场对应教室"])
+                aoa.push(tmp)
+            }
+            index = index + i
+            aoa.push(aoa_head[2])
+            aoa.push(aoa_head[1])
+            for (k = 0; k < 5; k++) {
+                tmp = []
+                s = id_s_arr[2] + (k + 1)
+                tmp.push(s, t_teacher_two_group[i + k][0]["姓名"], t_teacher_two_group[i + k][0]["身份证号"]
+                    , t_teacher_two_group[i + k][0]["工作单位"], room_json[index + k]["考场"], room_json[index + k]["考场对应教室"])
+                s = id_s_arr[3] + (k + 1)
+                tmp.push(s, t_teacher_two_group[i + k][1]["姓名"], t_teacher_two_group[i + k][1]["身份证号"]
+                    , t_teacher_two_group[i + k][1]["工作单位"], room_json[index + k]["考场"], room_json[index + k]["考场对应教室"])
+                aoa.push(tmp)
+            }
+            index = index + k
+            aoa.push(aoa_head[3])
+            aoa.push(aoa_head[4])
+            for (k = 0; k < t_teacher_three_group.length; k++) {
+                tmp = []
+                s = id_s_arr[4] + (k + 1)
+                tmp.push(s, t_teacher_three_group[k][0]["姓名"], t_teacher_three_group[k][0]["身份证号"]
+                    , t_teacher_three_group[k][0]["工作单位"], room_json[index + k]["考场"], room_json[index + k]["考场对应教室"])
+                s = id_s_arr[5] + (k + 1)
+                tmp.push(s, t_teacher_three_group[k][1]["姓名"], t_teacher_three_group[k][1]["身份证号"]
+                    , t_teacher_three_group[k][1]["工作单位"], room_json[index + k]["考场"], room_json[index + k]["考场对应教室"])
+                s = id_s_arr[6] + (k + 1)
+                tmp.push(s, t_teacher_three_group[k][2]["姓名"], t_teacher_three_group[k][2]["身份证号"]
+                    , t_teacher_three_group[k][2]["工作单位"], room_json[index + k]["考场"], room_json[index + k]["考场对应教室"])
+                aoa.push(tmp)
+            }
+            aoa.push(aoa_head[5])
+            aoa.push(aoa_head[6])
+            index = index + k
+            for (k = 0; k < t_teacher_four_group.length; k++) {
+                tmp = []
+                s = "备用" + (k + 1)
+                tmp.push(s, t_teacher_four_group[k]["姓名"], t_teacher_four_group[k]["身份证号"]
+                    , t_teacher_four_group[k]["工作单位"])
+                aoa.push(tmp)
+            }
             var sheet = xlxs.utils.aoa_to_sheet(aoa)
-
-
-            console.log(sheet)
 
             sheet['!merges'] = [
                 // 设置A1-C1的单元格合并
-                { s: { r: 0, c: 0 }, e: { r: 0, c: 5 } }
+                { s: { r: 0, c: 0 }, e: { r: 0, c: 5 } },
+                { s: { r: 0, c: 6 }, e: { r: 0, c: 11 } }
             ];
-            openDownloadDialog(sheet2blob(sheet), '单元格合并示例.xlsx');
+            openDownloadDialog(sheet2blob(sheet), file_name);
+        }
+        // 生成下午分配数据
+        function export_data_x(){
+
         }
         // 将一个sheet转成最终的excel文件的blob对象，然后利用URL.createObjectURL下载
         function sheet2blob(sheet, sheetName) {
@@ -366,7 +447,12 @@
         function init_aoa() {
             aoa = [
                 ['监考教师A', null, null, null, null, null, '监考教师B', null, null, null, null, null],
-                ['序号', '姓名', '身份证号', '工作单位', '考场', '考场对应教室', '序号', '姓名', '身份证号', '工作单位', '考场', '考场对应教室']
+                ['序号', '姓名', '身份证号', '工作单位', '考场', '考场对应教室', '序号', '姓名', '身份证号', '工作单位', '考场', '考场对应教室'],
+                [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+                [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+                ['监考教师A', null, null, null, null, null, '监考教师B', null, null, null, null, null],
+                ['序号', '姓名', '身份证号', '工作单位', '考场', '考场对应教室', '序号', '姓名', '身份证号', '工作单位', '考场', '考场对应教室'],
+                [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
             ]
         }
 
