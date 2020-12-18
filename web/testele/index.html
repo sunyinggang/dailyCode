@@ -10,10 +10,27 @@
         * {
             user-select: none;
         }
+
+        body {
+            
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .back {
+            background-image: url(img/back_img.jpg);
+            width: 100vw;
+            height: 100vh;
+            background-size: cover;
+            z-index: -1;
+            position: fixed;
+            opacity: 0.5;
+        }
     </style>
 </head>
 
-<body style="background: white;">
+<body>
+    <div class="back"></div>
     <div class="columns">
         <div class="column">
             <div class="box">
@@ -23,28 +40,28 @@
     </div>
     <div class="columns">
         <div class="column is-half is-offset-one-quarter">
-            <span>I 类（ABCD区） </span>
+            <span class="has-text-black-bis">I 类（ABCD区） </span>
             <input id="one" class="input is-rounded mt-2" type="text" placeholder="输入考场数">
             <input id="one_people" class="input is-rounded mt-2" type="text" placeholder="输入每个考场监考老师数">
         </div>
     </div>
     <div class="columns">
         <div class="column is-half is-offset-one-quarter">
-            <span>II 类（FGHJ区） </span>
+            <span class="has-text-black-bis">II 类（FGHJ区） </span>
             <input id="two" class="input is-rounded mt-2" type="text" placeholder="输入考场数">
             <input id="two_people" class="input is-rounded mt-2" type="text" placeholder="输入每个考场监考老师数">
         </div>
     </div>
     <div class="columns">
         <div class="column is-half is-offset-one-quarter">
-            <span>III 类（合并考场） </span>
+            <span class="has-text-black-bis">III 类（合并考场） </span>
             <input id="three" class="input is-rounded mt-2" type="text" placeholder="输入考场数">
             <input id="three_people" class="input is-rounded mt-2" type="text" placeholder="输入每个考场监考老师数">
         </div>
     </div>
     <div class="columns">
         <div class="column is-half is-offset-one-quarter">
-            <span>IV 类（备用老师） </span>
+            <span class="has-text-black-bis">IV 类（备用老师） </span>
             <input id="four_people" class="input is-rounded mt-2" type="text" placeholder="输入备用老师数量">
         </div>
     </div>
@@ -52,7 +69,7 @@
         <div class="column is-half is-offset-one-quarter">
             <div id="teacher" class="file is-info has-name">
                 <label class="file-label">
-                    <span class="mt-1 mx-1">监考教师名单</span>
+                    <span class="mt-1 mx-1" style="color: black;">监考教师名单</span>
                     <input class="file-input" type="file" name="resume">
                     <span class="file-cta">
                         <span class="file-icon">
@@ -73,7 +90,7 @@
         <div class="column is-half is-offset-one-quarter">
             <div id="room" class="file is-info has-name">
                 <label class="file-label">
-                    <span class="mt-1 mx-1">考场对应教室</span>
+                    <span class="mt-1 mx-1"  style="color: black;">考场对应教室</span>
                     <input class="file-input" type="file" name="resume">
                     <span class="file-cta">
                         <span class="file-icon">
@@ -96,9 +113,17 @@
             <button id="submit_x" class="button">开始分配下午考场</button>
         </div>
     </div>
+    <div class="columns">
+        <div class="column" style="margin-left: 87%;">
+            <figure class="image is-6" style="width:100px;height:100px;">
+                <img src="img/logo.png">
+            </figure>
+        </div>
+    </div>
     <script>
         const { ipcRenderer } = require('electron')
         const xlxs = require('xlsx')
+        const fs = require('fs')
         const { readFile } = require('fs').promises
 
         const id_s_arr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
@@ -151,12 +176,9 @@
             const sheetNames = result.SheetNames;
             const worksheet = result.Sheets[sheetNames[0]];
             teacher_json = xlxs.utils.sheet_to_json(worksheet)
-            const l = teacher_json.length
-            let check = check_people(l)
+            console.log(worksheet)
+            console.log(teacher_json)
             teacher_json = shuffle(teacher_json)
-            ipcRenderer.invoke('ping', path).then(e => {
-                console.log('pong')
-            })
         })
 
         let room_file = document.querySelector('#room')
@@ -189,16 +211,27 @@
             // three = 10
             // three_people = 3
             // four_people = 7
+            let l = teacher_json.length
+            let check = check_people(l)
             if (one == '' || one_people == '' || two == '' || two_people == '' || three == '' || three_people == '' || four_people == '') {
-                console.log("有空")
+                err = "输入框存在空值，请填写完整信息"
+                ipcRenderer.invoke('error', err).then(e => {
+                    console.log('pong')
+                })
             } else if (teacher_json.length == 0 || room_json.length == 0) {
-                console.log("未上传文件")
+                err = "未上传文件"
+                ipcRenderer.invoke('error', err).then(e => {
+                    console.log('pong')
+                })
+            } else if (!check) {
+                err = "输入人数与教师人数不相等"
+                ipcRenderer.invoke('error', err).then(e => {
+                    console.log('pong')
+                })
             } else {
                 teacher_group()
-                console.log("非空")
+                export_data(teacher_one_group, teacher_two_group, teacher_three_group, teacher_four_group, "上午考场分配.xlsx")
             }
-            export_data(teacher_one_group,teacher_two_group,teacher_three_group,teacher_four_group,"上午考场分配.xlsx")
-            
         })
         // 执行下午分组
         let submit_X = document.querySelector('#submit_x')
@@ -218,14 +251,19 @@
             // three_people = 3
             // four_people = 7
             if (one == '' || one_people == '' || two == '' || two_people == '' || three == '' || three_people == '' || four_people == '') {
-                console.log("有空")
+                err = "输入框存在空值，请填写完整信息"
+                ipcRenderer.invoke('error', err).then(e => {
+                    console.log('pong')
+                })
             } else if (teacher_json.length == 0 || room_json.length == 0) {
-                console.log("未上传文件")
+                err = "未上传文件"
+                ipcRenderer.invoke('error', err).then(e => {
+                    console.log('pong')
+                })
             } else {
-                console.log("非空")
+                teacher_sort()
+                export_data(teacher_one_group_x, teacher_two_group_x, teacher_three_group_x, teacher_four_group_x, "下午考场分配.xlsx")
             }
-            teacher_sort()
-            export_data(teacher_one_group_x,teacher_two_group_x,teacher_three_group_x,teacher_four_group_x,"下午考场分配.xlsx")
         })
         //对下午教师列表随机排序（保证与上午不重复）
         function teacher_sort() {
@@ -235,19 +273,19 @@
             teacher_three_group_x = shuffle(teacher_three_group)
             teacher_four_group_x = teacher_four_group
             //处理重复
-            teacher_sort_edit(teacher_one_group,teacher_one_group_x)
-            teacher_sort_edit(teacher_two_group,teacher_two_group_x)
-            teacher_sort_edit(teacher_three_group,teacher_three_group_x)
+            teacher_sort_edit(teacher_one_group, teacher_one_group_x)
+            teacher_sort_edit(teacher_two_group, teacher_two_group_x)
+            teacher_sort_edit(teacher_three_group, teacher_three_group_x)
         }
         // 处理重复
-        function teacher_sort_edit(group,group_x){
-            for (let i in group_x){
-                if(group_x[i][0]["序号"]==group[i][0]["序号"]){
+        function teacher_sort_edit(group, group_x) {
+            for (let i in group_x) {
+                if (group_x[i][0]["序号"] == group[i][0]["序号"]) {
                     console.log("有重复")
                     console.log(i)
                     let temp = group_x[i]
-                    group_x[i] = group_x[i+1]
-                    group_x[i+1] = temp
+                    group_x[i] = group_x[i + 1]
+                    group_x[i + 1] = temp
                 }
             }
         }
@@ -269,6 +307,7 @@
         function teacher_group() {
             let index = 0
             let t = 0
+            let new_teacher = {}
             while (t < teacher_json.length) {
                 let tmp = []
                 if (t < one * one_people) {
@@ -297,7 +336,23 @@
 
                 }
             }
-            console.log(teacher_three_group)
+            new_teacher['teacher_one_group'] = teacher_one_group
+            new_teacher['teacher_two_group'] = teacher_two_group
+            new_teacher['teacher_three_group'] = teacher_three_group
+            new_teacher['teacher_four_group'] = teacher_four_group
+            console.log(new_teacher)
+            write_file(new_teacher)
+        }
+
+        function write_file(teacher) {
+            var str = JSON.stringify(teacher)
+            console.log(str)
+            fs.writeFile('teacher_group.json', str, function (err) {
+                if (err) {
+                    return console.error(err)
+                }
+                console.log('---------------读入成功--------')
+            })
         }
 
         function test() {
@@ -319,7 +374,7 @@
             ];
         }
         // 生成上午分配数据
-        function export_data(t_teacher_one_group,t_teacher_two_group,t_teacher_three_group,t_teacher_four_group,file_name) {
+        function export_data(t_teacher_one_group, t_teacher_two_group, t_teacher_three_group, t_teacher_four_group, file_name) {
             let index = 0
             let i = 0
             let k = 0
@@ -398,7 +453,7 @@
             openDownloadDialog(sheet2blob(sheet), file_name);
         }
         // 生成下午分配数据
-        function export_data_x(){
+        function export_data_x() {
 
         }
         // 将一个sheet转成最终的excel文件的blob对象，然后利用URL.createObjectURL下载
@@ -476,11 +531,7 @@
         //检查人数
         function check_people(l) {
             let sum = one * one_people + two * two_people + three * three_people + 1 * four_people
-            console.log("------")
-            console.log(sum)
-            console.log(l)
-            console.log("------")
-            return l === sum;
+            return l === sum
         }
 
     </script>

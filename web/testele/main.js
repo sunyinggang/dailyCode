@@ -42,5 +42,16 @@ ipcMain.handle('ping', (evidence, ...args) => {
     console.log('got ping', args)
 })
 
+ipcMain.handle('error', (evidence, ...args) => {
+    console.log(args)
+    dialog.showMessageBox({
+        title  : '错误'
+       , type  : 'error'
+       , message : args[0]
+      })
+})
+
+   
+
 
 

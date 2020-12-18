@@ -10,7 +10,7 @@
   },
   "build": {
     "appId": "com.rondom.app",
-    "productName": "rondom",
+    "productName": "考场分配",
     "win": {
       "icon": "build/favicon.ico",
       "target": [
