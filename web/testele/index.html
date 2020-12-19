@@ -171,14 +171,15 @@
         var room_json = []
         // 从json文件中读取的教师分组数据
         var json_data_from_file = {}
+        var new_teacher = {}
         var aoa_head = [
-            ['监考教师A', null, null, null, null, null, '监考教师B', null, null, null, null, null],
-            ['序号', '姓名', '身份证号', '工作单位', '考场', '考场对应教室', '序号', '姓名', '身份证号', '工作单位', '考场', '考场对应教室'],
-            ['监考教师C', null, null, null, null, null, '监考教师D', null, null, null, null, null],
-            ['监考教师E', null, null, null, null, null, '监考教师F', null, null, null, null, null, '监考教师G', null, null, null, null, null],
-            ['序号', '姓名', '身份证号', '工作单位', '考场', '考场对应教室', '序号', '姓名', '身份证号', '工作单位', '考场', '考场对应教室', '序号', '姓名', '身份证号', '工作单位', '考场', '考场对应教室'],
-            ['备用监考教师', null, null, null],
-            ['序号', '姓名', '身份证号', '工作单位']
+            ['监考教师A', null, null, null, null, null,null, '监考教师B', null, null, null, null, null, null],
+            ['序号', '姓名', '身份证号', '工作单位', '手机号', '考场', '考场对应教室', '序号', '姓名', '身份证号', '工作单位', '手机号', '考场', '考场对应教室'],
+            ['监考教师C', null, null, null, null, null, null, '监考教师D', null, null, null, null, null, null],
+            ['监考教师E', null, null, null, null, null, null, '监考教师F', null, null, null, null, null, null, '监考教师G', null, null, null, null, null,null],
+            ['序号', '姓名', '身份证号', '工作单位','手机号', '考场', '考场对应教室', '序号', '姓名', '身份证号', '工作单位','手机号', '考场', '考场对应教室', '序号', '姓名', '身份证号', '工作单位','手机号', '考场', '考场对应教室'],
+            ['备用监考教师', null, null, null, null],
+            ['序号', '姓名', '身份证号', '工作单位','手机号']
         ]
         var teacher_xlsx_head = [
             ['监考教师A', null, null, null, null, '监考教师B', null, null, null, null],
@@ -197,8 +198,9 @@
             const result = xlxs.readFile(path)
             const sheetNames = result.SheetNames;
             const worksheet = result.Sheets[sheetNames[0]];
-            teacher_json = xlxs.utils.sheet_to_json(worksheet)
+            teacher_json = xlxs.utils.sheet_to_json(worksheet)  
             teacher_json = shuffle(teacher_json)
+            console.log(teacher_json)
         })
 
         let room_file = document.querySelector('#room')
@@ -290,19 +292,18 @@
             } else {
                 read_file()
                 teacher_sort()
-                // export_data(teacher_one_group_x, teacher_two_group_x, teacher_three_group_x, teacher_four_group_x, "下午考场分配.xlsx")
-                
+                export_room(teacher_one_group_x, teacher_two_group_x,teacher_two_group_x_b, teacher_three_group_x, teacher_four_group_x, "考场分配信息.xlsx")
             }
         })
         //对下午教师列表随机排序（保证与上午不重复）
         function teacher_sort() {
             // console.log('origin order',JSON.parse(JSON.stringify(room_json)))
             l_json_data_from_file = JSON.parse(JSON.stringify(json_data_from_file))
-            
             teacher_one_group_x = shuffle(l_json_data_from_file['teacher_one_group'])
             teacher_two_group_x = shuffle(l_json_data_from_file['teacher_two_group'])
             teacher_two_group_x_b = shuffle(l_json_data_from_file['teacher_two_group_b'])
             teacher_three_group_x = shuffle(l_json_data_from_file['teacher_three_group'])
+            teacher_four_group_x = l_json_data_from_file['teacher_four_group']
             //处理重复
             teacher_sort_edit(l_json_data_from_file['teacher_one_group'], teacher_one_group_x)
             teacher_sort_edit(l_json_data_from_file['teacher_two_group'], teacher_two_group_x)
@@ -312,7 +313,7 @@
         // 处理重复
         function teacher_sort_edit(group, group_x) {
             for (let i in group_x) {
-                if (group_x[i][0]["序号"] == group[i][0]["序号"]) {
+                if (group_x[i][0] == group[i][0]) {
                     console.log("有重复")
                     console.log(i)
                     let temp = group_x[i]
@@ -339,7 +340,6 @@
         function teacher_group() {
             let index = 0
             let t = 0
-            let new_teacher = {}
             teacher_one_group = []
             teacher_two_group = []
             teacher_three_group = []
@@ -369,16 +369,8 @@
                         teacher_four_group.push(teacher_json[t])
                         t = t + 1
                     }
-
                 }
             }
-            slice_b = two-5
-            new_teacher['teacher_one_group'] = teacher_one_group
-            new_teacher['teacher_two_group'] = teacher_two_group.slice(0,slice_b)
-            new_teacher['teacher_two_group_b'] = teacher_two_group.slice(slice_b,slice_b+5)
-            new_teacher['teacher_three_group'] = teacher_three_group
-            new_teacher['teacher_four_group'] = teacher_four_group
-            write_file(new_teacher)
         }
         // 将教师分组写入json文件
         function write_file(teacher) {
@@ -422,6 +414,11 @@
             const sum = 1
             let tmp = []
             let aoa = []
+            new_teacher['teacher_one_group'] = []
+            new_teacher['teacher_two_group'] = []
+            new_teacher['teacher_two_group_b'] = []
+            new_teacher['teacher_three_group'] = []
+            new_teacher['teacher_four_group'] = []
             aoa.push(teacher_xlsx_head[0])
             aoa.push(teacher_xlsx_head[1])
             for (i = 0; i < t_teacher_one_group.length; i++) {
@@ -432,8 +429,10 @@
                 s = id_s_arr[1] + (i + 1)
                 tmp.push(s, t_teacher_one_group[i][1]["姓名"], t_teacher_one_group[i][1]["身份证号"]
                     , t_teacher_one_group[i][1]["工作单位"], t_teacher_one_group[i][1]["手机号"])
+                new_teacher['teacher_one_group'].push(tmp)
                 aoa.push(tmp)
             }
+            console.log(new_teacher['teacher_one_group'])
             index = index + i
             for (i = 0; i < t_teacher_two_group.length - 5; i++) {
                 tmp = []
@@ -444,6 +443,7 @@
                 tmp.push(s, t_teacher_two_group[i][1]["姓名"], t_teacher_two_group[i][1]["身份证号"]
                     , t_teacher_two_group[i][1]["工作单位"], t_teacher_two_group[i][1]["手机号"])
                 aoa.push(tmp)
+                new_teacher['teacher_two_group'].push(tmp)
             }
             index = index + i
             aoa.push(teacher_xlsx_head[2])
@@ -457,6 +457,7 @@
                 tmp.push(s, t_teacher_two_group[i + k][1]["姓名"], t_teacher_two_group[i + k][1]["身份证号"]
                     , t_teacher_two_group[i + k][1]["工作单位"], t_teacher_two_group[i + k][1]["手机号"])
                 aoa.push(tmp)
+                new_teacher['teacher_two_group_b'].push(tmp)
             }
             index = index + k
             aoa.push(teacher_xlsx_head[3])
@@ -473,9 +474,10 @@
                 tmp.push(s, t_teacher_three_group[k][2]["姓名"], t_teacher_three_group[k][2]["身份证号"]
                     , t_teacher_three_group[k][2]["工作单位"], t_teacher_three_group[k][2]["手机号"])
                 aoa.push(tmp)
+                new_teacher['teacher_three_group'].push(tmp)
             }
-            aoa.push(aoa_head[5])
-            aoa.push(aoa_head[6])
+            aoa.push(teacher_xlsx_head[5])
+            aoa.push(teacher_xlsx_head[6])
             index = index + k
             for (k = 0; k < t_teacher_four_group.length; k++) {
                 tmp = []
@@ -483,7 +485,10 @@
                 tmp.push(s, t_teacher_four_group[k]["姓名"], t_teacher_four_group[k]["身份证号"]
                     , t_teacher_four_group[k]["工作单位"], t_teacher_four_group[k]["手机号"])
                 aoa.push(tmp)
+                new_teacher['teacher_four_group'].push(tmp)
             }
+            // 教师分组数据存入json文件
+             write_file(new_teacher)
             var sheet = xlxs.utils.aoa_to_sheet(aoa)
 
             sheet['!merges'] = [
@@ -501,68 +506,61 @@
             const sum = 1
             let tmp = []
             aoa = []
+            aoa.push(['ABCD区考务办'])
             aoa.push(aoa_head[0])
             aoa.push(aoa_head[1])
+            console.log(t_teacher_one_group)
             for (i = 0; i < t_teacher_one_group.length; i++) {
                 tmp = []
-                s = id_s_arr[0] + (i + 1)
-                console.log("------")
-                console.log(i)
-                tmp.push(s, t_teacher_one_group[i][0]["姓名"], t_teacher_one_group[i][0]["身份证号"]
-                    , t_teacher_one_group[i][0]["工作单位"], room_json[i]["考场"], room_json[i]["考场对应教室"])
-                s = id_s_arr[1] + (i + 1)
-                tmp.push(s, t_teacher_one_group[i][1]["姓名"], t_teacher_one_group[i][1]["身份证号"]
-                    , t_teacher_one_group[i][1]["工作单位"], room_json[i]["考场"], room_json[i]["考场对应教室"])
+                tmp.push(t_teacher_one_group[i][0], t_teacher_one_group[i][1], t_teacher_one_group[i][2]
+                    , t_teacher_one_group[i][3], t_teacher_one_group[i][4], room_json[i]["考场"], room_json[i]["考场对应教室"])
+                    tmp.push(t_teacher_one_group[i][5], t_teacher_one_group[i][6], t_teacher_one_group[i][7]
+                    , t_teacher_one_group[i][8], t_teacher_one_group[i][9], room_json[i]["考场"], room_json[i]["考场对应教室"])
                 aoa.push(tmp)
             }
             index = index + i
-            for (i = 0; i < t_teacher_two_group.length - 5; i++) {
+            aoa.push(aoa_head[3])
+            aoa.push(aoa_head[4])
+            for (k = 0; k < t_teacher_three_group.length; k++) {
                 tmp = []
-                s = id_s_arr[0] + (index + i + 1)
-                tmp.push(s, t_teacher_two_group[i][0]["姓名"], t_teacher_two_group[i][0]["身份证号"]
-                    , t_teacher_two_group[i][0]["工作单位"], room_json[index + i]["考场"], room_json[index + i]["考场对应教室"])
-                s = id_s_arr[1] + (index + i + 1)
-                tmp.push(s, t_teacher_two_group[i][1]["姓名"], t_teacher_two_group[i][1]["身份证号"]
-                    , t_teacher_two_group[i][1]["工作单位"], room_json[index + i]["考场"], room_json[index + i]["考场对应教室"])
+                tmp.push(t_teacher_three_group[k][0], t_teacher_three_group[k][1], t_teacher_three_group[k][2]
+                    , t_teacher_three_group[k][3], t_teacher_three_group[k][4], room_json[index + k]["考场"], room_json[index + k]["考场对应教室"])
+                tmp.push(t_teacher_three_group[k][5], t_teacher_three_group[k][6], t_teacher_three_group[k][7]
+                    , t_teacher_three_group[k][8], t_teacher_three_group[k][9], room_json[index + k]["考场"], room_json[index + k]["考场对应教室"])
+                tmp.push(t_teacher_three_group[k][10], t_teacher_three_group[k][11], t_teacher_three_group[k][12]
+                    , t_teacher_three_group[k][13],t_teacher_three_group[k][14], room_json[index + k]["考场"], room_json[index + k]["考场对应教室"])
+                aoa.push(tmp)
+            }
+            index = index + k
+            aoa.push(['FGHJ区考务办'])
+            aoa.push(aoa_head[0])
+            aoa.push(aoa_head[1])
+            for (i = 0; i < t_teacher_two_group.length; i++) {
+                tmp = []
+                tmp.push(t_teacher_two_group[i][0], t_teacher_two_group[i][1], t_teacher_two_group[i][2]
+                    , t_teacher_two_group[i][3],t_teacher_two_group[i][4], room_json[index + i]["考场"], room_json[index + i]["考场对应教室"])
+                tmp.push(t_teacher_two_group[i][5], t_teacher_two_group[i][6], t_teacher_two_group[i][7]
+                    , t_teacher_two_group[i][8],t_teacher_two_group[i][9], room_json[index + i], room_json[index + i]["考场对应教室"])
                 aoa.push(tmp)
             }
             index = index + i
             aoa.push(aoa_head[2])
             aoa.push(aoa_head[1])
-            for (k = 0; k < 5; k++) {
+            for (i = 0; i < t_teacher_two_group_b.length; i++) {
                 tmp = []
-                s = id_s_arr[2] + (k + 1)
-                tmp.push(s, t_teacher_two_group[i + k][0]["姓名"], t_teacher_two_group[i + k][0]["身份证号"]
-                    , t_teacher_two_group[i + k][0]["工作单位"], room_json[index + k]["考场"], room_json[index + k]["考场对应教室"])
-                s = id_s_arr[3] + (k + 1)
-                tmp.push(s, t_teacher_two_group[i + k][1]["姓名"], t_teacher_two_group[i + k][1]["身份证号"]
-                    , t_teacher_two_group[i + k][1]["工作单位"], room_json[index + k]["考场"], room_json[index + k]["考场对应教室"])
+                tmp.push(t_teacher_two_group_b[i][0], t_teacher_two_group_b[i][1], t_teacher_two_group_b[i][2]
+                    , t_teacher_two_group_b[i][3],t_teacher_two_group_b[i][4], room_json[index + i]["考场"], room_json[index + i]["考场对应教室"])
+                tmp.push(t_teacher_two_group_b[i][5], t_teacher_two_group_b[i][6], t_teacher_two_group_b[i][7]
+                    , t_teacher_two_group_b[i][8],t_teacher_two_group_b[i][9], room_json[index + i]["考场"], room_json[index + i]["考场对应教室"])
                 aoa.push(tmp)
             }
-            index = index + k
-            aoa.push(aoa_head[3])
-            aoa.push(aoa_head[4])
-            for (k = 0; k < t_teacher_three_group.length; k++) {
-                tmp = []
-                s = id_s_arr[4] + (k + 1)
-                tmp.push(s, t_teacher_three_group[k][0]["姓名"], t_teacher_three_group[k][0]["身份证号"]
-                    , t_teacher_three_group[k][0]["工作单位"], room_json[index + k]["考场"], room_json[index + k]["考场对应教室"])
-                s = id_s_arr[5] + (k + 1)
-                tmp.push(s, t_teacher_three_group[k][1]["姓名"], t_teacher_three_group[k][1]["身份证号"]
-                    , t_teacher_three_group[k][1]["工作单位"], room_json[index + k]["考场"], room_json[index + k]["考场对应教室"])
-                s = id_s_arr[6] + (k + 1)
-                tmp.push(s, t_teacher_three_group[k][2]["姓名"], t_teacher_three_group[k][2]["身份证号"]
-                    , t_teacher_three_group[k][2]["工作单位"], room_json[index + k]["考场"], room_json[index + k]["考场对应教室"])
-                aoa.push(tmp)
-            }
+            index = index + i
             aoa.push(aoa_head[5])
             aoa.push(aoa_head[6])
-            index = index + k
             for (k = 0; k < t_teacher_four_group.length; k++) {
                 tmp = []
-                s = "备用" + (k + 1)
-                tmp.push(s, t_teacher_four_group[k]["姓名"], t_teacher_four_group[k]["身份证号"]
-                    , t_teacher_four_group[k]["工作单位"])
+                tmp.push(t_teacher_four_group[k][0], t_teacher_four_group[k][1]
+                    , t_teacher_four_group[k][2], t_teacher_four_group[k][3], t_teacher_four_group[k][4])
                 aoa.push(tmp)
             }
             var sheet = xlxs.utils.aoa_to_sheet(aoa)
