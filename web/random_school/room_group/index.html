@@ -14,7 +14,7 @@
         }
 
         body {
-            
+
             background-repeat: no-repeat;
             background-size: cover;
         }
@@ -78,9 +78,9 @@
     </div>
     <div class="columns">
         <div class="column is-half is-offset-one-quarter">
-            <div id="teacher" class="file is-info has-name">
+            <div id="orgin_data" class="file is-info has-name">
                 <label class="file-label">
-                    <span class="mt-1 mx-1" style="color: black;">监考教师名单</span>
+                    <span class="mt-1 mx-1 mr-5" style="color: black;">原始数据</span>
                     <input class="file-input" type="file" name="resume">
                     <span class="file-cta">
                         <span class="file-icon">
@@ -101,7 +101,7 @@
         <div class="column is-half is-offset-one-quarter">
             <div id="room" class="file is-info has-name">
                 <label class="file-label">
-                    <span class="mt-1 mx-1"  style="color: black;">考场对应教室</span>
+                    <span class="mt-1 mx-1" style="color: black;">考场对应教室</span>
                     <input class="file-input" type="file" name="resume">
                     <span class="file-cta">
                         <span class="file-icon">
@@ -120,13 +120,18 @@
     </div>
     <div class="columns">
         <div class="column is-half is-offset-one-quarter">
-            <button id="submit" class="button mr-5">开始分组</button>
+            <div class="select mr-5">
+                <select id="select_area">
+                    <option value="1">ABCD区考务办</option>
+                    <option value="2">FGHJ区考务办</option>
+                </select>
+            </div>
             <button id="submit_x" class="button">开始分配考场</button>
         </div>
     </div>>
-    <div class="columns"  style="position:relative;bottom:-70px;right:-10px;">
+    <div class="columns" style="position:relative;bottom:-70px;right:-10px;">
         <div class="column is-4 is-offset-8">
-            
+
         </div>
     </div>
     <span class="has-text-black-bis corner">人工智能应用技术协同创新中心</span>
@@ -143,11 +148,12 @@
 
         var one, one_people, two, two_people, three, three_people, four_people = 0
 
-        const fileInput_teacher = document.querySelector('#teacher input[type=file]')
-        fileInput_teacher.onchange = () => {
-            if (fileInput_teacher.files.length > 0) {
-                const fileName = document.querySelector('#teacher .file-name');
-                fileName.textContent = fileInput_teacher.files[0].name;
+        const fileInput_data = document.querySelector('#orgin_data input[type=file]')
+        fileInput_data.onchange = () => {
+            if (fileInput_data.files.length > 0) {
+                const fileName = document.querySelector('#orgin_data .file-name');
+                console.log(fileInput_data.files[0])
+                fileName.textContent = fileInput_data.files[0].name;
             }
         }
 
@@ -173,13 +179,13 @@
         var json_data_from_file = {}
         var new_teacher = {}
         var aoa_head = [
-            ['监考教师A', null, null, null, null, null,null, '监考教师B', null, null, null, null, null, null],
-            ['序号', '姓名', '身份证号', '工作单位', '手机号', '考场', '考场对应教室', '序号', '姓名', '身份证号', '工作单位', '手机号', '考场', '考场对应教室'],
-            ['监考教师C', null, null, null, null, null, null, '监考教师D', null, null, null, null, null, null],
-            ['监考教师E', null, null, null, null, null, null, '监考教师F', null, null, null, null, null, null, '监考教师G', null, null, null, null, null,null],
-            ['序号', '姓名', '身份证号', '工作单位','手机号', '考场', '考场对应教室', '序号', '姓名', '身份证号', '工作单位','手机号', '考场', '考场对应教室', '序号', '姓名', '身份证号', '工作单位','手机号', '考场', '考场对应教室'],
-            ['备用监考教师', null, null, null, null],
-            ['序号', '姓名', '身份证号', '工作单位','手机号']
+            ['监考教师A', null, null, null, null, null, null, '监考教师B', null, null, null, null, null, null, null],
+            ['序号', '姓名', '身份证号', '工作单位', '手机号', '考场', '考场对应教室', '序号', '姓名', '身份证号', '工作单位', '手机号', '考场', '考场对应教室', '签字'],
+            ['监考教师C', null, null, null, null, null, null, '监考教师D', null, null, null, null, null, null, null],
+            ['监考教师E', null, null, null, null, null, null, '监考教师F', null, null, null, null, null, null, '监考教师G', null, null, null, null, null, null, null],
+            ['序号', '姓名', '身份证号', '工作单位', '手机号', '考场', '考场对应教室', '序号', '姓名', '身份证号', '工作单位', '手机号', '考场', '考场对应教室', '序号', '姓名', '身份证号', '工作单位', '手机号', '考场', '考场对应教室', '签字'],
+            ['备用监考教师', null, null, null, null, null],
+            ['序号', '姓名', '身份证号', '工作单位', '手机号', '签字']
         ]
         var teacher_xlsx_head = [
             ['监考教师A', null, null, null, null, '监考教师B', null, null, null, null],
@@ -191,16 +197,16 @@
             ['序号', '姓名', '身份证号', '工作单位', '手机号']
         ]
 
-        let teacher_file = document.querySelector('#teacher')
-        teacher_file.addEventListener('change', e => {
+        let orgin_data = document.querySelector('#orgin_data')
+        orgin_data.addEventListener('change', e => {
             const path = e.target.files?.[0]?.path
             const fr = readFile(path);
-            const result = xlxs.readFile(path)
-            const sheetNames = result.SheetNames;
-            const worksheet = result.Sheets[sheetNames[0]];
-            teacher_json = xlxs.utils.sheet_to_json(worksheet)  
-            teacher_json = shuffle(teacher_json)
-            console.log(teacher_json)
+            var data = fs.readFileSync(path)
+            json_data_from_file = JSON.parse(data.toString())
+            console.log(json_data_from_file)
+            ipcRenderer.invoke('ping', path).then(e => {
+                console.log('pong')
+            })
         })
 
         let room_file = document.querySelector('#room')
@@ -216,48 +222,13 @@
                 console.log('pong')
             })
         })
-        // 执行教师分组
-        let submit = document.querySelector('#submit')
-        submit.addEventListener('click', e => {
-            // one = document.getElementById("one").value
-            // one_people = document.getElementById("one_people").value
-            // two = document.getElementById("two").value
-            // two_people = document.getElementById("two_people").value
-            // three = document.getElementById("three").value
-            // three_people = document.getElementById("three_people").value
-            // four_people = document.getElementById("four_people").value
-            one = 76
-            one_people = 2
-            two = 81
-            two_people = 2
-            three = 10
-            three_people = 3
-            four_people = 7
-            let l = teacher_json.length
-            let check = check_people(l)
-            if (one == '' || one_people == '' || two == '' || two_people == '' || three == '' || three_people == '' || four_people == '') {
-                err = "输入框存在空值，请填写完整信息"
-                ipcRenderer.invoke('error', err).then(e => {
-                    console.log('pong')
-                })
-            } else if (teacher_json.length == 0) {
-                err = "未上传监考教师名单"
-                ipcRenderer.invoke('error', err).then(e => {
-                    console.log('pong')
-                })
-            } else if (!check) {
-                err = "输入人数与教师人数不相等"
-                ipcRenderer.invoke('error', err).then(e => {
-                    console.log('pong')
-                })
-            } else {
-                teacher_group()
-                export_teacher_group(teacher_one_group, teacher_two_group, teacher_three_group, teacher_four_group, "教师分组数据.xlsx")
-            }
-        })
         // 执行考场分配
         let submit_X = document.querySelector('#submit_x')
         submit_x.addEventListener('click', e => {
+            // 获取选择的分区
+            var select_area = document.getElementById('select_area');
+            var index = select_area.selectedIndex;
+            var area = select_area.options[index].value;
             // one = document.getElementById("one").value
             // one_people = document.getElementById("one_people").value
             // two = document.getElementById("two").value
@@ -290,9 +261,12 @@
                     console.log('pong')
                 })
             } else {
-                read_file()
                 teacher_sort()
-                export_room(teacher_one_group_x, teacher_two_group_x,teacher_two_group_x_b, teacher_three_group_x, teacher_four_group_x, "考场分配信息.xlsx")
+                if (area == 1) {
+                    export_room(teacher_one_group_x, teacher_two_group_x, teacher_two_group_x_b, teacher_three_group_x, teacher_four_group_x, "ABCD区考务办考场分配信息.xlsx", type = 1)
+                } else {
+                    export_room(teacher_one_group_x, teacher_two_group_x, teacher_two_group_x_b, teacher_three_group_x, teacher_four_group_x, "FGHJ区考务办考场分配信息.xlsx", type = 2)
+                }
             }
         })
         //对下午教师列表随机排序（保证与上午不重复）
@@ -305,10 +279,10 @@
             teacher_three_group_x = shuffle(l_json_data_from_file['teacher_three_group'])
             teacher_four_group_x = l_json_data_from_file['teacher_four_group']
             //处理重复
-            teacher_sort_edit(l_json_data_from_file['teacher_one_group'], teacher_one_group_x)
-            teacher_sort_edit(l_json_data_from_file['teacher_two_group'], teacher_two_group_x)
-            teacher_sort_edit(l_json_data_from_file['teacher_two_group_b'], teacher_two_group_x_b)
-            teacher_sort_edit(l_json_data_from_file['teacher_three_group'], teacher_three_group_x)
+            // teacher_sort_edit(l_json_data_from_file['teacher_one_group'], teacher_one_group_x)
+            // teacher_sort_edit(l_json_data_from_file['teacher_two_group'], teacher_two_group_x)
+            // teacher_sort_edit(l_json_data_from_file['teacher_two_group_b'], teacher_two_group_x_b)
+            // teacher_sort_edit(l_json_data_from_file['teacher_three_group'], teacher_three_group_x)
         }
         // 处理重复
         function teacher_sort_edit(group, group_x) {
@@ -384,10 +358,10 @@
             })
         }
         // 读取文件中的分组数据
-        function read_file(){
-            var data = fs.readFileSync('teacher_group.json')
-            json_data_from_file = JSON.parse(data.toString())
-        }
+        // function read_file(){
+        //     var data = fs.readFileSync('teacher_group.json')
+        //     json_data_from_file = JSON.parse(data.toString())
+        // }
         function test() {
             for (let i = 0; i < 10;) {
                 console.log(i)
@@ -407,7 +381,7 @@
             ];
         }
         // 生成教师分组导出数据
-        function export_teacher_group(t_teacher_one_group, t_teacher_two_group, t_teacher_three_group, t_teacher_four_group, file_name){
+        function export_teacher_group(t_teacher_one_group, t_teacher_two_group, t_teacher_three_group, t_teacher_four_group, file_name) {
             let index = 0
             let i = 0
             let k = 0
@@ -457,7 +431,7 @@
                 tmp = []
                 s = id_s_arr[0] + (index + i + 1)
                 tmp.push(s, t_teacher_two_group[i][0]["姓名"], t_teacher_two_group[i][0]["身份证号"]
-                    , t_teacher_two_group[i][0]["工作单位"],  t_teacher_two_group[i][0]["手机号"])
+                    , t_teacher_two_group[i][0]["工作单位"], t_teacher_two_group[i][0]["手机号"])
                 s = id_s_arr[1] + (index + i + 1)
                 tmp.push(s, t_teacher_two_group[i][1]["姓名"], t_teacher_two_group[i][1]["身份证号"]
                     , t_teacher_two_group[i][1]["工作单位"], t_teacher_two_group[i][1]["手机号"])
@@ -489,7 +463,7 @@
                 new_teacher['teacher_four_group'].push(tmp)
             }
             // 教师分组数据存入json文件
-             write_file(new_teacher)
+            write_file(new_teacher)
             var sheet = xlxs.utils.aoa_to_sheet(aoa)
 
             sheet['!merges'] = [
@@ -500,70 +474,74 @@
             openDownloadDialog(sheet2blob(sheet), file_name);
         }
         // 生成分配考场数据
-        function export_room(t_teacher_one_group, t_teacher_two_group,t_teacher_two_group_b, t_teacher_three_group, t_teacher_four_group, file_name) {
+        function export_room(t_teacher_one_group, t_teacher_two_group, t_teacher_two_group_b, t_teacher_three_group, t_teacher_four_group, file_name, type) {
             let index = 0
             let i = 0
             let k = 0
             const sum = 1
             let tmp = []
             aoa = []
-            aoa.push(['ABCD区考务办'])
-            aoa.push(aoa_head[0])
-            aoa.push(aoa_head[1])
-            console.log(t_teacher_one_group)
-            for (i = 0; i < t_teacher_one_group.length; i++) {
-                tmp = []
-                tmp.push(t_teacher_one_group[i][0], t_teacher_one_group[i][1], t_teacher_one_group[i][2]
-                    , t_teacher_one_group[i][3], t_teacher_one_group[i][4], room_json[i]["考场"], room_json[i]["考场对应教室"])
+            if (type == 1) {
+                aoa.push(['ABCD区考务办'])
+                aoa.push(aoa_head[0])
+                aoa.push(aoa_head[1])
+                console.log(t_teacher_one_group)
+                for (i = 0; i < t_teacher_one_group.length; i++) {
+                    tmp = []
+                    tmp.push(t_teacher_one_group[i][0], t_teacher_one_group[i][1], t_teacher_one_group[i][2]
+                        , t_teacher_one_group[i][3], t_teacher_one_group[i][4], room_json[i]["考场"], room_json[i]["考场对应教室"])
                     tmp.push(t_teacher_one_group[i][5], t_teacher_one_group[i][6], t_teacher_one_group[i][7]
-                    , t_teacher_one_group[i][8], t_teacher_one_group[i][9], room_json[i]["考场"], room_json[i]["考场对应教室"])
-                aoa.push(tmp)
+                        , t_teacher_one_group[i][8], t_teacher_one_group[i][9], room_json[i]["考场"], room_json[i]["考场对应教室"])
+                    aoa.push(tmp)
+                }
+                index = index + i
+                aoa.push(aoa_head[3])
+                aoa.push(aoa_head[4])
+                for (k = 0; k < t_teacher_three_group.length; k++) {
+                    tmp = []
+                    tmp.push(t_teacher_three_group[k][0], t_teacher_three_group[k][1], t_teacher_three_group[k][2]
+                        , t_teacher_three_group[k][3], t_teacher_three_group[k][4], room_json[index + k]["考场"], room_json[index + k]["考场对应教室"])
+                    tmp.push(t_teacher_three_group[k][5], t_teacher_three_group[k][6], t_teacher_three_group[k][7]
+                        , t_teacher_three_group[k][8], t_teacher_three_group[k][9], room_json[index + k]["考场"], room_json[index + k]["考场对应教室"])
+                    tmp.push(t_teacher_three_group[k][10], t_teacher_three_group[k][11], t_teacher_three_group[k][12]
+                        , t_teacher_three_group[k][13], t_teacher_three_group[k][14], room_json[index + k]["考场"], room_json[index + k]["考场对应教室"])
+                    aoa.push(tmp)
+                }
+            } else {
+                index = one + three
+                aoa.push(['FGHJ区考务办'])
+                aoa.push(aoa_head[0])
+                aoa.push(aoa_head[1])
+                for (i = 0; i < t_teacher_two_group.length; i++) {
+                    tmp = []
+                    tmp.push(t_teacher_two_group[i][0], t_teacher_two_group[i][1], t_teacher_two_group[i][2]
+                        , t_teacher_two_group[i][3], t_teacher_two_group[i][4], room_json[index + i]["考场"], room_json[index + i]["考场对应教室"])
+                    tmp.push(t_teacher_two_group[i][5], t_teacher_two_group[i][6], t_teacher_two_group[i][7]
+                        , t_teacher_two_group[i][8], t_teacher_two_group[i][9], room_json[index + i], room_json[index + i]["考场对应教室"])
+                    aoa.push(tmp)
+                }
+                index = index + i
+                aoa.push(aoa_head[2])
+                aoa.push(aoa_head[1])
+                for (i = 0; i < t_teacher_two_group_b.length; i++) {
+                    tmp = []
+                    tmp.push(t_teacher_two_group_b[i][0], t_teacher_two_group_b[i][1], t_teacher_two_group_b[i][2]
+                        , t_teacher_two_group_b[i][3], t_teacher_two_group_b[i][4], room_json[index + i]["考场"], room_json[index + i]["考场对应教室"])
+                    tmp.push(t_teacher_two_group_b[i][5], t_teacher_two_group_b[i][6], t_teacher_two_group_b[i][7]
+                        , t_teacher_two_group_b[i][8], t_teacher_two_group_b[i][9], room_json[index + i]["考场"], room_json[index + i]["考场对应教室"])
+                    aoa.push(tmp)
+                }
+                // index = index + i
+                // aoa.push(aoa_head[5])
+                // aoa.push(aoa_head[6])
+                // for (k = 0; k < t_teacher_four_group.length; k++) {
+                //     tmp = []
+                //     tmp.push(t_teacher_four_group[k][0], t_teacher_four_group[k][1]
+                //         , t_teacher_four_group[k][2], t_teacher_four_group[k][3], t_teacher_four_group[k][4])
+                //     aoa.push(tmp)
+                // }
             }
-            index = index + i
-            aoa.push(aoa_head[3])
-            aoa.push(aoa_head[4])
-            for (k = 0; k < t_teacher_three_group.length; k++) {
-                tmp = []
-                tmp.push(t_teacher_three_group[k][0], t_teacher_three_group[k][1], t_teacher_three_group[k][2]
-                    , t_teacher_three_group[k][3], t_teacher_three_group[k][4], room_json[index + k]["考场"], room_json[index + k]["考场对应教室"])
-                tmp.push(t_teacher_three_group[k][5], t_teacher_three_group[k][6], t_teacher_three_group[k][7]
-                    , t_teacher_three_group[k][8], t_teacher_three_group[k][9], room_json[index + k]["考场"], room_json[index + k]["考场对应教室"])
-                tmp.push(t_teacher_three_group[k][10], t_teacher_three_group[k][11], t_teacher_three_group[k][12]
-                    , t_teacher_three_group[k][13],t_teacher_three_group[k][14], room_json[index + k]["考场"], room_json[index + k]["考场对应教室"])
-                aoa.push(tmp)
-            }
-            index = index + k
-            aoa.push(['FGHJ区考务办'])
-            aoa.push(aoa_head[0])
-            aoa.push(aoa_head[1])
-            for (i = 0; i < t_teacher_two_group.length; i++) {
-                tmp = []
-                tmp.push(t_teacher_two_group[i][0], t_teacher_two_group[i][1], t_teacher_two_group[i][2]
-                    , t_teacher_two_group[i][3],t_teacher_two_group[i][4], room_json[index + i]["考场"], room_json[index + i]["考场对应教室"])
-                tmp.push(t_teacher_two_group[i][5], t_teacher_two_group[i][6], t_teacher_two_group[i][7]
-                    , t_teacher_two_group[i][8],t_teacher_two_group[i][9], room_json[index + i], room_json[index + i]["考场对应教室"])
-                aoa.push(tmp)
-            }
-            index = index + i
-            aoa.push(aoa_head[2])
-            aoa.push(aoa_head[1])
-            for (i = 0; i < t_teacher_two_group_b.length; i++) {
-                tmp = []
-                tmp.push(t_teacher_two_group_b[i][0], t_teacher_two_group_b[i][1], t_teacher_two_group_b[i][2]
-                    , t_teacher_two_group_b[i][3],t_teacher_two_group_b[i][4], room_json[index + i]["考场"], room_json[index + i]["考场对应教室"])
-                tmp.push(t_teacher_two_group_b[i][5], t_teacher_two_group_b[i][6], t_teacher_two_group_b[i][7]
-                    , t_teacher_two_group_b[i][8],t_teacher_two_group_b[i][9], room_json[index + i]["考场"], room_json[index + i]["考场对应教室"])
-                aoa.push(tmp)
-            }
-            index = index + i
-            aoa.push(aoa_head[5])
-            aoa.push(aoa_head[6])
-            for (k = 0; k < t_teacher_four_group.length; k++) {
-                tmp = []
-                tmp.push(t_teacher_four_group[k][0], t_teacher_four_group[k][1]
-                    , t_teacher_four_group[k][2], t_teacher_four_group[k][3], t_teacher_four_group[k][4])
-                aoa.push(tmp)
-            }
+
             var sheet = xlxs.utils.aoa_to_sheet(aoa)
 
             sheet['!merges'] = [
@@ -614,13 +592,6 @@
             }
             aLink.dispatchEvent(event);
         }
-
-        const roomCount = [
-            { count: one, people: one_people, label: 'one' },
-            { count: two, people: two_people, label: 'two' },
-            { count: three, people: three_people, label: 'three' },
-            { count: 1, people: four_people, label: 'four' }
-        ]
 
         //检查人数
         function check_people(l) {

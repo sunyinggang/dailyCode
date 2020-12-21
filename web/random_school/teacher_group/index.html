@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>考场分配</title>
+    <title>教师分组</title>
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
     <script defer src="all.js"></script>
     <link rel="stylesheet" href="css/bulma.css">
@@ -97,7 +97,7 @@
             </div>
         </div>
     </div>
-    <div class="columns">
+    <!-- <div class="columns">
         <div class="column is-half is-offset-one-quarter">
             <div id="room" class="file is-info has-name">
                 <label class="file-label">
@@ -117,11 +117,12 @@
                 </label>
             </div>
         </div>
-    </div>
+    </div> -->
     <div class="columns">
         <div class="column is-half is-offset-one-quarter">
-            <button id="submit" class="button mr-5">开始分组</button>
-            <button id="submit_x" class="button">开始分配考场</button>
+            <button id="submit" class="button mr-6">开始分组</button>
+            <!-- <button id="submit_x" class="button">开始分配考场</button> -->
+            <button id="submit_out" class="button">导出原始数据</button>
         </div>
     </div>>
     <div class="columns"  style="position:relative;bottom:-70px;right:-10px;">
@@ -151,13 +152,13 @@
             }
         }
 
-        const fileInput_room = document.querySelector('#room input[type=file]')
-        fileInput_room.onchange = () => {
-            if (fileInput_room.files.length > 0) {
-                const fileName = document.querySelector('#room .file-name');
-                fileName.textContent = fileInput_room.files[0].name;
-            }
-        }
+        // const fileInput_room = document.querySelector('#room input[type=file]')
+        // fileInput_room.onchange = () => {
+        //     if (fileInput_room.files.length > 0) {
+        //         const fileName = document.querySelector('#room .file-name');
+        //         fileName.textContent = fileInput_room.files[0].name;
+        //     }
+        // }
         var teacher_json = []
         var teacher_one_group = []
         var teacher_two_group = []
@@ -203,19 +204,19 @@
             console.log(teacher_json)
         })
 
-        let room_file = document.querySelector('#room')
-        room_file.addEventListener('change', e => {
-            const path = e.target.files?.[0]?.path
-            const fr = readFile(path);
-            const result = xlxs.readFile(path)
-            const sheetNames = result.SheetNames;
-            const worksheet = result.Sheets[sheetNames[0]];
-            console.log(worksheet)
-            room_json = xlxs.utils.sheet_to_json(worksheet)
-            ipcRenderer.invoke('ping', path).then(e => {
-                console.log('pong')
-            })
-        })
+        // let room_file = document.querySelector('#room')
+        // room_file.addEventListener('change', e => {
+        //     const path = e.target.files?.[0]?.path
+        //     const fr = readFile(path);
+        //     const result = xlxs.readFile(path)
+        //     const sheetNames = result.SheetNames;
+        //     const worksheet = result.Sheets[sheetNames[0]];
+        //     console.log(worksheet)
+        //     room_json = xlxs.utils.sheet_to_json(worksheet)
+        //     ipcRenderer.invoke('ping', path).then(e => {
+        //         console.log('pong')
+        //     })
+        // })
         // 执行教师分组
         let submit = document.querySelector('#submit')
         submit.addEventListener('click', e => {
@@ -255,46 +256,53 @@
                 export_teacher_group(teacher_one_group, teacher_two_group, teacher_three_group, teacher_four_group, "教师分组数据.xlsx")
             }
         })
-        // 执行考场分配
-        let submit_X = document.querySelector('#submit_x')
-        submit_x.addEventListener('click', e => {
-            // one = document.getElementById("one").value
-            // one_people = document.getElementById("one_people").value
-            // two = document.getElementById("two").value
-            // two_people = document.getElementById("two_people").value
-            // three = document.getElementById("three").value
-            // three_people = document.getElementById("three_people").value
-            // four_people = document.getElementById("four_people").value
-            one = 76
-            one_people = 2
-            two = 81
-            two_people = 2
-            three = 10
-            three_people = 3
-            four_people = 7
-            let l = room_json.length
-            let check = check_room(l)
-            if (one == '' || one_people == '' || two == '' || two_people == '' || three == '' || three_people == '' || four_people == '') {
-                err = "输入框存在空值，请填写完整信息"
-                ipcRenderer.invoke('error', err).then(e => {
-                    console.log('pong')
-                })
-            } else if (room_json.length == 0) {
-                err = "未上传教室信息文件"
-                ipcRenderer.invoke('error', err).then(e => {
-                    console.log('pong')
-                })
-            } else if (!check) {
-                err = "输入考场数量与表格内考场数量不相等"
-                ipcRenderer.invoke('error', err).then(e => {
-                    console.log('pong')
-                })
-            } else {
-                read_file()
-                teacher_sort()
-                export_room(teacher_one_group_x, teacher_two_group_x,teacher_two_group_x_b, teacher_three_group_x, teacher_four_group_x, "考场分配信息.xlsx")
-            }
+        //导出原始数据
+        let submit_out = document.querySelector('#submit_out')
+        submit_out.addEventListener('click', e => {
+            path = 'teacher_group.json'
+            openDownloadDialog(path,'原始数据')
         })
+        // submit_x.addEventListener('click', e => {
+        // 执行考场分配
+        // let submit_X = document.querySelector('#submit_x')
+        // submit_x.addEventListener('click', e => {
+        //     // one = document.getElementById("one").value
+        //     // one_people = document.getElementById("one_people").value
+        //     // two = document.getElementById("two").value
+        //     // two_people = document.getElementById("two_people").value
+        //     // three = document.getElementById("three").value
+        //     // three_people = document.getElementById("three_people").value
+        //     // four_people = document.getElementById("four_people").value
+        //     one = 76
+        //     one_people = 2
+        //     two = 81
+        //     two_people = 2
+        //     three = 10
+        //     three_people = 3
+        //     four_people = 7
+        //     let l = room_json.length
+        //     let check = check_room(l)
+        //     if (one == '' || one_people == '' || two == '' || two_people == '' || three == '' || three_people == '' || four_people == '') {
+        //         err = "输入框存在空值，请填写完整信息"
+        //         ipcRenderer.invoke('error', err).then(e => {
+        //             console.log('pong')
+        //         })
+        //     } else if (room_json.length == 0) {
+        //         err = "未上传教室信息文件"
+        //         ipcRenderer.invoke('error', err).then(e => {
+        //             console.log('pong')
+        //         })
+        //     } else if (!check) {
+        //         err = "输入考场数量与表格内考场数量不相等"
+        //         ipcRenderer.invoke('error', err).then(e => {
+        //             console.log('pong')
+        //         })
+        //     } else {
+        //         read_file()
+        //         teacher_sort()
+        //         export_room(teacher_one_group_x, teacher_two_group_x,teacher_two_group_x_b, teacher_three_group_x, teacher_four_group_x, "考场分配信息.xlsx")
+        //     }
+        // })
         //对下午教师列表随机排序（保证与上午不重复）
         function teacher_sort() {
             // console.log('origin order',JSON.parse(JSON.stringify(room_json)))
@@ -382,6 +390,7 @@
                 }
                 console.log('---------------读入成功--------')
             })
+
         }
         // 读取文件中的分组数据
         function read_file(){
