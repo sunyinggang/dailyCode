@@ -14,3 +14,23 @@ def get_data():
     X = Variable(torch.from_numpy(train_x).type(dtype), requires_grad=False).view(17, 1)
     Y = Variable(torch.from_numpy(train_y).type(dtype), requires_grad=False)
     return X, Y
+
+
+def get_weights():
+    w = Variable(torch.randn(1), requires_grad=True)
+    b = Variable(torch.randn(1), requires_grad=True)
+    return w, b
+
+
+def simple_network(x, w, b):
+    y_pred = torch.matmul(x, w) + b
+    return y_pred
+
+
+def loss_fn(y, y_pred, w, b):
+    loss = (y_pred - y).pow(2).sum()
+    for param in [w, b]:
+        if not param.grad is None:
+            param.grad.data.zero_()
+    loss.backward()
+    return loss.data[0]
