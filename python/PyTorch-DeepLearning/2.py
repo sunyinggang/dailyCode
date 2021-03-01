@@ -34,3 +34,11 @@ def loss_fn(y, y_pred, w, b):
             param.grad.data.zero_()
     loss.backward()
     return loss.data[0]
+
+
+# 优化器
+def optimize(learning_rate, w, b):
+    w.data -= learning_rate * w.grad.data
+    b.data -= learning_rate * b.grad.data
+
+
